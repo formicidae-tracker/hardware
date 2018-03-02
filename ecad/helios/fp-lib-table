@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name fort)(type KiCad)(uri ${KIPRJMOD}/../lib/fort.pretty)(options "")(descr "FORmicidae Tracker footprint library"))
+)
