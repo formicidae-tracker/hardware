@@ -1,0 +1,77 @@
+V_nom = "36" # V
+
+V_f_ir = "18.3" # V
+I_f_ir = "1.5" # A
+I_f_vis = "0.909" # A
+V_f_vis = "4 * 3.6 + 0.3" #A
+
+R_ir = 3.3
+C_ir = "4.7e-3"
+R_vis = 0.5
+C_vis = "4.7e-3"
+
+P_ir = "30e-3"
+# IR Led have pulse and variable Period
+D_ir = "5e-3/P_ir"
+
+P_vis = "5e-3"
+# Vis LED have period and variable pulse
+D_vis = 0.5
+
+
+integrator {
+    default-timestep = "10E-6"
+}
+
+templates {
+		  node LEDDriver {
+		  	   R = "1"
+			   C = "1e-3"
+
+			   V_f = "0.5 * V_nom"
+			   I_f = "1.0"
+
+
+			   P = "5e-3"
+			   D = "0.5"
+			   T = "D * P"
+			   I_load = "( ( ( t - T/2) % P ) <= T ) * I_f "
+
+			   V = V_nom
+			   tau = "R * C"
+
+			   "V'" = "1 / tau * ( V_nom - V - R  * I_load * V_f / V) "
+
+			   V_lim = "V_nom - V"
+			   I_lim = "V_lim / R"
+
+			   P_lim = "V_lim * I_lim"
+
+			   "{P,I}_mean" = 0.0
+
+			   "{P,I}_mean'" = "3 * (@1_lim - @1_mean)"
+
+		  }
+
+}
+
+
+node "IR_{a,b}" : LEDDriver {
+	 "{V_f,I_f,R,C,P,D}" = "@1_ir"
+}
+
+node "VIS" : LEDDriver {
+	 "{V_f,I_f,R,C,P,D}" = "@1_vis"
+	 layout at 6,0
+}
+
+
+node "IR_b" {
+	 layout at 3,0
+}
+
+node sum {
+	 "{I_lim,I_mean,P_lim,P_mean,V}" = "IR_a.@1 + IR_b.@1 + VIS.@1"
+
+	 layout at 3, 3
+}

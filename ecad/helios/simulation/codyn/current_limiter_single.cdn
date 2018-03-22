@@ -1,0 +1,43 @@
+V_nom = "36" # V
+
+V_f = "18.3" # V
+I_f = "1.5" # A
+I_f_vis = "0.909" # A
+V_f_vis = "4 * 3.6 + 0.3" #A
+
+integrator {
+    default-timestep = "10E-6"
+}
+
+node LED_pulse {
+	 P_strobe = "30E-3"
+	 T_strobe = "5E-3"
+	 i_strobe = "( ( (t -T_strobe / 2.0) % P_strobe) <= T_strobe ) * I_f * 2 "
+	 P_pwm = "5e-3"
+	 T_pwm = "2.5e-3"
+	 i_pwm = "( ( (t -T_pwm / 2.0) % P_pwm) <= T_pwm ) * I_f_vis "
+
+}
+
+node RCLimiter {
+	 R = "4.7" # Ohm
+	 C = "4.7E-3" # F
+
+	 V = V_nom
+	 tau = "R * C"
+	 "V'" = "1 / tau * (V_nom - V - R * LED_pulse.i_strobe * V_f / V - R * LED_pulse.i_pwm * V_f_vis / V )"
+
+	 I_R = "(V_nom - V) / R"
+	 V_R = "V_nom -V"
+
+	 P_lim = "I_R * V_R"
+
+	 P_mean = 0.0
+	 "P_mean'" = "3 * ( P_lim - P_mean)"
+
+	 I_mean = 0.0
+	 "I_mean'" = "3 * ( I_R - I_mean)"
+
+#	 P_lim_mean = "E_lim / (t + 1e-12)"
+
+}

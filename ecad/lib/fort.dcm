@@ -1,0 +1,15 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP TPS1H100AQ
+D 40-V, 100-mΩ Single-Channel Smart High-Side Power Switch
+$ENDCMP
+#
+$CMP TPS1H100AQPWPRQ1
+D 40-V, 100-mΩ Single-Channel Smart High-Side Power Switch
+$ENDCMP
+#
+$CMP TPS92512
+D 2.5A Buck LED Driver with Integrated Analog Current Adjust
+$ENDCMP
+#
+#End Doc Library

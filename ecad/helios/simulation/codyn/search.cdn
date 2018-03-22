@@ -1,0 +1,5 @@
+include "comparative_study_current_limiter.cdn"
+node RCLimiter {
+C = 0.006800
+R = 10.000000
+}
