@@ -272,12 +272,12 @@ NoConn ~ -300 2900
 $Comp
 L Conn_02x04_Counter_Clockwise J1
 U 1 1 5AB11744
-P 1500 1800
-F 0 "J1" H 1550 2000 50  0000 C CNN
-F 1 "Conn_02x04_Counter_Clockwise" H 1550 1500 50  0000 C CNN
-F 2 "Connectors_Molex:Molex_MiniFit-JR-5569-08A2_2x04x4.20mm_Angled" H 1500 1800 50  0001 C CNN
-F 3 "" H 1500 1800 50  0001 C CNN
-	1    1500 1800
+P 3450 5650
+F 0 "J1" H 3500 5850 50  0000 C CNN
+F 1 "Conn_02x04_Counter_Clockwise" H 3500 5350 50  0000 C CNN
+F 2 "Connectors_Molex:Molex_MiniFit-JR-5569-08A2_2x04x4.20mm_Angled" H 3450 5650 50  0001 C CNN
+F 3 "" H 3450 5650 50  0001 C CNN
+	1    3450 5650
 	1    0    0    -1  
 $EndComp
 $Sheet
@@ -317,8 +317,9 @@ U 1 1 5AB4B112
 P 3350 2750
 F 0 "U1" H 3350 2850 50  0000 C CNN
 F 1 "UA9637" H 3350 2650 50  0000 C CNN
-F 2 "" H 3350 2750 50  0001 C CNN
+F 2 "Housings_SOIC:SO-8_5.3x6.2mm_Pitch1.27mm" H 3350 2750 50  0001 C CNN
 F 3 "" H 3350 2750 50  0001 C CNN
+F 4 "UA9637ACDR" H 3350 2750 60  0001 C CNN "Part Number"
 	1    3350 2750
 	1    0    0    -1  
 $EndComp
@@ -555,61 +556,122 @@ Wire Wire Line
 Wire Wire Line
 	6350 1700 6600 1700
 Wire Wire Line
-	1300 1700 1150 1700
-Wire Wire Line
-	1150 1700 1150 1500
-Wire Wire Line
-	1150 1500 6600 1500
-Wire Wire Line
-	1300 1800 1050 1800
-Wire Wire Line
-	1050 1800 1050 1350
-Wire Wire Line
-	1050 1350 6200 1350
-Wire Wire Line
-	6200 1350 6200 1600
-Wire Wire Line
-	6200 1600 6600 1600
-Wire Wire Line
-	1300 1900 1100 1900
-Wire Wire Line
-	1100 1900 1100 2650
-Wire Wire Line
-	1100 2650 2850 2650
-Wire Wire Line
-	1300 2000 1200 2000
-Wire Wire Line
-	1200 2000 1200 3900
-Wire Wire Line
-	1200 3900 2850 3900
-Wire Wire Line
-	1800 1900 2550 1900
-Wire Wire Line
-	2550 1900 2550 2850
-Wire Wire Line
 	2550 2850 2850 2850
-Wire Wire Line
-	1800 2000 2450 2000
-Wire Wire Line
-	2450 2000 2450 4100
-Wire Wire Line
-	2450 4100 2850 4100
 $Comp
 L GND #PWR014
 U 1 1 5AB53D95
-P 2000 1700
-F 0 "#PWR014" H 2000 1450 50  0001 C CNN
-F 1 "GND" H 2000 1550 50  0000 C CNN
-F 2 "" H 2000 1700 50  0001 C CNN
-F 3 "" H 2000 1700 50  0001 C CNN
-	1    2000 1700
+P 3950 5550
+F 0 "#PWR014" H 3950 5300 50  0001 C CNN
+F 1 "GND" H 3950 5400 50  0000 C CNN
+F 2 "" H 3950 5550 50  0001 C CNN
+F 3 "" H 3950 5550 50  0001 C CNN
+	1    3950 5550
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	2000 1700 1800 1700
+	3950 5550 3750 5550
 Wire Wire Line
-	1900 1700 1900 1800
+	3850 5550 3850 5650
 Wire Wire Line
-	1900 1800 1800 1800
-Connection ~ 1900 1700
+	3850 5650 3750 5650
+Connection ~ 3850 5550
+Wire Wire Line
+	3250 5550 2650 5550
+Wire Wire Line
+	3250 5650 2650 5650
+Text Label 2650 5550 0    60   ~ 0
+VS36
+Text Label 2650 5650 0    60   ~ 0
+VS6
+Wire Wire Line
+	3250 5750 2650 5750
+Text Label 2650 5750 0    60   ~ 0
+DATA_A
+Text Label 2650 5850 0    60   ~ 0
+IR_ON_A
+Text Label 4250 5750 2    60   ~ 0
+DATA_B
+Text Label 4250 5850 2    60   ~ 0
+IR_ON_B
+Wire Wire Line
+	3750 5750 4250 5750
+Wire Wire Line
+	3750 5850 4250 5850
+Wire Wire Line
+	2650 5850 3250 5850
+$Comp
+L Conn_02x04_Counter_Clockwise J3
+U 1 1 5AB5700F
+P 3450 6250
+F 0 "J3" H 3500 6450 50  0000 C CNN
+F 1 "Conn_02x04_Counter_Clockwise" H 3500 5950 50  0000 C CNN
+F 2 "Connectors_Molex:Molex_MiniFit-JR-5569-08A2_2x04x4.20mm_Angled" H 3450 6250 50  0001 C CNN
+F 3 "" H 3450 6250 50  0001 C CNN
+	1    3450 6250
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR015
+U 1 1 5AB57015
+P 3950 6150
+F 0 "#PWR015" H 3950 5900 50  0001 C CNN
+F 1 "GND" H 3950 6000 50  0000 C CNN
+F 2 "" H 3950 6150 50  0001 C CNN
+F 3 "" H 3950 6150 50  0001 C CNN
+	1    3950 6150
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3950 6150 3750 6150
+Wire Wire Line
+	3850 6150 3850 6250
+Wire Wire Line
+	3850 6250 3750 6250
+Connection ~ 3850 6150
+Wire Wire Line
+	3250 6150 2650 6150
+Wire Wire Line
+	3250 6250 2650 6250
+Text Label 2650 6150 0    60   ~ 0
+VS36
+Text Label 2650 6250 0    60   ~ 0
+VS6
+Wire Wire Line
+	3250 6350 2650 6350
+Text Label 2650 6350 0    60   ~ 0
+DATA_A
+Text Label 2650 6450 0    60   ~ 0
+IR_ON_A
+Text Label 4250 6350 2    60   ~ 0
+DATA_B
+Text Label 4250 6450 2    60   ~ 0
+IR_ON_B
+Wire Wire Line
+	3750 6350 4250 6350
+Wire Wire Line
+	3750 6450 4250 6450
+Wire Wire Line
+	2650 6450 3250 6450
+Text Label 2550 2650 0    60   ~ 0
+DATA_A
+Text Label 2550 2850 0    60   ~ 0
+DATA_B
+Wire Wire Line
+	2550 2650 2850 2650
+Text Label 2450 3900 0    60   ~ 0
+IR_ON_A
+Text Label 2450 4100 0    60   ~ 0
+IR_ON_B
+Wire Wire Line
+	2450 3900 2850 3900
+Wire Wire Line
+	2450 4100 2850 4100
+Wire Wire Line
+	6600 1600 6100 1600
+Wire Wire Line
+	6600 1500 6100 1500
+Text Label 6100 1500 0    60   ~ 0
+VS36
+Text Label 6100 1600 0    60   ~ 0
+VS6
 $EndSCHEMATC
