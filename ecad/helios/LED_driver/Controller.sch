@@ -217,7 +217,7 @@ ICSP_MOSI
 Wire Wire Line
 	4700 4100 5100 4100
 Wire Wire Line
-	4700 4200 5100 4200
+	4700 4200 5650 4200
 Wire Wire Line
 	4700 4900 6100 4900
 $Comp
@@ -236,10 +236,6 @@ Wire Wire Line
 	2300 2800 2300 4100
 Wire Wire Line
 	2300 3700 2600 3700
-Wire Wire Line
-	2300 4400 2300 4900
-Wire Wire Line
-	2300 4900 2600 4900
 $Comp
 L +36V #PWR030
 U 1 1 5AB49787
@@ -294,16 +290,9 @@ Wire Wire Line
 	6000 2350 6000 2500
 Wire Wire Line
 	6000 2900 5750 2900
-Wire Wire Line
-	5750 2900 5750 3700
-Wire Wire Line
-	5750 3700 4700 3700
 Connection ~ 6000 2900
 Wire Wire Line
-	4400 3150 4950 3150
-Wire Wire Line
-	4950 3150 4950 3700
-Connection ~ 4950 3700
+	4400 3150 5750 3150
 Wire Wire Line
 	4100 3150 2300 3150
 Connection ~ 2300 3700
@@ -402,23 +391,46 @@ Wire Wire Line
 	4000 5850 4250 5850
 Text HLabel 5650 4300 2    60   Input ~ 0
 DATA_IN
-Text HLabel 5650 4000 2    60   Input ~ 0
+Text HLabel 5050 3700 2    60   Input ~ 0
 FLASH_IN
 Text HLabel 5650 4800 2    60   Output ~ 0
 VIS_PWM
 Wire Wire Line
 	4700 4800 5650 4800
 Wire Wire Line
-	4700 4000 5650 4000
-Wire Wire Line
 	4700 4300 5650 4300
-Text HLabel 5650 3900 2    60   Output ~ 0
+Text HLabel 5050 4000 2    60   Output ~ 0
 IR_ON
-Wire Wire Line
-	4700 3900 5650 3900
 NoConn ~ 4700 4400
-Text HLabel 5650 3800 2    60   Output ~ 0
+Text HLabel 5050 3900 2    60   Output ~ 0
 EN36V
+Connection ~ 5750 3150
+Text Label 4800 3150 0    60   ~ 0
+V36_MEASURE
 Wire Wire Line
-	4700 3800 5650 3800
+	4700 4000 5050 4000
+Wire Wire Line
+	4700 3800 5750 3800
+$Comp
+L GND #PWR035
+U 1 1 5AB6BFF7
+P 2300 5050
+F 0 "#PWR035" H 2300 4800 50  0001 C CNN
+F 1 "GND" H 2300 4900 50  0000 C CNN
+F 2 "" H 2300 5050 50  0001 C CNN
+F 3 "" H 2300 5050 50  0001 C CNN
+	1    2300 5050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2300 4400 2300 5050
+Wire Wire Line
+	2600 4900 2300 4900
+Connection ~ 2300 4900
+Wire Wire Line
+	4700 3700 5050 3700
+Wire Wire Line
+	5750 3800 5750 2900
+Wire Wire Line
+	4700 3900 5050 3900
 $EndSCHEMATC

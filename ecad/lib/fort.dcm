@@ -1,23 +1,5 @@
 EESchema-DOCLIB  Version 2.0
 #
-$CMP LM2936-3.3
-D 50mA Ultra-Low Quiescent Current LDO Voltage Regulator, 3.3V fixed output, TO-252/SOT-223
-K linear regulator ldo fixed positive
-F http://www.ti.com/lit/ds/symlink/lm2936.pdf
-$ENDCMP
-#
-$CMP LM2936-5.0
-D 50mA Ultra-Low Quiescent Current LDO Voltage Regulator, 5.0V fixed output, TO-252/SOT-223
-K linear regulator ldo fixed positive
-F http://www.ti.com/lit/ds/symlink/lm2936.pdf
-$ENDCMP
-#
-$CMP LM2936MP-3.0
-D 50mA Ultra-Low Quiescent Current LDO Voltage Regulator, 3.0V fixed output, TO-252/SOT-223
-K linear regulator ldo fixed positive
-F http://www.ti.com/lit/ds/symlink/lm2936.pdf
-$ENDCMP
-#
 $CMP TPS1H100AQ
 D 40-V, 100-mΩ Single-Channel Smart High-Side Power Switch
 $ENDCMP
