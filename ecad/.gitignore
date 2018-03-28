@@ -1,3 +1,6 @@
 *.bak
 *.kicad_pcb-bak
 output/
+*.FCStd
+*.FCStd1
+*.step
