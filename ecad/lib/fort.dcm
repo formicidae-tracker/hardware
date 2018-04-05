@@ -1,7 +1,7 @@
 EESchema-DOCLIB  Version 2.0
 #
-$CMP TPS1H100AQ
-D 40-V, 100-mΩ Single-Channel Smart High-Side Power Switch
+$CMP LP3985IM5-2.5
+D 150-mA Low-Noise Ultra-Low-Dropout CMOS Voltage Regulator
 $ENDCMP
 #
 $CMP TPS1H100AQPWPRQ1
