@@ -1,0 +1,18 @@
+Designator Footprint          Mid X         Mid Y         Ref X         Ref Y         Pad X         Pad Y TB      Rotation Comment
+
+D1         OSRAM_Platinium_Dragon 25.000mm      75.000mm      25.000mm      75.000mm      25.000mm      80.150mm  T       180.000 SFH 4235-Z
+D2         OSRAM_Platinium_Dragon 25.000mm      50.000mm      25.000mm      50.000mm      25.000mm      55.150mm  T       180.000 SFH 4235-Z
+D3         OSRAM_Platinium_Dragon 0.000mm      50.000mm       0.000mm      50.000mm       0.000mm      55.150mm  T       180.000 SFH 4235-Z
+D4         OSRAM_Platinium_Dragon 0.000mm      25.000mm       0.000mm      25.000mm       0.000mm      30.150mm  T       180.000 SFH 4235-Z
+D5         OSRAM_Platinium_Dragon 25.000mm      25.000mm      25.000mm      25.000mm      25.000mm      30.150mm  T       180.000 SFH 4235-Z
+D6         OSRAM_Platinium_Dragon 25.000mm       0.000mm      25.000mm       0.000mm      25.000mm       5.150mm  T       180.000 SFH 4235-Z
+D7         OSRAM_Platinium_Dragon 50.000mm      75.000mm      50.000mm      75.000mm      50.000mm      80.150mm  T       180.000 SFH 4235-Z
+D8         OSRAM_Platinium_Dragon 50.000mm      50.000mm      50.000mm      50.000mm      50.000mm      55.150mm  T       180.000 SFH 4235-Z
+D9         OSRAM_Platinium_Dragon 75.000mm      50.000mm      75.000mm      50.000mm      75.000mm      55.150mm  T       180.000 SFH 4235-Z
+D10        OSRAM_Platinium_Dragon 75.000mm      25.000mm      75.000mm      25.000mm      75.000mm      30.150mm  T       180.000 SFH 4235-Z
+D11        OSRAM_Platinium_Dragon 50.000mm      25.000mm      50.000mm      25.000mm      50.000mm      30.150mm  T       180.000 SFH 4235-Z
+D12        OSRAM_Platinium_Dragon 50.000mm       0.000mm      50.000mm       0.000mm      50.000mm       5.150mm  T       180.000 SFH 4235-Z
+D13        OSRAM_Platinium_Dragon 0.000mm      75.000mm       0.000mm      75.000mm       0.000mm      80.150mm  T       180.000 LSW W5SM
+D14        OSRAM_Platinium_Dragon 0.000mm       0.000mm       0.000mm       0.000mm       0.000mm       5.150mm  T       180.000 LSW W5SM
+D15        OSRAM_Platinium_Dragon 75.000mm       0.000mm      75.000mm       0.000mm      75.000mm       5.150mm  T       180.000 LSW W5SM
+D16        OSRAM_Platinium_Dragon 75.000mm      75.000mm      75.000mm      75.000mm      75.000mm      80.150mm  T       180.000 LSW W5SM

@@ -1,0 +1,1218 @@
+## Footprint report - date Wed Apr 25 14:05:51 2018
+## Created by Pcbnew version kicad 4.0.7+dfsg1-1~bpo9+1
+## Unit = mm, Angle = deg.
+
+$BeginDESCRIPTION
+
+$BOARD
+upper_left_corner 119.924999 57.674999
+lower_right_corner 220.075001 160.075001
+$EndBOARD
+
+$MODULE "IR_A_VCC1"
+reference "IR_A_VCC1"
+value "Conn_01x01"
+footprint "Wire_Pads:SolderWirePad_single_SMD_5x10mm"
+attribut none
+position 168.000000 63.250000  orientation 0.00
+layer front
+$PAD "1"
+Shape Rect Layer front
+position  0.000000  0.000000  size  2.500000  5.000000  orientation 0.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  IR_A_VCC1
+
+$MODULE "IR_A_GND1"
+reference "IR_A_GND1"
+value "Conn_01x01"
+footprint "Wire_Pads:SolderWirePad_single_SMD_5x10mm"
+attribut none
+position 172.000000 63.250000  orientation 0.00
+layer front
+$PAD "1"
+Shape Rect Layer front
+position  0.000000  0.000000  size  2.500000  5.000000  orientation 0.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  IR_A_GND1
+
+$MODULE "IR_B_VCC1"
+reference "IR_B_VCC1"
+value "Conn_01x01"
+footprint "Wire_Pads:SolderWirePad_single_SMD_5x10mm"
+attribut none
+position 197.000000 63.250000  orientation 0.00
+layer front
+$PAD "1"
+Shape Rect Layer front
+position  0.000000  0.000000  size  2.500000  5.000000  orientation 0.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  IR_B_VCC1
+
+$MODULE "VIS_GND1"
+reference "VIS_GND1"
+value "Conn_01x01"
+footprint "Wire_Pads:SolderWirePad_single_SMD_5x10mm"
+attribut none
+position 143.000000 63.250000  orientation 0.00
+layer front
+$PAD "1"
+Shape Rect Layer front
+position  0.000000  0.000000  size  2.500000  5.000000  orientation 0.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  VIS_GND1
+
+$MODULE "VIS_VCC1"
+reference "VIS_VCC1"
+value "Conn_01x01"
+footprint "Wire_Pads:SolderWirePad_single_SMD_5x10mm"
+attribut none
+position 147.000000 63.250000  orientation 0.00
+layer front
+$PAD "1"
+Shape Rect Layer front
+position  0.000000  0.000000  size  2.500000  5.000000  orientation 0.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  VIS_VCC1
+
+$MODULE "IR_B_GND1"
+reference "IR_B_GND1"
+value "Conn_01x01"
+footprint "Wire_Pads:SolderWirePad_single_SMD_5x10mm"
+attribut none
+position 193.000000 63.250000  orientation 0.00
+layer front
+$PAD "1"
+Shape Rect Layer front
+position  0.000000  0.000000  size  2.500000  5.000000  orientation 0.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  IR_B_GND1
+
+$MODULE "REF**"
+reference "REF**"
+value "MountingHole_3.2mm_M3_DIN965"
+footprint "Mounting_Holes:MountingHole_3.2mm_M3_DIN965"
+attribut none
+position 195.000000 85.000000  orientation 0.00
+layer front
+$PAD "1"
+Shape Circle Layer both
+position  0.000000  0.000000  size  3.200000  3.200000  orientation 0.00
+drill  3.200000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  REF**
+
+$MODULE "REF**"
+reference "REF**"
+value "MountingHole_3.2mm_M3_DIN965"
+footprint "Mounting_Holes:MountingHole_3.2mm_M3_DIN965"
+attribut none
+position 145.000000 85.000000  orientation 0.00
+layer front
+$PAD "1"
+Shape Circle Layer both
+position  0.000000  0.000000  size  3.200000  3.200000  orientation 0.00
+drill  3.200000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  REF**
+
+$MODULE "REF**"
+reference "REF**"
+value "MountingHole_3.2mm_M3_DIN965"
+footprint "Mounting_Holes:MountingHole_3.2mm_M3_DIN965"
+attribut none
+position 145.000000 135.000000  orientation 0.00
+layer front
+$PAD "1"
+Shape Circle Layer both
+position  0.000000  0.000000  size  3.200000  3.200000  orientation 0.00
+drill  3.200000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  REF**
+
+$MODULE "REF**"
+reference "REF**"
+value "MountingHole_3.2mm_M3_DIN965"
+footprint "Mounting_Holes:MountingHole_3.2mm_M3_DIN965"
+attribut none
+position 195.000000 135.000000  orientation 0.00
+layer front
+$PAD "1"
+Shape Circle Layer both
+position  0.000000  0.000000  size  3.200000  3.200000  orientation 0.00
+drill  3.200000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  REF**
+
+$MODULE "REF**"
+reference "REF**"
+value "Carclo_10740"
+footprint "FORT:Carclo_10148"
+attribut none
+position 132.500000 72.500000  orientation 90.00
+layer front
+$EndMODULE  REF**
+
+$MODULE "REF**"
+reference "REF**"
+value "Carclo_10740"
+footprint "FORT:Carclo_10148"
+attribut none
+position 157.500000 72.500000  orientation 90.00
+layer front
+$EndMODULE  REF**
+
+$MODULE "REF**"
+reference "REF**"
+value "Carclo_10740"
+footprint "FORT:Carclo_10148"
+attribut none
+position 182.500000 72.500000  orientation 90.00
+layer front
+$EndMODULE  REF**
+
+$MODULE "REF**"
+reference "REF**"
+value "Carclo_10740"
+footprint "FORT:Carclo_10148"
+attribut none
+position 207.500000 72.500000  orientation 90.00
+layer front
+$EndMODULE  REF**
+
+$MODULE "REF**"
+reference "REF**"
+value "Carclo_10740"
+footprint "FORT:Carclo_10148"
+attribut none
+position 132.500000 97.500000  orientation 90.00
+layer front
+$EndMODULE  REF**
+
+$MODULE "REF**"
+reference "REF**"
+value "Carclo_10740"
+footprint "FORT:Carclo_10148"
+attribut none
+position 157.500000 97.500000  orientation 90.00
+layer front
+$EndMODULE  REF**
+
+$MODULE "REF**"
+reference "REF**"
+value "Carclo_10740"
+footprint "FORT:Carclo_10148"
+attribut none
+position 182.500000 97.500000  orientation 90.00
+layer front
+$EndMODULE  REF**
+
+$MODULE "REF**"
+reference "REF**"
+value "Carclo_10740"
+footprint "FORT:Carclo_10148"
+attribut none
+position 132.500000 122.500000  orientation 90.00
+layer front
+$EndMODULE  REF**
+
+$MODULE "REF**"
+reference "REF**"
+value "Carclo_10740"
+footprint "FORT:Carclo_10148"
+attribut none
+position 157.500000 122.500000  orientation 90.00
+layer front
+$EndMODULE  REF**
+
+$MODULE "REF**"
+reference "REF**"
+value "Carclo_10740"
+footprint "FORT:Carclo_10148"
+attribut none
+position 182.500000 122.500000  orientation 90.00
+layer front
+$EndMODULE  REF**
+
+$MODULE "REF**"
+reference "REF**"
+value "Carclo_10740"
+footprint "FORT:Carclo_10148"
+attribut none
+position 207.500000 122.500000  orientation 90.00
+layer front
+$EndMODULE  REF**
+
+$MODULE "REF**"
+reference "REF**"
+value "Carclo_10740"
+footprint "FORT:Carclo_10148"
+attribut none
+position 132.500000 147.500000  orientation 90.00
+layer front
+$EndMODULE  REF**
+
+$MODULE "REF**"
+reference "REF**"
+value "Carclo_10740"
+footprint "FORT:Carclo_10148"
+attribut none
+position 157.500000 147.500000  orientation 90.00
+layer front
+$EndMODULE  REF**
+
+$MODULE "REF**"
+reference "REF**"
+value "Carclo_10740"
+footprint "FORT:Carclo_10148"
+attribut none
+position 182.500000 147.500000  orientation 90.00
+layer front
+$EndMODULE  REF**
+
+$MODULE "REF**"
+reference "REF**"
+value "Carclo_10740"
+footprint "FORT:Carclo_10148"
+attribut none
+position 207.500000 147.500000  orientation 90.00
+layer front
+$EndMODULE  REF**
+
+$MODULE "REF**"
+reference "REF**"
+value "Carclo_10740"
+footprint "FORT:Carclo_10148"
+attribut none
+position 207.500000 97.500000  orientation 90.00
+layer front
+$EndMODULE  REF**
+
+$MODULE "D16"
+reference "D16"
+value "White 4000K 3W"
+footprint "FORT:OSRAM_Platinium_Dragon"
+attribut smd
+position 207.500000 72.500000  orientation 180.00
+layer front
+$PAD "2"
+Shape Rect Layer front
+position  0.000000  5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "1"
+Shape Rect Layer front
+position  0.000000 -5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Circle Layer nocopper
+position  0.000000  0.000000  size  2.500000  2.500000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  0.000000  0.000000  size  8.400000 10.000000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  D16
+
+$MODULE "D15"
+reference "D15"
+value "White 4000K 3W"
+footprint "FORT:OSRAM_Platinium_Dragon"
+attribut smd
+position 207.500000 147.350000  orientation 180.00
+layer front
+$PAD "2"
+Shape Rect Layer front
+position  0.000000  5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "1"
+Shape Rect Layer front
+position  0.000000 -5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Circle Layer nocopper
+position  0.000000  0.000000  size  2.500000  2.500000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  0.000000  0.000000  size  8.400000 10.000000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  D15
+
+$MODULE "D14"
+reference "D14"
+value "White 4000K 3W"
+footprint "FORT:OSRAM_Platinium_Dragon"
+attribut smd
+position 132.500000 147.500000  orientation 180.00
+layer front
+$PAD "2"
+Shape Rect Layer front
+position  0.000000  5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "1"
+Shape Rect Layer front
+position  0.000000 -5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Circle Layer nocopper
+position  0.000000  0.000000  size  2.500000  2.500000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  0.000000  0.000000  size  8.400000 10.000000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  D14
+
+$MODULE "D13"
+reference "D13"
+value "White 4000K 3W"
+footprint "FORT:OSRAM_Platinium_Dragon"
+attribut smd
+position 132.500000 72.500000  orientation 180.00
+layer front
+$PAD "2"
+Shape Rect Layer front
+position  0.000000  5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "1"
+Shape Rect Layer front
+position  0.000000 -5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Circle Layer nocopper
+position  0.000000  0.000000  size  2.500000  2.500000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  0.000000  0.000000  size  8.400000 10.000000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  D13
+
+$MODULE "D12"
+reference "D12"
+value "NIR 850nm 3W"
+footprint "FORT:OSRAM_Platinium_Dragon"
+attribut smd
+position 182.500000 147.500000  orientation 180.00
+layer front
+$PAD "2"
+Shape Rect Layer front
+position  0.000000  5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "1"
+Shape Rect Layer front
+position  0.000000 -5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Circle Layer nocopper
+position  0.000000  0.000000  size  2.500000  2.500000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  0.000000  0.000000  size  8.400000 10.000000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  D12
+
+$MODULE "D11"
+reference "D11"
+value "NIR 850nm 3W"
+footprint "FORT:OSRAM_Platinium_Dragon"
+attribut smd
+position 182.500000 122.500000  orientation 180.00
+layer front
+$PAD "2"
+Shape Rect Layer front
+position  0.000000  5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "1"
+Shape Rect Layer front
+position  0.000000 -5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Circle Layer nocopper
+position  0.000000  0.000000  size  2.500000  2.500000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  0.000000  0.000000  size  8.400000 10.000000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  D11
+
+$MODULE "D10"
+reference "D10"
+value "NIR 850nm 3W"
+footprint "FORT:OSRAM_Platinium_Dragon"
+attribut smd
+position 207.500000 122.500000  orientation 180.00
+layer front
+$PAD "2"
+Shape Rect Layer front
+position  0.000000  5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "1"
+Shape Rect Layer front
+position  0.000000 -5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Circle Layer nocopper
+position  0.000000  0.000000  size  2.500000  2.500000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  0.000000  0.000000  size  8.400000 10.000000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  D10
+
+$MODULE "D9"
+reference "D9"
+value "NIR 850nm 3W"
+footprint "FORT:OSRAM_Platinium_Dragon"
+attribut smd
+position 207.500000 97.500000  orientation 180.00
+layer front
+$PAD "2"
+Shape Rect Layer front
+position  0.000000  5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "1"
+Shape Rect Layer front
+position  0.000000 -5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Circle Layer nocopper
+position  0.000000  0.000000  size  2.500000  2.500000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  0.000000  0.000000  size  8.400000 10.000000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  D9
+
+$MODULE "D8"
+reference "D8"
+value "NIR 850nm 3W"
+footprint "FORT:OSRAM_Platinium_Dragon"
+attribut smd
+position 182.500000 97.500000  orientation 180.00
+layer front
+$PAD "2"
+Shape Rect Layer front
+position  0.000000  5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "1"
+Shape Rect Layer front
+position  0.000000 -5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Circle Layer nocopper
+position  0.000000  0.000000  size  2.500000  2.500000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  0.000000  0.000000  size  8.400000 10.000000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  D8
+
+$MODULE "D7"
+reference "D7"
+value "NIR 850nm 3W"
+footprint "FORT:OSRAM_Platinium_Dragon"
+attribut smd
+position 182.500000 72.500000  orientation 180.00
+layer front
+$PAD "2"
+Shape Rect Layer front
+position  0.000000  5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "1"
+Shape Rect Layer front
+position  0.000000 -5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Circle Layer nocopper
+position  0.000000  0.000000  size  2.500000  2.500000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  0.000000  0.000000  size  8.400000 10.000000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  D7
+
+$MODULE "D6"
+reference "D6"
+value "NIR 850nm 3W"
+footprint "FORT:OSRAM_Platinium_Dragon"
+attribut smd
+position 157.500000 147.500000  orientation 180.00
+layer front
+$PAD "2"
+Shape Rect Layer front
+position  0.000000  5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "1"
+Shape Rect Layer front
+position  0.000000 -5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Circle Layer nocopper
+position  0.000000  0.000000  size  2.500000  2.500000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  0.000000  0.000000  size  8.400000 10.000000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  D6
+
+$MODULE "D5"
+reference "D5"
+value "NIR 850nm 3W"
+footprint "FORT:OSRAM_Platinium_Dragon"
+attribut smd
+position 157.500000 122.500000  orientation 180.00
+layer front
+$PAD "2"
+Shape Rect Layer front
+position  0.000000  5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "1"
+Shape Rect Layer front
+position  0.000000 -5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Circle Layer nocopper
+position  0.000000  0.000000  size  2.500000  2.500000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  0.000000  0.000000  size  8.400000 10.000000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  D5
+
+$MODULE "D4"
+reference "D4"
+value "NIR 850nm 3W"
+footprint "FORT:OSRAM_Platinium_Dragon"
+attribut smd
+position 132.500000 122.600000  orientation 180.00
+layer front
+$PAD "2"
+Shape Rect Layer front
+position  0.000000  5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "1"
+Shape Rect Layer front
+position  0.000000 -5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Circle Layer nocopper
+position  0.000000  0.000000  size  2.500000  2.500000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  0.000000  0.000000  size  8.400000 10.000000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  D4
+
+$MODULE "D2"
+reference "D2"
+value "NIR 850nm 3W"
+footprint "FORT:OSRAM_Platinium_Dragon"
+attribut smd
+position 157.500000 97.500000  orientation 180.00
+layer front
+$PAD "2"
+Shape Rect Layer front
+position  0.000000  5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "1"
+Shape Rect Layer front
+position  0.000000 -5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Circle Layer nocopper
+position  0.000000  0.000000  size  2.500000  2.500000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  0.000000  0.000000  size  8.400000 10.000000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  D2
+
+$MODULE "D1"
+reference "D1"
+value "NIR 850nm 3W"
+footprint "FORT:OSRAM_Platinium_Dragon"
+attribut smd
+position 157.500000 72.500000  orientation 180.00
+layer front
+$PAD "2"
+Shape Rect Layer front
+position  0.000000  5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "1"
+Shape Rect Layer front
+position  0.000000 -5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Circle Layer nocopper
+position  0.000000  0.000000  size  2.500000  2.500000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  0.000000  0.000000  size  8.400000 10.000000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  D1
+
+$MODULE "D3"
+reference "D3"
+value "NIR 850nm 3W"
+footprint "FORT:OSRAM_Platinium_Dragon"
+attribut smd
+position 132.500000 97.500000  orientation 180.00
+layer front
+$PAD "2"
+Shape Rect Layer front
+position  0.000000  5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "1"
+Shape Rect Layer front
+position  0.000000 -5.150000  size  1.300000  2.300000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Circle Layer nocopper
+position  0.000000  0.000000  size  2.500000  2.500000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  0.000000  0.000000  size  8.400000 10.000000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position -3.225000  5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  3.225000 -5.100000  size  1.800000  3.550000  orientation 90.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  D3
+
+$EndDESCRIPTION

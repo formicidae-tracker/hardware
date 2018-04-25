@@ -1,0 +1,339 @@
+Cmp-Mod V01 Created by PcbNew   date = Mon 23 Apr 2018 03:06:14 PM CEST
+
+BeginCmp
+TimeStamp = 5A9D5C99
+Path = /5A998A4E
+Reference = IR_A_VCC1;
+ValeurCmp = Conn_01x01;
+IdModule  = Wire_Pads:SolderWirePad_single_SMD_5x10mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5C90
+Path = /5A998D53
+Reference = IR_A_GND1;
+ValeurCmp = Conn_01x01;
+IdModule  = Wire_Pads:SolderWirePad_single_SMD_5x10mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5CAB
+Path = /5A998DDC
+Reference = IR_B_VCC1;
+ValeurCmp = Conn_01x01;
+IdModule  = Wire_Pads:SolderWirePad_single_SMD_5x10mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5CB4
+Path = /5A9990DD
+Reference = VIS_GND1;
+ValeurCmp = Conn_01x01;
+IdModule  = Wire_Pads:SolderWirePad_single_SMD_5x10mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5CBD
+Path = /5A998FB7
+Reference = VIS_VCC1;
+ValeurCmp = Conn_01x01;
+IdModule  = Wire_Pads:SolderWirePad_single_SMD_5x10mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5CA2
+Path = /5A998E7D
+Reference = IR_B_GND1;
+ValeurCmp = Conn_01x01;
+IdModule  = Wire_Pads:SolderWirePad_single_SMD_5x10mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9FF420
+Path = 
+Reference = REF**;
+ValeurCmp = MountingHole_3.2mm_M3_DIN965;
+IdModule  = Mounting_Holes:MountingHole_3.2mm_M3_DIN965;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9FF43C
+Path = 
+Reference = REF**;
+ValeurCmp = MountingHole_3.2mm_M3_DIN965;
+IdModule  = Mounting_Holes:MountingHole_3.2mm_M3_DIN965;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9FF445
+Path = 
+Reference = REF**;
+ValeurCmp = MountingHole_3.2mm_M3_DIN965;
+IdModule  = Mounting_Holes:MountingHole_3.2mm_M3_DIN965;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9FF44D
+Path = 
+Reference = REF**;
+ValeurCmp = MountingHole_3.2mm_M3_DIN965;
+IdModule  = Mounting_Holes:MountingHole_3.2mm_M3_DIN965;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9FE5A7
+Path = 
+Reference = REF**;
+ValeurCmp = Carclo_10740;
+IdModule  = FORT:Carclo_10148;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9FE5B0
+Path = 
+Reference = REF**;
+ValeurCmp = Carclo_10740;
+IdModule  = FORT:Carclo_10148;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9FE5B9
+Path = 
+Reference = REF**;
+ValeurCmp = Carclo_10740;
+IdModule  = FORT:Carclo_10148;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9FE5C2
+Path = 
+Reference = REF**;
+ValeurCmp = Carclo_10740;
+IdModule  = FORT:Carclo_10148;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9FE5CB
+Path = 
+Reference = REF**;
+ValeurCmp = Carclo_10740;
+IdModule  = FORT:Carclo_10148;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9FE5D4
+Path = 
+Reference = REF**;
+ValeurCmp = Carclo_10740;
+IdModule  = FORT:Carclo_10148;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9FE5DD
+Path = 
+Reference = REF**;
+ValeurCmp = Carclo_10740;
+IdModule  = FORT:Carclo_10148;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9FE5E6
+Path = 
+Reference = REF**;
+ValeurCmp = Carclo_10740;
+IdModule  = FORT:Carclo_10148;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9FE5EF
+Path = 
+Reference = REF**;
+ValeurCmp = Carclo_10740;
+IdModule  = FORT:Carclo_10148;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9FE5F8
+Path = 
+Reference = REF**;
+ValeurCmp = Carclo_10740;
+IdModule  = FORT:Carclo_10148;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9FE601
+Path = 
+Reference = REF**;
+ValeurCmp = Carclo_10740;
+IdModule  = FORT:Carclo_10148;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9FE60A
+Path = 
+Reference = REF**;
+ValeurCmp = Carclo_10740;
+IdModule  = FORT:Carclo_10148;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9FE613
+Path = 
+Reference = REF**;
+ValeurCmp = Carclo_10740;
+IdModule  = FORT:Carclo_10148;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9FE61C
+Path = 
+Reference = REF**;
+ValeurCmp = Carclo_10740;
+IdModule  = FORT:Carclo_10148;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9FE625
+Path = 
+Reference = REF**;
+ValeurCmp = Carclo_10740;
+IdModule  = FORT:Carclo_10148;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9FE62E
+Path = 
+Reference = REF**;
+ValeurCmp = Carclo_10740;
+IdModule  = FORT:Carclo_10148;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5C87
+Path = /5A998189
+Reference = D16;
+ValeurCmp = White 4000K 3W;
+IdModule  = FORT:OSRAM_Platinium_Dragon;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5C6B
+Path = /5A998181
+Reference = D15;
+ValeurCmp = White 4000K 3W;
+IdModule  = FORT:OSRAM_Platinium_Dragon;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5C4F
+Path = /5A997FFD
+Reference = D14;
+ValeurCmp = White 4000K 3W;
+IdModule  = FORT:OSRAM_Platinium_Dragon;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5C33
+Path = /5A997AD1
+Reference = D13;
+ValeurCmp = White 4000K 3W;
+IdModule  = FORT:OSRAM_Platinium_Dragon;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5C17
+Path = /5A997A6A
+Reference = D12;
+ValeurCmp = NIR 850nm 3W;
+IdModule  = FORT:OSRAM_Platinium_Dragon;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5BFB
+Path = /5A997A62
+Reference = D11;
+ValeurCmp = NIR 850nm 3W;
+IdModule  = FORT:OSRAM_Platinium_Dragon;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5BDF
+Path = /5A997A5A
+Reference = D10;
+ValeurCmp = NIR 850nm 3W;
+IdModule  = FORT:OSRAM_Platinium_Dragon;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5BC3
+Path = /5A997A8A
+Reference = D9;
+ValeurCmp = NIR 850nm 3W;
+IdModule  = FORT:OSRAM_Platinium_Dragon;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5BA7
+Path = /5A997A82
+Reference = D8;
+ValeurCmp = NIR 850nm 3W;
+IdModule  = FORT:OSRAM_Platinium_Dragon;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5B8B
+Path = /5A997A7A
+Reference = D7;
+ValeurCmp = NIR 850nm 3W;
+IdModule  = FORT:OSRAM_Platinium_Dragon;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5B6F
+Path = /5A997579
+Reference = D6;
+ValeurCmp = NIR 850nm 3W;
+IdModule  = FORT:OSRAM_Platinium_Dragon;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5B53
+Path = /5A9974F5
+Reference = D5;
+ValeurCmp = NIR 850nm 3W;
+IdModule  = FORT:OSRAM_Platinium_Dragon;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5B37
+Path = /5A997385
+Reference = D4;
+ValeurCmp = NIR 850nm 3W;
+IdModule  = FORT:OSRAM_Platinium_Dragon;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5AFF
+Path = /5A997631
+Reference = D2;
+ValeurCmp = NIR 850nm 3W;
+IdModule  = FORT:OSRAM_Platinium_Dragon;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5AE3
+Path = /5A997629
+Reference = D1;
+ValeurCmp = NIR 850nm 3W;
+IdModule  = FORT:OSRAM_Platinium_Dragon;
+EndCmp
+
+BeginCmp
+TimeStamp = 5A9D5B1B
+Path = /5A997639
+Reference = D3;
+ValeurCmp = NIR 850nm 3W;
+IdModule  = FORT:OSRAM_Platinium_Dragon;
+EndCmp
+
+EndListe

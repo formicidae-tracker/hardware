@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>/home/tuleu/devel/git.tuleu.science/fort/hardware/ecad/helios/LED_panel/Helios_LED_panel.sch</source>
+    <date>Mon 23 Apr 2018 12:55:50 PM CEST</date>
+    <tool>Eeschema 4.0.7+dfsg1-1~bpo9+1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>Helios_LED_panel.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="D4">
+      <value>NIR 850nm 3W</value>
+      <footprint>FORT:OSRAM_Platinium_Dragon</footprint>
+      <fields>
+        <field name="Part Number">SFH 4235-Z</field>
+      </fields>
+      <libsource lib="device" part="LED_PAD"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A997385</tstamp>
+    </comp>
+    <comp ref="D5">
+      <value>NIR 850nm 3W</value>
+      <footprint>FORT:OSRAM_Platinium_Dragon</footprint>
+      <fields>
+        <field name="Part Number">SFH 4235-Z</field>
+      </fields>
+      <libsource lib="device" part="LED_PAD"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A9974F5</tstamp>
+    </comp>
+    <comp ref="D6">
+      <value>NIR 850nm 3W</value>
+      <footprint>FORT:OSRAM_Platinium_Dragon</footprint>
+      <fields>
+        <field name="Part Number">SFH 4235-Z</field>
+      </fields>
+      <libsource lib="device" part="LED_PAD"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A997579</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>NIR 850nm 3W</value>
+      <footprint>FORT:OSRAM_Platinium_Dragon</footprint>
+      <fields>
+        <field name="Part Number">SFH 4235-Z</field>
+      </fields>
+      <libsource lib="device" part="LED_PAD"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A997629</tstamp>
+    </comp>
+    <comp ref="D2">
+      <value>NIR 850nm 3W</value>
+      <footprint>FORT:OSRAM_Platinium_Dragon</footprint>
+      <fields>
+        <field name="Part Number">SFH 4235-Z</field>
+      </fields>
+      <libsource lib="device" part="LED_PAD"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A997631</tstamp>
+    </comp>
+    <comp ref="D3">
+      <value>NIR 850nm 3W</value>
+      <footprint>FORT:OSRAM_Platinium_Dragon</footprint>
+      <fields>
+        <field name="Part Number">SFH 4235-Z</field>
+      </fields>
+      <libsource lib="device" part="LED_PAD"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A997639</tstamp>
+    </comp>
+    <comp ref="D10">
+      <value>NIR 850nm 3W</value>
+      <footprint>FORT:OSRAM_Platinium_Dragon</footprint>
+      <fields>
+        <field name="Part Number">SFH 4235-Z</field>
+      </fields>
+      <libsource lib="device" part="LED_PAD"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A997A5A</tstamp>
+    </comp>
+    <comp ref="D11">
+      <value>NIR 850nm 3W</value>
+      <footprint>FORT:OSRAM_Platinium_Dragon</footprint>
+      <fields>
+        <field name="Part Number">SFH 4235-Z</field>
+      </fields>
+      <libsource lib="device" part="LED_PAD"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A997A62</tstamp>
+    </comp>
+    <comp ref="D12">
+      <value>NIR 850nm 3W</value>
+      <footprint>FORT:OSRAM_Platinium_Dragon</footprint>
+      <fields>
+        <field name="Part Number">SFH 4235-Z</field>
+      </fields>
+      <libsource lib="device" part="LED_PAD"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A997A6A</tstamp>
+    </comp>
+    <comp ref="D7">
+      <value>NIR 850nm 3W</value>
+      <footprint>FORT:OSRAM_Platinium_Dragon</footprint>
+      <fields>
+        <field name="Part Number">SFH 4235-Z</field>
+      </fields>
+      <libsource lib="device" part="LED_PAD"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A997A7A</tstamp>
+    </comp>
+    <comp ref="D8">
+      <value>NIR 850nm 3W</value>
+      <footprint>FORT:OSRAM_Platinium_Dragon</footprint>
+      <fields>
+        <field name="Part Number">SFH 4235-Z</field>
+      </fields>
+      <libsource lib="device" part="LED_PAD"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A997A82</tstamp>
+    </comp>
+    <comp ref="D9">
+      <value>NIR 850nm 3W</value>
+      <footprint>FORT:OSRAM_Platinium_Dragon</footprint>
+      <fields>
+        <field name="Part Number">SFH 4235-Z</field>
+      </fields>
+      <libsource lib="device" part="LED_PAD"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A997A8A</tstamp>
+    </comp>
+    <comp ref="D13">
+      <value>White 4000K 3W</value>
+      <footprint>FORT:OSRAM_Platinium_Dragon</footprint>
+      <fields>
+        <field name="Part Number">LCW W5SM-JYKZ-4J8K</field>
+      </fields>
+      <libsource lib="device" part="LED_PAD"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A997AD1</tstamp>
+    </comp>
+    <comp ref="D14">
+      <value>White 4000K 3W</value>
+      <footprint>FORT:OSRAM_Platinium_Dragon</footprint>
+      <fields>
+        <field name="Part Number">LCW W5SM-JYKZ-4J8K</field>
+      </fields>
+      <libsource lib="device" part="LED_PAD"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A997FFD</tstamp>
+    </comp>
+    <comp ref="D15">
+      <value>White 4000K 3W</value>
+      <footprint>FORT:OSRAM_Platinium_Dragon</footprint>
+      <fields>
+        <field name="Part Number">LCW W5SM-JYKZ-4J8K</field>
+      </fields>
+      <libsource lib="device" part="LED_PAD"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A998181</tstamp>
+    </comp>
+    <comp ref="D16">
+      <value>White 4000K 3W</value>
+      <footprint>FORT:OSRAM_Platinium_Dragon</footprint>
+      <fields>
+        <field name="Part Number">LCW W5SM-JYKZ-4J8K</field>
+      </fields>
+      <libsource lib="device" part="LED_PAD"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A998189</tstamp>
+    </comp>
+    <comp ref="IR_A_VCC1">
+      <value>Conn_01x01</value>
+      <footprint>Wire_Pads:SolderWirePad_single_SMD_5x10mm</footprint>
+      <libsource lib="conn" part="Conn_01x01"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A998A4E</tstamp>
+    </comp>
+    <comp ref="IR_A_GND1">
+      <value>Conn_01x01</value>
+      <footprint>Wire_Pads:SolderWirePad_single_SMD_5x10mm</footprint>
+      <libsource lib="conn" part="Conn_01x01"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A998D53</tstamp>
+    </comp>
+    <comp ref="IR_B_VCC1">
+      <value>Conn_01x01</value>
+      <footprint>Wire_Pads:SolderWirePad_single_SMD_5x10mm</footprint>
+      <libsource lib="conn" part="Conn_01x01"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A998DDC</tstamp>
+    </comp>
+    <comp ref="IR_B_GND1">
+      <value>Conn_01x01</value>
+      <footprint>Wire_Pads:SolderWirePad_single_SMD_5x10mm</footprint>
+      <libsource lib="conn" part="Conn_01x01"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A998E7D</tstamp>
+    </comp>
+    <comp ref="VIS_VCC1">
+      <value>Conn_01x01</value>
+      <footprint>Wire_Pads:SolderWirePad_single_SMD_5x10mm</footprint>
+      <libsource lib="conn" part="Conn_01x01"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A998FB7</tstamp>
+    </comp>
+    <comp ref="VIS_GND1">
+      <value>Conn_01x01</value>
+      <footprint>Wire_Pads:SolderWirePad_single_SMD_5x10mm</footprint>
+      <libsource lib="conn" part="Conn_01x01"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A9990DD</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="conn" part="Conn_01x01">
+      <description>Generic connector, single row, 01x01</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_??x*mm*</fp>
+        <fp>Connector*:*1x??x*mm*</fp>
+        <fp>Pin?Header?Straight?1X*</fp>
+        <fp>Pin?Header?Angled?1X*</fp>
+        <fp>Socket?Strip?Straight?1X*</fp>
+        <fp>Socket?Strip?Angled?1X*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x01</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="LED_PAD">
+      <description>LED with pad</description>
+      <footprints>
+        <fp>LED*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED_PAD</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+        <pin num="3" name="PAD" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="conn">
+      <uri>/usr/share/kicad/library/conn.lib</uri>
+    </library>
+    <library logical="device">
+      <uri>/usr/share/kicad/library/device.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="Net-(D15-Pad3)">
+      <node ref="D15" pin="3"/>
+    </net>
+    <net code="2" name="Net-(D15-Pad1)">
+      <node ref="D16" pin="2"/>
+      <node ref="D15" pin="1"/>
+    </net>
+    <net code="3" name="Net-(D14-Pad3)">
+      <node ref="D14" pin="3"/>
+    </net>
+    <net code="4" name="Net-(D14-Pad1)">
+      <node ref="D14" pin="1"/>
+      <node ref="D15" pin="2"/>
+    </net>
+    <net code="5" name="Net-(D13-Pad3)">
+      <node ref="D13" pin="3"/>
+    </net>
+    <net code="6" name="Net-(D13-Pad2)">
+      <node ref="D13" pin="2"/>
+      <node ref="VIS_VCC1" pin="1"/>
+    </net>
+    <net code="7" name="Net-(D13-Pad1)">
+      <node ref="D13" pin="1"/>
+      <node ref="D14" pin="2"/>
+    </net>
+    <net code="8" name="Net-(D11-Pad1)">
+      <node ref="D11" pin="1"/>
+      <node ref="D12" pin="2"/>
+    </net>
+    <net code="9" name="Net-(D10-Pad1)">
+      <node ref="D10" pin="1"/>
+      <node ref="D11" pin="2"/>
+    </net>
+    <net code="10" name="Net-(D10-Pad2)">
+      <node ref="D9" pin="1"/>
+      <node ref="D10" pin="2"/>
+    </net>
+    <net code="11" name="Net-(D8-Pad1)">
+      <node ref="D9" pin="2"/>
+      <node ref="D8" pin="1"/>
+    </net>
+    <net code="12" name="Net-(D7-Pad1)">
+      <node ref="D7" pin="1"/>
+      <node ref="D8" pin="2"/>
+    </net>
+    <net code="13" name="Net-(D9-Pad3)">
+      <node ref="D9" pin="3"/>
+    </net>
+    <net code="14" name="Net-(D8-Pad3)">
+      <node ref="D8" pin="3"/>
+    </net>
+    <net code="15" name="Net-(D16-Pad1)">
+      <node ref="D16" pin="1"/>
+      <node ref="VIS_GND1" pin="1"/>
+    </net>
+    <net code="16" name="Net-(D12-Pad1)">
+      <node ref="IR_B_GND1" pin="1"/>
+      <node ref="D12" pin="1"/>
+    </net>
+    <net code="17" name="Net-(D7-Pad2)">
+      <node ref="IR_B_VCC1" pin="1"/>
+      <node ref="D7" pin="2"/>
+    </net>
+    <net code="18" name="Net-(D1-Pad2)">
+      <node ref="IR_A_VCC1" pin="1"/>
+      <node ref="D1" pin="2"/>
+    </net>
+    <net code="19" name="Net-(D16-Pad3)">
+      <node ref="D16" pin="3"/>
+    </net>
+    <net code="20" name="Net-(D3-Pad3)">
+      <node ref="D3" pin="3"/>
+    </net>
+    <net code="21" name="Net-(D2-Pad3)">
+      <node ref="D2" pin="3"/>
+    </net>
+    <net code="22" name="Net-(D1-Pad1)">
+      <node ref="D2" pin="2"/>
+      <node ref="D1" pin="1"/>
+    </net>
+    <net code="23" name="Net-(D2-Pad1)">
+      <node ref="D3" pin="2"/>
+      <node ref="D2" pin="1"/>
+    </net>
+    <net code="24" name="Net-(D1-Pad3)">
+      <node ref="D1" pin="3"/>
+    </net>
+    <net code="25" name="Net-(D6-Pad3)">
+      <node ref="D6" pin="3"/>
+    </net>
+    <net code="26" name="Net-(D6-Pad1)">
+      <node ref="IR_A_GND1" pin="1"/>
+      <node ref="D6" pin="1"/>
+    </net>
+    <net code="27" name="Net-(D5-Pad3)">
+      <node ref="D5" pin="3"/>
+    </net>
+    <net code="28" name="Net-(D5-Pad1)">
+      <node ref="D6" pin="2"/>
+      <node ref="D5" pin="1"/>
+    </net>
+    <net code="29" name="Net-(D4-Pad3)">
+      <node ref="D4" pin="3"/>
+    </net>
+    <net code="30" name="Net-(D3-Pad1)">
+      <node ref="D3" pin="1"/>
+      <node ref="D4" pin="2"/>
+    </net>
+    <net code="31" name="Net-(D7-Pad3)">
+      <node ref="D7" pin="3"/>
+    </net>
+    <net code="32" name="Net-(D12-Pad3)">
+      <node ref="D12" pin="3"/>
+    </net>
+    <net code="33" name="Net-(D11-Pad3)">
+      <node ref="D11" pin="3"/>
+    </net>
+    <net code="34" name="Net-(D4-Pad1)">
+      <node ref="D4" pin="1"/>
+      <node ref="D5" pin="2"/>
+    </net>
+    <net code="35" name="Net-(D10-Pad3)">
+      <node ref="D10" pin="3"/>
+    </net>
+  </nets>
+</export>

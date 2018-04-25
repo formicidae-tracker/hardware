@@ -1,0 +1,4 @@
+Quantity,References,Value,Footprint,Part Number
+12,"D4,D5,D6,D1,D2,D3,D10,D11,D12,D7,D8,D9","NIR 850nm 3W","FORT:OSRAM_Platinium_Dragon","SFH 4235-Z"
+4,"D13,D14,D15,D16","White 4000K 3W","FORT:OSRAM_Platinium_Dragon","LCW W5SM-JYKZ-4J8K"
+6,"IR_A_VCC1,IR_A_GND1,IR_B_VCC1,IR_B_GND1,VIS_VCC1,VIS_GND1","Conn_01x01","Wire_Pads:SolderWirePad_single_SMD_5x10mm",""
