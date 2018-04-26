@@ -1,4 +1,4 @@
-## Footprint report - date Wed Apr 25 16:01:54 2018
+## Footprint report - date Wed Apr 25 17:54:03 2018
 ## Created by Pcbnew version kicad 4.0.7+dfsg1-1~bpo9+1
 ## Unit = mm, Angle = deg.
 
@@ -2498,7 +2498,7 @@ $EndMODULE  C34
 
 $MODULE "U6"
 reference "U6"
-value "LM3985IM5-5.0/NOPB"
+value "LP3985IM5-5.0/NOPB"
 footprint "TO_SOT_Packages_SMD:SOT-23-5"
 attribut smd
 position 115.500000 111.800000  orientation 90.00
@@ -2579,33 +2579,6 @@ drill  1.400000
 shape_offset  0.000000  0.000000
 $EndPAD
 $EndMODULE  J2
-
-$MODULE "Q3"
-reference "Q3"
-value "Q_NMOS_GSD"
-footprint "TO_SOT_Packages_SMD:SOT-23"
-attribut smd
-position 97.000000 46.450000  orientation 180.00
-layer front
-$PAD "1"
-Shape Rect Layer front
-position -1.000000 -0.950000  size  0.900000  0.800000  orientation 0.00
-drill  0.000000
-shape_offset  0.000000  0.000000
-$EndPAD
-$PAD "2"
-Shape Rect Layer front
-position -1.000000  0.950000  size  0.900000  0.800000  orientation 0.00
-drill  0.000000
-shape_offset  0.000000  0.000000
-$EndPAD
-$PAD "3"
-Shape Rect Layer front
-position  1.000000  0.000000  size  0.900000  0.800000  orientation 0.00
-drill  0.000000
-shape_offset  0.000000  0.000000
-$EndPAD
-$EndMODULE  Q3
 
 $MODULE "R34"
 reference "R34"
@@ -3218,5 +3191,32 @@ drill  0.000000
 shape_offset  0.000000  0.000000
 $EndPAD
 $EndMODULE  U4
+
+$MODULE "Q3"
+reference "Q3"
+value "BSS138L"
+footprint "TO_SOT_Packages_SMD:SOT-23"
+attribut smd
+position 97.000000 46.450000  orientation 180.00
+layer front
+$PAD "1"
+Shape Rect Layer front
+position -1.000000 -0.950000  size  0.900000  0.800000  orientation 0.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "2"
+Shape Rect Layer front
+position -1.000000  0.950000  size  0.900000  0.800000  orientation 0.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$PAD "3"
+Shape Rect Layer front
+position  1.000000  0.000000  size  0.900000  0.800000  orientation 0.00
+drill  0.000000
+shape_offset  0.000000  0.000000
+$EndPAD
+$EndMODULE  Q3
 
 $EndDESCRIPTION
