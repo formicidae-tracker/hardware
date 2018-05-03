@@ -1,0 +1,2 @@
+*.iam filter=lfs diff=lfs merge=lfs -text
+*.ipj filter=lfs diff=lfs merge=lfs -text
