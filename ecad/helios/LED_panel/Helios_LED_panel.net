@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/tuleu/devel/git.tuleu.science/fort/hardware/ecad/helios/LED_panel/Helios_LED_panel.sch)
-    (date "Wed 25 Apr 2018 02:17:37 PM CEST")
+    (date "Fri 27 Apr 2018 04:05:45 PM CEST")
     (tool "Eeschema 4.0.7+dfsg1-1~bpo9+1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -207,10 +207,10 @@
         (pin (num 2) (name A) (type passive))
         (pin (num 3) (name PAD) (type passive)))))
   (libraries
-    (library (logical conn)
-      (uri /usr/share/kicad/library/conn.lib))
     (library (logical device)
-      (uri /usr/share/kicad/library/device.lib)))
+      (uri /usr/share/kicad/library/device.lib))
+    (library (logical conn)
+      (uri /usr/share/kicad/library/conn.lib)))
   (nets
     (net (code 1) (name "Net-(D15-Pad3)")
       (node (ref D15) (pin 3)))

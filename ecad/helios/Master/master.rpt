@@ -1,4 +1,4 @@
-## Footprint report - date Wed Apr 25 16:09:33 2018
+## Footprint report - date Fri Apr 27 15:51:39 2018
 ## Created by Pcbnew version kicad 4.0.7+dfsg1-1~bpo9+1
 ## Unit = mm, Angle = deg.
 
@@ -263,7 +263,7 @@ $EndMODULE  C12
 
 $MODULE "C13"
 reference "C13"
-value "1uF"
+value "1uF, 50V"
 footprint "Capacitors_SMD:C_0603"
 attribut smd
 position 143.300000 69.400000  orientation 90.00
@@ -347,7 +347,7 @@ $EndMODULE  C16
 
 $MODULE "C17"
 reference "C17"
-value "0.01uF"
+value "10nF, 50V"
 footprint "Capacitors_SMD:C_0603"
 attribut smd
 position 139.300000 79.700000  orientation 270.00
@@ -452,7 +452,7 @@ $EndMODULE  C21
 
 $MODULE "C22"
 reference "C22"
-value "1uF"
+value "1uF, 50V"
 footprint "Capacitors_SMD:C_0603"
 attribut smd
 position 193.300000 69.400000  orientation 90.00
@@ -536,7 +536,7 @@ $EndMODULE  C25
 
 $MODULE "C26"
 reference "C26"
-value "0.01uF"
+value "10nF, 50V"
 footprint "Capacitors_SMD:C_0603"
 attribut smd
 position 189.300000 79.700000  orientation 270.00
@@ -641,7 +641,7 @@ $EndMODULE  C30
 
 $MODULE "C31"
 reference "C31"
-value "1uF"
+value "1uF, 50V"
 footprint "Capacitors_SMD:C_0603"
 attribut smd
 position 168.300000 69.400000  orientation 90.00
@@ -725,7 +725,7 @@ $EndMODULE  C34
 
 $MODULE "C35"
 reference "C35"
-value "0.01uF"
+value "10nF, 50V"
 footprint "Capacitors_SMD:C_0603"
 attribut smd
 position 164.300000 79.700000  orientation 270.00
@@ -830,7 +830,7 @@ $EndMODULE  C39
 
 $MODULE "C40"
 reference "C40"
-value "1uF"
+value "1uF, 50V"
 footprint "Capacitors_SMD:C_0603"
 attribut smd
 position 118.300000 69.400000  orientation 90.00
@@ -914,7 +914,7 @@ $EndMODULE  C43
 
 $MODULE "C44"
 reference "C44"
-value "0.01uF"
+value "10nF, 50V"
 footprint "Capacitors_SMD:C_0603"
 attribut smd
 position 114.300000 79.700000  orientation 270.00

@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/tuleu/devel/git.tuleu.science/fort/hardware/ecad/helios/Master/master.sch)
-    (date "Mon 09 Apr 2018 02:51:23 PM CEST")
+    (date "Fri 27 Apr 2018 03:51:18 PM CEST")
     (tool "Eeschema 4.0.7+dfsg1-1~bpo9+1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -122,6 +122,8 @@
     (comp (ref U1)
       (value NCP1117-5.0_SOT223)
       (footprint TO_SOT_Packages_SMD:SOT-223-3Lead_TabPin2)
+      (fields
+        (field (name "Part Number") NCP1117LPST50T3G))
       (libsource (lib regul) (part NCP1117-5.0_SOT223))
       (sheetpath (names /) (tstamps /))
       (tstamp 5AC59903))
@@ -304,6 +306,8 @@
     (comp (ref U5)
       (value ISO7320FC)
       (footprint Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm)
+      (fields
+        (field (name "Part Number") ISO7320FCDR))
       (libsource (lib texas) (part ISO7320FC))
       (sheetpath (names /Output_2/) (tstamps /5AC440F9/))
       (tstamp 5AC3E36A))
@@ -383,7 +387,7 @@
       (value TPS1H100AQPWPRQ1)
       (footprint FORT:HTSSOP-14-1EP_4.4x6.5mm_Pitch0.65mm_ThermalPad)
       (fields
-        (field (name "Part Number") TPS1H100AQPWRQ1))
+        (field (name "Part Number") TPS1H100AQPWPRQ1))
       (libsource (lib fort) (part TPS1H100AQPWPRQ1))
       (sheetpath (names /Output_2/) (tstamps /5AC440F9/))
       (tstamp 5AC6500E))
@@ -460,7 +464,7 @@
       (sheetpath (names /Output_2/6V_Regulator/) (tstamps /5AC440F9/5AC4F2F7/))
       (tstamp 5AC4C40C))
     (comp (ref C13)
-      (value 1uF)
+      (value "1uF, 50V")
       (footprint Capacitors_SMD:C_0603)
       (fields
         (field (name "Part Number") 06035D105KAT2A))
@@ -478,6 +482,8 @@
     (comp (ref U8)
       (value LP3985IM5-5.0/NOPB)
       (footprint TO_SOT_Packages_SMD:SOT-23-5)
+      (fields
+        (field (name "Part Number") LP3985IM5-5.0/NOPB))
       (libsource (lib fort) (part LP3985IM5-5.0/NOPB))
       (sheetpath (names /Output_2/6V_Regulator/) (tstamps /5AC440F9/5AC4F2F7/))
       (tstamp 5AC611CD))
@@ -490,7 +496,7 @@
       (sheetpath (names /Output_2/6V_Regulator/) (tstamps /5AC440F9/5AC4F2F7/))
       (tstamp 5AC61286))
     (comp (ref C17)
-      (value 0.01uF)
+      (value "10nF, 50V")
       (footprint Capacitors_SMD:C_0603)
       (fields
         (field (name "Part Number") 06035C103KAT4A))
@@ -508,6 +514,8 @@
     (comp (ref U7)
       (value LM2842Y)
       (footprint TO_SOT_Packages_SMD:SOT-23-6)
+      (fields
+        (field (name "Part Number") LM2842YMK-ADJL/NOPB))
       (libsource (lib fort) (part LM2842Y))
       (sheetpath (names /Output_2/6V_Regulator/) (tstamps /5AC440F9/5AC4F2F7/))
       (tstamp 5AC61AEF))
@@ -546,6 +554,8 @@
     (comp (ref U10)
       (value ISO7320FC)
       (footprint Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm)
+      (fields
+        (field (name "Part Number") ISO7320FCDR))
       (libsource (lib texas) (part ISO7320FC))
       (sheetpath (names /Output_3/) (tstamps /5AC443F1/))
       (tstamp 5AC3E36A))
@@ -625,7 +635,7 @@
       (value TPS1H100AQPWPRQ1)
       (footprint FORT:HTSSOP-14-1EP_4.4x6.5mm_Pitch0.65mm_ThermalPad)
       (fields
-        (field (name "Part Number") TPS1H100AQPWRQ1))
+        (field (name "Part Number") TPS1H100AQPWPRQ1))
       (libsource (lib fort) (part TPS1H100AQPWPRQ1))
       (sheetpath (names /Output_3/) (tstamps /5AC443F1/))
       (tstamp 5AC6500E))
@@ -702,7 +712,7 @@
       (sheetpath (names /Output_3/6V_Regulator/) (tstamps /5AC443F1/5AC4F2F7/))
       (tstamp 5AC4C40C))
     (comp (ref C22)
-      (value 1uF)
+      (value "1uF, 50V")
       (footprint Capacitors_SMD:C_0603)
       (fields
         (field (name "Part Number") 06035D105KAT2A))
@@ -720,6 +730,8 @@
     (comp (ref U13)
       (value LP3985IM5-5.0/NOPB)
       (footprint TO_SOT_Packages_SMD:SOT-23-5)
+      (fields
+        (field (name "Part Number") LP3985IM5-5.0/NOPB))
       (libsource (lib fort) (part LP3985IM5-5.0/NOPB))
       (sheetpath (names /Output_3/6V_Regulator/) (tstamps /5AC443F1/5AC4F2F7/))
       (tstamp 5AC611CD))
@@ -732,7 +744,7 @@
       (sheetpath (names /Output_3/6V_Regulator/) (tstamps /5AC443F1/5AC4F2F7/))
       (tstamp 5AC61286))
     (comp (ref C26)
-      (value 0.01uF)
+      (value "10nF, 50V")
       (footprint Capacitors_SMD:C_0603)
       (fields
         (field (name "Part Number") 06035C103KAT4A))
@@ -750,6 +762,8 @@
     (comp (ref U12)
       (value LM2842Y)
       (footprint TO_SOT_Packages_SMD:SOT-23-6)
+      (fields
+        (field (name "Part Number") LM2842YMK-ADJL/NOPB))
       (libsource (lib fort) (part LM2842Y))
       (sheetpath (names /Output_3/6V_Regulator/) (tstamps /5AC443F1/5AC4F2F7/))
       (tstamp 5AC61AEF))
@@ -788,6 +802,8 @@
     (comp (ref U15)
       (value ISO7320FC)
       (footprint Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm)
+      (fields
+        (field (name "Part Number") ISO7320FCDR))
       (libsource (lib texas) (part ISO7320FC))
       (sheetpath (names /Output_4/) (tstamps /5AC443F5/))
       (tstamp 5AC3E36A))
@@ -867,7 +883,7 @@
       (value TPS1H100AQPWPRQ1)
       (footprint FORT:HTSSOP-14-1EP_4.4x6.5mm_Pitch0.65mm_ThermalPad)
       (fields
-        (field (name "Part Number") TPS1H100AQPWRQ1))
+        (field (name "Part Number") TPS1H100AQPWPRQ1))
       (libsource (lib fort) (part TPS1H100AQPWPRQ1))
       (sheetpath (names /Output_4/) (tstamps /5AC443F5/))
       (tstamp 5AC6500E))
@@ -944,7 +960,7 @@
       (sheetpath (names /Output_4/6V_Regulator/) (tstamps /5AC443F5/5AC4F2F7/))
       (tstamp 5AC4C40C))
     (comp (ref C31)
-      (value 1uF)
+      (value "1uF, 50V")
       (footprint Capacitors_SMD:C_0603)
       (fields
         (field (name "Part Number") 06035D105KAT2A))
@@ -962,6 +978,8 @@
     (comp (ref U18)
       (value LP3985IM5-5.0/NOPB)
       (footprint TO_SOT_Packages_SMD:SOT-23-5)
+      (fields
+        (field (name "Part Number") LP3985IM5-5.0/NOPB))
       (libsource (lib fort) (part LP3985IM5-5.0/NOPB))
       (sheetpath (names /Output_4/6V_Regulator/) (tstamps /5AC443F5/5AC4F2F7/))
       (tstamp 5AC611CD))
@@ -974,7 +992,7 @@
       (sheetpath (names /Output_4/6V_Regulator/) (tstamps /5AC443F5/5AC4F2F7/))
       (tstamp 5AC61286))
     (comp (ref C35)
-      (value 0.01uF)
+      (value "10nF, 50V")
       (footprint Capacitors_SMD:C_0603)
       (fields
         (field (name "Part Number") 06035C103KAT4A))
@@ -992,6 +1010,8 @@
     (comp (ref U17)
       (value LM2842Y)
       (footprint TO_SOT_Packages_SMD:SOT-23-6)
+      (fields
+        (field (name "Part Number") LM2842YMK-ADJL/NOPB))
       (libsource (lib fort) (part LM2842Y))
       (sheetpath (names /Output_4/6V_Regulator/) (tstamps /5AC443F5/5AC4F2F7/))
       (tstamp 5AC61AEF))
@@ -1030,6 +1050,8 @@
     (comp (ref U20)
       (value ISO7320FC)
       (footprint Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm)
+      (fields
+        (field (name "Part Number") ISO7320FCDR))
       (libsource (lib texas) (part ISO7320FC))
       (sheetpath (names /Output_1/) (tstamps /5AC39A79/))
       (tstamp 5AC3E36A))
@@ -1109,7 +1131,7 @@
       (value TPS1H100AQPWPRQ1)
       (footprint FORT:HTSSOP-14-1EP_4.4x6.5mm_Pitch0.65mm_ThermalPad)
       (fields
-        (field (name "Part Number") TPS1H100AQPWRQ1))
+        (field (name "Part Number") TPS1H100AQPWPRQ1))
       (libsource (lib fort) (part TPS1H100AQPWPRQ1))
       (sheetpath (names /Output_1/) (tstamps /5AC39A79/))
       (tstamp 5AC6500E))
@@ -1186,7 +1208,7 @@
       (sheetpath (names /Output_1/6V_Regulator/) (tstamps /5AC39A79/5AC4F2F7/))
       (tstamp 5AC4C40C))
     (comp (ref C40)
-      (value 1uF)
+      (value "1uF, 50V")
       (footprint Capacitors_SMD:C_0603)
       (fields
         (field (name "Part Number") 06035D105KAT2A))
@@ -1204,6 +1226,8 @@
     (comp (ref U23)
       (value LP3985IM5-5.0/NOPB)
       (footprint TO_SOT_Packages_SMD:SOT-23-5)
+      (fields
+        (field (name "Part Number") LP3985IM5-5.0/NOPB))
       (libsource (lib fort) (part LP3985IM5-5.0/NOPB))
       (sheetpath (names /Output_1/6V_Regulator/) (tstamps /5AC39A79/5AC4F2F7/))
       (tstamp 5AC611CD))
@@ -1216,7 +1240,7 @@
       (sheetpath (names /Output_1/6V_Regulator/) (tstamps /5AC39A79/5AC4F2F7/))
       (tstamp 5AC61286))
     (comp (ref C44)
-      (value 0.01uF)
+      (value "10nF, 50V")
       (footprint Capacitors_SMD:C_0603)
       (fields
         (field (name "Part Number") 06035C103KAT4A))
@@ -1234,6 +1258,8 @@
     (comp (ref U22)
       (value LM2842Y)
       (footprint TO_SOT_Packages_SMD:SOT-23-6)
+      (fields
+        (field (name "Part Number") LM2842YMK-ADJL/NOPB))
       (libsource (lib fort) (part LM2842Y))
       (sheetpath (names /Output_1/6V_Regulator/) (tstamps /5AC39A79/5AC4F2F7/))
       (tstamp 5AC61AEF)))
@@ -1628,22 +1654,22 @@
         (pin (num 7) (name OUTA) (type output))
         (pin (num 8) (name OUTB) (type output)))))
   (libraries
-    (library (logical switches)
-      (uri /usr/share/kicad/library/switches.lib))
-    (library (logical interface)
-      (uri /usr/share/kicad/library/interface.lib))
-    (library (logical regul)
-      (uri /usr/share/kicad/library/regul.lib))
     (library (logical fort)
       (uri /home/tuleu/devel/git.tuleu.science/fort/hardware/ecad/lib/fort.lib))
-    (library (logical device)
-      (uri /usr/share/kicad/library/device.lib))
-    (library (logical conn)
-      (uri /usr/share/kicad/library/conn.lib))
     (library (logical atmel)
       (uri /usr/share/kicad/library/atmel.lib))
+    (library (logical interface)
+      (uri /usr/share/kicad/library/interface.lib))
     (library (logical texas)
-      (uri /usr/share/kicad/library/texas.lib)))
+      (uri /usr/share/kicad/library/texas.lib))
+    (library (logical regul)
+      (uri /usr/share/kicad/library/regul.lib))
+    (library (logical conn)
+      (uri /usr/share/kicad/library/conn.lib))
+    (library (logical device)
+      (uri /usr/share/kicad/library/device.lib))
+    (library (logical switches)
+      (uri /usr/share/kicad/library/switches.lib)))
   (nets
     (net (code 1) (name +5V)
       (node (ref U2) (pin 3))

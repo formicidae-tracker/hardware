@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/tuleu/devel/git.tuleu.science/fort/hardware/ecad/helios/LED_driver/LED_driver.sch)
-    (date "Wed 25 Apr 2018 05:46:41 PM CEST")
+    (date "Fri 27 Apr 2018 03:50:46 PM CEST")
     (tool "Eeschema 4.0.7+dfsg1-1~bpo9+1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -727,7 +727,7 @@
       (sheetpath (names /Buck_Current_regulator_1A_1/) (tstamps /5AA6E3F1/))
       (tstamp 5AA7002F))
     (comp (ref U5)
-      (value TPS1H100AQ)
+      (value TPS1H100AQPWPRQ1)
       (footprint FORT:HTSSOP-14-1EP_4.4x6.5mm_Pitch0.65mm_ThermalPad)
       (fields
         (field (name "Part Number") TPS1H100AQPWPRQ1))
@@ -831,7 +831,7 @@
       (sheetpath (names /Power_Management.sch/) (tstamps /5AB14C4B/))
       (tstamp 5AC62A8E))
     (comp (ref C25)
-      (value 0.01uF)
+      (value "10nF, 50V")
       (footprint Capacitors_SMD:C_0603)
       (fields
         (field (name "Part Number") 06035C103KAT4A))
@@ -879,7 +879,7 @@
       (sheetpath (names /Controller/) (tstamps /5AB48756/))
       (tstamp 5AB48B9E))
     (comp (ref J4)
-      (value Conn_02x03_Odd_Even)
+      (value M20-8760342)
       (footprint Pin_Headers:Pin_Header_Straight_2x03_Pitch2.54mm_SMD)
       (fields
         (field (name "Part Number") M20-8760342))
@@ -1251,20 +1251,20 @@
         (pin (num 7) (name IN-) (type input))
         (pin (num 8) (name IN+) (type input)))))
   (libraries
-    (library (logical interface)
-      (uri /usr/share/kicad/library/interface.lib))
+    (library (logical switches)
+      (uri /usr/share/kicad/library/switches.lib))
     (library (logical device)
       (uri /usr/share/kicad/library/device.lib))
     (library (logical conn)
       (uri /usr/share/kicad/library/conn.lib))
+    (library (logical interface)
+      (uri /usr/share/kicad/library/interface.lib))
+    (library (logical atmel)
+      (uri /usr/share/kicad/library/atmel.lib))
     (library (logical fort)
       (uri /home/tuleu/devel/git.tuleu.science/fort/hardware/ecad/lib/fort.lib))
-    (library (logical switches)
-      (uri /usr/share/kicad/library/switches.lib))
     (library (logical LED_driver-cache)
-      (uri /home/tuleu/devel/git.tuleu.science/fort/hardware/ecad/helios/LED_driver/LED_driver-cache.lib))
-    (library (logical atmel)
-      (uri /usr/share/kicad/library/atmel.lib)))
+      (uri /home/tuleu/devel/git.tuleu.science/fort/hardware/ecad/helios/LED_driver/LED_driver-cache.lib)))
   (nets
     (net (code 1) (name /VIS-)
       (node (ref J2) (pin 3))
