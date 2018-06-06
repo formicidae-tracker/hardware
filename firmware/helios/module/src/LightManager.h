@@ -1,8 +1,13 @@
 #pragma once
 
+#include <inttypes.h>
+
+
 typedef enum {
 	VISIBLE = 0,
-	UV = 1
+	UV = 1,
+	IR = 2,
+	NUM_CHANNELS
 } channel_e;
 
 void InitLightManager();
