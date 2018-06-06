@@ -5,4 +5,4 @@
 void InitSerialInterface();
 
 
-void ProcessSerialInterface();
+void SIProcess();

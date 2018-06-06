@@ -2,18 +2,24 @@
 
 #include "Debug.h"
 #include "LightManager.h"
-
+#include "ChargeMonitor.h"
 
 int main() {
+
+
 	InitDebug();
+	InitChargeMonitor();
 	InitLightManager();
 	Log(0);
 
 	while(true) {
-		//DO something
+		if (CMCheckCharge()) {
+			LMActivateOutput();
+		} else {
+			LMDeactivateOutput();
+		}
 
 	}
-
 
 	return 0;
 }
