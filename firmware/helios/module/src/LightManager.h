@@ -17,3 +17,5 @@ void LMActivateOutput();
 void LMDeactivateOutput();
 
 void LMSetBrightness(channel_e channel, uint8_t brightness);
+
+uint16_t LMSystime();

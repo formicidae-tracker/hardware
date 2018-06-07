@@ -1,32 +1,60 @@
 #include "Debug.h"
 
-#include <avr/eeprom.h>
+#include <avr/io.h>
 
-#define EEPROM_SIZE 128
+#include "LightManager.h"
 
-#define increment_address(a) do {\
-		a = (uint8_t*)(((int)a + 1) & (EEPROM_SIZE-1)); \
-	} while(0)
 
 typedef struct {
-	uint8_t* address;
+	uint8_t value;
+	uint8_t error;
+	uint8_t displayed;
 } DebugData_t;
 
 DebugData_t debug;
 
+//Bit 0 : A5
+//Bit 1 : A4
+
 void InitDebug() {
-	debug.address = 0;
-	while ( (eeprom_read_byte(debug.address) != 0) && (debug.address < (uint8_t*)(EEPROM_SIZE-1)) ) {
-		increment_address(debug.address);
-	}
+	DDRA |= _BV(5) | _BV(4);
+	debug.value = 0;
+	debug.error = 0;
+	debug.displayed = 0;
 }
 
 void Log(uint8_t data) {
-	eeprom_write_byte(debug.address,(data & 0x3f) | 0x80);
-	increment_address(debug.address);
+	debug.value = data;
 }
 
 void ReportError(uint8_t error) {
-	eeprom_write_byte(debug.address,error | 0xc0);
-	increment_address(debug.address);
+	debug.error = error;
+}
+
+void DProcess() {
+	if ( (LMSystime() & 0x7f) != 0 ) {
+		return;
+	}
+	debug.displayed = (debug.displayed + 1) & 0x07;
+	if (debug.error == 0) {
+		if (debug.displayed >= 4) {
+			PORTA &= ~(_BV(5) | _BV(4) ) ;
+			return;
+		}
+		uint8_t toPrint = ((debug.value >> debug.displayed) & 0x03) << 4;
+		PORTA &= toPrint || ~0x30;
+		PORTA |= toPrint;
+		return;
+	}
+
+if ( (debug.displayed & 0x01) == 1) {
+		PORTA &= ~(_BV(5) | _BV(4) ) ;
+		return;
+	}
+
+	uint8_t toPrint = ((debug.value >> (debug.displayed >> 1) ) & 0x03) << 4;
+	PORTA &= toPrint || ~0x30;
+	PORTA |= toPrint;
+
+
 }

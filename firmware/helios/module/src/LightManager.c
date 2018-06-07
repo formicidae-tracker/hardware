@@ -15,6 +15,7 @@ typedef struct {
 	bool IR_ready;
 	uint8_t backupValues[NUM_CHANNELS];
 	BrightnessSetter setters[NUM_CHANNELS];
+	uint16_t systime;
 
 } LightManager_t;
 
@@ -106,6 +107,7 @@ void InitLightManager() {
 	LM.active = false;
 	LM.UV = 0;
 	LM.IR_ready = true;
+	LM.systime = 0;
 	FOR_ALL_CHANNELS(c) {
 		LM.backupValues[c] = 0;
 	}
@@ -151,6 +153,7 @@ ISR(TIM0_OVF_vect) {
 	if (LM.UV != 0) {
 		UV_SET();
 	}
+	++LM.systime;
 }
 
 ISR(TIM0_COMPB_vect) {
@@ -200,4 +203,13 @@ void LMSetBrightness(channel_e channel, uint8_t brightness) {
 	}
 
 	LM.setters[channel](brightness);
+}
+
+
+uint16_t LMSystime() {
+	uint8_t sreg = SREG;
+	cli();
+	uint16_t res = LM.systime;
+	SREG = sreg;
+	return res;
 }

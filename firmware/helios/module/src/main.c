@@ -12,13 +12,13 @@ int main() {
 	InitLightManager();
 	Log(0);
 
+	uint8_t seconds = 0;
 	while(true) {
-		if (CMCheckCharge()) {
-			LMActivateOutput();
-		} else {
-			LMDeactivateOutput();
+		if ( (LMSystime() & 0x3ff) == 0 ) {
+			Log(++seconds);
 		}
 
+		DProcess();
 	}
 
 	return 0;
