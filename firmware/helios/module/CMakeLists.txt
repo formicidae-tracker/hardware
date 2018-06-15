@@ -7,8 +7,8 @@ set(AVR_UPLOADTOOL_OPTIONS -C ${CMAKE_CURRENT_SOURCE_DIR}/../../avrdude.conf)
 
 set(AVR_MCU attiny24)
 set(AVR_L_FUSE 0xff)
-set(AVR_H_FUSE 0xdf)
-#set(AVR_E_FUSE 0xcb)
+set(AVR_H_FUSE 0xdc)
+set(AVR_E_FUSE 0xff)
 set(MCU_SPEED "10000000L")
 
 

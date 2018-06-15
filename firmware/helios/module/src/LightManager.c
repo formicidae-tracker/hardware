@@ -15,11 +15,11 @@ typedef struct {
 	bool IR_ready;
 	uint8_t backupValues[NUM_CHANNELS];
 	BrightnessSetter setters[NUM_CHANNELS];
-	uint16_t systime;
 
 } LightManager_t;
 
-LightManager_t LM;
+volatile LightManager_t LM;
+volatile uint16_t systime;
 
 
 #define UV_SET() PORTA |= _BV(0)
@@ -81,7 +81,6 @@ ISR(TIM1_COMPA_vect) {
 	TIMER1_STOP();
 	// enough time as ellapsed we re-arm the flash
 	LM.IR_ready = true;
-
 }
 
 ISR(TIM1_COMPB_vect){
@@ -107,7 +106,7 @@ void InitLightManager() {
 	LM.active = false;
 	LM.UV = 0;
 	LM.IR_ready = true;
-	LM.systime = 0;
+	systime = 0;
 	FOR_ALL_CHANNELS(c) {
 		LM.backupValues[c] = 0;
 	}
@@ -121,30 +120,29 @@ void InitLightManager() {
 	// with N == 64 we got a frequency of 610 Hz
 
 	//sets the right pin as output;
-	PORTB &= ~(_BV(2));
 	DDRB |= _BV(2); //Sets Visible as output
-	PORTA &= ~(_BV(2) | _BV(0) );
+	PORTB &= ~(_BV(2));
 	DDRA |= _BV(2) | _BV(0); //sets UV and IR as output
-
+	PORTA &= ~(_BV(2) | _BV(0) );
 	// sets a fast pwm mode, disconnect all compare output, and 1/64
 	TCCR0A = _BV(WGM01) | _BV(WGM00);
 	TIMSK0 = _BV(OCIE0B) | _BV(TOIE0);
-
+	OCR0A = 0;
+	OCR0B = 0;
 	// starts the timer
 	TCCR0B = _BV(CS01) | _BV(CS00);
 
 	// CTC mode, timer prescaled 1/64, we want maximu duty of 0.2 and max pulse of 6.528ms
 	// Duty ratio of 0.2 max
-	OCR1A = 4*256*4; // A sets the period between pulse, we want no more than a duty ratio of 0.2
-	OCR1B = 4*256; // B sets the pulse length 6.528ms
+	//OCR1A = 4*256*4; // A sets the period between pulse, we want no more than a duty ratio of 0.2
+	//OCR1B = 4*256; // B sets the pulse length 6.528ms
 
-	TIMSK1 = _BV(OCIE1B) | _BV(OCIE1A);
-	TCCR1A = 0 ;
-	TIMER1_STOP();
-
+	//TIMSK1 = _BV(OCIE1B) | _BV(OCIE1A);
+	//TCCR1A = 0 ;
+	//TIMER1_STOP();
 
 	//enable strobe pulse detection
-	PCMSK0 |= _BV(7);
+	//PCMSK0 |= _BV(7);
 
 	sei(); // we need interrupt enabled
 }
@@ -153,7 +151,7 @@ ISR(TIM0_OVF_vect) {
 	if (LM.UV != 0) {
 		UV_SET();
 	}
-	++LM.systime;
+	++systime;
 }
 
 ISR(TIM0_COMPB_vect) {
@@ -209,7 +207,7 @@ void LMSetBrightness(channel_e channel, uint8_t brightness) {
 uint16_t LMSystime() {
 	uint8_t sreg = SREG;
 	cli();
-	uint16_t res = LM.systime;
+	uint16_t res = systime;
 	SREG = sreg;
 	return res;
 }
