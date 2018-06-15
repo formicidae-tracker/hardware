@@ -1,6 +1,6 @@
 set(SRC_FILES main.c
-              LightManager.c)
-              # Debug.c
+              LightManager.c
+              Debug.c)
               # ChargeMonitor.c
               # SerialInterface.c)
 
