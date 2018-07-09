@@ -652,14 +652,14 @@ CoaXPress Trigger
 $Comp
 L Conn_01x02 J2
 U 1 1 5AC680D1
-P 2200 1350
-F 0 "J2" H 2200 1450 50  0000 C CNN
-F 1 "MCV 1,5/ 2-G-3,5" H 2500 1100 50  0000 C CNN
-F 2 "Connectors_Phoenix:PhoenixContact_MCV-G_02x3.50mm_Vertical" H 2200 1350 50  0001 C CNN
-F 3 "" H 2200 1350 50  0001 C CNN
-F 4 "1843606" H 2200 1350 60  0001 C CNN "Part Number"
-	1    2200 1350
-	-1   0    0    1   
+P 2200 1250
+F 0 "J2" H 2200 1350 50  0000 C CNN
+F 1 "MCV 1,5/ 2-G-3,5" H 2500 1000 50  0000 C CNN
+F 2 "Connectors_Phoenix:PhoenixContact_MCV-G_02x3.50mm_Vertical" H 2200 1250 50  0001 C CNN
+F 3 "" H 2200 1250 50  0001 C CNN
+F 4 "1843606" H 2200 1250 60  0001 C CNN "Part Number"
+	1    2200 1250
+	-1   0    0    -1  
 $EndComp
 Text Notes 1700 1350 0    60   ~ 0
 Alim 12V
