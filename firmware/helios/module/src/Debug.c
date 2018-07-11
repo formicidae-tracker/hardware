@@ -15,9 +15,17 @@ typedef struct {
 DebugData_t debug;
 
 void Ddisplay(uint8_t data) {
-	uint8_t toDisplay = data << 4;
-	PORTA &= (~0x30) | toDisplay;
-	PORTA |= 0x30 & toDisplay;
+	if( (data & 0x1) == 0 ) {
+		PORTA &= ~_BV(4);
+	} else {
+		PORTA |= _BV(4);
+	}
+
+	if( (data & 0x2) == 0 ) {
+		PORTA &= ~_BV(5);
+	} else {
+		PORTA |= _BV(5);
+	}
 }
 
 //Bit 0 : A5

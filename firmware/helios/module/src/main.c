@@ -2,7 +2,7 @@
 
 #include "Debug.h"
 #include "LightManager.h"
-//#include "ChargeMonitor.h"
+#include "ChargeMonitor.h"
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <inttypes.h>
@@ -12,12 +12,12 @@ int main() {
 
 
 	InitDebug();
-	//	InitChargeMonitor();
+	InitChargeMonitor();
 	InitLightManager();
-	//	Log(0);
 
-	ReportError(0xff);
+	//Log(0xaa);
 	while(true) {
+		CMCheckCharge();
 		DProcess();
 	}
 

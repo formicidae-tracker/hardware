@@ -1,7 +1,7 @@
 set(SRC_FILES main.c
               LightManager.c
-              Debug.c)
-              # ChargeMonitor.c
+              Debug.c
+              ChargeMonitor.c)
               # SerialInterface.c)
 
 set(HDR_FILES Debug.h
