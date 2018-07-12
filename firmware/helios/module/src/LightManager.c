@@ -159,6 +159,9 @@ ISR(TIM0_COMPB_vect) {
 }
 
 void LMActivateOutput() {
+	if (LM.active == true ) {
+		return;
+	}
 	uint8_t sreg = SREG;
 	cli();
 	LM.active = true;
@@ -169,6 +172,10 @@ void LMActivateOutput() {
 }
 
 void LMDeactivateOutput() {
+	if (LM.active == false ) {
+		return;
+	}
+
 	uint8_t sreg = SREG;
 	cli();
 	LM.backupValues[VISIBLE] = OCR0A;

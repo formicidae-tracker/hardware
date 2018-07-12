@@ -60,7 +60,7 @@ bool CMCheckCharge() {
 		CM.lastStatus = false;
 		PORTA &= ~(_BV(3)); ;
 	}
-	Log(value>>2);
+
 
 	return CM.lastStatus;
 }
