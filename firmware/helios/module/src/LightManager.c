@@ -59,6 +59,16 @@ void LMSetUVBrightness(uint8_t value) {
 	SREG = sreg;
 }
 
+//Starts a pulse, i.e. marks the IR as unarmed, starts the pulse, and
+//starts the counting.
+#define LM_START_PULSE() do { \
+		LM.IR_ready = false; \
+		TCNT1 = 0; \
+		IR_SET(); \
+		TIMER1_START(); \
+	}while(0)
+
+
 ISR(PCINT0_vect){
 	// if we are not ready, or if we are not active, or its a falling
 	// edge, we clear the output.
@@ -66,16 +76,21 @@ ISR(PCINT0_vect){
 		IR_CLEAR();
 		return;
 	}
-	//rising edge, active and armed, we start a flassh
-
-	//we mark next trigger as unready
-	LM.IR_ready = false;
-
-	TCNT1 = 0;
-	IR_SET();
-	//starts the TIMER counter
-	TIMER1_START();
+	//rising edge, active and armed, we start a flash
+	LM_START_PULSE();
 }
+
+void LMStartPulse() {
+	uint8_t sreg = SREG;
+	cli();
+	if (!LM.IR_ready || !LM.active ) {
+		IR_CLEAR();
+		return;
+	}
+	LM_START_PULSE();
+	SREG =sreg;
+}
+
 
 ISR(TIM1_COMPA_vect) {
 	TIMER1_STOP();
@@ -134,12 +149,12 @@ void InitLightManager() {
 
 	// CTC mode, timer prescaled 1/64, we want maximu duty of 0.2 and max pulse of 6.528ms
 	// Duty ratio of 0.2 max
-	//OCR1A = 4*256*4; // A sets the period between pulse, we want no more than a duty ratio of 0.2
-	//OCR1B = 4*256; // B sets the pulse length 6.528ms
+	OCR1A = 4*256*4; // A sets the period between pulse, we want no more than a duty ratio of 0.2
+	OCR1B = 4*256; // B sets the pulse length 6.528ms
 
-	//TIMSK1 = _BV(OCIE1B) | _BV(OCIE1A);
-	//TCCR1A = 0 ;
-	//TIMER1_STOP();
+	TIMSK1 = _BV(OCIE1B) | _BV(OCIE1A);
+	TCCR1A = 0 ;
+	TIMER1_STOP();
 
 	//enable strobe pulse detection
 	//PCMSK0 |= _BV(7);

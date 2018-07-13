@@ -23,5 +23,8 @@ void LMDeactivateOutput();
 // Sets the brightness of any channel
 void LMSetBrightness(channel_e channel, uint8_t brightness);
 
+//Starts manually an IR pulse
+void LMStartPulse();
+
 // Returns a 610Hz counter ticks
 uint16_t LMSystime();
