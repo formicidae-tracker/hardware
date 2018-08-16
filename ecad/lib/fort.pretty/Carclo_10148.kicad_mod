@@ -40,7 +40,7 @@
   (fp_line (start -7.15 -3.25) (end -6.5 -3.25) (layer F.SilkS) (width 0.25))
   (fp_line (start -9.08 -4.75) (end -7.15 -3.25) (layer F.SilkS) (width 0.25))
   (fp_arc (start 0 0) (end -9.08 -4.75) (angle 124.6653421) (layer F.SilkS) (width 0.25))
-  (model /home/tuleu/devel/git.tuleu.science/fort/hardware/ecad/lib/fort.3dshapes/Carclo_10148.wrl
+  (model ${KIPRJMOD}/../../lib/fort.3dshapes/Carclo_10148.wrl
     (at (xyz 0 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 0))
