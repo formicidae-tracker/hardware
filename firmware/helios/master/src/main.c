@@ -1,18 +1,25 @@
 #include <avr/io.h>
 
-#include <util/delay.h>
+#include "Systime.h"
+
 
 int main() {
+	InitSystime();
+
 	DDRD |= _BV(2) | _BV(4);
 
+	Systime_t last = GetSystime();
 
-	do {
-		_delay_ms(500);
-		PORTD |= _BV(2) | _BV(4);
-		_delay_ms(500);
-		PORTD &= ~(_BV(2) | _BV(4));
+	while(1) {
+		Systime_t now =  GetSystime();
 
-	}while(1);
+		if ( ( now - last ) > 499 ) {
+			last = now;
+			PORTD ^=_BV(2) |  _BV(4);
+		}
+
+	}
+
 
 
 	return 0;
