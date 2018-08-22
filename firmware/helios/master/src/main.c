@@ -1,26 +1,32 @@
 #include <avr/io.h>
 
 #include "Systime.h"
-
+#include "ModuleManager.h"
 
 int main() {
 	InitSystime();
-
-	DDRD |= _BV(2) | _BV(4);
-
+	InitModuleManager();
 	Systime_t last = GetSystime();
-
+	uint8_t vis = 0;
+	int8_t incr = 1;
+	SendToModule(0,vis,0);
 	while(1) {
-		Systime_t now =  GetSystime();
+		ProcessModuleManager();
 
-		if ( ( now - last ) > 499 ) {
+		Systime_t now =  GetSystime();
+		if ( ( now - last ) > 9 ) {
 			last = now;
-			PORTD ^=_BV(2) |  _BV(4);
+			if (vis == 255) {
+				incr = -1;
+			}
+			if (vis == 0 ) {
+				incr = 1;
+			}
+			vis = vis + incr;
+			SendToModule(0, vis, 0);
 		}
 
 	}
-
-
 
 	return 0;
 }
