@@ -8,6 +8,9 @@
 #include <inttypes.h>
 #include <util/delay.h>
 
+#define VIS_LEVEL 25
+
+
 int main() {
 
 
@@ -43,7 +46,7 @@ int main() {
 		}
 		//		DProcess();
 		uint16_t now = LMSystime();
-		if ( isOn && ((now-lastVisible) > 12) && (value != 255)) {
+		if ( isOn && ((now-lastVisible) > 12) && (value != VIS_LEVEL)) {
 			++value;
 			LMSetBrightness(VISIBLE,value);
 			lastVisible = now;

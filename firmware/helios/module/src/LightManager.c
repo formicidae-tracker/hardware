@@ -147,9 +147,9 @@ void InitLightManager() {
 	// starts the timer
 	TCCR0B = _BV(CS01) | _BV(CS00);
 
-	// CTC mode, timer prescaled 1/64, we want maximu duty of 0.2 and max pulse of 6.528ms
-	// Duty ratio of 0.2 max
-	OCR1A = 4*256*4; // A sets the period between pulse, we want no more than a duty ratio of 0.2
+	// CTC mode, timer prescaled 1/64, we want maximu duty of 0.25 and max pulse of 6.528ms
+	// Duty ratio of 0.25 max
+	OCR1A = 4*256*4; // A sets the period between pulse, we want no more than a duty ratio of 0.25
 	OCR1B = 4*256; // B sets the pulse length 6.528ms
 
 	TIMSK1 = _BV(OCIE1B) | _BV(OCIE1A);
