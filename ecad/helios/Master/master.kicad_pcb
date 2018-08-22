@@ -2,7 +2,7 @@
 
   (general
     (links 940)
-    (no_connects 1)
+    (no_connects 0)
     (area 99.924999 49.924999 200.075001 150.075001)
     (thickness 1.6)
     (drawings 55)
@@ -10901,7 +10901,7 @@
     (tags "capacitor 0603")
     (path /5AC59FD5)
     (attr smd)
-    (fp_text reference C1 (at -2.2 -0.05 360) (layer F.SilkS)
+    (fp_text reference C1 (at 0 -2 360) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value 100nF (at 0 1.5 270) (layer F.Fab)
@@ -14109,7 +14109,7 @@
   (gr_text "+  -\n7-12V" (at 193.3 145.25) (layer F.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3)))
   )
-  (gr_text "HELIOS\nLighting \nMaster Board" (at 165 130) (layer F.SilkS)
+  (gr_text "HELIOS\nLighting \nMaster Board\nrev B" (at 165 130) (layer F.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3)))
   )
   (gr_arc (start 198 52) (end 198 50) (angle 90) (layer Edge.Cuts) (width 0.15))

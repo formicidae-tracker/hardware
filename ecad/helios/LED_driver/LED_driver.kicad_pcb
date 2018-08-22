@@ -37,7 +37,7 @@
   )
 
   (setup
-    (last_trace_width 1)
+    (last_trace_width 0.3)
     (user_trace_width 0.3)
     (user_trace_width 0.5)
     (user_trace_width 0.7)
@@ -64,8 +64,8 @@
     (mod_edge_width 0.15)
     (mod_text_size 1 1)
     (mod_text_width 0.15)
-    (pad_size 1.1 1.1)
-    (pad_drill 0.7)
+    (pad_size 2.8 2.8)
+    (pad_drill 1.4)
     (pad_to_mask_clearance 0.1)
     (aux_axis_origin 50 143.5)
     (grid_origin 50 143.5)
@@ -512,7 +512,7 @@
       (net 2 GND))
   )
 
-  (module FORT:Molex_MiniFit-JR-5556-08A_2x04x4.20mm_Straight (layer B.Cu) (tedit 58A28952) (tstamp 5AD1D9E4)
+  (module FORT:Molex_MiniFit-JR-5556-08A_2x04x4.20mm_Straight (layer B.Cu) (tedit 5B7575A5) (tstamp 5AD1D9E4)
     (at 99.8 134.4)
     (descr "Molex Mini-Fit JR, PN:5556-08A, dual row, top entry type, through hole")
     (tags "connector molex mini-fit 5556")
