@@ -9,7 +9,7 @@ set(AVR_UPLOADTOOL_OPTIONS -C ${CMAKE_CURRENT_SOURCE_DIR}/../../avrdude.conf)
 set(AVR_MCU atmega16m1)
 set(AVR_L_FUSE 0xff)
 set(AVR_H_FUSE 0xd9)
-set(AVR_E_FUSE 0xf9)
+set(AVR_E_FUSE 0x01)
 set(MCU_SPEED "16000000L")
 
 project(helios-master C CXX)
@@ -28,5 +28,6 @@ add_compile_options("-ffunction-sections")
 
 set(CMAKE_C_STANDARD 99)
 
+include_directories(${AVR_GCC_INCLUDE})
 
 add_subdirectory(src)
