@@ -56,7 +56,7 @@ F 2 "FORT:OSRAM_Platinium_Dragon" H 5900 2000 50  0001 C CNN
 F 3 "" H 5900 2000 50  0000 C CNN
 F 4 "SFH 4235-Z" H 5900 1650 60  0000 C CNN "Part Number"
 	1    5900 2000
-	-1   0    0    -1
+	-1   0    0    -1  
 $EndComp
 NoConn ~ 5900 2200
 $Comp
@@ -69,7 +69,7 @@ F 2 "FORT:OSRAM_Platinium_Dragon" H 6550 2000 50  0001 C CNN
 F 3 "" H 6550 2000 50  0000 C CNN
 F 4 "SFH 4235-Z" H 6550 1650 60  0000 C CNN "Part Number"
 	1    6550 2000
-	-1   0    0    -1
+	-1   0    0    -1  
 $EndComp
 NoConn ~ 6550 2200
 $Comp
@@ -82,7 +82,7 @@ F 2 "FORT:OSRAM_Platinium_Dragon" H 7200 2000 50  0001 C CNN
 F 3 "" H 7200 2000 50  0000 C CNN
 F 4 "SFH 4235-Z" H 7200 1650 60  0000 C CNN "Part Number"
 	1    7200 2000
-	-1   0    0    -1
+	-1   0    0    -1  
 $EndComp
 NoConn ~ 7200 2200
 $Comp
@@ -95,7 +95,7 @@ F 2 "FORT:OSRAM_Platinium_Dragon" H 3950 2000 50  0001 C CNN
 F 3 "" H 3950 2000 50  0000 C CNN
 F 4 "SFH 4235-Z" H 3950 1650 60  0000 C CNN "Part Number"
 	1    3950 2000
-	-1   0    0    -1
+	-1   0    0    -1  
 $EndComp
 NoConn ~ 3950 2200
 $Comp
@@ -108,7 +108,7 @@ F 2 "FORT:OSRAM_Platinium_Dragon" H 4600 2000 50  0001 C CNN
 F 3 "" H 4600 2000 50  0000 C CNN
 F 4 "SFH 4235-Z" H 4600 1650 60  0000 C CNN "Part Number"
 	1    4600 2000
-	-1   0    0    -1
+	-1   0    0    -1  
 $EndComp
 NoConn ~ 4600 2200
 $Comp
@@ -121,7 +121,7 @@ F 2 "FORT:OSRAM_Platinium_Dragon" H 5250 2000 50  0001 C CNN
 F 3 "" H 5250 2000 50  0000 C CNN
 F 4 "SFH 4235-Z" H 5250 1650 60  0000 C CNN "Part Number"
 	1    5250 2000
-	-1   0    0    -1
+	-1   0    0    -1  
 $EndComp
 NoConn ~ 5250 2200
 Wire Wire Line
@@ -146,7 +146,7 @@ F 2 "FORT:OSRAM_Platinium_Dragon" H 5900 2950 50  0001 C CNN
 F 3 "" H 5900 2950 50  0000 C CNN
 F 4 "SFH 4235-Z" H 5900 2600 60  0000 C CNN "Part Number"
 	1    5900 2950
-	-1   0    0    -1
+	-1   0    0    -1  
 $EndComp
 NoConn ~ 5900 3150
 $Comp
@@ -159,7 +159,7 @@ F 2 "FORT:OSRAM_Platinium_Dragon" H 6550 2950 50  0001 C CNN
 F 3 "" H 6550 2950 50  0000 C CNN
 F 4 "SFH 4235-Z" H 6550 2600 60  0000 C CNN "Part Number"
 	1    6550 2950
-	-1   0    0    -1
+	-1   0    0    -1  
 $EndComp
 NoConn ~ 6550 3150
 $Comp
@@ -172,7 +172,7 @@ F 2 "FORT:OSRAM_Platinium_Dragon" H 7200 2950 50  0001 C CNN
 F 3 "" H 7200 2950 50  0000 C CNN
 F 4 "SFH 4235-Z" H 7200 2600 60  0000 C CNN "Part Number"
 	1    7200 2950
-	-1   0    0    -1
+	-1   0    0    -1  
 $EndComp
 NoConn ~ 7200 3150
 $Comp
@@ -185,7 +185,7 @@ F 2 "FORT:OSRAM_Platinium_Dragon" H 3950 2950 50  0001 C CNN
 F 3 "" H 3950 2950 50  0000 C CNN
 F 4 "SFH 4235-Z" H 3950 2600 60  0000 C CNN "Part Number"
 	1    3950 2950
-	-1   0    0    -1
+	-1   0    0    -1  
 $EndComp
 NoConn ~ 3950 3150
 $Comp
@@ -198,7 +198,7 @@ F 2 "FORT:OSRAM_Platinium_Dragon" H 4600 2950 50  0001 C CNN
 F 3 "" H 4600 2950 50  0000 C CNN
 F 4 "SFH 4235-Z" H 4600 2600 60  0000 C CNN "Part Number"
 	1    4600 2950
-	-1   0    0    -1
+	-1   0    0    -1  
 $EndComp
 NoConn ~ 4600 3150
 $Comp
@@ -211,7 +211,7 @@ F 2 "FORT:OSRAM_Platinium_Dragon" H 5250 2950 50  0001 C CNN
 F 3 "" H 5250 2950 50  0000 C CNN
 F 4 "SFH 4235-Z" H 5250 2600 60  0000 C CNN "Part Number"
 	1    5250 2950
-	-1   0    0    -1
+	-1   0    0    -1  
 $EndComp
 NoConn ~ 5250 3150
 Wire Wire Line
@@ -236,7 +236,7 @@ F 2 "FORT:OSRAM_Platinium_Dragon" H 4150 3950 50  0001 C CNN
 F 3 "" H 4150 3950 50  0000 C CNN
 F 4 "LCW W5SM-JYKZ-4J8K" H 4150 3650 60  0000 C CNN "Part Number"
 	1    4150 3950
-	-1   0    0    -1
+	-1   0    0    -1  
 $EndComp
 NoConn ~ 4150 4150
 $Comp
@@ -249,7 +249,7 @@ F 2 "FORT:OSRAM_Platinium_Dragon" H 5300 3950 50  0001 C CNN
 F 3 "" H 5300 3950 50  0000 C CNN
 F 4 "LCW W5SM-JYKZ-4J8K" H 5300 3650 60  0000 C CNN "Part Number"
 	1    5300 3950
-	-1   0    0    -1
+	-1   0    0    -1  
 $EndComp
 NoConn ~ 5300 4150
 $Comp
@@ -262,7 +262,7 @@ F 2 "FORT:OSRAM_Platinium_Dragon" H 6450 3950 50  0001 C CNN
 F 3 "" H 6450 3950 50  0000 C CNN
 F 4 "LCW W5SM-JYKZ-4J8K" H 6450 3650 60  0000 C CNN "Part Number"
 	1    6450 3950
-	-1   0    0    -1
+	-1   0    0    -1  
 $EndComp
 NoConn ~ 6450 4150
 $Comp
@@ -275,7 +275,7 @@ F 2 "FORT:OSRAM_Platinium_Dragon" H 7600 3950 50  0001 C CNN
 F 3 "" H 7600 3950 50  0000 C CNN
 F 4 "LCW W5SM-JYKZ-4J8K" H 7600 3650 60  0000 C CNN "Part Number"
 	1    7600 3950
-	-1   0    0    -1
+	-1   0    0    -1  
 $EndComp
 NoConn ~ 7600 4150
 Wire Wire Line
@@ -287,87 +287,69 @@ Wire Wire Line
 Wire Wire Line
 	8400 2000 8400 2500
 Wire Wire Line
-	8400 2500 3450 2500
+	8400 2500 3400 2500
 Wire Wire Line
 	8400 2950 8400 3450
 Wire Wire Line
 	7750 3950 8400 3950
 Wire Wire Line
 	8400 3950 8400 4450
-$Comp
-L Conn_01x01 IR_A_VCC1
-U 1 1 5A998A4E
-P 3250 2000
-F 0 "IR_A_VCC1" H 3250 2100 50  0000 C CNN
-F 1 "Conn_01x01" H 3250 1900 50  0000 C CNN
-F 2 "Wire_Pads:SolderWirePad_single_SMD_5x10mm" H 3250 2000 50  0001 C CNN
-F 3 "" H 3250 2000 50  0001 C CNN
-	1    3250 2000
-	-1   0    0    1
-$EndComp
 Wire Wire Line
-	3450 2000 3800 2000
-$Comp
-L Conn_01x01 IR_A_GND1
-U 1 1 5A998D53
-P 3250 2500
-F 0 "IR_A_GND1" H 3250 2600 50  0000 C CNN
-F 1 "Conn_01x01" H 3250 2400 50  0000 C CNN
-F 2 "Wire_Pads:SolderWirePad_single_SMD_5x10mm" H 3250 2500 50  0001 C CNN
-F 3 "" H 3250 2500 50  0001 C CNN
-	1    3250 2500
-	-1   0    0    1
-$EndComp
-$Comp
-L Conn_01x01 IR_B_VCC1
-U 1 1 5A998DDC
-P 3250 2950
-F 0 "IR_B_VCC1" H 3250 3050 50  0000 C CNN
-F 1 "Conn_01x01" H 3250 2850 50  0000 C CNN
-F 2 "Wire_Pads:SolderWirePad_single_SMD_5x10mm" H 3250 2950 50  0001 C CNN
-F 3 "" H 3250 2950 50  0001 C CNN
-	1    3250 2950
-	-1   0    0    1
-$EndComp
+	3400 2000 3800 2000
 Wire Wire Line
 	3450 2950 3800 2950
-$Comp
-L Conn_01x01 IR_B_GND1
-U 1 1 5A998E7D
-P 3250 3450
-F 0 "IR_B_GND1" H 3250 3550 50  0000 C CNN
-F 1 "Conn_01x01" H 3250 3350 50  0000 C CNN
-F 2 "Wire_Pads:SolderWirePad_single_SMD_5x10mm" H 3250 3450 50  0001 C CNN
-F 3 "" H 3250 3450 50  0001 C CNN
-	1    3250 3450
-	-1   0    0    1
-$EndComp
 Wire Wire Line
 	8400 3450 3450 3450
-$Comp
-L Conn_01x01 VIS_VCC1
-U 1 1 5A998FB7
-P 3250 3950
-F 0 "VIS_VCC1" H 3250 4050 50  0000 C CNN
-F 1 "Conn_01x01" H 3250 3850 50  0000 C CNN
-F 2 "Wire_Pads:SolderWirePad_single_SMD_5x10mm" H 3250 3950 50  0001 C CNN
-F 3 "" H 3250 3950 50  0001 C CNN
-	1    3250 3950
-	-1   0    0    1
-$EndComp
 Wire Wire Line
 	3450 3950 4000 3950
-$Comp
-L Conn_01x01 VIS_GND1
-U 1 1 5A9990DD
-P 3250 4450
-F 0 "VIS_GND1" H 3250 4550 50  0000 C CNN
-F 1 "Conn_01x01" H 3250 4350 50  0000 C CNN
-F 2 "Wire_Pads:SolderWirePad_single_SMD_5x10mm" H 3250 4450 50  0001 C CNN
-F 3 "" H 3250 4450 50  0001 C CNN
-	1    3250 4450
-	-1   0    0    1
-$EndComp
 Wire Wire Line
 	8400 4450 3450 4450
+$Comp
+L Conn_01x02 J1
+U 1 1 5B741CF2
+P 3200 2300
+F 0 "J1" H 3200 2400 50  0000 C CNN
+F 1 "IR_A" H 3200 2100 50  0000 C CNN
+F 2 "FORT:009176002701106" H 3200 2300 50  0001 C CNN
+F 3 "" H 3200 2300 50  0001 C CNN
+F 4 "009176002701106" H 3200 2300 60  0001 C CNN "Part Number"
+	1    3200 2300
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3400 2200 3400 2000
+Wire Wire Line
+	3400 2500 3400 2300
+$Comp
+L Conn_01x02 J2
+U 1 1 5B742865
+P 3250 3250
+F 0 "J2" H 3250 3350 50  0000 C CNN
+F 1 "IR_B" H 3250 3050 50  0000 C CNN
+F 2 "FORT:009176002701106" H 3250 3250 50  0001 C CNN
+F 3 "" H 3250 3250 50  0001 C CNN
+F 4 "009176002701106" H 3250 3250 60  0001 C CNN "Part Number"
+	1    3250 3250
+	-1   0    0    1   
+$EndComp
+$Comp
+L Conn_01x02 J3
+U 1 1 5B742A5B
+P 3250 4250
+F 0 "J3" H 3250 4350 50  0000 C CNN
+F 1 "VIS" H 3250 4050 50  0000 C CNN
+F 2 "FORT:009176002701106" H 3250 4250 50  0001 C CNN
+F 3 "" H 3250 4250 50  0001 C CNN
+F 4 "009176002701106" H 3250 4250 60  0001 C CNN "Part Number"
+	1    3250 4250
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3450 3450 3450 3250
+Wire Wire Line
+	3450 3150 3450 2950
+Wire Wire Line
+	3450 4150 3450 3950
+Wire Wire Line
+	3450 4450 3450 4250
 $EndSCHEMATC

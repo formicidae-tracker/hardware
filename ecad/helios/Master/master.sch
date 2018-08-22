@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:master-rescue
 LIBS:power
 LIBS:device
 LIBS:switches
@@ -396,8 +397,6 @@ F2 "DATA" I L 9300 1100 60
 F3 "TRIGGER" I L 9300 1200 60 
 $EndSheet
 Wire Wire Line
-	4400 5150 8800 5150
-Wire Wire Line
 	8800 5150 8800 1100
 Wire Wire Line
 	8800 1100 9300 1100
@@ -651,14 +650,14 @@ CoaXPress Trigger
 $Comp
 L Conn_01x02 J2
 U 1 1 5AC680D1
-P 2200 1350
-F 0 "J2" H 2200 1450 50  0000 C CNN
-F 1 "MCV 1,5/ 2-G-3,5" H 2500 1100 50  0000 C CNN
-F 2 "Connectors_Phoenix:PhoenixContact_MCV-G_02x3.50mm_Vertical" H 2200 1350 50  0001 C CNN
-F 3 "" H 2200 1350 50  0001 C CNN
-F 4 "1843606" H 2200 1350 60  0001 C CNN "Part Number"
-	1    2200 1350
-	-1   0    0    1   
+P 2200 1250
+F 0 "J2" H 2200 1350 50  0000 C CNN
+F 1 "MCV 1,5/ 2-G-3,5" H 2500 1000 50  0000 C CNN
+F 2 "Connectors_Phoenix:PhoenixContact_MCV-G_02x3.50mm_Vertical" H 2200 1250 50  0001 C CNN
+F 3 "" H 2200 1250 50  0001 C CNN
+F 4 "1843606" H 2200 1250 60  0001 C CNN "Part Number"
+	1    2200 1250
+	-1   0    0    -1  
 $EndComp
 Text Notes 1700 1350 0    60   ~ 0
 Alim 12V
@@ -672,7 +671,7 @@ Text Label 5100 5700 0    60   ~ 0
 XTAL1
 Text Label 5100 6100 0    60   ~ 0
 XTAL2
-Text Label 4550 5150 0    60   ~ 0
+Text Label 7650 5150 0    60   ~ 0
 DATA
 Text Label 6900 4250 0    60   ~ 0
 CANH
@@ -821,18 +820,12 @@ Wire Wire Line
 	4700 5350 5500 5350
 Text Label 5500 5350 0    60   ~ 0
 ~ICSP_RESET
-Text Label 4650 3050 0    60   ~ 0
+Text Label 4650 5050 0    60   ~ 0
 ICSP_MISO
-Text Label 4650 3150 0    60   ~ 0
+Text Label 4650 5150 0    60   ~ 0
 ICSP_MOSI
-Text Label 4650 3750 0    60   ~ 0
+Text Label 4650 5250 0    60   ~ 0
 ICSP_SCK
-Wire Wire Line
-	4400 3750 4650 3750
-Wire Wire Line
-	4400 3150 4650 3150
-Wire Wire Line
-	4400 3050 4650 3050
 NoConn ~ 4400 3250
 NoConn ~ 4400 3350
 NoConn ~ 4400 3450
@@ -846,9 +839,35 @@ NoConn ~ 4400 4550
 NoConn ~ 4400 4650
 NoConn ~ 4400 4850
 NoConn ~ 4400 4950
-NoConn ~ 4400 5050
-NoConn ~ 4400 5250
 NoConn ~ 4400 5450
 NoConn ~ 4400 5350
 NoConn ~ 4400 5550
+Wire Wire Line
+	4400 5050 4650 5050
+Wire Wire Line
+	4400 5250 4650 5250
+$Comp
+L R R43
+U 1 1 5B488AAD
+P 7050 5150
+F 0 "R43" V 7130 5150 50  0000 C CNN
+F 1 "1K" V 7050 5150 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603" V 6980 5150 50  0001 C CNN
+F 3 "" H 7050 5150 50  0001 C CNN
+F 4 "RMCF0603FT1K00" H 7050 5150 60  0001 C CNN "Part Number"
+	1    7050 5150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4400 5150 6900 5150
+Wire Wire Line
+	7200 5150 8800 5150
+NoConn ~ 4400 3050
+NoConn ~ 4400 3150
+NoConn ~ 4400 3750
+Wire Wire Line
+	2150 3350 2150 3750
+Wire Wire Line
+	2150 3750 2200 3750
+Connection ~ 2150 3350
 $EndSCHEMATC

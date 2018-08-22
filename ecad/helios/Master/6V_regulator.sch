@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:master-rescue
 LIBS:power
 LIBS:device
 LIBS:switches
@@ -231,7 +232,7 @@ F 4 "GRM31CR61A476ME15L" H 6800 3800 60  0001 C CNN "Part Number"
 	1    0    0    -1  
 $EndComp
 Text HLabel 2400 3250 0    60   Input ~ 0
-VIN
+V36IN
 Text HLabel 2300 4250 0    60   BiDi ~ 0
 PWRGND
 Wire Wire Line
@@ -352,4 +353,8 @@ F 4 "LM2842YMK-ADJL/NOPB" H 4250 3450 60  0001 C CNN "Part Number"
 	1    4250 3450
 	1    0    0    -1  
 $EndComp
+Text Label 8800 3650 0    60   ~ 0
+BYPASS
+Text Label 2700 3250 0    60   ~ 0
+V36IN
 $EndSCHEMATC
