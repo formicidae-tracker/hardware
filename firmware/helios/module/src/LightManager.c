@@ -22,22 +22,22 @@ volatile LightManager_t LM;
 volatile uint16_t systime;
 
 
-#define UV_SET() PORTA |= _BV(0)
-#define UV_CLEAR() PORTA &= ~(_BV(0))
+#define UV_SET() PORTB |= _BV(1)
+#define UV_CLEAR() PORTB &= ~(_BV(1))
 
 #define VIS_SET() PORTB |= _BV(2);
 #define VIS_CLEAR() PORTB &= ~(_BV(2))
 
-#define IR_SET() PORTA |= _BV(2);
-#define IR_CLEAR() PORTA &= ~(_BV(2));
+#define IR_SET() PORTD |= _BV(5);
+#define IR_CLEAR() PORTD &= ~(_BV(5));
 
-#define TIMER1_START() TCCR1B = _BV(WGM12) | _BV(CS11) | _BV(CS10) //sets 1/64 prescaling
-#define TIMER1_STOP() TCCR1B = _BV(WGM12) //sets 1/64 prescaling
+#define TIMER3_START() TCCR3B = _BV(WGM12) | _BV(CS11) | _BV(CS10) //sets 1/64 prescaling
+#define TIMER3_STOP() TCCR3B = _BV(WGM12) //sets 1/64 prescaling
 
 #define FOR_ALL_CHANNELS(i) for (uint8_t i = 0; i < NUM_CHANNELS; ++i)
 
 void LMSetVisibleBrightness(uint8_t value) {
-	OCR0A = value;
+	OCR1B = value;
 	if(value == 0 ) {
 		TCCR0A = _BV(WGM01) | _BV(WGM00);
 		VIS_CLEAR();
@@ -72,7 +72,7 @@ void LMSetUVBrightness(uint8_t value) {
 ISR(PCINT0_vect){
 	// if we are not ready, or if we are not active, or its a falling
 	// edge, we clear the output.
-	if ( !LM.IR_ready || !LM.active || (PINA & _BV(7)) == 0) {
+	if ( !LM.IR_ready || !LM.active || (PIND & _BV(3)) == 0) {
 		IR_CLEAR();
 		return;
 	}

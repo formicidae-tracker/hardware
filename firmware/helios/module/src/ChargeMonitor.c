@@ -14,14 +14,14 @@ ChargeMonitor_t CM;
 void InitChargeMonitor() {
 	CM.lastStatus = false;
 
-	ADMUX |= _BV(MUX0); //PA1 is considered as a singled ended input, 5V reference
-	DIDR0 |= _BV(ADC1D); // disable PA1 as an digital input
+	ADMUX |= _BV(REFS0); //PA0 with AVC and capacitor at AREF
+	DIDR0 |= _BV(ADC0D); // disable PA1 as an digital input
 
 	//enables ADC with a prescaler of 128 -> F = 78125Hz, and starts the first conversion
 	ADCSRA = _BV(ADEN) | _BV(ADSC) | _BV(ADPS2) | _BV(ADPS1) | _BV(ADPS0);
 
 	//EN36V as output 0 initial state
-	DDRA |= _BV(3);
+	DDRD |= _BV(6);
 }
 
 // startup threshold should be determined from strating current
@@ -55,10 +55,10 @@ bool CMCheckCharge() {
 	//hysteresis on the input value
 	if (CM.lastStatus == false && value >= ON_THRESHOLD ) {
 		CM.lastStatus = true;
-		PORTA |= _BV(3);
+		PORTD |= _BV(6);
 	} else if ( CM.lastStatus == true && value <=  OFF_THRESHOLD ) {
 		CM.lastStatus = false;
-		PORTA &= ~(_BV(3)); ;
+		PORTD &= ~(_BV(6)); ;
 	}
 
 

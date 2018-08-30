@@ -16,22 +16,22 @@ DebugData_t debug;
 
 void Ddisplay(uint8_t data) {
 	if( (data & 0x1) == 0 ) {
-		PORTA &= ~_BV(4);
+		PORTB &= ~_BV(4);
 	} else {
-		PORTA |= _BV(4);
+		PORTB |= _BV(4);
 	}
 
 	if( (data & 0x2) == 0 ) {
-		PORTA &= ~_BV(5);
+		PORTB &= ~_BV(5);
 	} else {
-		PORTA |= _BV(5);
+		PORTB |= _BV(5);
 	}
 }
 
 //Bit 0 : A5
 //Bit 1 : A4
 void InitDebug() {
-	DDRA |= _BV(5) | _BV(4);
+	DDRB |= _BV(5) | _BV(4);
 	Ddisplay(0);
 	debug.value = 0;
 	debug.error = 0;
