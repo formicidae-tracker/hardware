@@ -364,15 +364,15 @@ Text HLabel 4800 3200 2    60   Output ~ 0
 VIS_PWM
 Wire Wire Line
 	4400 3300 5450 3300
-Text HLabel 4750 5300 2    60   Output ~ 0
-IR_ON
 Text HLabel 4750 5200 2    60   Output ~ 0
+IR_ON
+Text HLabel 4750 5300 2    60   Output ~ 0
 EN36V
 Connection ~ 10000 3600
 Text Label 4750 3900 0    60   ~ 0
 V36_MEASURE
 Wire Wire Line
-	4400 5200 4750 5200
+	4400 5300 4750 5300
 Wire Wire Line
 	6100 4250 10000 4250
 $Comp
@@ -389,7 +389,7 @@ $EndComp
 Wire Wire Line
 	10000 4250 10000 3350
 Wire Wire Line
-	4400 5300 4750 5300
+	4400 5200 4750 5200
 Wire Wire Line
 	4400 4700 4800 4700
 Text HLabel 4800 3100 2    60   Output ~ 0
@@ -401,10 +401,10 @@ L Crystal_GND24 Y1
 U 1 1 5AC532E0
 P 6700 3650
 F 0 "Y1" V 6950 3750 50  0000 L CNN
-F 1 "16MHz" V 6850 3750 50  0000 L CNN
-F 2 "Crystals:Crystal_SMD_SeikoEpson_FA238-4pin_3.2x2.5mm" H 6700 3650 50  0001 C CNN
+F 1 "20MHz" V 6850 3750 50  0000 L CNN
+F 2 "Crystals:Crystal_SMD_Abracon_ABM8G-4pin_3.2x2.5mm" H 6700 3650 50  0001 C CNN
 F 3 "" H 6700 3650 50  0001 C CNN
-F 4 "FA-238 16.0000MB-C3" H 6700 3650 60  0001 C CNN "Part Number"
+F 4 "ABM8G-20.000MHZ-18-D2Y-T" H 6700 3650 60  0001 C CNN "Part Number"
 	1    6700 3650
 	0    1    1    0   
 $EndComp
@@ -578,4 +578,9 @@ Text Label 5650 3600 0    60   ~ 0
 XTAL+
 Text Label 5650 3700 0    60   ~ 0
 XTAL-
+Wire Wire Line
+	4400 4900 4550 4900
+Wire Wire Line
+	4550 4900 4550 5000
+Connection ~ 4550 5000
 $EndSCHEMATC
