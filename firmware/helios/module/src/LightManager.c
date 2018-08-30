@@ -11,16 +11,12 @@ typedef void (*BrightnessSetter)(uint8_t);
 
 typedef struct {
 	bool active;
-	uint8_t UV;
 	bool IR_ready;
 	uint8_t backupValues[NUM_CHANNELS];
 	BrightnessSetter setters[NUM_CHANNELS];
-
 } LightManager_t;
 
 volatile LightManager_t LM;
-volatile uint16_t systime;
-
 
 #define UV_SET() PORTB |= _BV(1)
 #define UV_CLEAR() PORTB &= ~(_BV(1))
@@ -28,56 +24,129 @@ volatile uint16_t systime;
 #define VIS_SET() PORTB |= _BV(2);
 #define VIS_CLEAR() PORTB &= ~(_BV(2))
 
+#define SET_9BIT_PWM_BRIGHTNESS(Timer,Channel,Port,Pin,value) do {	  \
+	if ( value == 0 ) { \
+		OCR ## Timer ## Channel = 0; \
+		TCCR ## Timer ## A &= ~(_BV(COM ## Timer ## Channel ## 1)); \
+		PORT ## Port &= ~(_BV(Pin)); \
+	} else { \
+		OCR ## Timer ## Channel = (((uint16_t)value) << 1) + 1; \
+		TCCR ## Timer ## A |= _BV(COM ## Timer ## Channel ## 1); \
+	} \
+}while(0)
+
+
 #define IR_SET() PORTD |= _BV(5);
 #define IR_CLEAR() PORTD &= ~(_BV(5));
 
-#define TIMER3_START() TCCR3B = _BV(WGM12) | _BV(CS11) | _BV(CS10) //sets 1/64 prescaling
-#define TIMER3_STOP() TCCR3B = _BV(WGM12) //sets 1/64 prescaling
+#define TIMER3_START() TCCR3B =  _BV(CS32) //sets 1/256 prescaling
+#define TIMER3_STOP() TCCR3B = 0x00 //stops timer
 
 #define FOR_ALL_CHANNELS(i) for (uint8_t i = 0; i < NUM_CHANNELS; ++i)
 
-void LMSetVisibleBrightness(uint8_t value) {
-	OCR1B = value;
-	if(value == 0 ) {
-		TCCR0A = _BV(WGM01) | _BV(WGM00);
-		VIS_CLEAR();
-		return;
+
+//forward declarations
+void LMSetUVBrightness(uint8_t);
+void LMSetVisibleBrightness(uint8_t);
+void LMSetIRBrightness(uint8_t);
+
+void InitLightManager() {
+	cli();
+
+	LM.active = false;
+	LM.IR_ready = true;
+	FOR_ALL_CHANNELS(c) {
+		LM.backupValues[c] = 0;
 	}
-	//enables OC0A
-	TCCR0A = _BV(COM0A1) | _BV(WGM01) | _BV(WGM00);
+
+	//sets the right pin as output;
+	DDRB |= _BV(1) | _BV(2); //Sets UV and Visible as output
+	DDRD |= _BV(5); //sets IR as output
+
+
+	LM.setters[UV] = &LMSetUVBrightness;
+	LM.setters[VISIBLE] = &LMSetVisibleBrightness;
+	LM.setters[IR] = &LMSetIRBrightness;
+	// Sets TC1 as PWM source for Visible and UV
+	// TPS92512 requires a PWM frequency between 100Hz and 1kHz
+	// If we choose a fast PWM, we have F =1 / (N * (TOP+1)) N in 1,8,64,256,1024
+	// with N == 64 and TOP=511 we got a frequency of 610 Hz
+	// sets a fast pwm mode, disconnect all compare output, and 1/64
+	TCCR1A = _BV(WGM11);
+	TCCR1B = _BV(WGM12) | _BV(CS11) | _BV(CS00);
+	SET_9BIT_PWM_BRIGHTNESS(1, A, B, 1, 0);
+	SET_9BIT_PWM_BRIGHTNESS(1, B, B, 2, 0);
+	// starts the timer
+
+	UV_CLEAR();
+	IR_CLEAR();
+	VIS_CLEAR();
+
+	// Set Timer3 to measure IR pulses
+	// Normal mode, timer prescaled 1/256, we want maximu duty of 0.25 and max pulse of 6.664ms
+	// Duty ratio of 0.25 max
+	OCR3A = 2*256*4; // A sets the period between pulse, we want no more than a duty ratio of 0.25
+	OCR3B = 2*256; // B sets the pulse length 6.5664ms
+
+	TIMSK3 = _BV(OCIE3B) | _BV(OCIE3A);
+	TCCR3A = 0 ;
+	TIMER3_STOP();
+
+
+	//trigger interrupt on INT1 rising and on INT0 falling
+	//DDRD &= ~(_BV(2) | _BV(3) ) ; //makes sure INT1 and INT0 are input
+	//EICRA = _BV(ISC11) | _BV(ISC10) | _BV(ISC01);
+	//EIMSK |= _BV(INT1) _BV(INT0);
+
+	sei(); // we need interrupt enabled
 }
 
+
+
 void LMSetUVBrightness(uint8_t value) {
-	if ( value == 0xff ) {
-		TIMSK0 = _BV(TOIE0);
-		UV_SET();
-	}
-	TIMSK0 = _BV(OCIE0B) | _BV(TOIE0);
-	int sreg = SREG;
-	cli();
-	OCR0B = value;
-	SREG = sreg;
+	SET_9BIT_PWM_BRIGHTNESS(1, A, B, 1, value);
 }
+
+void LMSetVisibleBrightness(uint8_t value) {
+	SET_9BIT_PWM_BRIGHTNESS(1, B, B, 2, value);
+}
+
 
 //Starts a pulse, i.e. marks the IR as unarmed, starts the pulse, and
 //starts the counting.
 #define LM_START_PULSE() do { \
 		LM.IR_ready = false; \
-		TCNT1 = 0; \
 		IR_SET(); \
-		TIMER1_START(); \
+		TIMER3_START(); \
 	}while(0)
 
 
-ISR(PCINT0_vect){
-	// if we are not ready, or if we are not active, or its a falling
-	// edge, we clear the output.
-	if ( !LM.IR_ready || !LM.active || (PIND & _BV(3)) == 0) {
-		IR_CLEAR();
+ISR(INT1_vect){
+	// rising edge
+	if ( !LM.IR_ready || !LM.active ) {
+		//ensure armed and active
+		IR_CLEAR(); // to be sure
 		return;
 	}
-	//rising edge, active and armed, we start a flash
 	LM_START_PULSE();
+}
+
+ISR(INT0_vect) {
+	//falling edge
+	IR_CLEAR();
+}
+
+ISR(TIMER3_COMPA_vect) {
+	TIMER3_STOP();
+	// enough time as ellapsed we re-arm the flash
+	TCNT3 = 0;
+	LM.IR_ready = true;
+}
+
+ISR(TIMER3_COMPB_vect){
+	//no matter what, if we reach this we should stop to avoid to
+	//exceed the maximal duty ratio
+	IR_CLEAR();
 }
 
 void LMStartPulse() {
@@ -85,22 +154,11 @@ void LMStartPulse() {
 	cli();
 	if (!LM.IR_ready || !LM.active ) {
 		IR_CLEAR();
+		SREG = sreg;
 		return;
 	}
 	LM_START_PULSE();
 	SREG =sreg;
-}
-
-
-ISR(TIM1_COMPA_vect) {
-	TIMER1_STOP();
-	// enough time as ellapsed we re-arm the flash
-	LM.IR_ready = true;
-}
-
-ISR(TIM1_COMPB_vect){
-	//no matter what, if we reach this we should stop !
-	IR_CLEAR();
 }
 
 void LMSetIRBrightness(uint8_t value) {
@@ -108,70 +166,13 @@ void LMSetIRBrightness(uint8_t value) {
 	cli();
 
 	if (value == 0 ) {
-		OCR1B = 4*256; // 6.528ms;
+		OCR3B = 2*256; // 6.528ms;
 	} else {
-		OCR1B = ((uint16_t)value) << 2;
+		OCR3B = ((uint16_t)value) << 1;
 	}
 	SREG = sreg;
 }
 
-void InitLightManager() {
-	cli();
-
-	LM.active = false;
-	LM.UV = 0;
-	LM.IR_ready = true;
-	systime = 0;
-	FOR_ALL_CHANNELS(c) {
-		LM.backupValues[c] = 0;
-	}
-
-	LM.setters[UV] = &LMSetUVBrightness;
-	LM.setters[VISIBLE] = &LMSetVisibleBrightness;
-	LM.setters[IR] = &LMSetIRBrightness;
-	// Sets TC0 as PWM source for Visible and UV
-	// TPS92512 requires a PWM frequency between 100Hz and 1kHz
-	// If we choose a fast PWM, we have F =1 / (N * 256) N in 1,8,64,256,1024
-	// with N == 64 we got a frequency of 610 Hz
-
-	//sets the right pin as output;
-	DDRB |= _BV(2); //Sets Visible as output
-	PORTB &= ~(_BV(2));
-	DDRA |= _BV(2) | _BV(0); //sets UV and IR as output
-	PORTA &= ~(_BV(2) | _BV(0) );
-	// sets a fast pwm mode, disconnect all compare output, and 1/64
-	TCCR0A = _BV(WGM01) | _BV(WGM00);
-	TIMSK0 = _BV(OCIE0B) | _BV(TOIE0);
-	OCR0A = 0;
-	OCR0B = 0;
-	// starts the timer
-	TCCR0B = _BV(CS01) | _BV(CS00);
-
-	// CTC mode, timer prescaled 1/64, we want maximu duty of 0.25 and max pulse of 6.528ms
-	// Duty ratio of 0.25 max
-	OCR1A = 4*256*4; // A sets the period between pulse, we want no more than a duty ratio of 0.25
-	OCR1B = 4*256; // B sets the pulse length 6.528ms
-
-	TIMSK1 = _BV(OCIE1B) | _BV(OCIE1A);
-	TCCR1A = 0 ;
-	TIMER1_STOP();
-
-	//enable strobe pulse detection
-	//PCMSK0 |= _BV(7);
-
-	sei(); // we need interrupt enabled
-}
-
-ISR(TIM0_OVF_vect) {
-	if (LM.UV != 0) {
-		UV_SET();
-	}
-	++systime;
-}
-
-ISR(TIM0_COMPB_vect) {
-	UV_CLEAR();
-}
 
 void LMActivateOutput() {
 	if (LM.active == true ) {
@@ -193,13 +194,13 @@ void LMDeactivateOutput() {
 
 	uint8_t sreg = SREG;
 	cli();
-	LM.backupValues[VISIBLE] = OCR0A;
-	if ( OCR1B == 4*256) {
+	LM.backupValues[UV] = (uint8_t)(OCR1A >> 1);
+	LM.backupValues[VISIBLE] = (uint8_t)(OCR1B >> 1);
+	if ( OCR1B == 2*256) {
 		LM.backupValues[IR] = 0;
 	} else {
-		LM.backupValues[IR] = (uint8_t)(OCR1B >> 2);
+		LM.backupValues[IR] = (uint8_t)(OCR3B >> 1);
 	}
-	LM.backupValues[UV] = LM.UV;
 	LM.active = false;
 	FOR_ALL_CHANNELS(c) {
 		LM.setters[c](0);
@@ -223,13 +224,4 @@ void LMSetBrightness(channel_e channel, uint8_t brightness) {
 	}
 
 	LM.setters[channel](brightness);
-}
-
-
-uint16_t LMSystime() {
-	uint8_t sreg = SREG;
-	cli();
-	uint16_t res = systime;
-	SREG = sreg;
-	return res;
 }

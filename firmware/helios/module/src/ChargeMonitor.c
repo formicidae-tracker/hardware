@@ -11,6 +11,10 @@ typedef struct {
 
 ChargeMonitor_t CM;
 
+
+#define SET_EN36V() PORTD |= _BV(6);
+#define CLEAR_EN36V() PORTD &= ~(_BV(6));
+
 void InitChargeMonitor() {
 	CM.lastStatus = false;
 
@@ -22,6 +26,7 @@ void InitChargeMonitor() {
 
 	//EN36V as output 0 initial state
 	DDRD |= _BV(6);
+	CLEAR_EN36V();
 }
 
 // startup threshold should be determined from strating current
@@ -36,10 +41,6 @@ void InitChargeMonitor() {
 #define OFF_THRESHOLD 749
 
 bool CMCheckCharge() {
-	//TODO : should enable EN36V, other wise all will go through a
-	//large limiting resistor !!!
-
-
 	// if adc conversion is currently runnning
 	if ( (ADCSRA & _BV(ADSC)) != 0 ) {
 		return CM.lastStatus;
@@ -53,14 +54,13 @@ bool CMCheckCharge() {
 	ADCSRA |= _BV(ADSC);
 
 	//hysteresis on the input value
-	if (CM.lastStatus == false && value >= ON_THRESHOLD ) {
+	if ( (CM.lastStatus == false) && (value >= ON_THRESHOLD) ) {
 		CM.lastStatus = true;
-		PORTD |= _BV(6);
-	} else if ( CM.lastStatus == true && value <=  OFF_THRESHOLD ) {
+		SET_EN36V();
+	} else if ( (CM.lastStatus == true) && (value <=  OFF_THRESHOLD) ) {
 		CM.lastStatus = false;
-		PORTD &= ~(_BV(6)); ;
+		CLEAR_EN36V();
 	}
-
 
 	return CM.lastStatus;
 }

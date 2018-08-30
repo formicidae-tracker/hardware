@@ -1,12 +1,10 @@
 set(SRC_FILES main.c
-	          Systime.c)
-              #LightManager.c
-              #Debug.c
-              #ChargeMonitor.c)
+	          Systime.c
+              LightManager.c
+              ChargeMonitor.c)
               # SerialInterface.c)
 
-set(HDR_FILES Debug.h
-              Systime.h
+set(HDR_FILES Systime.h
               LightManager.h
               ChargeMonitor.h
               SerialInterface.h)
