@@ -9,7 +9,7 @@ int main() {
 	Systime_t last = GetSystime();
 	uint8_t vis = 0;
 	int8_t incr = 1;
-	SendToModule(0,vis,0);
+	SendToModule(vis,0);
 	while(1) {
 		ProcessModuleManager();
 
@@ -23,7 +23,7 @@ int main() {
 				incr = 1;
 			}
 			vis = vis + incr;
-			SendToModule(0, vis, 0);
+			SendToModule(vis, 0);
 		}
 
 	}

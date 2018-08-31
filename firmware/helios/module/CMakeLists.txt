@@ -33,6 +33,8 @@ add_compile_options("-funsigned-bitfields")
 add_compile_options("-ffunction-sections")
 add_compile_options("-std=c99")
 
+include_directories(${PROJECT_SOURCE_DIR}/../)
+
 set(CMAKE_C_STANDARD 99)
 
 add_subdirectory(src)

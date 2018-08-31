@@ -5,4 +5,4 @@ void InitModuleManager();
 
 void ProcessModuleManager();
 
-void SendToModule(uint8_t ir, uint8_t vis, uint8_t uv);
+void SendToModule(uint8_t vis, uint8_t uv);

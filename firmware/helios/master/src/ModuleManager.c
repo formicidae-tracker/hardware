@@ -2,14 +2,7 @@
 
 #include <avr/io.h>
 
-#define MESSAGE_LENGTH 5
-#define MESSAGE_START 0xaa
-
-#define IR_POS 1
-#define VIS_POS 2
-#define UV_POS 3
-#define CS_POS 4
-
+#include "common/serial_protocol.h"
 
 typedef struct {
 	uint8_t buffer[MESSAGE_LENGTH];
@@ -59,16 +52,15 @@ void ProcessModuleManager() {
 
 }
 
-void SendToModule(uint8_t ir, uint8_t vis, uint8_t uv) {
+void SendToModule(uint8_t vis, uint8_t uv) {
 	if (MM.pos != MESSAGE_LENGTH ) {
 		return;
 	}
 
 	//compute message
-	MM.buffer[IR_POS] = ir;
 	MM.buffer[VIS_POS] = vis;
 	MM.buffer[UV_POS] = uv;
-	MM.buffer[CS_POS] = ( (MESSAGE_START ^ ir) ^ vis ) ^ uv;
+	MM.buffer[CS_POS] = COMPUTE_CHECKSUM(MM.buffer);
 
 	//send first byte
 	MM.pos = 0;

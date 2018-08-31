@@ -28,6 +28,6 @@ add_compile_options("-ffunction-sections")
 
 set(CMAKE_C_STANDARD 99)
 
-include_directories(${AVR_GCC_INCLUDE})
+include_directories(${AVR_GCC_INCLUDE} ${PROJECT_SOURCE_DIR}/../)
 
 add_subdirectory(src)
