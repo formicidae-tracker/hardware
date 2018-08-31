@@ -18,19 +18,25 @@ SerialInterface_t SI;
 void InitSerialInterface() {
 	uint8_t sreg = SREG;
 	cli();
-	// from a 20MHz clocks, sets the baudrate to 115200
-	UBRR0 = 10;
+	// from a 20MHz clocks, sets the baudrate to 19200
+	UBRR0 =64;
 	//RX mode only
-	UCSR0B = _BV(RXEN0);
-	UCSR0C = _BV(UCSZ11) | _BV(UCSZ10);
+	UCSR0C |= _BV(UCSZ01) | _BV(UCSZ00);
+
+	UCSR0B |= _BV(RXEN0);
 
 	SI.received = 0;
 
 	SREG = sreg;
+
+	DDRB |= _BV(4);
 }
 
-void SIProcess() {
+#define SET_ERROR() PORTB |= _BV(4)
+#define CLEAR_ERROR() PORTB &= ~(_BV(4))
+#define TOGGLE_ERROR() PORTB ^= _BV(4)
 
+void SIProcess() {
 	if ( (UCSR0A & _BV(RXC0) ) == 0 ) {
 		// no char received yet
 		return;
@@ -59,6 +65,7 @@ void SIProcess() {
 
 	uint8_t cs = COMPUTE_CHECKSUM(SI.buffer);
 	if (cs != SI.buffer[CS_POS]) {
+		TOGGLE_ERROR();
 		//checksum error
 		return;
 	}

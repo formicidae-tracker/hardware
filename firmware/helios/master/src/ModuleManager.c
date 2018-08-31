@@ -22,8 +22,8 @@ void InitModuleManager() {
 	// set baudrate to 114285 within 0.79% of 115200
 	// BAUD = FIO / ( LBT * (LDIV + 1) )
 	// LBT = 35 LDIV = 3
-	LINBTR = 35;
-	LINBRR = 3;
+	LINBTR = 32;
+	LINBRR = 25;
 
 
 }

@@ -94,9 +94,9 @@ void InitLightManager() {
 
 
 	//trigger interrupt on INT1 rising and on INT0 falling
-	//DDRD &= ~(_BV(2) | _BV(3) ) ; //makes sure INT1 and INT0 are input
-	//EICRA = _BV(ISC11) | _BV(ISC10) | _BV(ISC01);
-	//EIMSK |= _BV(INT1) _BV(INT0);
+	DDRD &= ~(_BV(2) | _BV(3) ) ; //makes sure INT1 and INT0 are input
+	EICRA |= _BV(ISC11) | _BV(ISC10) | _BV(ISC01);
+	EIMSK |= _BV(INT1) |_BV(INT0);
 
 	sei(); // we need interrupt enabled
 }
@@ -122,6 +122,11 @@ void LMSetVisibleBrightness(uint8_t value) {
 
 
 ISR(INT1_vect){
+	//falling edge
+	IR_CLEAR();
+}
+
+ISR(INT0_vect) {
 	// rising edge
 	if ( !LM.IR_ready || !LM.active ) {
 		//ensure armed and active
@@ -129,11 +134,6 @@ ISR(INT1_vect){
 		return;
 	}
 	LM_START_PULSE();
-}
-
-ISR(INT0_vect) {
-	//falling edge
-	IR_CLEAR();
 }
 
 ISR(TIMER3_COMPA_vect) {
