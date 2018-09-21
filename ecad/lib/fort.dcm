@@ -1,7 +1,15 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP ADM3251E
+D Isolated, Single-Channel RS-232 Line Driver/Receiver
+$ENDCMP
+#
 $CMP LP3985IM5-2.5
 D 150-mA Low-Noise Ultra-Low-Dropout CMOS Voltage Regulator
+$ENDCMP
+#
+$CMP MIC4680YM
+D 1A 2000kHz SuperSwitcher Buck Regulator
 $ENDCMP
 #
 $CMP TPS1H100AQPWPRQ1
