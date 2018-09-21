@@ -5,3 +5,8 @@ output/
 *.FCStd1
 *.step
 *.zip
+*.xml
+*.rpt
+*.pos
+*.csv
+*.ps
