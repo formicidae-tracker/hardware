@@ -7,7 +7,4 @@ Here are the list of boards / module
 * Arke: RS-232 board to interface with the can bus. libarke is used to specify the protocol between all boards
 * Zeus: Climate control board that implements the climate control loop
 * Celaeno: Nebulizer control board
-* Muses : Sensor board
-  * Hypate: Humidity sensor
-  * Mese: Temperature sensor
-  * Nete: Accelerometer
+* Anemoi : Generic Sensor board with different versions
