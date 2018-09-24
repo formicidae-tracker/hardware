@@ -1,4 +1,4 @@
-update=Fri 21 Sep 2018 04:02:53 PM CEST
+update=Saturday, 22 September 2018 'pmt' 21:33:40
 version=1
 last_client=kicad
 [pcbnew]
@@ -63,3 +63,4 @@ LibName31=contrib
 LibName32=valves
 LibName33=fort
 LibName34=Oscillators
+LibName35=nxp
