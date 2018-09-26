@@ -1,0 +1,438 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:switches
+LIBS:relays
+LIBS:motors
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:fort
+LIBS:Oscillators
+LIBS:nxp
+LIBS:zeus-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 8 8
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L TCA9544A U5
+U 1 1 5BAB6C8F
+P 5450 3950
+F 0 "U5" H 5250 4750 50  0000 L CNN
+F 1 "TCA9544A" H 5550 4750 50  0000 L CNN
+F 2 "Housings_SSOP:TSSOP-20_4.4x6.5mm_Pitch0.65mm" H 6450 3050 50  0001 C CNN
+F 3 "" H 5500 4200 50  0000 C CNN
+	1    5450 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR040
+U 1 1 5BAB6C96
+P 5450 2500
+F 0 "#PWR040" H 5450 2350 50  0001 C CNN
+F 1 "+5V" H 5450 2640 50  0000 C CNN
+F 2 "" H 5450 2500 50  0001 C CNN
+F 3 "" H 5450 2500 50  0001 C CNN
+	1    5450 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C4
+U 1 1 5BAB6C9D
+P 5700 2700
+F 0 "C4" H 5725 2800 50  0000 L CNN
+F 1 "100nF" H 5725 2600 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0603" H 5738 2550 50  0001 C CNN
+F 3 "" H 5700 2700 50  0001 C CNN
+F 4 "06035C104KAT2A" H 5700 2700 60  0001 C CNN "Part Number"
+	1    5700 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR041
+U 1 1 5BAB6CA4
+P 5700 2900
+F 0 "#PWR041" H 5700 2650 50  0001 C CNN
+F 1 "GND" H 5700 2750 50  0000 C CNN
+F 2 "" H 5700 2900 50  0001 C CNN
+F 3 "" H 5700 2900 50  0001 C CNN
+	1    5700 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR042
+U 1 1 5BAB6CAA
+P 5450 5050
+F 0 "#PWR042" H 5450 4800 50  0001 C CNN
+F 1 "GND" H 5450 4900 50  0000 C CNN
+F 2 "" H 5450 5050 50  0001 C CNN
+F 3 "" H 5450 5050 50  0001 C CNN
+	1    5450 5050
+	1    0    0    -1  
+$EndComp
+NoConn ~ 5950 4450
+NoConn ~ 5950 4550
+$Comp
+L R R11
+U 1 1 5BAB6CBB
+P 6500 4650
+F 0 "R11" V 6580 4650 50  0000 C CNN
+F 1 "10k" V 6500 4650 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603" V 6430 4650 50  0001 C CNN
+F 3 "" H 6500 4650 50  0001 C CNN
+F 4 "GPR060310K" H 6500 4650 60  0001 C CNN "Part Number"
+	1    6500 4650
+	0    1    1    0   
+$EndComp
+$Comp
+L +3.3V #PWR043
+U 1 1 5BAB6CC8
+P 6750 4650
+F 0 "#PWR043" H 6750 4500 50  0001 C CNN
+F 1 "+3.3V" H 6750 4790 50  0000 C CNN
+F 2 "" H 6750 4650 50  0001 C CNN
+F 3 "" H 6750 4650 50  0001 C CNN
+	1    6750 4650
+	0    1    1    0   
+$EndComp
+Text HLabel 4000 3450 0    60   Output ~ 0
+~INT
+Text HLabel 4000 3250 0    60   Input ~ 0
+SCL_5V
+Text HLabel 4000 3350 0    60   BiDi ~ 0
+SDA_5V
+Text HLabel 8300 3250 2    60   Output ~ 0
+SCL_3V3_0
+Text HLabel 8300 3650 2    60   Output ~ 0
+SCL_3V3_1
+Text HLabel 8300 4050 2    60   Output ~ 0
+SCL_3V3_2
+Text HLabel 8300 3350 2    60   BiDi ~ 0
+SDA_3V3_0
+Text HLabel 8300 3750 2    60   BiDi ~ 0
+SDA_3V3_1
+Text HLabel 8300 4150 2    60   BiDi ~ 0
+SDA_3V3_2
+Text HLabel 8300 3850 2    60   Input ~ 0
+~INT1
+Text HLabel 8300 4250 2    60   Input ~ 0
+~INT2
+Text Label 6100 4650 0    60   ~ 0
+~INT3
+Text HLabel 8300 3450 2    60   Input ~ 0
+~INT0
+$Comp
+L R R13
+U 1 1 5BABCAD6
+P 7700 3000
+F 0 "R13" V 7780 3000 50  0000 C CNN
+F 1 "10k" V 7700 3000 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603" V 7630 3000 50  0001 C CNN
+F 3 "" H 7700 3000 50  0001 C CNN
+F 4 "GPR060310K" H 7700 3000 60  0001 C CNN "Part Number"
+	1    7700 3000
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R14
+U 1 1 5BABCB3A
+P 7900 3000
+F 0 "R14" V 7980 3000 50  0000 C CNN
+F 1 "10k" V 7900 3000 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603" V 7830 3000 50  0001 C CNN
+F 3 "" H 7900 3000 50  0001 C CNN
+F 4 "GPR060310K" H 7900 3000 60  0001 C CNN "Part Number"
+	1    7900 3000
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R15
+U 1 1 5BABCB73
+P 8100 3000
+F 0 "R15" V 8180 3000 50  0000 C CNN
+F 1 "10k" V 8100 3000 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603" V 8030 3000 50  0001 C CNN
+F 3 "" H 8100 3000 50  0001 C CNN
+F 4 "GPR060310K" H 8100 3000 60  0001 C CNN "Part Number"
+	1    8100 3000
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R2
+U 1 1 5BABCBB7
+P 6200 3000
+F 0 "R2" V 6280 3000 50  0000 C CNN
+F 1 "4k99" V 6200 3000 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603" V 6130 3000 50  0001 C CNN
+F 3 "" H 6200 3000 50  0001 C CNN
+F 4 "GPR06034K99" H 6200 3000 60  0001 C CNN "Part Number"
+	1    6200 3000
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R3
+U 1 1 5BABCC22
+P 6400 3000
+F 0 "R3" V 6480 3000 50  0000 C CNN
+F 1 "4k99" V 6400 3000 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603" V 6330 3000 50  0001 C CNN
+F 3 "" H 6400 3000 50  0001 C CNN
+F 4 "GPR06034K99" H 6400 3000 60  0001 C CNN "Part Number"
+	1    6400 3000
+	-1   0    0    1   
+$EndComp
+$Comp
+L +3.3V #PWR044
+U 1 1 5BABCF2C
+P 6800 2700
+F 0 "#PWR044" H 6800 2550 50  0001 C CNN
+F 1 "+3.3V" H 6800 2840 50  0000 C CNN
+F 2 "" H 6800 2700 50  0001 C CNN
+F 3 "" H 6800 2700 50  0001 C CNN
+	1    6800 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R1
+U 1 1 5BAA344D
+P 4450 3000
+F 0 "R1" V 4530 3000 50  0000 C CNN
+F 1 "10k" V 4450 3000 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603" V 4380 3000 50  0001 C CNN
+F 3 "" H 4450 3000 50  0001 C CNN
+F 4 "GPR060310K" H 4450 3000 60  0001 C CNN "Part Number"
+	1    4450 3000
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R16
+U 1 1 5BAA3454
+P 4650 3000
+F 0 "R16" V 4730 3000 50  0000 C CNN
+F 1 "10k" V 4650 3000 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603" V 4580 3000 50  0001 C CNN
+F 3 "" H 4650 3000 50  0001 C CNN
+F 4 "GPR060310K" H 4650 3000 60  0001 C CNN "Part Number"
+	1    4650 3000
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R17
+U 1 1 5BAA345B
+P 4850 3000
+F 0 "R17" V 4930 3000 50  0000 C CNN
+F 1 "10k" V 4850 3000 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603" V 4780 3000 50  0001 C CNN
+F 3 "" H 4850 3000 50  0001 C CNN
+F 4 "GPR060310K" H 4850 3000 60  0001 C CNN "Part Number"
+	1    4850 3000
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R10
+U 1 1 5BAA4A0F
+P 6700 3000
+F 0 "R10" V 6780 3000 50  0000 C CNN
+F 1 "10k" V 6700 3000 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603" V 6630 3000 50  0001 C CNN
+F 3 "" H 6700 3000 50  0001 C CNN
+F 4 "GPR060310K" H 6700 3000 60  0001 C CNN "Part Number"
+	1    6700 3000
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R12
+U 1 1 5BAA4A16
+P 6900 3000
+F 0 "R12" V 6980 3000 50  0000 C CNN
+F 1 "10k" V 6900 3000 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603" V 6830 3000 50  0001 C CNN
+F 3 "" H 6900 3000 50  0001 C CNN
+F 4 "GPR060310K" H 6900 3000 60  0001 C CNN "Part Number"
+	1    6900 3000
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R18
+U 1 1 5BAA4A9A
+P 7200 3000
+F 0 "R18" V 7280 3000 50  0000 C CNN
+F 1 "10k" V 7200 3000 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603" V 7130 3000 50  0001 C CNN
+F 3 "" H 7200 3000 50  0001 C CNN
+F 4 "GPR060310K" H 7200 3000 60  0001 C CNN "Part Number"
+	1    7200 3000
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R19
+U 1 1 5BAA4AA1
+P 7400 3000
+F 0 "R19" V 7480 3000 50  0000 C CNN
+F 1 "10k" V 7400 3000 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603" V 7330 3000 50  0001 C CNN
+F 3 "" H 7400 3000 50  0001 C CNN
+F 4 "GPR060310K" H 7400 3000 60  0001 C CNN "Part Number"
+	1    7400 3000
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5450 2500 5450 3050
+Wire Wire Line
+	4450 2550 5700 2550
+Connection ~ 5450 2550
+Wire Wire Line
+	5450 4950 5450 5050
+Wire Wire Line
+	6650 4650 6750 4650
+Wire Wire Line
+	5050 4450 5000 4450
+Wire Wire Line
+	5000 4450 5000 5000
+Wire Wire Line
+	5000 4550 5050 4550
+Wire Wire Line
+	5000 4650 5050 4650
+Connection ~ 5000 4550
+Wire Wire Line
+	5000 5000 5450 5000
+Connection ~ 5000 4650
+Connection ~ 5450 5000
+Wire Wire Line
+	5700 2850 5700 2900
+Wire Wire Line
+	4000 3450 5050 3450
+Wire Wire Line
+	4000 3250 5050 3250
+Wire Wire Line
+	4000 3350 5050 3350
+Wire Wire Line
+	5950 3250 8300 3250
+Wire Wire Line
+	5950 3650 8300 3650
+Wire Wire Line
+	5950 4050 8300 4050
+Wire Wire Line
+	5950 3350 8300 3350
+Wire Wire Line
+	5950 4150 8300 4150
+Wire Wire Line
+	5950 3750 8300 3750
+Wire Wire Line
+	5950 3850 8300 3850
+Wire Wire Line
+	5950 4250 8300 4250
+Wire Wire Line
+	5950 4650 6350 4650
+Wire Wire Line
+	5950 3450 8300 3450
+Wire Wire Line
+	6800 2700 6800 2800
+Wire Wire Line
+	6200 2800 8100 2800
+Wire Wire Line
+	6200 2800 6200 2850
+Wire Wire Line
+	6400 2800 6400 2850
+Connection ~ 6400 2800
+Wire Wire Line
+	6700 2800 6700 2850
+Connection ~ 6700 2800
+Wire Wire Line
+	6900 2800 6900 2850
+Connection ~ 6800 2800
+Wire Wire Line
+	7700 2800 7700 2850
+Connection ~ 6900 2800
+Wire Wire Line
+	7900 2800 7900 2850
+Connection ~ 7700 2800
+Wire Wire Line
+	8100 2800 8100 2850
+Connection ~ 7900 2800
+Wire Wire Line
+	7700 3150 7700 3450
+Connection ~ 7700 3450
+Wire Wire Line
+	7900 3150 7900 3850
+Connection ~ 7900 3850
+Wire Wire Line
+	8100 3150 8100 4250
+Connection ~ 8100 4250
+Wire Wire Line
+	6900 3150 6900 3750
+Connection ~ 6900 3750
+Wire Wire Line
+	6700 3150 6700 3650
+Connection ~ 6700 3650
+Wire Wire Line
+	6400 3150 6400 3350
+Connection ~ 6400 3350
+Wire Wire Line
+	6200 3150 6200 3250
+Connection ~ 6200 3250
+Wire Wire Line
+	4450 2550 4450 2850
+Wire Wire Line
+	4650 2850 4650 2550
+Connection ~ 4650 2550
+Wire Wire Line
+	4850 2850 4850 2550
+Connection ~ 4850 2550
+Wire Wire Line
+	4450 3250 4450 3150
+Connection ~ 4450 3250
+Wire Wire Line
+	4650 3150 4650 3350
+Connection ~ 4650 3350
+Wire Wire Line
+	4850 3150 4850 3450
+Connection ~ 4850 3450
+Wire Wire Line
+	7200 2850 7200 2800
+Connection ~ 7200 2800
+Wire Wire Line
+	7400 2850 7400 2800
+Connection ~ 7400 2800
+Wire Wire Line
+	7200 3150 7200 4050
+Connection ~ 7200 4050
+Wire Wire Line
+	7400 3150 7400 4150
+Connection ~ 7400 4150
+$EndSCHEMATC
