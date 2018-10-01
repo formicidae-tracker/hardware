@@ -1,41 +1,6 @@
-EESchema Schematic File Version 2
-LIBS:power
-LIBS:device
-LIBS:switches
-LIBS:relays
-LIBS:motors
-LIBS:transistors
-LIBS:conn
-LIBS:linear
-LIBS:regul
-LIBS:74xx
-LIBS:cmos4000
-LIBS:adc-dac
-LIBS:memory
-LIBS:xilinx
-LIBS:microcontrollers
-LIBS:dsp
-LIBS:microchip
-LIBS:analog_switches
-LIBS:motorola
-LIBS:texas
-LIBS:intel
-LIBS:audio
-LIBS:interface
-LIBS:digital-audio
-LIBS:philips
-LIBS:display
-LIBS:cypress
-LIBS:siliconi
-LIBS:opto
-LIBS:atmel
-LIBS:contrib
-LIBS:valves
-LIBS:fort
-LIBS:Oscillators
-LIBS:nxp
-LIBS:zeus-cache
-EELAYER 25 0
+EESchema Schematic File Version 4
+LIBS:pleiades-cache
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -50,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L +12V #PWR01
+L power:+12V #PWR01
 U 1 1 5BA4C0F9
 P 1700 1050
 F 0 "#PWR01" H 1700 900 50  0001 C CNN
@@ -61,7 +26,7 @@ F 3 "" H 1700 1050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5V #PWR02
+L power:+5V #PWR02
 U 1 1 5BA4C12E
 P 3250 1050
 F 0 "#PWR02" H 3250 900 50  0001 C CNN
@@ -98,7 +63,7 @@ F2 "VIN" I L 1850 1300 60
 F3 "5V" O R 3000 1300 60 
 $EndSheet
 $Comp
-L +3.3V #PWR03
+L pleiades-rescue:+3.3V #PWR03
 U 1 1 5BA4FC58
 P 4900 1050
 F 0 "#PWR03" H 4900 900 50  0001 C CNN
@@ -122,7 +87,7 @@ F7 "SDA" B L 8500 4400 60
 F8 "SCL" I L 8500 4500 60 
 $EndSheet
 $Comp
-L Conn_01x04 J5
+L Connector_Generic:Conn_01x04 J5
 U 1 1 5BA5CE4D
 P 10600 4100
 F 0 "J5" H 10600 4300 50  0000 C CNN
@@ -134,7 +99,7 @@ F 4 "47053-1000" H 10600 4100 60  0001 C CNN "Part Number"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Conn_01x04 J6
+L Connector_Generic:Conn_01x04 J6
 U 1 1 5BA5DACF
 P 10600 4700
 F 0 "J6" H 10600 4900 50  0000 C CNN
@@ -146,7 +111,7 @@ F 4 "47053-1000" H 10600 4700 60  0001 C CNN "Part Number"
 	1    0    0    -1  
 $EndComp
 $Comp
-L +12V #PWR04
+L power:+12V #PWR04
 U 1 1 5BA5E50B
 P 10200 3900
 F 0 "#PWR04" H 10200 3750 50  0001 C CNN
@@ -157,19 +122,19 @@ F 3 "" H 10200 3900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Q_NMOS_GSD Q1
+L Device:Q_NMOS_GSD Q1
 U 1 1 5BA50932
 P 9000 1800
 F 0 "Q1" H 9200 1850 50  0000 L CNN
 F 1 "PMV45EN" H 9200 1750 50  0000 L CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 9200 1900 50  0001 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 9200 1900 50  0001 C CNN
 F 3 "" H 9000 1800 50  0001 C CNN
 F 4 "PMV45EN" H 9000 1800 60  0001 C CNN "Part Number"
 	1    9000 1800
 	1    0    0    -1  
 $EndComp
 $Comp
-L Conn_01x02 J8
+L Connector_Generic:Conn_01x02 J8
 U 1 1 5BA51183
 P 10500 1450
 F 0 "J8" H 10500 1550 50  0000 C CNN
@@ -181,7 +146,7 @@ F 4 "640454-2" H 10500 1450 60  0001 C CNN "Part Number"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Conn_01x02 J9
+L Connector_Generic:Conn_01x02 J9
 U 1 1 5BA51439
 P 10500 1850
 F 0 "J9" H 10500 1950 50  0000 C CNN
@@ -193,19 +158,19 @@ F 4 "640454-2" H 10500 1850 60  0001 C CNN "Part Number"
 	1    0    0    -1  
 $EndComp
 $Comp
-L D D2
+L Device:D D2
 U 1 1 5BA51C44
 P 9900 1200
 F 0 "D2" H 9900 1300 50  0000 C CNN
 F 1 "MCL4148" H 9900 1100 50  0000 C CNN
-F 2 "Diodes_SMD:D_MicroMELF" H 9900 1200 50  0001 C CNN
+F 2 "Diode_SMD:D_MicroMELF" H 9900 1200 50  0001 C CNN
 F 3 "" H 9900 1200 50  0001 C CNN
 F 4 "MCL4148-TR" H 9900 1200 60  0001 C CNN "Part Number"
 	1    9900 1200
 	0    1    1    0   
 $EndComp
 $Comp
-L +12V #PWR05
+L power:+12V #PWR05
 U 1 1 5BA521BB
 P 10150 700
 F 0 "#PWR05" H 10150 550 50  0001 C CNN
@@ -216,31 +181,31 @@ F 3 "" H 10150 700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L D D1
+L Device:D D1
 U 1 1 5BA525E7
 P 9600 1200
 F 0 "D1" H 9600 1300 50  0000 C CNN
 F 1 "MCL4148" H 9600 1100 50  0000 C CNN
-F 2 "Diodes_SMD:D_MicroMELF" H 9600 1200 50  0001 C CNN
+F 2 "Diode_SMD:D_MicroMELF" H 9600 1200 50  0001 C CNN
 F 3 "" H 9600 1200 50  0001 C CNN
 F 4 "MCL4148-TR" H 9600 1200 60  0001 C CNN "Part Number"
 	1    9600 1200
 	0    1    1    0   
 $EndComp
 $Comp
-L Q_NMOS_GSD Q2
+L Device:Q_NMOS_GSD Q2
 U 1 1 5BA52B10
 P 9350 2250
 F 0 "Q2" H 9550 2300 50  0000 L CNN
 F 1 "PMV45EN" H 9550 2200 50  0000 L CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 9550 2350 50  0001 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 9550 2350 50  0001 C CNN
 F 3 "" H 9350 2250 50  0001 C CNN
 F 4 "PMV45EN" H 9350 2250 60  0001 C CNN "Part Number"
 	1    9350 2250
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR06
+L power:GND #PWR06
 U 1 1 5BA52C82
 P 9100 2050
 F 0 "#PWR06" H 9100 1800 50  0001 C CNN
@@ -251,7 +216,7 @@ F 3 "" H 9100 2050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR07
+L power:GND #PWR07
 U 1 1 5BA52E0E
 P 9450 2500
 F 0 "#PWR07" H 9450 2250 50  0001 C CNN
@@ -266,43 +231,43 @@ Heating
 Text Notes 11100 5600 1    60   ~ 0
 PC 4 Wire Fans
 $Comp
-L Conn_01x02 J2
+L Connector_Generic:Conn_01x02 J2
 U 1 1 5BA55E48
 P 700 4500
 F 0 "J2" H 700 4600 50  0000 C CNN
 F 1 "MCV 1,5/ 2-G-3,5" H 700 4300 50  0000 C CNN
-F 2 "Connectors_Phoenix:PhoenixContact_MCV-G_02x3.50mm_Vertical" H 700 4500 50  0001 C CNN
+F 2 "Connector_Phoenix_MC:PhoenixContact_MCV_1,5_2-G-3.5_1x02_P3.50mm_Vertical" H 700 4500 50  0001 C CNN
 F 3 "" H 700 4500 50  0001 C CNN
 F 4 "MCV 1,5/ 2-G-3,5" H 700 4500 60  0001 C CNN "Part Number"
 	1    700  4500
 	-1   0    0    -1  
 $EndComp
 $Comp
-L Conn_01x02 J1
+L Connector_Generic:Conn_01x02 J1
 U 1 1 5BA560A5
 P 700 4050
 F 0 "J1" H 700 4150 50  0000 C CNN
 F 1 "MCV 1,5/ 2-G-3,5" H 700 3850 50  0000 C CNN
-F 2 "Connectors_Phoenix:PhoenixContact_MCV-G_02x3.50mm_Vertical" H 700 4050 50  0001 C CNN
+F 2 "Connector_Phoenix_MC:PhoenixContact_MCV_1,5_2-G-3.5_1x02_P3.50mm_Vertical" H 700 4050 50  0001 C CNN
 F 3 "" H 700 4050 50  0001 C CNN
 F 4 "MCV 1,5/ 2-G-3,5" H 700 4050 60  0001 C CNN "Part Number"
 	1    700  4050
 	-1   0    0    -1  
 $EndComp
 $Comp
-L Conn_01x02 J3
+L Connector_Generic:Conn_01x02 J3
 U 1 1 5BA567FD
 P 1050 1300
 F 0 "J3" H 1050 1400 50  0000 C CNN
 F 1 "MCV 1,5/ 2-G-3,5" H 1050 1100 50  0000 C CNN
-F 2 "Connectors_Phoenix:PhoenixContact_MCV-G_02x3.50mm_Vertical" H 1050 1300 50  0001 C CNN
+F 2 "Connector_Phoenix_MC:PhoenixContact_MCV_1,5_2-G-3.5_1x02_P3.50mm_Vertical" H 1050 1300 50  0001 C CNN
 F 3 "" H 1050 1300 50  0001 C CNN
 F 4 "MCV 1,5/ 2-G-3,5" H 1050 1300 60  0001 C CNN "Part Number"
 	1    1050 1300
 	-1   0    0    -1  
 $EndComp
 $Comp
-L GND #PWR08
+L power:GND #PWR08
 U 1 1 5BA570D8
 P 1500 1600
 F 0 "#PWR08" H 1500 1350 50  0001 C CNN
@@ -317,7 +282,7 @@ HEAT1_PWR
 Text Label 9750 1950 0    60   ~ 0
 HEAT2_PWR
 $Comp
-L Conn_01x04 J7
+L Connector_Generic:Conn_01x04 J7
 U 1 1 5BA66436
 P 10600 3150
 F 0 "J7" H 10600 3350 50  0000 C CNN
@@ -329,7 +294,7 @@ F 4 "215079-4" H 10600 3150 60  0001 C CNN "Part Number"
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3.3V #PWR09
+L pleiades-rescue:+3.3V #PWR09
 U 1 1 5BA662B5
 P 10200 2900
 F 0 "#PWR09" H 10200 2750 50  0001 C CNN
@@ -340,7 +305,7 @@ F 3 "" H 10200 2900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR010
+L power:GND #PWR010
 U 1 1 5BA664CF
 P 10200 3500
 F 0 "#PWR010" H 10200 3250 50  0001 C CNN
@@ -381,7 +346,7 @@ F7 "SDA" B L 8500 5600 60
 F8 "SCL" I L 8500 5700 60 
 $EndSheet
 $Comp
-L Conn_01x04 J10
+L Connector_Generic:Conn_01x04 J10
 U 1 1 5BAA7145
 P 10600 5300
 F 0 "J10" H 10600 5500 50  0000 C CNN
@@ -393,7 +358,7 @@ F 4 "47053-1000" H 10600 5300 60  0001 C CNN "Part Number"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Conn_01x04 J11
+L Connector_Generic:Conn_01x04 J11
 U 1 1 5BAA714C
 P 10600 5900
 F 0 "J11" H 10600 6100 50  0000 C CNN
@@ -405,7 +370,7 @@ F 4 "47053-1000" H 10600 5900 60  0001 C CNN "Part Number"
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR011
+L power:GND #PWR011
 U 1 1 5BAA7152
 P 10300 6250
 F 0 "#PWR011" H 10300 6000 50  0001 C CNN
@@ -418,9 +383,9 @@ $EndComp
 Wire Wire Line
 	1700 1050 1700 1300
 Wire Wire Line
-	1250 1300 1850 1300
+	1250 1300 1700 1300
 Wire Wire Line
-	3000 1300 3500 1300
+	3000 1300 3250 1300
 Wire Wire Line
 	3250 1300 3250 1050
 Connection ~ 3250 1300
@@ -458,7 +423,7 @@ Wire Wire Line
 Wire Wire Line
 	9800 4800 10400 4800
 Wire Wire Line
-	10150 700  10150 1850
+	10150 700  10150 800 
 Wire Wire Line
 	10150 1450 10300 1450
 Wire Wire Line
@@ -467,11 +432,11 @@ Connection ~ 10150 1450
 Wire Wire Line
 	9900 1350 9900 1550
 Wire Wire Line
-	9100 1550 10300 1550
+	9100 1550 9900 1550
 Wire Wire Line
 	9900 1050 9900 800 
 Wire Wire Line
-	9600 800  10150 800 
+	9600 800  9900 800 
 Connection ~ 10150 800 
 Wire Wire Line
 	9600 1050 9600 800 
@@ -479,7 +444,7 @@ Connection ~ 9900 800
 Wire Wire Line
 	9600 1350 9600 1950
 Wire Wire Line
-	9450 1950 10300 1950
+	9450 1950 9600 1950
 Wire Wire Line
 	9100 1550 9100 1600
 Connection ~ 9900 1550
@@ -491,9 +456,9 @@ Wire Wire Line
 Wire Wire Line
 	9100 2050 9100 2000
 Wire Wire Line
-	900  4050 1550 4050
+	900  4050 1200 4050
 Wire Wire Line
-	900  4150 1550 4150
+	900  4150 1300 4150
 Wire Wire Line
 	1200 4050 1200 4500
 Wire Wire Line
@@ -553,9 +518,9 @@ Connection ~ 10300 4600
 Connection ~ 10200 4700
 Connection ~ 10200 5300
 Wire Wire Line
-	10200 3900 10200 5900
+	10200 3900 10200 4100
 Wire Wire Line
-	10300 6250 10300 4000
+	10300 6250 10300 5800
 Wire Wire Line
 	10200 2900 10200 3050
 Wire Wire Line
@@ -643,4 +608,36 @@ Wire Wire Line
 	7600 4700 7600 5700
 Wire Wire Line
 	7600 5700 8500 5700
+Wire Wire Line
+	3250 1300 3500 1300
+Wire Wire Line
+	10200 4100 10200 4700
+Wire Wire Line
+	10150 1450 10150 1850
+Wire Wire Line
+	10150 800  10150 1450
+Wire Wire Line
+	9900 800  10150 800 
+Wire Wire Line
+	9900 1550 10300 1550
+Wire Wire Line
+	9600 1950 10300 1950
+Wire Wire Line
+	1200 4050 1550 4050
+Wire Wire Line
+	1300 4150 1550 4150
+Wire Wire Line
+	1700 1300 1850 1300
+Wire Wire Line
+	10300 5800 10300 5200
+Wire Wire Line
+	10300 5200 10300 4600
+Wire Wire Line
+	10300 4600 10300 4000
+Wire Wire Line
+	10200 4700 10200 5300
+Wire Wire Line
+	10200 5300 10200 5900
+Wire Wire Line
+	9500 5500 10400 5500
 $EndSCHEMATC

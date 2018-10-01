@@ -1,45 +1,10 @@
-EESchema Schematic File Version 2
-LIBS:power
-LIBS:device
-LIBS:switches
-LIBS:relays
-LIBS:motors
-LIBS:transistors
-LIBS:conn
-LIBS:linear
-LIBS:regul
-LIBS:74xx
-LIBS:cmos4000
-LIBS:adc-dac
-LIBS:memory
-LIBS:xilinx
-LIBS:microcontrollers
-LIBS:dsp
-LIBS:microchip
-LIBS:analog_switches
-LIBS:motorola
-LIBS:texas
-LIBS:intel
-LIBS:audio
-LIBS:interface
-LIBS:digital-audio
-LIBS:philips
-LIBS:display
-LIBS:cypress
-LIBS:siliconi
-LIBS:opto
-LIBS:atmel
-LIBS:contrib
-LIBS:valves
-LIBS:fort
-LIBS:Oscillators
-LIBS:nxp
-LIBS:zeus-cache
-EELAYER 25 0
+EESchema Schematic File Version 4
+LIBS:pleiades-cache
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 5 8
+Sheet 4 8
 Title ""
 Date ""
 Rev ""
@@ -50,139 +15,139 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L MIC4680YM U4
+L fort:MIC4680YM U4
 U 1 1 5BA10D91
 P 5150 3650
 F 0 "U4" H 4950 3150 60  0000 C CNN
 F 1 "MIC4680YM" H 5150 4000 60  0000 C CNN
-F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 5050 3550 60  0001 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 5050 3550 60  0001 C CNN
 F 3 "" H 5150 3650 60  0001 C CNN
 F 4 "MIC4680YM" H 5250 3750 60  0001 C CNN "Part Number"
 	1    5150 3650
 	1    0    0    -1  
 $EndComp
 $Comp
-L D_Schottky D5
+L Device:D_Schottky D5
 U 1 1 5BA10E06
 P 6150 3850
 F 0 "D5" H 6150 3950 50  0000 C CNN
 F 1 "B260, 60V, 2A" H 6150 3750 50  0000 C CNN
-F 2 "Diodes_SMD:D_SMB" H 6150 3850 50  0001 C CNN
+F 2 "Diode_SMD:D_SMB" H 6150 3850 50  0001 C CNN
 F 3 "" H 6150 3850 50  0001 C CNN
 F 4 "B260-13-F" H 6150 3850 60  0001 C CNN "Part Number"
 	1    6150 3850
 	0    1    1    0   
 $EndComp
 $Comp
-L L L2
+L Device:L L2
 U 1 1 5BA10FBE
 P 6700 3450
 F 0 "L2" V 6650 3450 50  0000 C CNN
 F 1 "68uH, 560mA" V 6775 3450 50  0000 C CNN
-F 2 "Inductors_SMD:L_Wuerth_WE-PD2-Typ-MS" H 6700 3450 50  0001 C CNN
+F 2 "Inductor_SMD:L_Wuerth_WE-PD2-Typ-MS" H 6700 3450 50  0001 C CNN
 F 3 "" H 6700 3450 50  0001 C CNN
 F 4 "744773168" H 6700 3450 60  0001 C CNN "Part Number"
 	1    6700 3450
 	0    -1   -1   0   
 $EndComp
 $Comp
-L R R6
+L Device:R R6
 U 1 1 5BA11005
 P 7250 3750
 F 0 "R6" V 7330 3750 50  0000 C CNN
 F 1 "15k" V 7250 3750 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603" V 7180 3750 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 7180 3750 50  0001 C CNN
 F 3 "" H 7250 3750 50  0001 C CNN
 F 4 "RMCF0603FT15K0" H 7250 3750 60  0001 C CNN "Part Number"
 	1    7250 3750
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R7
+L Device:R R7
 U 1 1 5BA1109C
 P 7250 4200
 F 0 "R7" V 7330 4200 50  0000 C CNN
 F 1 "4k7" V 7250 4200 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603" V 7180 4200 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 7180 4200 50  0001 C CNN
 F 3 "" H 7250 4200 50  0001 C CNN
 F 4 "RMCF0603FT4K70" H 7250 4200 60  0001 C CNN "Part Number"
 	1    7250 4200
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C14
+L Device:CP C14
 U 1 1 5BA110CE
 P 7750 3800
 F 0 "C14" H 7775 3900 50  0000 L CNN
 F 1 "470u, 6.3V" H 7775 3700 50  0000 L CNN
-F 2 "Capacitors_Tantalum_SMD:CP_Tantalum_Case-D_EIA-7343-31_Reflow" H 7788 3650 50  0001 C CNN
+F 2 "Capacitor_Tantalum_SMD:CP_EIA-7343-31_Kemet-D" H 7788 3650 50  0001 C CNN
 F 3 "" H 7750 3800 50  0001 C CNN
 F 4 "T491D477K006AT" H 7750 3800 60  0001 C CNN "Part Number"
 	1    7750 3800
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C15
+L Device:C C15
 U 1 1 5BA11119
 P 8300 3800
 F 0 "C15" H 8325 3900 50  0000 L CNN
 F 1 "4u7, 6.3V" H 8325 3700 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603" H 8338 3650 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 8338 3650 50  0001 C CNN
 F 3 "" H 8300 3800 50  0001 C CNN
 F 4 "CL10A475KQ8NNNC" H 8300 3800 60  0001 C CNN "Part Number"
 	1    8300 3800
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C16
+L Device:C C16
 U 1 1 5BA11162
 P 8850 3800
 F 0 "C16" H 8875 3900 50  0000 L CNN
 F 1 "100n" H 8875 3700 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603" H 8888 3650 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 8888 3650 50  0001 C CNN
 F 3 "" H 8850 3800 50  0001 C CNN
 F 4 "CC0603KRX7R8BB104" H 8850 3800 60  0001 C CNN "Part Number"
 	1    8850 3800
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C13
+L Device:C C13
 U 1 1 5BA11196
 P 3850 3750
 F 0 "C13" H 3875 3850 50  0000 L CNN
 F 1 "22uF, 35V" H 3875 3650 50  0000 L CNN
-F 2 "Capacitors_SMD:C_1206" H 3888 3600 50  0001 C CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric" H 3888 3600 50  0001 C CNN
 F 3 "" H 3850 3750 50  0001 C CNN
 F 4 "C3216X5R1V226M160AC" H 3850 3750 60  0001 C CNN "Part Number"
 	1    3850 3750
 	1    0    0    -1  
 $EndComp
 $Comp
-L Ferrite_Bead L3
+L Device:Ferrite_Bead L3
 U 1 1 5BA24C16
 P 9450 3450
 F 0 "L3" V 9300 3475 50  0000 C CNN
 F 1 "500mA Fuse" V 9600 3450 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603" V 9380 3450 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 9380 3450 50  0001 C CNN
 F 3 "" H 9450 3450 50  0001 C CNN
 F 4 "BLM18AG471SN1D" H 9450 3450 60  0001 C CNN "Part Number"
 	1    9450 3450
 	0    1    1    0   
 $EndComp
 $Comp
-L Ferrite_Bead L1
+L Device:Ferrite_Bead L1
 U 1 1 5BA2521F
 P 3300 3450
 F 0 "L1" V 3150 3475 50  0000 C CNN
 F 1 "500mA Fuse" V 3450 3450 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603" V 3230 3450 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 3230 3450 50  0001 C CNN
 F 3 "" H 3300 3450 50  0001 C CNN
 F 4 "BLM18AG471SN1D" H 3300 3450 60  0001 C CNN "Part Number"
 	1    3300 3450
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	3450 3450 4700 3450
+	3450 3450 3850 3450
 Wire Wire Line
 	3850 3450 3850 3600
 Text HLabel 2600 3450 0    60   Input ~ 0
@@ -193,12 +158,12 @@ Connection ~ 3850 3450
 Wire Wire Line
 	3150 3450 2600 3450
 Wire Wire Line
-	5600 3450 6550 3450
+	5600 3450 6150 3450
 Wire Wire Line
 	6150 3700 6150 3450
 Connection ~ 6150 3450
 Wire Wire Line
-	6850 3450 9300 3450
+	6850 3450 7250 3450
 Wire Wire Line
 	9600 3450 10050 3450
 Wire Wire Line
@@ -213,7 +178,7 @@ Connection ~ 8850 3450
 Wire Wire Line
 	7750 3950 7750 4450
 Wire Wire Line
-	3850 4450 8850 4450
+	3850 4450 4350 4450
 Wire Wire Line
 	7250 4450 7250 4350
 Wire Wire Line
@@ -235,7 +200,7 @@ Wire Wire Line
 	6150 4000 6150 4450
 Connection ~ 6150 4450
 Wire Wire Line
-	7250 3900 7250 4050
+	7250 3900 7250 3950
 Wire Wire Line
 	7250 3950 6600 3950
 Wire Wire Line
@@ -259,7 +224,7 @@ Wire Wire Line
 	4350 3850 4350 4450
 Connection ~ 4350 4450
 $Comp
-L GND #PWR016
+L power:GND #PWR016
 U 1 1 5BA25F94
 P 5750 4650
 F 0 "#PWR016" H 5750 4400 50  0001 C CNN
@@ -276,4 +241,32 @@ Text Label 4100 3450 0    60   ~ 0
 VIN_PROTECTED
 Text Notes 2900 3100 0    60   ~ 0
 VIN: 7V-34V\nVload: 500mA
+Wire Wire Line
+	3850 3450 4700 3450
+Wire Wire Line
+	6150 3450 6550 3450
+Wire Wire Line
+	7750 3450 8300 3450
+Wire Wire Line
+	8300 3450 8850 3450
+Wire Wire Line
+	8850 3450 9300 3450
+Wire Wire Line
+	7750 4450 8300 4450
+Wire Wire Line
+	8300 4450 8850 4450
+Wire Wire Line
+	7250 4450 7750 4450
+Wire Wire Line
+	5150 4450 5750 4450
+Wire Wire Line
+	7250 3450 7750 3450
+Wire Wire Line
+	6150 4450 7250 4450
+Wire Wire Line
+	7250 3950 7250 4050
+Wire Wire Line
+	4350 4450 5150 4450
+Wire Wire Line
+	5750 4450 6150 4450
 $EndSCHEMATC
