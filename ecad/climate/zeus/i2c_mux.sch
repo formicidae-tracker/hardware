@@ -1,10 +1,10 @@
 EESchema Schematic File Version 4
-LIBS:pleiades-cache
+LIBS:zeus-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 8 12
+Sheet 8 10
 Title ""
 Date ""
 Rev ""
