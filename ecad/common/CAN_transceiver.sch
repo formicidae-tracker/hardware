@@ -1,13 +1,10 @@
 EESchema Schematic File Version 4
-LIBS:power
-LIBS:74xx
-LIBS:fort
-LIBS:arke-cache
+LIBS:zeus-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 5
+Sheet 4 10
 Title ""
 Date ""
 Rev ""
@@ -98,10 +95,10 @@ Wire Wire Line
 Wire Wire Line
 	5750 2500 5750 2650
 $Comp
-L power:+5V #PWR0103
+L power:+5V #PWR0105
 U 1 1 5BA2868E
 P 5750 2500
-F 0 "#PWR0103" H 5750 2350 50  0001 C CNN
+F 0 "#PWR0105" H 5750 2350 50  0001 C CNN
 F 1 "+5V" H 5750 2640 50  0000 C CNN
 F 2 "" H 5750 2500 50  0001 C CNN
 F 3 "" H 5750 2500 50  0001 C CNN

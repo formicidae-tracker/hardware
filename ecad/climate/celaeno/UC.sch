@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 6 8
+Sheet 8 8
 Title ""
 Date ""
 Rev ""
@@ -493,7 +493,6 @@ SDA_5V
 Text HLabel 7800 4950 2    60   Output ~ 0
 SCL_5V
 NoConn ~ 6400 3150
-NoConn ~ 6400 3350
 NoConn ~ 6400 3450
 NoConn ~ 6400 3550
 NoConn ~ 6400 3850
@@ -672,8 +671,6 @@ Wire Wire Line
 	7250 2150 7250 2250
 Wire Wire Line
 	7450 2150 7450 2350
-Wire Wire Line
-	7250 2350 7450 2350
 Connection ~ 7450 2350
 Wire Wire Line
 	7450 2350 7750 2350
@@ -681,5 +678,9 @@ Wire Wire Line
 	7250 2250 6400 2250
 Connection ~ 7250 2250
 Wire Wire Line
-	7250 2350 6400 2350
+	6400 2350 7450 2350
+Wire Wire Line
+	6400 3350 7700 3350
+Text HLabel 7700 3350 2    50   Output ~ 0
+RELAY
 $EndSCHEMATC

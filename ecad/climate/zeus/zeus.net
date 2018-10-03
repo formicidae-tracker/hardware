@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/tuleu/devel/c4science/fort-hardware/ecad/climate/zeus/zeus.sch)
-    (date "Tue 02 Oct 2018 11:54:51 AM CEST")
+    (date "Wed 03 Oct 2018 05:11:47 PM CEST")
     (tool "Eeschema 5.0.0+dfsg1-2~bpo9+1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -275,10 +275,10 @@
       (sheetpath (names "/5V Buck Converter/") (tstamps /5BA4BC5D/))
       (tstamp 5BA11005))
     (comp (ref R7)
-      (value 4k7)
+      (value 4k87)
       (footprint Resistor_SMD:R_0603_1608Metric)
       (fields
-        (field (name "Part Number") RMCF0603FT4K70))
+        (field (name "Part Number") RMCF0603FT4K87))
       (libsource (lib Device) (part R) (description Resistor))
       (sheetpath (names "/5V Buck Converter/") (tstamps /5BA4BC5D/))
       (tstamp 5BA1109C))
@@ -635,10 +635,10 @@
       (sheetpath (names "/12V Low Side 1/") (tstamps /5BBA23F4/))
       (tstamp 5BBA266C))
     (comp (ref D1)
-      (value MCL4148)
-      (footprint Diode_SMD:D_MicroMELF)
+      (value 1N4148WS)
+      (footprint Diode_SMD:D_SOD-323F)
       (fields
-        (field (name "Part Number") MCL4148-TR))
+        (field (name "Part Number") 1N4148WS))
       (libsource (lib Device) (part D) (description Diode))
       (sheetpath (names "/12V Low Side 1/") (tstamps /5BBA23F4/))
       (tstamp 5BBA2674))
@@ -659,10 +659,10 @@
       (sheetpath (names "/12V Low Side 2/") (tstamps /5BB2B93A/))
       (tstamp 5BBA266C))
     (comp (ref D2)
-      (value MCL4148)
-      (footprint Diode_SMD:D_MicroMELF)
+      (value 1N4148WS)
+      (footprint Diode_SMD:D_SOD-323F)
       (fields
-        (field (name "Part Number") MCL4148-TR))
+        (field (name "Part Number") 1N4148WS))
       (libsource (lib Device) (part D) (description Diode))
       (sheetpath (names "/12V Low Side 2/") (tstamps /5BB2B93A/))
       (tstamp 5BBA2674))
@@ -1019,7 +1019,7 @@
       (fields
         (field (name Reference) U)
         (field (name Value) LP3985IM5-2.5)
-        (field (name Footprint) TO_SOT_Packages_SMD:SOT-23-5))
+        (field (name Footprint) Package_TO_SOT_SMD:SOT-23-5))
       (pins
         (pin (num 1) (name IN) (type power_in))
         (pin (num 2) (name GND) (type power_in))
