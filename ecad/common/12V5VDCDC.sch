@@ -1,10 +1,12 @@
 EESchema Schematic File Version 4
-LIBS:zeus-cache
+LIBS:power
+LIBS:74xx
+LIBS:fort
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 10
+Sheet 5 5
 Title ""
 Date ""
 Rev ""
@@ -67,10 +69,10 @@ L Device:R R7
 U 1 1 5BA1109C
 P 7250 4200
 F 0 "R7" V 7330 4200 50  0000 C CNN
-F 1 "4k7" V 7250 4200 50  0000 C CNN
+F 1 "4k87" V 7250 4200 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 7180 4200 50  0001 C CNN
 F 3 "" H 7250 4200 50  0001 C CNN
-F 4 "RMCF0603FT4K70" H 7250 4200 60  0001 C CNN "Part Number"
+F 4 "RMCF0603FT4K87" H 7250 4200 60  0001 C CNN "Part Number"
 	1    7250 4200
 	1    0    0    -1  
 $EndComp
