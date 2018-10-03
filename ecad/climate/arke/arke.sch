@@ -1,39 +1,9 @@
-EESchema Schematic File Version 2
+EESchema Schematic File Version 4
 LIBS:power
-LIBS:device
-LIBS:switches
-LIBS:relays
-LIBS:motors
-LIBS:transistors
-LIBS:conn
-LIBS:linear
-LIBS:regul
 LIBS:74xx
-LIBS:cmos4000
-LIBS:adc-dac
-LIBS:memory
-LIBS:xilinx
-LIBS:microcontrollers
-LIBS:dsp
-LIBS:microchip
-LIBS:analog_switches
-LIBS:motorola
-LIBS:texas
-LIBS:intel
-LIBS:audio
-LIBS:interface
-LIBS:digital-audio
-LIBS:philips
-LIBS:display
-LIBS:cypress
-LIBS:siliconi
-LIBS:opto
-LIBS:atmel
-LIBS:contrib
-LIBS:valves
 LIBS:fort
-LIBS:kerykeion-cache
-EELAYER 25 0
+LIBS:arke-cache
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -79,12 +49,12 @@ F4 "TXD" I L 6850 4150 60
 F5 "RXD" O L 6850 4250 60 
 $EndSheet
 $Sheet
-S 6250 3150 1650 350 
+S 6400 3150 1650 350 
 U 5BA1080F
 F0 "12V 5V Buck Converter" 60
 F1 "../../common/12V5VDCDC.sch" 60
-F2 "VIN" I R 7900 3300 60 
-F3 "5V" O L 6250 3300 60 
+F2 "VIN" I L 6400 3300 60 
+F3 "5V" O R 8050 3300 60 
 $EndSheet
 Wire Wire Line
 	6300 4150 6850 4150
@@ -112,7 +82,7 @@ Wire Wire Line
 Wire Wire Line
 	2050 3850 2350 3850
 Wire Wire Line
-	2350 3850 2350 4450
+	2350 3850 2350 4350
 Wire Wire Line
 	2350 4350 2050 4350
 Wire Wire Line
@@ -125,49 +95,49 @@ Wire Wire Line
 Wire Wire Line
 	2800 4250 2800 4200
 $Comp
-L +5V #PWR01
+L power:+5V #PWR01
 U 1 1 5BA2BA69
-P 5900 3250
-F 0 "#PWR01" H 5900 3100 50  0001 C CNN
-F 1 "+5V" H 5900 3390 50  0000 C CNN
-F 2 "" H 5900 3250 50  0001 C CNN
-F 3 "" H 5900 3250 50  0001 C CNN
-	1    5900 3250
-	1    0    0    -1  
+P 8400 3250
+F 0 "#PWR01" H 8400 3100 50  0001 C CNN
+F 1 "+5V" H 8400 3390 50  0000 C CNN
+F 2 "" H 8400 3250 50  0001 C CNN
+F 3 "" H 8400 3250 50  0001 C CNN
+	1    8400 3250
+	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	5900 3250 5900 3300
+	8400 3250 8400 3300
 Wire Wire Line
-	5900 3300 6250 3300
+	8400 3300 8050 3300
 $Comp
-L +12V #PWR02
+L power:+12V #PWR02
 U 1 1 5BA2BB13
-P 8350 3200
-F 0 "#PWR02" H 8350 3050 50  0001 C CNN
-F 1 "+12V" H 8350 3340 50  0000 C CNN
-F 2 "" H 8350 3200 50  0001 C CNN
-F 3 "" H 8350 3200 50  0001 C CNN
-	1    8350 3200
-	1    0    0    -1  
+P 5950 3200
+F 0 "#PWR02" H 5950 3050 50  0001 C CNN
+F 1 "+12V" H 5950 3340 50  0000 C CNN
+F 2 "" H 5950 3200 50  0001 C CNN
+F 3 "" H 5950 3200 50  0001 C CNN
+	1    5950 3200
+	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	8350 3200 8350 3300
+	5950 3200 5950 3300
 Wire Wire Line
-	8350 3300 7900 3300
+	5950 3300 6400 3300
 $Comp
-L Conn_01x02 J1
+L Connector_Generic:Conn_01x02 J1
 U 1 1 5BA2BBBF
 P 9900 3250
 F 0 "J1" H 9900 3350 50  0000 C CNN
 F 1 "MCV 1,5/ 2-G-3,5" H 9900 3050 50  0000 C CNN
-F 2 "Connectors_Phoenix:PhoenixContact_MCV-G_02x3.50mm_Vertical" H 9900 3250 50  0001 C CNN
+F 2 "Connector_Phoenix_MC:PhoenixContact_MCV_1,5_2-G-3.5_1x02_P3.50mm_Vertical" H 9900 3250 50  0001 C CNN
 F 3 "" H 9900 3250 50  0001 C CNN
 F 4 "MCV 1,5/ 2-G-3,5" H 9900 3250 60  0001 C CNN "Part Number"
 	1    9900 3250
 	1    0    0    -1  
 $EndComp
 $Comp
-L +12V #PWR03
+L power:+12V #PWR03
 U 1 1 5BA2C21A
 P 9550 3100
 F 0 "#PWR03" H 9550 2950 50  0001 C CNN
@@ -178,7 +148,7 @@ F 3 "" H 9550 3100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR04
+L power:GND #PWR04
 U 1 1 5BA2C362
 P 9550 3500
 F 0 "#PWR04" H 9550 3250 50  0001 C CNN
@@ -197,13 +167,13 @@ Wire Wire Line
 Wire Wire Line
 	9550 3250 9700 3250
 Wire Wire Line
-	7900 4150 9700 4150
+	7900 4150 9500 4150
 Wire Wire Line
 	9500 4150 9500 4550
 Wire Wire Line
 	9500 4550 9700 4550
 Wire Wire Line
-	7900 4250 9700 4250
+	7900 4250 9600 4250
 Wire Wire Line
 	9600 4250 9600 4650
 Wire Wire Line
@@ -217,31 +187,31 @@ Wire Wire Line
 Wire Wire Line
 	3100 3650 2050 3650
 $Comp
-L Conn_01x02 J3
+L Connector_Generic:Conn_01x02 J3
 U 1 1 5BA38B3F
 P 9900 4150
 F 0 "J3" H 9900 4250 50  0000 C CNN
 F 1 "MCV 1,5/ 2-G-3,5" H 9900 3950 50  0000 C CNN
-F 2 "Connectors_Phoenix:PhoenixContact_MCV-G_02x3.50mm_Vertical" H 9900 4150 50  0001 C CNN
+F 2 "Connector_Phoenix_MC:PhoenixContact_MCV_1,5_2-G-3.5_1x02_P3.50mm_Vertical" H 9900 4150 50  0001 C CNN
 F 3 "" H 9900 4150 50  0001 C CNN
 F 4 "MCV 1,5/ 2-G-3,5" H 9900 4150 60  0001 C CNN "Part Number"
 	1    9900 4150
 	1    0    0    -1  
 $EndComp
 $Comp
-L Conn_01x02 J5
+L Connector_Generic:Conn_01x02 J5
 U 1 1 5BA38BE4
 P 9900 4550
 F 0 "J5" H 9900 4650 50  0000 C CNN
 F 1 "MCV 1,5/ 2-G-3,5" H 9900 4350 50  0000 C CNN
-F 2 "Connectors_Phoenix:PhoenixContact_MCV-G_02x3.50mm_Vertical" H 9900 4550 50  0001 C CNN
+F 2 "Connector_Phoenix_MC:PhoenixContact_MCV_1,5_2-G-3.5_1x02_P3.50mm_Vertical" H 9900 4550 50  0001 C CNN
 F 3 "" H 9900 4550 50  0001 C CNN
 F 4 "MCV 1,5/ 2-G-3,5" H 9900 4550 60  0001 C CNN "Part Number"
 	1    9900 4550
 	1    0    0    -1  
 $EndComp
 $Comp
-L DB9_Female J2
+L Connector:DB9_Female J2
 U 1 1 5BA3A8D5
 P 1750 4050
 F 0 "J2" H 1750 4600 50  0000 C CNN
@@ -252,4 +222,10 @@ F 4 "LD09S13A4GX00LF" H 1750 4050 60  0001 C CNN "Part Number"
 	1    1750 4050
 	-1   0    0    -1  
 $EndComp
+Wire Wire Line
+	2350 4350 2350 4450
+Wire Wire Line
+	9500 4150 9700 4150
+Wire Wire Line
+	9600 4250 9700 4250
 $EndSCHEMATC
