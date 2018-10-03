@@ -1,4 +1,4 @@
-(module Pin_Header_Straight_1x06_Pitch2.54mm_Centered (layer F.Cu) (tedit 5AA0019C)
+(module Pin_Header_Straight_1x06_Pitch2.54mm_Centered (layer F.Cu) (tedit 5BB37A97)
   (descr "Through hole straight pin header, 1x06, 2.54mm pitch, single row")
   (tags "Through hole pin header THT 1x06 2.54mm single row")
   (fp_text reference J3 (at 0 -2.33) (layer F.SilkS) hide
@@ -16,8 +16,8 @@
   (pad 4 thru_hole oval (at 0 1.27) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask))
   (pad 5 thru_hole oval (at 0 3.81) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask))
   (pad 6 thru_hole oval (at 0 6.35) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask))
-  (model ${KISYS3DMOD}/Pin_Headers.3dshapes/Pin_Header_Straight_1x06_Pitch2.54mm.wrl
-    (at (xyz 0 0.25 0))
+  (model ${KISYS3DMOD}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x06_P2.54mm_Vertical.step
+    (offset (xyz 0 6.35 0))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 0))
   )

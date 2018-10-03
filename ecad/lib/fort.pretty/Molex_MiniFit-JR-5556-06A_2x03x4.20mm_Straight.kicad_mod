@@ -1,4 +1,4 @@
-(module Molex_MiniFit-JR-5556-06A_2x03x4.20mm_Straight (layer F.Cu) (tedit 5AC50850)
+(module Molex_MiniFit-JR-5556-06A_2x03x4.20mm_Straight (layer F.Cu) (tedit 5BB379C5)
   (descr "Molex Mini-Fit JR, PN:5556-06A, dual row, top entry type, through hole")
   (tags "connector molex mini-fit 5556")
   (fp_text reference J2 (at -2 8.3) (layer F.SilkS) hide
@@ -71,7 +71,7 @@
   (pad 4 thru_hole circle (at 0 5.5) (size 2.8 2.8) (drill 1.4) (layers *.Cu *.Mask))
   (pad 5 thru_hole circle (at 4.2 5.5) (size 2.8 2.8) (drill 1.4) (layers *.Cu *.Mask))
   (pad 6 thru_hole circle (at 8.4 5.5) (size 2.8 2.8) (drill 1.4) (layers *.Cu *.Mask))
-  (model ${KIPRJMOD}/../../lib/fort.3dshapes/MiniFit-JR-5556-06A.wrl
+  (model ${KIPRJMOD}/../../lib/fort.3dshapes/MiniFit-JR-5556-06A.step
     (at (xyz 0 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 0))

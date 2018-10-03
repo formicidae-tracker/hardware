@@ -1,4 +1,4 @@
-(module HTSSOP-14-1EP_4.4x6.5mm_Pitch0.65mm_ThermalPad (layer F.Cu) (tedit 5AB4F7BE)
+(module HTSSOP-14-1EP_4.4x6.5mm_Pitch0.65mm_ThermalPad (layer F.Cu) (tedit 5BB3797D)
   (descr "20-Lead Plastic Thin Shrink Small Outline (ST)-4.4 mm Body [HTSSOP], with thermal pad with vias")
   (tags "HTSSOP 0.65")
   (attr smd)
@@ -60,7 +60,7 @@
   (pad 15 thru_hole circle (at 0.75 1.5) (size 0.5 0.5) (drill 0.4) (layers *.Cu))
   (pad 15 thru_hole circle (at -0.75 1.5) (size 0.5 0.5) (drill 0.4) (layers *.Cu))
   (pad 15 thru_hole circle (at 0.75 -1.5) (size 0.5 0.5) (drill 0.4) (layers *.Cu))
-  (model Housings_SSOP.3dshapes/TSSOP-14_4.4x5mm_Pitch0.65mm.wrl
+  (model ${KISYS3DMOD}/Package_SO.3dshapes/TSSOP-14_4.4x5mm_P0.65mm.step
     (at (xyz 0 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 0))
