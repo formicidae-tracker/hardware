@@ -17,9 +17,9 @@ typedef enum {
 typedef struct s_yaccl_txn_t {
 	yaccl_idt_t ID;
 	//this field should be considered opaque
-
-
-
+	uint8_t MobID;
+	uint8_t length;
+	uint8_t * data;
 } yaccl_txn_t;
 
 

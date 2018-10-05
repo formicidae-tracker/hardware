@@ -25,3 +25,18 @@ typedef union {
 	struct s_yaccl_idt_ext_t ext;
 	uint8_t data[4];
 } yaccl_idt_t;
+
+
+#define yaccl_make_std_id(idt,id,rtrbit) do{	\
+		(idt).std.rb0 = 0; \
+		(idt).std.rtr = ( (rtr) != 0); \
+		(idt).reserved0 = 0; \
+		(idt).reserved1 = 0; \
+		(idt).std.ID = (id); \
+	}while(0)
+
+#define yaccl_make_ext_id(idt,id,rtrbit) do{	\
+		(idt).std.rb = 3; \
+		(idt).std.rtr = ( (rtr) != 0); \
+		(idt).std.ID = (id); \
+	}while(0)
