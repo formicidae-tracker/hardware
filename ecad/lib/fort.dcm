@@ -1,7 +1,31 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP ADM3251E
+D Isolated, Single-Channel RS-232 Line Driver/Receiver
+$ENDCMP
+#
+$CMP HIH6131-021-001
+D Honeywell HumidIcon™ Digital Humidity/Temperature Sensors: HIH6130/6131 Series, I2
+$ENDCMP
+#
+$CMP LM2841X
+D 100, 300, or 600-mA 42-V Input Step-Down DC-DC Regulator
+$ENDCMP
+#
 $CMP LP3985IM5-2.5
 D 150-mA Low-Noise Ultra-Low-Dropout CMOS Voltage Regulator
+$ENDCMP
+#
+$CMP MIC4680YM
+D 1A 2000kHz SuperSwitcher Buck Regulator
+$ENDCMP
+#
+$CMP MMA8453Q
+D  3-axis, 10-bit/8-bit digital accelerometer, QFN 16
+$ENDCMP
+#
+$CMP TMP1075DGK
+D Temperature Sensor With I
 $ENDCMP
 #
 $CMP TPS1H100AQPWPRQ1

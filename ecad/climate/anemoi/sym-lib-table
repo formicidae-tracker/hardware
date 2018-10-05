@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name anemoi-rescue)(type Legacy)(uri ${KIPRJMOD}/anemoi-rescue.lib)(options "")(descr ""))
+  (lib (name fort)(type Legacy)(uri /home/tuleu/devel/c4science/fort-hardware/ecad/lib/fort.lib)(options "")(descr ""))
+)

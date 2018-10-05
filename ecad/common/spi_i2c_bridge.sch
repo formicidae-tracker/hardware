@@ -1,0 +1,305 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:switches
+LIBS:relays
+LIBS:motors
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:fort
+LIBS:Oscillators
+LIBS:nxp
+LIBS:zeus-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 6 7
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L SC18IS600IPW/S8 U5
+U 1 1 5BA4E39B
+P 6050 4000
+F 0 "U5" H 5650 4650 60  0000 C CNN
+F 1 "SC18IS600IPW/S8" H 5550 3350 60  0000 C CNN
+F 2 "Housings_SSOP:TSSOP-16_4.4x5mm_Pitch0.65mm" H 5550 4550 60  0001 C CNN
+F 3 "" H 6050 4000 60  0001 C CNN
+F 4 "SC18IS600IPW/S8" H 5750 4750 60  0001 C CNN "Part Number"
+	1    6050 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C4
+U 1 1 5BA504E0
+P 5750 2900
+F 0 "C4" H 5775 3000 50  0000 L CNN
+F 1 "100nF" H 5775 2800 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0603" H 5788 2750 50  0001 C CNN
+F 3 "" H 5750 2900 50  0001 C CNN
+F 4 "06035C104KAT2A" H 5750 2900 60  0001 C CNN "Part Number"
+	1    5750 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L +3.3V #PWR032
+U 1 1 5BA50523
+P 6050 2650
+F 0 "#PWR032" H 6050 2500 50  0001 C CNN
+F 1 "+3.3V" H 6050 2790 50  0000 C CNN
+F 2 "" H 6050 2650 50  0001 C CNN
+F 3 "" H 6050 2650 50  0001 C CNN
+	1    6050 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 2750 5750 2700
+Wire Wire Line
+	5750 2700 6050 2700
+Wire Wire Line
+	6050 2650 6050 3200
+Connection ~ 6050 2700
+$Comp
+L GND #PWR033
+U 1 1 5BA5058A
+P 5750 3100
+F 0 "#PWR033" H 5750 2850 50  0001 C CNN
+F 1 "GND" H 5750 2950 50  0000 C CNN
+F 2 "" H 5750 3100 50  0001 C CNN
+F 3 "" H 5750 3100 50  0001 C CNN
+	1    5750 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 3100 5750 3050
+$Comp
+L GND #PWR034
+U 1 1 5BA505BA
+P 6050 4900
+F 0 "#PWR034" H 6050 4650 50  0001 C CNN
+F 1 "GND" H 6050 4750 50  0000 C CNN
+F 2 "" H 6050 4900 50  0001 C CNN
+F 3 "" H 6050 4900 50  0001 C CNN
+	1    6050 4900
+	1    0    0    -1  
+$EndComp
+$Comp
+L +3.3V #PWR035
+U 1 1 5BA51B70
+P 4000 2650
+F 0 "#PWR035" H 4000 2500 50  0001 C CNN
+F 1 "+3.3V" H 4000 2790 50  0000 C CNN
+F 2 "" H 4000 2650 50  0001 C CNN
+F 3 "" H 4000 2650 50  0001 C CNN
+	1    4000 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R12
+U 1 1 5BA51CC8
+P 4100 3050
+F 0 "R12" V 4180 3050 50  0000 C CNN
+F 1 "10k" V 4100 3050 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603" V 4030 3050 50  0001 C CNN
+F 3 "" H 4100 3050 50  0001 C CNN
+F 4 "GPR060310K" H 4100 3050 60  0001 C CNN "Part Number"
+	1    4100 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R13
+U 1 1 5BA526B0
+P 4300 3050
+F 0 "R13" V 4380 3050 50  0000 C CNN
+F 1 "10k" V 4300 3050 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603" V 4230 3050 50  0001 C CNN
+F 3 "" H 4300 3050 50  0001 C CNN
+F 4 "GPR060310K" H 4300 3050 60  0001 C CNN "Part Number"
+	1    4300 3050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3700 3850 5400 3850
+Wire Wire Line
+	4750 3600 5400 3600
+Wire Wire Line
+	5400 4350 4600 4350
+Wire Wire Line
+	4600 4350 4600 4850
+Wire Wire Line
+	4600 4850 6050 4850
+Wire Wire Line
+	6050 4800 6050 4900
+Connection ~ 6050 4850
+NoConn ~ 6700 3900
+NoConn ~ 6700 4000
+NoConn ~ 6700 4100
+NoConn ~ 6700 4200
+NoConn ~ 6700 4300
+NoConn ~ 6700 4400
+Text HLabel 6950 3650 2    60   Output ~ 0
+SCL_3V3
+Text HLabel 6950 3550 2    60   BiDi ~ 0
+SDA_3V3
+Wire Wire Line
+	6700 3550 6950 3550
+Wire Wire Line
+	6700 3650 6950 3650
+$Comp
+L +5V #PWR036
+U 1 1 5BA535C8
+P 3250 2650
+F 0 "#PWR036" H 3250 2500 50  0001 C CNN
+F 1 "+5V" H 3250 2790 50  0000 C CNN
+F 2 "" H 3250 2650 50  0001 C CNN
+F 3 "" H 3250 2650 50  0001 C CNN
+	1    3250 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R11
+U 1 1 5BA536A5
+P 3350 3050
+F 0 "R11" V 3430 3050 50  0000 C CNN
+F 1 "10k" V 3350 3050 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603" V 3280 3050 50  0001 C CNN
+F 3 "" H 3350 3050 50  0001 C CNN
+F 4 "GPR060310K" H 3350 3050 60  0001 C CNN "Part Number"
+	1    3350 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R10
+U 1 1 5BA5376F
+P 3150 3050
+F 0 "R10" V 3230 3050 50  0000 C CNN
+F 1 "10k" V 3150 3050 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603" V 3080 3050 50  0001 C CNN
+F 3 "" H 3150 3050 50  0001 C CNN
+F 4 "GPR060310K" H 3150 3050 60  0001 C CNN "Part Number"
+	1    3150 3050
+	1    0    0    -1  
+$EndComp
+Text HLabel 2950 3350 0    60   Output ~ 0
+~INT
+Text HLabel 2950 3850 0    60   Output ~ 0
+MISO
+Text HLabel 5150 3950 0    60   Input ~ 0
+MOSI
+Text HLabel 5150 4050 0    60   Input ~ 0
+SCK
+Text HLabel 5150 4150 0    60   Input ~ 0
+~CS
+Wire Wire Line
+	5150 4150 5400 4150
+Wire Wire Line
+	5150 4050 5400 4050
+Wire Wire Line
+	5150 3950 5400 3950
+$Comp
+L Q_NMOS_GSD Q4
+U 1 1 5BA53E42
+P 3800 3250
+F 0 "Q4" H 4000 3300 50  0000 L CNN
+F 1 "BSS138" H 4000 3200 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 4000 3350 50  0001 C CNN
+F 3 "" H 3800 3250 50  0001 C CNN
+F 4 "BSS138" H 3800 3250 60  0001 C CNN "Part Number"
+	1    3800 3250
+	0    -1   1    0   
+$EndComp
+$Comp
+L Q_NMOS_GSD Q3
+U 1 1 5BA53E9C
+P 3500 3750
+F 0 "Q3" H 3700 3800 50  0000 L CNN
+F 1 "BSS138" H 3700 3700 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 3700 3850 50  0001 C CNN
+F 3 "" H 3500 3750 50  0001 C CNN
+F 4 "BSS138" H 3500 3750 60  0001 C CNN "Part Number"
+	1    3500 3750
+	0    -1   1    0   
+$EndComp
+Wire Wire Line
+	3150 3200 3150 3850
+Wire Wire Line
+	2950 3850 3300 3850
+Wire Wire Line
+	3150 2700 3350 2700
+Connection ~ 3250 2700
+Wire Wire Line
+	3350 3200 3350 3350
+Wire Wire Line
+	2950 3350 3600 3350
+Connection ~ 3350 3350
+Connection ~ 3150 3850
+Wire Wire Line
+	3500 2700 4300 2700
+Wire Wire Line
+	3500 2700 3500 3550
+Wire Wire Line
+	3800 2700 3800 3050
+Connection ~ 3800 2700
+Wire Wire Line
+	4100 3200 4100 3350
+Wire Wire Line
+	4000 3350 4750 3350
+Wire Wire Line
+	4100 2700 4100 2900
+Connection ~ 4000 2700
+Wire Wire Line
+	4300 2700 4300 2900
+Connection ~ 4100 2700
+Wire Wire Line
+	3250 2650 3250 2700
+Wire Wire Line
+	4000 2650 4000 2700
+Wire Wire Line
+	4300 3200 4300 3850
+Connection ~ 4300 3850
+Wire Wire Line
+	4750 3350 4750 3600
+Connection ~ 4100 3350
+Wire Wire Line
+	3150 2900 3150 2700
+Wire Wire Line
+	3350 2700 3350 2900
+Text Notes 3350 2150 0    60   ~ 0
+SC18IS600IPW is 5V tolerant, but output may require level shifter
+Text Label 5200 3600 2    60   ~ 0
+~INT_3V3
+Text Label 5200 3850 2    60   ~ 0
+MISO_3V3
+$EndSCHEMATC

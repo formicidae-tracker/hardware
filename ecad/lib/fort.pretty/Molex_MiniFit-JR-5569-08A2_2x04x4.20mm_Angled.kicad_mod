@@ -1,4 +1,4 @@
-(module Molex_MiniFit-JR-5569-08A2_2x04x4.20mm_Angled placed (layer F.Cu) (tedit 58A28C61)
+(module Molex_MiniFit-JR-5569-08A2_2x04x4.20mm_Angled placed (layer F.Cu) (tedit 5BB379F4)
   (descr "Molex Mini-Fit JR, PN:5569-08A2, dual row, side entry type, through hole, with plastic peg mount")
   (tags "connector molex mini-fit 5569")
   (fp_text reference J1 (at -1.85 2.75) (layer F.SilkS)
@@ -51,7 +51,7 @@
   (pad 8 thru_hole circle (at 12.6 5.5) (size 3 3) (drill 1.8) (layers *.Cu *.Mask))
   (pad "" np_thru_hole circle (at 0 -7.3) (size 3 3) (drill 3) (layers *.Cu *.Mask))
   (pad "" np_thru_hole circle (at 12.6 -7.3) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-  (model ${KIPRJMOD}/../../lib/fort.3dshapes/MiniFit-JR-5569-08A2_2.wrl
+  (model ${KIPRJMOD}/../../lib/fort.3dshapes/MiniFit-JR-5569-08A2_2.step
     (at (xyz 0 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 0))
