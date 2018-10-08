@@ -30,10 +30,30 @@ set(CMAKE_C_STANDARD 99)
 
 include_directories(${AVR_GCC_INCLUDE} ${PROJECT_SOURCE_DIR}/src)
 
-set(HDR_FILES src/yaccl.h
+set(HDR_FILES src/yaacl.h
 	          src/txn.h
 	          src/config.h)
 
-set(SRC_FILES src/yaccl-src-all.c)
+set(SRC_FILES src/yaacl-src-all.c)
 
 add_avr_library(yaccl ${SRC_FILES} ${HDR_FILES})
+
+
+find_program(CLDOC_EXECUTABLE cldoc)
+
+if(CLDOC_EXECUTABLE)
+	add_custom_target(doc ${CLDOC_EXECUTABLE} "generate"
+		"-D__AVR_ATmega16M1__"
+		"--"
+		"--language" "c"
+		"--output" "${PROJECT_BINARY_DIR}/doc"
+		${HDR_FILES}
+		COMMENT "Generating doc in ${PROJECT_BINARY_DIR}/doc. Press Ctrl-c to end"
+		WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
+
+	add_custom_target(serve-doc ${CLDOC_EXECUTABLE} serve ./doc
+		COMMENT "Serving documentation . Press Ctrl-c to end"
+		WORKING_DIRECTORY ${PROJECT_BINARY_DIR}
+		DEPENDS doc)
+
+endif(CLDOC_EXECUTABLE)

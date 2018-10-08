@@ -2,32 +2,61 @@
 
 #include "idt.h"
 
-typedef enum {
-	YACCL_TXN_PENDING,
-	YACCL_TXN_COMPLETED,
-	YACCL_TXN_HAD_ERROR,
-} yaccl_txn_status_e;
+// Represents the status of a transaction <yaacl_txn_t>
+typedef enum yaacl_txn_status_e {
+	// Transaction is not yet submitted
+	YAACL_TXN_UNSUBMITTED,
+	// Transaction is submitted and waiting to complete
+	YAACL_TXN_PENDING,
+	// Transaction is completed.
+	YAACL_TXN_COMPLETED,
+	// Transaction had an unspecified error (to be removed)
+	YAACL_TXN_ERR_UNSPECIFIED,
+	// Rx buffer was too small
+	YAACL_TXN_ERR_RX_OVERFLOW
+} yaacl_txn_status_e;
 
-typedef enum {
-	YACCL_TXN_NO_ERROR = 0,
-	YACCL_TXN_ERR_UNSPECIFIED =1
-} yaccl_txn_error_e;
+#define yaacl_txn_had_error(status) ((status) >= YAACL_TXN_ERR_UNSPECIFIED)
 
+// Represents a transaction on the CAN bus
+//
+// <yaacl_txn_t> represents a transmission (reception or transmission
+// on the can bus). A <yaacl_txn_t> is submitted to the CAN module
+// with the helps of submission functions <yaacl_send> and <yaacl_listen>.
+typedef struct s_yaacl_txn_t {
+	// The ID of the transaction.
+	//
+	// Need to be set both for sending and receiving. Will be modified
+	// by the actual received ID when receiving a message.
+	yaacl_idt_t ID;
+	// The mask for reception
+	//
+	// Mask for the reception of the message.
+	yaacl_idt_t mask;
+	// The length of the data
+	//
+	// Need to be set to a value between 0 and 8 for transmission and
+	// will be written to the correct value for a reception
+	uint8_t     length;
+	// Pointer for a buffer for the data of the transaction
+	//
+	// Need to be set to a valid memory location. Will be read for TX
+	// and written by a reception.
+	uint8_t     * data;
 
-typedef struct s_yaccl_txn_t {
-	yaccl_idt_t ID;
-	//this field should be considered opaque
+	// INTERNAL FIELD
 	uint8_t MobID;
-	uint8_t length;
-	uint8_t * data;
-} yaccl_txn_t;
+
+} yaacl_txn_t;
 
 
-//return transaction status
-yaccl_txn_status_e yaccl_txn_status(const yaccl_txn_t * txn);
+// Polls for the actual status of the <yaacl_txn>.
+// @txn the previously submitted <yaacl_txn_t>
+//
+// This functions polls for the current status of that transaction.
+//
+// @return the <yaacl_txn_status_e> of the transaction
+yaacl_txn_status_e yaacl_txn_status(yaacl_txn_t * txn);
 
-// return actual data length
-uint8_t yaccl_txn_data_length(const yaccl_txn_t * txn);
 
-//return any pending error
-yaccl_txn_error_e yaccl_txn_get_error(const yaccl_txn_t * txn);
+//void yaacl_txn_clear(yaacl_txn_t * txn);
