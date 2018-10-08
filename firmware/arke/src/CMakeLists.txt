@@ -1,6 +1,9 @@
-set(SRC_FILES main.c)
+set(SRC_FILES main.c
+	          LEDs.c
+	          Systime.c)
 
-set(HDR_FILES )
+set(HDR_FILES LEDs.h
+	          Systime.h)
 
 
 add_avr_executable(arke ${SRC_FILES} ${HDR_FILES})
