@@ -1,12 +1,14 @@
 #include "Systime.h"
 #include "LEDs.h"
+#include "HostLink.h"
+
 
 #include <yaacl.h>
 
 int main() {
 	InitLEDs();
 	InitSystime();
-
+	InitHostLink();
 
 	yaacl_config_t config;
 	config.baudrate = YAACL_BR_500;
@@ -16,7 +18,7 @@ int main() {
 	yaacl_txn_t rx[2];
 	uint8_t data[16];
 	for (unsigned int i = 0; i < 2; i++){
-		// listen to absolutely everything, from standard to extended
+		// listen to absolutely everything, both standard to extended
 		// frames.
 		yaacl_make_ext_idt(rx[i].ID,0x0,0);
 		yaacl_make_ext_mask(rx[i].mask,0x0,0,0);
@@ -35,15 +37,20 @@ int main() {
 				continue;
 			}
 			if (status == YAACL_TXN_COMPLETED ) {
-				//TODO send to host
+				HostSendCANPacket(rx+i);
 			}
 			if ( yaacl_txn_had_error(status) ) {
 				//TODO : maybe report error count ?
 				LEDErrorOn();
 			}
 			// restarts the listen loop on the message.
+			yaacl_make_ext_idt(rx[i].ID,0x0,0);
+			yaacl_make_ext_mask(rx[i].mask,0x0,0,0);
+			rx[i].length = 8;
 			yaacl_listen(rx+i);
 		}
+
+		ProcessHostLink();
 
 
 		Systime_t now = GetSystime();
