@@ -32,29 +32,29 @@ typedef union {
 
 #define yaacl_make_std_idt(idt,id,rtrbit) do{	\
 		(idt).std.rb0 = 0; \
-		(idt).std.rtr = ( (rtr) != 0); \
+		(idt).std.rtr = ( (rtrbit) != 0); \
 		(idt).reserved0 = 0; \
 		(idt).reserved1 = 0; \
 		(idt).std.ID = (id); \
 	}while(0)
 
 #define yaacl_make_ext_idt(idt,id,rtrbit) do{	\
-		(idt).std.rb = 3; \
-		(idt).std.rtr = ( (rtr) != 0); \
-		(idt).std.ID = (id); \
+		(idt).ext.rb = 3; \
+		(idt).ext.rtr = ( (rtrbit) != 0); \
+		(idt).ext.ID = (id); \
 	}while(0)
 
 
 #define yaacl_make_std_mask(msk,id,idebit,rtrbit) do{	  \
 		(msk).std.rb0 = idebit; \
-		(msk).std.rtr = ( (rtr) != 0); \
+		(msk).std.rtr = ( (rtrbit) != 0); \
 		(msk).reserved0 = 0; \
 		(msk).reserved1 = 0; \
 		(msk).std.ID = (id); \
 	}while(0)
 
 #define yaacl_make_ext_mask(msk,id,idebit,rtrbit) do{	  \
-		(msk).std.rb = (idebit != 0 ? 0x1 : 0x0); \
-		(msk).std.rtr = ( (rtr) != 0); \
-		(msk).std.ID = (id); \
+		(msk).ext.rb = (idebit != 0 ? 0x1 : 0x0); \
+		(msk).ext.rtr = ( (rtrbit) != 0); \
+		(msk).ext.ID = (id); \
 	}while(0)
