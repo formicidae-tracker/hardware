@@ -8,14 +8,14 @@
 
 #include <avr/io.h>
 
-#define RB_IN_SIZE 16
-#define RB_OUT_SIZE 16
+// UART is slower than the bus, so we buffer more outgoing than
+// ingoing.
+#define RB_IN_SIZE 8
+#define RB_OUT_SIZE 64
 #define RB_MASK(size) (size-1)
 
 #define MAX(a,b) ( ((a) > (b)) ? (a) : (b) )
 #define MIN(a,b) ( ((a) < (b)) ? (a) : (b) )
-
-
 
 #define CHANNEL_IS_FREE(ch) (ch == 0xff)
 #define CHANNEL_MARK_FREE(ch) ch = 0xff;
@@ -91,11 +91,12 @@ void InitHostLink() {
 	LINCR = _BV(LENA) |  _BV(LCMD2) | _BV(LCMD0);
 
 	// set baudrate to 114285 within 0.79% of 115200
+	// 115200 would often be the maximal value any UART would reach in
+	// modern PC
 	// BAUD = FIO / ( LBT * (LDIV + 1) )
 	// LBT = 35 LDIV = 3
-	LINBTR = 32;
-	LINBRR = 25;
-
+	LINBTR = 35; // LBT
+	LINBRR = 3; //
 }
 
 void ProcessHostTx() {
