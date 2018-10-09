@@ -27,8 +27,6 @@ int main() {
 		yaacl_listen(&(rx[i]));
 	}
 
-	Systime_t last = 0;
-
 	while(1) {
 		for ( unsigned int i = 0; i < 2; i++ ) {
 			// see if we got some nice message ongoing.
@@ -51,14 +49,8 @@ int main() {
 		}
 
 		ProcessHostLink();
+		ProcessLEDs();
 
-
-		Systime_t now = GetSystime();
-
-		if ( (now-last) >= 500 ) {
-			LEDReadyToggle();
-			last = now;
-		}
 
 	}
 
