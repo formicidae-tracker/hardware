@@ -12,7 +12,10 @@ typedef struct HostPacket {
 	uint8_t data[8];
 } HostPacket;
 
-#define HOST_PACKET_SIZE(packet) (7 +  (packet).length)
+#define START_OF_FRAME_SIZE 2
+#define START_OF_FRAME_BYTE 0xaa
+#define HOST_PACKET_SIZE(packet) (START_OF_FRAME_SIZE + 5 +  (packet).length)
+#define HOST_PACKET_HEADER_SIZE HOST_PACKET_SIZE(0)
 #define CHANNEL_IS_FREE(ch) (ch == 0xff)
 #define CHANNEL_MARK_FREE(ch) ch = 0xff;
 
@@ -29,6 +32,9 @@ typedef struct HostData {
 	uint8_t sent,received;
 } HostData;
 HostData link;
+
+
+int HostSendControlPacket(uint8_t code, uint8_t * buffer);
 
 #define RB_INIT(rb) do {	  \
 		(rb).head = 0; \
@@ -85,11 +91,10 @@ void ProcessHostTx() {
 		return;
 	}
 
-
 	if (CHANNEL_IS_FREE(link.sent) ) {
 		// we start a new communication
 		link.sent = 0;
-		LINDAT = 0xaa;
+		LINDAT = START_OF_FRAME_BYTE;
 		return;
 	}
 	++link.sent;
@@ -100,23 +105,88 @@ void ProcessHostTx() {
 		return;
 	}
 
-	if (link.sent < 2 ) {
-		LINDAT = 0xaa;
+	if (link.sent < START_OF_FRAME_SIZE ) {
+		LINDAT = START_OF_FRAME_BYTE;
 		return;
 	}
 
-	LINDAT = RB_HEAD(link.out).data[link.sent-2];
+	LINDAT = RB_HEAD(link.out).data[link.sent-START_OF_FRAME_BYTE];
 
 }
 
 void ProcessHostRx() {
+	if ( (LINSIR & _BV(LTXOK) ) == 0x00 ) {
+		//UART still waiting for  a char
+		return;
+	}
 
+	if ( CHANNEL_IS_FREE(link.received) ) {
+		if ( RB_FULL(link.in) ) {
+			//TODO: report overflow error condition ?
+			return ;
+		}
+		link.received = 0;
+	}
+
+	uint8_t data = LINDAT;
+	++link.received;
+	if (link.received <= START_OF_FRAME_SIZE ) {
+		//lokking for start of frame
+		if( data != START_OF_FRAME_BYTE ) {
+			// not the  case, we are waiting for a new frame
+			CHANNEL_MARK_FREE(link.received);
+			//TODO:  report error condition ?
+		}
+		return;
+	}
+	HostPacket * incoming = &RB_TAIL(link.in);
+	uint8_t * incomingAsBuffer = (uint8_t*)incoming;
+	uint8_t ptrOffset = link.received - START_OF_FRAME_SIZE - 1;
+	incomingAsBuffer[ptrOffset] = data;
+	if (link.received == (START_OF_FRAME_SIZE + 1) ) {
+		//resets incommin length
+		incoming->length = 0x00;
+	}
+
+	if (link.received >= HOST_PACKET_SIZE(*incoming) ) {
+		RB_INCREMENT_TAIL(link.in);
+	}
+
+}
+
+
+void ProcessIncoming() {
+	if ( RB_EMPTY(link.in) ) {
+		return;
+	}
+	//TODO :  Incoming logic process
+
+
+	RB_INCREMENT_HEAD(link.in);
 }
 
 // Process incoming packet from host
 void ProcessHostLink() {
 	ProcessHostTx();
 	ProcessHostRx();
+	ProcessIncoming();
+}
+
+
+int HostSendControlPacket(uint8_t code, uint8_t * buffer) {
+	if(RB_FULL(link.out)) {
+		// TODO report error
+		return 1;
+	}
+	HostPacket * data = &RB_TAIL(link.out);
+	data->ID = 0xffffffff;
+	data->length = code;
+	for (uint8_t i = 0; i<8; ++i) {
+		data->data[i]  = buffer[i];
+	}
+
+	RB_INCREMENT_TAIL(link.out);
+	return 0;
 }
 
 // Prepares an upstreamn
