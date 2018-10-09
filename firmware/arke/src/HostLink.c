@@ -1,36 +1,22 @@
 #include "HostLink.h"
 
 #include "yaacl.h"
+#include "SoftReset.h"
+
+
+#include <HostCommunication.h>
 
 #include <avr/io.h>
 
 #define RB_IN_SIZE 16
 #define RB_OUT_SIZE 16
 #define RB_MASK(size) (size-1)
-#define YAACL_TXN_SIZE 4
 
 #define MAX(a,b) ( ((a) > (b)) ? (a) : (b) )
 #define MIN(a,b) ( ((a) < (b)) ? (a) : (b) )
 
-typedef struct HostPacket {
-	uint32_t ID;
-	uint8_t length;
-	uint8_t data[8];
-} HostPacket;
 
 
-const uint32_t STD_ID_MSK = (1L << 11 ) - 1;
-const uint32_t EXT_ID_MSK =  (1L << 29 ) - 1;
-const uint32_t IDEBIT_MSK = 1L << 29;
-const uint32_t RTRBIT_MSK = 1L << 30;
-const uint32_t CONTROLBIT_MSK = 1L << 31;
-
-
-
-#define START_OF_FRAME_SIZE 2
-#define START_OF_FRAME_BYTE 0xaa
-#define HOST_PACKET_SIZE(packet) (START_OF_FRAME_SIZE + 5 +  (packet).length)
-#define HOST_PACKET_HEADER_SIZE HOST_PACKET_SIZE(0)
 #define CHANNEL_IS_FREE(ch) (ch == 0xff)
 #define CHANNEL_MARK_FREE(ch) ch = 0xff;
 
@@ -77,8 +63,6 @@ typedef struct HostData {
 HostData link;
 
 
-int HostSendControlPacket(uint8_t code, uint8_t * buffer);
-
 
 // Init the UART link.
 void InitHostLink() {
@@ -118,8 +102,9 @@ void ProcessHostTx() {
 		return;
 	}
 	++link.sent;
+	uint8_t needed = HOST_PACKET_SIZE(RB_HEAD(link.out));
 
-	if ( link.sent >= HOST_PACKET_SIZE(RB_HEAD(link.out)) ) {
+	if ( link.sent >= needed ) {
 		CHANNEL_MARK_FREE(link.sent);
 		RB_INCREMENT_HEAD(link.out,RB_OUT_SIZE);
 		return;
@@ -127,6 +112,14 @@ void ProcessHostTx() {
 
 	if (link.sent < START_OF_FRAME_SIZE ) {
 		LINDAT = START_OF_FRAME_BYTE;
+		return;
+	}
+
+	if (link.sent == (needed -1) ) {
+		//time to compute and send the checksum.
+		uint8_t cs;
+		arke_compute_checksum(RB_HEAD(link.out),cs);
+		LINDAT = cs;
 		return;
 	}
 
@@ -162,14 +155,33 @@ void ProcessHostRx() {
 	HostPacket * incoming = &RB_TAIL(link.in);
 	uint8_t * incomingAsBuffer = (uint8_t*)incoming;
 	uint8_t ptrOffset = link.received - START_OF_FRAME_SIZE - 1;
-	incomingAsBuffer[ptrOffset] = data;
-	if (link.received == (START_OF_FRAME_SIZE + 1) ) {
-		//resets incommin length
-		incoming->length = 0x00;
+	if (link.received <= HEADER_SIZE ) {
+		//we wait utinl we know the size
+		incomingAsBuffer[ptrOffset] = data;
+		return;
+	}
+	uint8_t needed = HOST_PACKET_SIZE(*incoming);
+	if ( link.received < needed ) {
+		// it is still not the checksum,
+		incomingAsBuffer[ptrOffset] = data;
+		return;
+	}
+	//test the checksum
+	uint8_t cs;
+	arke_compute_checksum(*incoming,cs);
+	if (cs != data ) {
+		//incorrect checksum
+		//TODO: report error
+		//enables new packet reception
+		CHANNEL_MARK_FREE(link.received);
+		return;
 	}
 
 	if (link.received >= HOST_PACKET_SIZE(*incoming) ) {
+		//marks a valid packet received in the incoming ringbuffer
 		RB_INCREMENT_TAIL(link.in,RB_IN_SIZE);
+		//enables a new reception
+		CHANNEL_MARK_FREE(link.received);
 	}
 
 }
@@ -214,8 +226,26 @@ void ProcessIncoming() {
 
 	// This is a control packet :
 	//TODO :  Incoming logic process
+	uint8_t packetID = incoming->ID & 0xff;
+	if(packetID == HP_RESET_REQUEST) {
+		software_reset();
+		RB_INCREMENT_HEAD(link.in,RB_IN_SIZE);
+		return;
+	}
 
+	if (packetID == HP_FW_VERSION_REQUEST) {
+		if(RB_FULL(link.out,RB_OUT_SIZE)) {
+			//do not treat packet and retry
+			return;
+		}
+		HostPacket * outgoing = &RB_TAIL(link.out);
+		arke_hp_make_fw_version(*outgoing,ARKE_FW_MAJOR,ARKE_FW_MINOR);
+		RB_INCREMENT_TAIL(link.out,RB_OUT_SIZE);
+		RB_INCREMENT_HEAD(link.in,RB_IN_SIZE);
+		return;
+	}
 
+	// TODO: repport unknown packet ?
 
 	RB_INCREMENT_HEAD(link.in,RB_IN_SIZE);
 }
@@ -227,22 +257,6 @@ void ProcessHostLink() {
 	ProcessIncoming();
 }
 
-
-int HostSendControlPacket(uint8_t code, uint8_t * buffer) {
-	if(RB_FULL(link.out,RB_OUT_SIZE)) {
-		// TODO report error
-		return 1;
-	}
-	HostPacket * data = &RB_TAIL(link.out);
-	data->ID = 0xffffffff;
-	data->length = code;
-	for (uint8_t i = 0; i<8; ++i) {
-		data->data[i]  = buffer[i];
-	}
-
-	RB_INCREMENT_TAIL(link.out,RB_OUT_SIZE);
-	return 0;
-}
 
 // Prepares an upstreamn
 int HostSendCANPacket(const yaacl_txn_t * txn) {
