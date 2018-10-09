@@ -1,8 +1,9 @@
 #include "HostLink.h"
 
-#include "yaacl.h"
-#include "SoftReset.h"
+#include <yaacl.h>
 
+#include "SoftReset.h"
+#include "LEDs.h"
 
 #include <HostCommunication.h>
 
@@ -197,7 +198,6 @@ void ProcessHostRx() {
 		//enables a new reception
 		CHANNEL_MARK_FREE(link.received);
 	}
-
 }
 
 
@@ -288,6 +288,18 @@ void ProcessHostLink() {
 	ProcessHostTx();
 	ProcessHostRx();
 	ProcessIncoming();
+
+	if ( RB_EMPTY(link.out)) {
+		LEDDataOff();
+	} else {
+		LEDDataOn();
+	}
+
+	if ( RB_FULL(link.in,RB_IN_SIZE) ) {
+		LEDReadyOff();
+	} else {
+		LEDReadyOn();
+	}
 }
 
 
@@ -327,14 +339,25 @@ int HostSendCANPacket(const yaacl_txn_t * txn) {
 }
 
 
+//ERROR LED priority, Higher the winner
+typedef enum {
+	LED_ERR_HOST_RX_PRIORITY = 1,
+	LED_ERR_CAN_TXN_ERR_PRIORITY = 2,
+	LED_ERR_BUFFER_OVERFLOW = 3,
+} LEDErrorBlinkPriority;
+
+
 void HostReportCANRxError() {
+	LEDErrorBlink(LED_ERR_CAN_TXN_ERR_PRIORITY);
 	++link.CANRxError;
 }
 void HostReportCANTxError() {
+	LEDErrorBlink(LED_ERR_CAN_TXN_ERR_PRIORITY);
 	++link.CANTxError;
 }
 
 void HostReportHostRxBufferOverflow() {
+	LEDErrorBlink(LED_ERR_BUFFER_OVERFLOW);
 	++link.RxBufferOverflow;
 }
 void HostReportHostSOFMissing() {
@@ -344,8 +367,10 @@ void HostReportHostRxInvalidChecksum() {
 	++link.RxInvalidCS;
 }
 void HostReportHostRxUnknownPacketID() {
+	LEDErrorBlink(LED_ERR_HOST_RX_PRIORITY);
 	++link.RxUnknownID;
 }
 void HostReportHostTxBufferOverflow() {
+	LEDErrorBlink(LED_ERR_BUFFER_OVERFLOW);
 	++link.TxBufferOverflow;
 }

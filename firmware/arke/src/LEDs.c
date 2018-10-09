@@ -45,7 +45,7 @@ LEDData_t LED;
 		} \
 	} \
 	void LED ## name ## Blink( uint8_t count) { \
-		LED.name ## Target = CLAMP(count,1,8); \
+		LED.name ## Target = CLAMP(MAX(count,LED.name ## Target),1,8); \
 		LED.name ## Count = LED.name ## Target * 2; \
 	} \
 	void LED ## name ## BlinkLoop() { \
