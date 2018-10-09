@@ -25,7 +25,8 @@ typedef enum HostPacketType_e {
 	HP_RESET_REQUEST = 0x0,
 	HP_FW_VERSION_REQUEST,
 	HP_FW_VERSION,
-	//	HP_STATUS_REPORT,
+	HP_STATUS_REPORT_REQUEST,
+	HP_STATUS_REPORT,
 } HostPacketType_e;
 
 #define arke_compute_checksum(p,result) do {	  \
@@ -57,4 +58,25 @@ typedef enum HostPacketType_e {
 		(p).data[3] = 'E'; \
 		(p).data[4] = major; \
 		(p).data[5] = minor; \
+	}while(0)
+
+
+
+#define arke_hp_make_status_report_request(p) do {	  \
+		(p).ID = HP_STATUS_REPORT_REQUEST | CONTROLBIT_MSK; \
+		(p).length = 0x0; \
+	}while(0)
+
+
+#define arke_hp_make_status_report(p,rxOverflow,txOverflow,invalidCS,unknownID,missedSOF,CANRxError,CANTxError) do { \
+		(p).ID = HP_STATUS_REPORT_REQUEST | CONTROLBIT_MSK; \
+		(p).length = 8; \
+		(p).data[2] = rxOverflow; \
+		(p).data[3] = txOverflow; \
+		(p).data[4] = invalidCS; \
+		(p).data[5] = unknownID; \
+		(p).data[6] = (missedSOF) & 0xff; \
+		(p).data[7] = ((missedSOF) & 0xff00) >> 8; \
+		(p).data[0] = CANRxError; \
+		(p).data[1] = CANTxError; \
 	}while(0)

@@ -40,7 +40,7 @@ int main() {
 				HostSendCANPacket(rx+i);
 			}
 			if ( yaacl_txn_had_error(status) ) {
-				//TODO : maybe report error count ?
+				HostReportCANRxError();
 				LEDErrorOn();
 			}
 			// restarts the listen loop on the message.

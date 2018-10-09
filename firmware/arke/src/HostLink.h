@@ -15,3 +15,6 @@ void ProcessHostLink();
 
 // Prepares an upstreamn
 int HostSendCANPacket(const yaacl_txn_t * txn);
+
+void HostReportCANRxError();
+void HostReportCANTxError();

@@ -59,15 +59,29 @@ typedef struct HostData {
 	HostPacketOutRingBuffer out;
 	uint8_t sent,received;
 	yaacl_txn_t txn;
+	uint8_t CANTxError,CANRxError,RxBufferOverflow,TxBufferOverflow,RxInvalidCS,RxUnknownID;
+	uint16_t SOFMissing;
 } HostData;
 HostData link;
 
-
+void HostReportHostRxBufferOverflow();
+void HostReportHostSOFMissing();
+void HostReportHostRxInvalidChecksum();
+void HostReportHostRxUnknownPacketID();
+void HostReportHostTxBufferOverflow();
 
 // Init the UART link.
 void InitHostLink() {
 	RB_INIT(link.in);
 	RB_INIT(link.out);
+
+	link.CANTxError = 0;
+	link.CANRxError = 0;
+	link.RxBufferOverflow = 0;
+	link.TxBufferOverflow = 0;
+	link.RxInvalidCS = 0;
+	link.RxUnknownID = 0;
+	link.SOFMissing = 0;
 
 	CHANNEL_MARK_FREE(link.sent);
 	CHANNEL_MARK_FREE(link.received);
@@ -124,7 +138,6 @@ void ProcessHostTx() {
 	}
 
 	LINDAT = RB_HEAD(link.out).data[link.sent-START_OF_FRAME_BYTE];
-
 }
 
 void ProcessHostRx() {
@@ -135,7 +148,7 @@ void ProcessHostRx() {
 
 	if ( CHANNEL_IS_FREE(link.received) ) {
 		if ( RB_FULL(link.in,RB_IN_SIZE) ) {
-			//TODO: report overflow error condition ?
+			HostReportHostRxBufferOverflow();
 			return ;
 		}
 		link.received = 0;
@@ -147,8 +160,8 @@ void ProcessHostRx() {
 		//lokking for start of frame
 		if( data != START_OF_FRAME_BYTE ) {
 			// not the  case, we are waiting for a new frame
+			HostReportHostSOFMissing();
 			CHANNEL_MARK_FREE(link.received);
-			//TODO:  report error condition ?
 		}
 		return;
 	}
@@ -171,7 +184,7 @@ void ProcessHostRx() {
 	arke_compute_checksum(*incoming,cs);
 	if (cs != data ) {
 		//incorrect checksum
-		//TODO: report error
+		HostReportHostRxInvalidChecksum();
 		//enables new packet reception
 		CHANNEL_MARK_FREE(link.received);
 		return;
@@ -198,7 +211,7 @@ void ProcessIncoming() {
 	}
 
 	if ( yaacl_txn_had_error(s) ) {
-		//TODO: report error ?
+		HostReportCANTxError();
 		RB_INCREMENT_HEAD(link.in, RB_IN_SIZE);
 	}
 
@@ -225,7 +238,6 @@ void ProcessIncoming() {
 	}
 
 	// This is a control packet :
-	//TODO :  Incoming logic process
 	uint8_t packetID = incoming->ID & 0xff;
 	if(packetID == HP_RESET_REQUEST) {
 		software_reset();
@@ -235,7 +247,8 @@ void ProcessIncoming() {
 
 	if (packetID == HP_FW_VERSION_REQUEST) {
 		if(RB_FULL(link.out,RB_OUT_SIZE)) {
-			//do not treat packet and retry
+			HostReportHostTxBufferOverflow();
+			RB_INCREMENT_HEAD(link.in,RB_IN_SIZE);
 			return;
 		}
 		HostPacket * outgoing = &RB_TAIL(link.out);
@@ -245,7 +258,26 @@ void ProcessIncoming() {
 		return;
 	}
 
-	// TODO: repport unknown packet ?
+	if (packetID == HP_STATUS_REPORT_REQUEST) {
+		if(RB_FULL(link.out,RB_OUT_SIZE)) {
+			HostReportHostTxBufferOverflow();
+			RB_INCREMENT_HEAD(link.in,RB_IN_SIZE);
+			return;
+		}
+		HostPacket * outgoing = &RB_TAIL(link.out);
+		arke_hp_make_status_report(*outgoing,
+		                           link.RxBufferOverflow,
+		                           link.TxBufferOverflow,
+		                           link.RxInvalidCS,
+		                           link.RxUnknownID,
+		                           link.SOFMissing,
+		                           link.CANRxError,
+		                           link.CANTxError);
+		RB_INCREMENT_TAIL(link.out,RB_OUT_SIZE);
+		RB_INCREMENT_HEAD(link.in,RB_IN_SIZE);
+	}
+
+	HostReportHostRxUnknownPacketID();
 
 	RB_INCREMENT_HEAD(link.in,RB_IN_SIZE);
 }
@@ -261,7 +293,7 @@ void ProcessHostLink() {
 // Prepares an upstreamn
 int HostSendCANPacket(const yaacl_txn_t * txn) {
 	if(RB_FULL(link.out,RB_OUT_SIZE)) {
-		// TODO report error
+		HostReportHostTxBufferOverflow();
 		return 1;
 	}
 	HostPacket * data = &RB_TAIL(link.out);
@@ -291,4 +323,28 @@ int HostSendCANPacket(const yaacl_txn_t * txn) {
 	RB_INCREMENT_TAIL(link.out,RB_OUT_SIZE);
 
 	return 0;
+}
+
+
+void HostReportCANRxError() {
+	++link.CANRxError;
+}
+void HostReportCANTxError() {
+	++link.CANTxError;
+}
+
+void HostReportHostRxBufferOverflow() {
+	++link.RxBufferOverflow;
+}
+void HostReportHostSOFMissing() {
+	++link.SOFMissing;
+}
+void HostReportHostRxInvalidChecksum() {
+	++link.RxInvalidCS;
+}
+void HostReportHostRxUnknownPacketID() {
+	++link.RxUnknownID;
+}
+void HostReportHostTxBufferOverflow() {
+	++link.TxBufferOverflow;
 }
