@@ -58,5 +58,6 @@ typedef struct s_yaacl_txn_t {
 // @return the <yaacl_txn_status_e> of the transaction
 yaacl_txn_status_e yaacl_txn_status(yaacl_txn_t * txn);
 
+void yaacl_init_txn(yaacl_txn_t *);
 
 //void yaacl_txn_clear(yaacl_txn_t * txn);

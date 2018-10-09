@@ -33,8 +33,8 @@ typedef union {
 #define yaacl_make_std_idt(idt,id,rtrbit) do{	\
 		(idt).std.rb0 = 0; \
 		(idt).std.rtr = ( (rtrbit) != 0); \
-		(idt).reserved0 = 0; \
-		(idt).reserved1 = 0; \
+		(idt).std.reserved0 = 0; \
+		(idt).std.reserved1 = 0; \
 		(idt).std.ID = (id); \
 	}while(0)
 
@@ -48,8 +48,8 @@ typedef union {
 #define yaacl_make_std_mask(msk,id,idebit,rtrbit) do{	  \
 		(msk).std.rb0 = idebit; \
 		(msk).std.rtr = ( (rtrbit) != 0); \
-		(msk).reserved0 = 0; \
-		(msk).reserved1 = 0; \
+		(msk).std.reserved0 = 0; \
+		(msk).std.reserved1 = 0; \
 		(msk).std.ID = (id); \
 	}while(0)
 

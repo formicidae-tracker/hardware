@@ -81,9 +81,15 @@
 		CANIDM1 = (idt).data[3]; \
 	}while(0)
 
+#define yaacl_get_mob_idt_std(idt) do {	  \
+		(idt).data[0] = CANIDT4 & 0xfc; \
+		(idt).data[1] = 0; \
+		(idt).data[2] = CANIDT2 & 0xe0; \
+		(idt).data[3] = CANIDT1; \
+	}while(0);
 
 #define yaacl_get_mob_idt_ext(idt) do {	  \
-		(idt).data[0] = CANIDT4; \
+		(idt).data[0] = CANIDT4 | 0x03; \
 		(idt).data[1] = CANIDT3; \
 		(idt).data[2] = CANIDT2; \
 		(idt).data[3] = CANIDT1; \
@@ -262,6 +268,13 @@ yaacl_txn_status_e yaacl_txn_status(yaacl_txn_t * txn) {
 	}
 
 	if ( mob_status & _BV(RXOK) ) {
+		// readout the received ID
+		if ( (mob_command & _BV(IDE)) != 0 ) {
+			yaacl_get_mob_idt_ext(txn->ID);
+		} else {
+			yaacl_get_mob_idt_std(txn->ID);
+		}
+
 		uint8_t actual_size = mob_command & 0x0f;
 		if ( (mob_status & _BV(DLCW)) != 0
 		     && actual_size > txn->length) {
