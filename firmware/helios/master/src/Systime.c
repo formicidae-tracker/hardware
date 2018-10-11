@@ -15,14 +15,3 @@ void InitSystime() {
 	TCCR0B = _BV(CS01) | _BV(CS00);
 	sei();
 }
-
-ISR(TIMER0_COMPA_vect) {
-	++systime;
-}
-Systime_t GetSystime() {
-	uint8_t sreg = SREG;
-	cli();
-	Systime_t res = systime;
-	SREG = sreg;
-	return res;
-}
