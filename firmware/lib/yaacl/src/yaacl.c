@@ -47,52 +47,85 @@
 		CANSTML = 0x0; \
 }while(0);
 
+#define yaacl_std_idt_03_00(idt) (((*((uint8_t*)(&(idt)) + 0)) << 5 ))
+#define yaacl_std_idt_10_04(idt) (((*((uint8_t*)(&(idt)) + 1)) << 5 ) | ((*((uint8_t*)(&(idt)) + 0)) >> 3 ))
+#define yaacl_ext_idt_04_00(idt) (((*((uint8_t*)(&(idt)) + 0)) << 3 ))
+#define yaacl_ext_idt_12_05(idt) (((*((uint8_t*)(&(idt)) + 1)) << 3 ) | ((*((uint8_t*)(&(idt)) + 0)) >> 5 ))
+#define yaacl_ext_idt_20_13(idt) (((*((uint8_t*)(&(idt)) + 2)) << 3 ) | ((*((uint8_t*)(&(idt)) + 1)) >> 5 ))
+#define yaacl_ext_idt_28_21(idt) (((*((uint8_t*)(&(idt)) + 3)) << 3 ) | ((*((uint8_t*)(&(idt)) + 2)) >> 5 ))
+
 
 // we mask outgoing ID to always send R0 as 0 (dominant)
 #define yaacl_set_mob_idt_std(idt) do {	  \
-		CANIDT4 = (idt).data[0] & 0x4; \
+		if ( yaacl_idt_test_rtrbit(idt) ) { \
+			CANIDT4 = _BV(RTRTAG); \
+		} else { \
+			CANIDT4 = 0x00; \
+		} \
 		CANIDT3 = 0x0; \
-		CANIDT2 = (idt).data[2] & 0xe0; \
-		CANIDT1 = (idt).data[3] ; \
+		CANIDT2 = yaacl_std_idt_03_00(idt); \
+		CANIDT1 = yaacl_std_idt_10_04(idt); \
 		CANCDMOB &= ~(_BV(IDE)); \
 	}while(0)
 
 // we mask outgoing ID to always send R0,R1 as 0 (dominant)
 #define yaacl_set_mob_idt_ext(idt) do {	  \
-		CANIDT4 = (idt).data[0] & 0xfc; \
-		CANIDT3 = (idt).data[1]; \
-		CANIDT2 = (idt).data[2]; \
-		CANIDT1 = (idt).data[3]; \
+		CANIDT4 = yaacl_ext_idt_04_00(idt); \
+		if ( yaacl_idt_test_rtrbit(idt) ) { \
+			CANIDT4 |= _BV(RTRTAG); \
+		} \
+		CANIDT3 = yaacl_ext_idt_12_05(idt); \
+		CANIDT2 = yaacl_ext_idt_20_13(idt); \
+		CANIDT1 = yaacl_ext_idt_28_21(idt); \
 		CANCDMOB |= _BV(IDE); \
 	}while(0)
 
 
-#define yaacl_set_mob_mask_std(idt) do {\
-		CANIDM4 = (idt).data[0] & 0x05; \
+#define yaacl_set_mob_mask_std(idt) do {	  \
+		CANIDM4 = 0x00; \
+		if( yaacl_idt_test_rtrbit(idt) ) { \
+			CANIDM4 |= _BV(RTRMSK); \
+		} \
+		if ( yaacl_idt_test_idebit(idt) ) { \
+			CANIDM3 |= _BV(IDEMSK); \
+		} \
 		CANIDM3 = 0x00; \
-		CANIDM2 = (idt).data[2] & 0xe0; \
-		CANIDM1 = (idt).data[3]; \
+		CANIDM2 = yaacl_std_idt_03_00(idt); \
+		CANIDM1 = yaacl_std_idt_10_04(idt); \
 	}while(0)
 
 #define yaacl_set_mob_mask_ext(idt) do {	  \
-		CANIDM4 = (idt).data[0] & 0xfd; \
-		CANIDM3 = (idt).data[1]; \
-		CANIDM2 = (idt).data[2]; \
-		CANIDM1 = (idt).data[3]; \
+		CANIDM4 = yaacl_ext_idt_04_00(idt); \
+		if( yaacl_idt_test_rtrbit(idt) ) { \
+			CANIDM4 |= _BV(RTRMSK); \
+		} \
+		if ( yaacl_idt_test_idebit(idt) ) { \
+			CANIDM3 |= _BV(IDEMSK); \
+		} \
+		CANIDM3 = yaacl_ext_idt_12_05(idt); \
+		CANIDM2 = yaacl_ext_idt_20_13(idt); \
+		CANIDM1 = yaacl_ext_idt_28_21(idt); \
 	}while(0)
 
 #define yaacl_get_mob_idt_std(idt) do {	  \
-		(idt).data[0] = CANIDT4 & 0xfc; \
-		(idt).data[1] = 0; \
-		(idt).data[2] = CANIDT2 & 0xe0; \
-		(idt).data[3] = CANIDT1; \
+		if ( (CANIDT1 & _BV(RTRTAG) ) != 0 ) { \
+			*((uint8_t*)(&(idt)) + 3) = YAACL_RTRBIT_MSK >> 24; \
+		} else { \
+			*((uint8_t*)(&(idt)) + 3) = 0x0; \
+		} \
+		*((uint8_t*)(&(idt)) + 2) = 0; \
+		*((uint8_t*)(&(idt)) + 1) = CANIDT1 >>  5; \
+		*((uint8_t*)(&(idt)) + 0) = (CANIDT2 >>  5) | (CANIDT1 << 3); \
 	}while(0);
 
 #define yaacl_get_mob_idt_ext(idt) do {	  \
-		(idt).data[0] = CANIDT4 | 0x03; \
-		(idt).data[1] = CANIDT3; \
-		(idt).data[2] = CANIDT2; \
-		(idt).data[3] = CANIDT1; \
+		*((uint8_t*)(&(idt)) + 3) = CANIDT1 >> 5; \
+		if ( (CANIDT1 & _BV(RTRTAG) ) != 0 ) { \
+			*((uint8_t*)(&(idt)) + 3) |= YAACL_RTRBIT_MSK >> 24; \
+		} \
+		*((uint8_t*)(&(idt)) + 2) = CANIDT1 << 3 | CANIDT2 >> 5; \
+		*((uint8_t*)(&(idt)) + 1) = CANIDT2 << 3 | CANIDT3 >> 5; \
+		*((uint8_t*)(&(idt)) + 0) = CANIDT3 << 3 | CANIDT4 >> 5; \
 	}while(0);
 
 #define yaacl_set_mob_dlc(dlc) do {	  \
@@ -199,7 +232,7 @@ yaacl_error_e  yaacl_send(yaacl_txn_t * txn) {
 
 	txn->MobID = next_free;
 	yaacl_select_mob(next_free);
-	if ( yaacl_idt_is_ext(txn->ID) ) {
+	if ( yaacl_idt_test_idebit(txn->ID) ) {
 		yaacl_set_mob_idt_ext(txn->ID);
 	} else {
 		yaacl_set_mob_idt_std(txn->ID);
@@ -224,7 +257,7 @@ yaacl_error_e yaacl_listen(yaacl_txn_t * txn) {
 
 	txn->MobID = next_free;
 	yaacl_select_mob(next_free);
-	if ( yaacl_idt_is_ext(txn->ID) ) {
+	if ( yaacl_idt_test_idebit(txn->ID) ) {
 		yaacl_set_mob_idt_ext(txn->ID);
 		yaacl_set_mob_mask_ext(txn->mask);
 	} else {

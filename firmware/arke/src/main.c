@@ -21,7 +21,7 @@ int main() {
 		// listen to absolutely everything, both standard to extended
 		// frames.
 		yaacl_make_ext_idt(rx[i].ID,0x0,0);
-		yaacl_make_ext_mask(rx[i].mask,0x0,0,0);
+		rx[i].mask = 0x00; // get absolutely everything
 		rx[i].data = &(data[i*8]);
 		rx[i].length = 8;
 		yaacl_listen(&(rx[i]));
@@ -41,9 +41,8 @@ int main() {
 				HostReportCANRxError();
 				LEDErrorOn();
 			}
-			// restarts the listen loop on the message.
-			yaacl_make_ext_idt(rx[i].ID,0x0,0);
-			yaacl_make_ext_mask(rx[i].mask,0x0,0,0);
+			//re-listen to everything, mask is still zero, and length
+			//has to be reset.
 			rx[i].length = 8;
 			yaacl_listen(rx+i);
 		}

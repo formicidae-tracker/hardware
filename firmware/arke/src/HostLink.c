@@ -21,6 +21,17 @@
 #define CHANNEL_IS_FREE(ch) (ch == 0xff)
 #define CHANNEL_MARK_FREE(ch) ch = 0xff;
 
+
+#define arke_host_to_yaacl_idt(dest,src) do {	  \
+		(dest) = src; /*the two should be bit compatible*/ \
+	}while(0)
+
+#define arke_yaacl_to_host_idt(dest,src) do {	  \
+		(dest) = src; /*the two should be bit compatible*/ \
+	}while(0)
+
+
+
 typedef struct HostPacketInRingBuffer {
 	HostPacket data[RB_IN_SIZE];
 	uint8_t head;
@@ -226,11 +237,7 @@ void ProcessIncoming() {
 
 	if ( (incoming->ID & CONTROLBIT_MSK) == 0 ) {
 		//data to send to the bus
-		if ( (incoming->ID & IDEBIT_MSK ) == 0 ) {
-			yaacl_make_std_idt(link.txn.ID,incoming->ID & STD_ID_MSK,incoming->ID & RTRBIT_MSK);
-		} else {
-			yaacl_make_ext_idt(link.txn.ID,incoming->ID & EXT_ID_MSK,incoming->ID & RTRBIT_MSK);
-		}
+		arke_host_to_yaacl_idt(link.txn.ID, incoming->ID);
 		link.txn.length = MIN(incoming->length,8);
 		link.txn.data = incoming->data;
 		yaacl_send(&link.txn);
@@ -309,28 +316,11 @@ int HostSendCANPacket(const yaacl_txn_t * txn) {
 		HostReportHostTxBufferOverflow();
 		return 1;
 	}
-	HostPacket * data = &RB_TAIL(link.out);
-	if (txn->ID.std.rb0 ) {
-		data->ID = txn->ID.ext.ID;
-		data->ID |= IDEBIT_MSK;
-		if (txn->ID.ext.rtr != 0 ) {
-			data->ID |= RTRBIT_MSK;
-		} else {
-			data->ID &= ~(RTRBIT_MSK);
-		}
-	} else {
-		data->ID = txn->ID.std.ID;
-		data->ID &= ~(IDEBIT_MSK);
-		if (txn->ID.std.rtr != 0 ) {
-			data->ID |= RTRBIT_MSK;
-		} else {
-			data->ID &= ~(RTRBIT_MSK);
-		}
-	}
-
-	data->length = txn->length;
+	HostPacket * outgoing = &RB_TAIL(link.out);
+	arke_yaacl_to_host_idt(outgoing->ID, txn->ID);
+	outgoing->length = txn->length;
 	for (uint8_t i = 0; i < txn->length; ++i ) {
-		data->data[i] = txn->data[i];
+		outgoing->data[i] = txn->data[i];
 	}
 
 	RB_INCREMENT_TAIL(link.out,RB_OUT_SIZE);
