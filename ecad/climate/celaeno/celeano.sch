@@ -307,7 +307,7 @@ F 0 "J7" H 10380 1892 50  0000 L CNN
 F 1 "PT 1,5/4-3,5-H" H 10380 1801 50  0000 L CNN
 F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-4-3.5-H_1x04_P3.50mm_Horizontal" H 10300 1900 50  0001 C CNN
 F 3 "~" H 10300 1900 50  0001 C CNN
-F 4 "PT 1,5/4-3,5-H" H 10300 1900 50  0001 C CNN "Part Number"
+F 4 "1984633" H 10300 1900 50  0001 C CNN "Part Number"
 	1    10300 1900
 	1    0    0    -1  
 $EndComp
