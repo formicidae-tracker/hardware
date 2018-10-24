@@ -39,8 +39,12 @@ volatile LightManager_t LM;
 #define IR_SET() PORTD |= _BV(5);
 #define IR_CLEAR() PORTD &= ~(_BV(5));
 
-#define TIMER3_START() TCCR3B =  _BV(CS32) //sets 1/256 prescaling
-#define TIMER3_STOP() TCCR3B = 0x00 //stops timer
+#define TIMER3_START() do{	  \
+		TCCR3B =  _BV(CS32); \
+	}while(0)
+#define TIMER3_STOP() do{	  \
+		TCCR3B = 0x00; \
+	}while(0)
 
 #define FOR_ALL_CHANNELS(i) for (uint8_t i = 0; i < NUM_CHANNELS; ++i)
 
@@ -95,6 +99,7 @@ void InitLightManager() {
 
 	//trigger interrupt on INT1 rising and on INT0 falling
 	DDRD &= ~(_BV(2) | _BV(3) ) ; //makes sure INT1 and INT0 are input
+	// Sets 1 as as rising and 0 as falling
 	EICRA |= _BV(ISC11) | _BV(ISC10) | _BV(ISC01);
 	EIMSK |= _BV(INT1) |_BV(INT0);
 
@@ -121,14 +126,17 @@ void LMSetVisibleBrightness(uint8_t value) {
 	}while(0)
 
 
-ISR(INT1_vect){
+ISR(INT0_vect){
 	//falling edge
+	if (TCNT3 <=3) {
+		return;
+	}
 	IR_CLEAR();
 }
 
-ISR(INT0_vect) {
+ISR(INT1_vect) {
 	// rising edge
-	if ( !LM.IR_ready || !LM.active ) {
+	if ( (!LM.IR_ready && TCNT3 > 3) || !LM.active ) {
 		//ensure armed and active
 		IR_CLEAR(); // to be sure
 		return;
