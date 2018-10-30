@@ -80,12 +80,20 @@ int main() {
 	}
 
 	InitModuleManager();
-
+	Systime_t last = 0;
 	while(1) {
 		ProcessModuleManager();
 		ArkeProcess();
-		ProcessIncoming();
-		yaacl_txn_status(&(app.tx));
+		Systime_t now = ArkeGetSystime();
+		if ( (now - last ) >= 500 ) {
+			last = now;
+
+			SendToModule(255,0);
+		}
+
+
+		//		ProcessIncoming();
+		//		yaacl_txn_status(&(app.tx));
 
 		// implements
 
