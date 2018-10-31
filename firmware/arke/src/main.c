@@ -8,7 +8,7 @@
 int main() {
 	InitLEDs();
 	InitSystime();
-	//	InitHostLink();
+	InitHostLink();
 
 	//	yaacl_config_t config;
 	//config.baudrate = YAACL_BR_500;
@@ -53,7 +53,7 @@ int main() {
 		/* 	yaacl_listen(rx+i); */
 		/* } */
 
-		/* ProcessHostLink(); */
+		ProcessHostLink();
 		ProcessLEDs();
 
 

@@ -1,13 +1,13 @@
 set(SRC_FILES main.c
 	          LEDs.c
-	          Systime.c)
-	          #HostLink.c
-	          #SoftReset.c)
+	          Systime.c
+	          HostLink.c
+	          SoftReset.c)
 
 set(HDR_FILES LEDs.h
-	          Systime.h)
-	          ##HostLink.h
-	          ##SoftReset.h)
+	          Systime.h
+	          HostLink.h
+	          SoftReset.h)
 
 
 add_avr_executable(arke ${SRC_FILES} ${HDR_FILES})

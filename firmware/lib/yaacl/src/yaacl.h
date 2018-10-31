@@ -49,6 +49,9 @@ typedef enum yaacl_error_e{
 yaacl_error_e yaacl_init(const yaacl_config_t *config);
 
 
+// Stops the module
+yaacl_error_e yaacl_deinit();
+
 /* Performs a transmission on the CAN bus.
  *  @txn a pre-filled <yaacl_txn_t> structure with the
  *       <yaacl_txn_t::ID> <yaacl_txn_t::length> and
