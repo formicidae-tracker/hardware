@@ -331,3 +331,9 @@ yaacl_txn_status_e yaacl_txn_status(yaacl_txn_t * txn) {
 	return YAACL_TXN_ERR_UNSPECIFIED;
 
 }
+
+
+yaacl_error_e yaacl_deinit() {
+	yaacl_can_disable();
+	return YAACL_NO_ERROR;
+}

@@ -33,7 +33,7 @@ typedef uint32_t yaacl_idt_t;
 
 
 #define yaacl_make_ext_mask(idt,id,rtrbit,forceExtended) do{	  \
-		(idt) = ((id) & YAACL_STD_IDT_MSK) \
+		(idt) = ((id) & YAACL_EXT_IDT_MSK) \
 			| ( (forceExtended != 0 ) ? YAACL_IDEBIT_MSK : 0) \
 			| ( (rtrbit != 0 ) ? YAACL_RTRBIT_MSK : 0 ); \
 	}while(0)
