@@ -9,6 +9,8 @@
 
 #include <avr/io.h>
 #include <util/delay.h>
+#include <avr/interrupt.h>
+
 #include <stdio.h>
 
 // UART is slower than the bus, so we buffer more outgoing than
@@ -38,10 +40,6 @@ typedef struct HostPacketOutRingBuffer {
 	uint16_t size;
 } HostPacketOutRingBuffer;
 
-
-#define SLCAN_ACK  '\r'
-#define SLCAN_NACK '\a'
-
 #define RB_INIT(rb) do {	  \
 		(rb).head = 0; \
 		(rb).tail = 0; \
@@ -53,23 +51,23 @@ typedef struct HostPacketOutRingBuffer {
 #define RB_FULL(rb,size_) ((rb).size == size_)
 #define RB_INCREMENT_TAIL(rb,size_) do {	  \
 		++(rb).size; \
-		(rb).tail = ((rb).tail + 1); \
+		(rb).tail = ((rb).tail + 1) & RB_MASK(size_); \
 	}while(0)
 
 #define RB_INCREMENT_HEAD(rb,size_) do {	  \
 		--(rb).size; \
-		(rb).head = ((rb).head + 1); \
+		(rb).head = ((rb).head + 1) & RB_MASK(size_); \
 	}while(0)
 
 
 typedef struct HostData {
-	HostPacketInRingBuffer in;
+	volatile HostPacketInRingBuffer in;
 	HostPacketOutRingBuffer out;
 	yaacl_txn_t tx[3];
 	yaacl_txn_t rx[3];
 	uint8_t  status;
 	uint8_t  errorStatus;
-	uint8_t pendingRx;
+	volatile uint8_t pendingRx;
 	uint8_t txStatus;
 } HostData;
 HostData link;
@@ -80,6 +78,8 @@ void HostReportHostRxInvalidChecksum();
 void HostReportHostRxUnknownPacketID();
 void HostReportHostTxBufferOverflow();
 
+#define SLCAN_ACK  '\r'
+#define SLCAN_NACK '\a'
 
 void HostSendNack() {
 	if(RB_FULL(link.out,RB_OUT_SIZE) ) {
@@ -105,7 +105,6 @@ void InitHostLink() {
 	link.pendingRx = 0;
 	link.txStatus = 0;
 
-
 	// set baudrate to 114285 within 0.79% of 115200
 	// 115200 would often be the maximal value any UART would reach in
 	// modern PC
@@ -116,6 +115,33 @@ void InitHostLink() {
 
 	// enable UART Rx and Tx mode
 	LINCR = _BV(LENA) | _BV(LCMD2) |  _BV(LCMD1) |  _BV(LCMD0) ;
+
+	LINENIR = _BV(LENERR) | _BV(LENRXOK);
+	sei();
+}
+
+volatile uint8_t discarder;
+
+ISR(LIN_ERR_vect) {
+	//TODO report error
+	LEDErrorOn();
+	discarder = LINDAT;
+}
+
+ISR(LIN_TC_vect) {
+	uint8_t data = LINDAT;
+	if ( RB_FULL(link.in,RB_IN_SIZE) ) {
+		LEDErrorOn();
+		//TODO report error
+		return;
+	}
+
+	RB_TAIL(link.in) = data;
+	RB_INCREMENT_TAIL(link.in,RB_IN_SIZE);
+	if (data == SLCAN_ACK) {
+		++link.pendingRx;
+	}
+
 }
 
 void ProcessHostTx() {
@@ -137,95 +163,81 @@ void ProcessHostTx() {
 }
 uint8_t count = 0;
 char * countStr = "000";
-void ProcessHostRx() {
-	if ( (LINSIR & _BV(LRXOK) ) == 0x00 ) {
-		return;
-	}
-
-
-	if ( link.out.size >= 250) {
-		//HostReportHostRxBufferOverflow();
-		LEDErrorBlink(2);
-		return;
-	}
-	++count;
-	uint8_t data = LINDAT;
-	//RB_TAIL(link.out) = ':';
-	//RB_INCREMENT_TAIL(link.out,RB_OUT_SIZE);
-	RB_TAIL(link.out) = LINDAT;
-	RB_INCREMENT_TAIL(link.out,RB_OUT_SIZE);
-	if ( data == ';' ) {
-		sprintf(countStr,"%03d",count);
-		RB_TAIL(link.out) = countStr[0];
-		RB_INCREMENT_TAIL(link.out,RB_OUT_SIZE);
-		RB_TAIL(link.out) = countStr[1];
-		RB_INCREMENT_TAIL(link.out,RB_OUT_SIZE);
-		RB_TAIL(link.out) = countStr[2];
-		RB_INCREMENT_TAIL(link.out,RB_OUT_SIZE);
-	}
-	//RB_TAIL(link.out) = '\n';
-	//RB_INCREMENT_TAIL(link.out,RB_OUT_SIZE);
-	LEDDataToggle();
-
-	/* uint8_t received = LINDAT; */
-	/* RB_TAIL(link.in) = received; */
-
-	/* RB_INCREMENT_TAIL(link.in,RB_IN_SIZE); */
-
-	/* if ( received == SLCAN_ACK ) { */
-	/* 	++link.pendingRx; */
-	/* 	// */
-	/* } */
-}
-
 
 void ProcessIncoming() {
-	if ( link.pendingRx == 0 ) {
+	cli();
+	if ( RB_EMPTY(link.in) ) {
+		sei();
 		return;
 	}
 
-
-	//check internal soundness of buffer
-	uint8_t size;
-	bool found = false;
-	for (size = 0;
-	     size < link.in.size;
-	     ++size) {
-		if (link.in.data[(link.in.head + size) & RB_MASK(RB_IN_SIZE) ] == SLCAN_ACK ) {
-			found = true;
-			break;
-		}
-	}
-
-	if (found == false ) {
-		//Bad internal issue
-		//TODO: report issue
-		RB_INIT(link.in);
+	if (link.out.size >= RB_OUT_SIZE - 4) {
 		return;
 	}
 
-	// treat command
-	switch ( RB_HEAD(link.in) ) {
-	case 'O':
-	case 'C':
-	case 'F':
-	case 'V':
-	case 'S':
-	case 's':
-	case 't':
-	case 'T':
-	case 'r':
-	case 'R':
-		//none implemented yet
-		HostSendNack();
-		break;
-	default:
-		HostSendNack();
+	++count;
+	uint8_t data = RB_HEAD(link.in);
+	RB_TAIL(link.out) = data;
+	cli();
+	RB_INCREMENT_HEAD(link.in, RB_IN_SIZE);
+	sei();
+	RB_INCREMENT_TAIL(link.out, RB_OUT_SIZE);
+	if (data == ';') {
+		sprintf(countStr,"%03d",count);
+		RB_TAIL(link.out) = countStr[0];
+		RB_INCREMENT_TAIL(link.out, RB_OUT_SIZE);
+		RB_TAIL(link.out) = countStr[1];
+		RB_INCREMENT_TAIL(link.out, RB_OUT_SIZE);
+		RB_TAIL(link.out) = countStr[2];
+		RB_INCREMENT_TAIL(link.out, RB_OUT_SIZE);
 	}
 
-	link.in.head = (link.in.head + size + 1) & RB_MASK(RB_IN_SIZE);
-	link.in.size -= size + 1;
-	--link.pendingRx;
+	/* if ( link.pendingRx == 0 ) { */
+	/* 	return; */
+	/* } */
+
+
+	/* //check internal soundness of buffer */
+	/* uint8_t size; */
+	/* bool found = false; */
+	/* for (size = 0; */
+	/*      size < link.in.size; */
+	/*      ++size) { */
+	/* 	if (link.in.data[(link.in.head + size) & RB_MASK(RB_IN_SIZE) ] == SLCAN_ACK ) { */
+	/* 		found = true; */
+	/* 		break; */
+	/* 	} */
+	/* } */
+
+	/* if (found == false ) { */
+	/* 	//Bad internal issue */
+	/* 	//TODO: report issue */
+	/* 	RB_INIT(link.in); */
+	/* 	return; */
+	/* } */
+
+	/* // treat command */
+	/* switch ( RB_HEAD(link.in) ) { */
+	/* case 'O': */
+	/* case 'C': */
+	/* case 'F': */
+	/* case 'V': */
+	/* case 'S': */
+	/* case 's': */
+	/* case 't': */
+	/* case 'T': */
+	/* case 'r': */
+	/* case 'R': */
+	/* 	//none implemented yet */
+	/* 	HostSendNack(); */
+	/* 	break; */
+	/* default: */
+	/* 	HostSendNack(); */
+	/* } */
+
+	/* link.in.head = (link.in.head + size + 1) & RB_MASK(RB_IN_SIZE); */
+	/* link.in.size -= size + 1; */
+	/* --link.pendingRx; */
 
 
 }
@@ -233,15 +245,7 @@ void ProcessIncoming() {
 // Process incoming packet from host
 void ProcessHostLink() {
 	ProcessHostTx();
-	ProcessHostRx();
 	ProcessIncoming();
-	if( (LINSIR & _BV(LERR)) != 0 ) {
-		uint8_t foo = LINDAT;
-		if (foo == 0 ) {
-			LEDDataOn();
-		}
-		LEDErrorToggle();
-	}
 }
 
 
