@@ -1,4 +1,4 @@
-update=Mon 01 Oct 2018 01:48:03 PM CEST
+update=Tue 06 Nov 2018 01:31:23 PM CET
 version=1
 last_client=kicad
 [pcbnew]
@@ -28,3 +28,13 @@ version=1
 [eeschema]
 version=1
 LibDir=
+[schematic_editor]
+version=1
+PageLayoutDescrFile=${KIPRJMOD}/../../lib/unil.kicad_wks
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceAjustPassiveValues=0
+LabSize=50
+ERC_TestSimilarLabels=1

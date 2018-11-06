@@ -1,4 +1,4 @@
-update=Tue 18 Sep 2018 04:22:09 PM CEST
+update=Tue 06 Nov 2018 02:02:18 PM CET
 version=1
 last_client=kicad
 [pcbnew]
@@ -62,3 +62,13 @@ LibName30=atmel
 LibName31=contrib
 LibName32=valves
 LibName33=fort
+[schematic_editor]
+version=1
+PageLayoutDescrFile=${KIPRJMOD}/../../lib/unil.kicad_wks
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceAjustPassiveValues=0
+LabSize=50
+ERC_TestSimilarLabels=1
