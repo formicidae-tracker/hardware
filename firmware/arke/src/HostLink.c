@@ -121,6 +121,8 @@ typedef struct HostData {
 	HostPacketOutRingBuffer out;
 	yaacl_txn_t tx[NB_TXN];
 	yaacl_txn_t rx[NB_TXN];
+	uint8_t     txData[NB_TXN*8];
+	uint8_t     rxData[NB_TXN*8];
 	enum SlcanBaudrate canBaudrate;
 	enum SlcanStatus status;
 	uint8_t  errorStatus;
@@ -220,6 +222,8 @@ void HostInitYaacl() {
 		yaacl_init_txn(&link.tx[i]);
 		yaacl_init_txn(&link.rx[i]);
 		link.rx[i].length = 8;
+		link.rx[i].data = &(link.rxData[8*i]);
+		link.tx[i].data = &(link.txData[8*i]);
 		yaacl_make_ext_idt(link.rx[i].ID,0,0);
 		yaacl_make_ext_mask(link.rx[i].mask,0,0,0);
 		yaacl_listen(&link.rx[i]);
@@ -420,7 +424,6 @@ bool HostCANTxCommand(uint8_t commandSize, bool idebit, bool rtrbit) {
 	}
 
 	yaacl_send(&link.tx[next]);
-
 	HostSendSingleCharUnsafe(SLCAN_ACK);
 
 	return true;

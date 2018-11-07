@@ -24,7 +24,7 @@
 	}while(0)
 
 #define yaacl_mob_clear_status() do {	  \
-		CANSTMOB = 0x00; \
+	CANSTMOB &= 0x80; \
 	}while(0)
 
 #define yaacl_mob_rearm() do {	  \
@@ -108,7 +108,7 @@
 	}while(0)
 
 #define yaacl_get_mob_idt_std(idt) do {	  \
-		if ( (CANIDT1 & _BV(RTRTAG) ) != 0 ) { \
+		if ( (CANIDT4 & _BV(RTRTAG) ) != 0 ) { \
 			*((uint8_t*)(&(idt)) + 3) = YAACL_RTRBIT_MSK >> 24; \
 		} else { \
 			*((uint8_t*)(&(idt)) + 3) = 0x0; \
@@ -120,12 +120,12 @@
 
 #define yaacl_get_mob_idt_ext(idt) do {	  \
 		*((uint8_t*)(&(idt)) + 3) = CANIDT1 >> 5; \
-		if ( (CANIDT1 & _BV(RTRTAG) ) != 0 ) { \
+		if ( (CANIDT4 & _BV(RTRTAG) ) != 0 ) { \
 			*((uint8_t*)(&(idt)) + 3) |= YAACL_RTRBIT_MSK >> 24; \
 		} \
-		*((uint8_t*)(&(idt)) + 2) = CANIDT1 << 3 | CANIDT2 >> 5; \
-		*((uint8_t*)(&(idt)) + 1) = CANIDT2 << 3 | CANIDT3 >> 5; \
-		*((uint8_t*)(&(idt)) + 0) = CANIDT3 << 3 | CANIDT4 >> 5; \
+		*((uint8_t*)(&(idt)) + 2) = CANIDT1 << 5 | CANIDT2 >> 3; \
+		*((uint8_t*)(&(idt)) + 1) = CANIDT2 << 5 | CANIDT3 >> 3; \
+		*((uint8_t*)(&(idt)) + 0) = CANIDT3 << 5 | CANIDT4 >> 3; \
 	}while(0);
 
 #define yaacl_set_mob_dlc(dlc) do {	  \
@@ -288,7 +288,7 @@ yaacl_txn_status_e yaacl_txn_status(yaacl_txn_t * txn) {
 	//test the status
 	uint8_t mob_status = CANSTMOB;
 
-	if ( mob_status == 0x00 ) {
+	if ( (mob_status & 0x7f) == 0x00 ) {
 		return YAACL_TXN_PENDING;
 	}
 
@@ -329,7 +329,6 @@ yaacl_txn_status_e yaacl_txn_status(yaacl_txn_t * txn) {
 	yaacl_mob_rearm();
 	txn->MobID = YAACL_NB_MOB;
 	return YAACL_TXN_ERR_UNSPECIFIED;
-
 }
 
 

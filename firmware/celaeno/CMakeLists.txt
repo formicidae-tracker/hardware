@@ -7,9 +7,9 @@ set(AVR_UPLOADTOOL_PORT usb)
 set(AVR_UPLOADTOOL_OPTIONS -C ${CMAKE_CURRENT_SOURCE_DIR}/../avrdude.conf)
 
 set(AVR_MCU at90can128)
-#set(AVR_L_FUSE 0xff)
-#set(AVR_H_FUSE 0xd9)
-#set(AVR_E_FUSE 0x01)
+set(AVR_L_FUSE 0xde)
+set(AVR_H_FUSE 0x99)
+set(AVR_E_FUSE 0xfd)
 set(MCU_SPEED "16000000L")
 
 cmake_policy(SET CMP0048 NEW)
@@ -44,16 +44,16 @@ include_directories(${AVR_GCC_INCLUDE}
 	                ${LIBARKE_INCLUDE_DIR}
 	                ${PROJECT_SOURCE_DIR}/include)
 
-add_definitions("-DARKE_MY_FW_MAJOR_VERSION=${PROJECT_VERSION_MAJOR}"
-	            "-DARKE_MY_FW_MINOR_VERSION=${PROJECT_VERSION_MINOR}"
-	            "-DARKE_MY_CLASS=0xe"
-	            "-DARKE_MY_SUBID=0x01"
-	            )
+# add_definitions("-DARKE_MY_FW_MAJOR_VERSION=${PROJECT_VERSION_MAJOR}"
+# 	            "-DARKE_MY_FW_MINOR_VERSION=${PROJECT_VERSION_MINOR}"
+# 	            "-DARKE_MY_CLASS=0xe"
+# 	            "-DARKE_MY_SUBID=0x01"
+# 	            )
 
 add_avr_library(yaacl ${YAACL_SRC_FILES})
 
-add_avr_library(libarke ${LIBARKE_SRC_FILES})
+# add_avr_library(libarke ${LIBARKE_SRC_FILES})
 
-avr_target_link_libraries(libarke yaacl)
+# avr_target_link_libraries(libarke yaacl)
 
 add_subdirectory(src)
