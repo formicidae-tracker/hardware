@@ -628,7 +628,7 @@ void ProcessCan() {
 				HostSendSingleCharUnsafe( bin_to_hex(link.rx[i].ID >> 4) );
 				HostSendSingleCharUnsafe( bin_to_hex(link.rx[i].ID) );
 			}
-			HostSendSingleCharUnsafe( link.rx[i].length );
+			HostSendSingleCharUnsafe( link.rx[i].length + '0' );
 			for (uint8_t i = 0 ; i < link.rx[i].length; ++i ) {
 				HostSendSingleCharUnsafe( bin_to_hex(link.rx[i].ID >> 4) );
 				HostSendSingleCharUnsafe( bin_to_hex(link.rx[i].ID) );
@@ -713,17 +713,20 @@ void HostReportInternalError() {
 }
 
 void HostReportCANTxError(yaacl_txn_status_e s) {
-	link.errorStatus |= ARKE_CAN_TX_ERROR;
 	if ( (s & YAACL_TXN_ACK_ERROR) != 0 ) {
 		link.errorStatus |= ARKE_CAN_TX_ACK_ERROR;
+	} else {
+		link.errorStatus |= ARKE_CAN_TX_ERROR;
 	}
 	set_error_led_blink();
 }
 
 void HostReportCANRxError(yaacl_txn_status_e s) {
-	link.errorStatus |= ARKE_CAN_RX_ERROR;
 	if ( (s & YAACL_TXN_CRC_ERROR) != 0 ) {
 		link.errorStatus |= ARKE_CAN_RX_CRC_ERROR;
+	} else {
+		link.errorStatus |= ARKE_CAN_RX_ERROR;
 	}
+
 	set_error_led_blink();
 }
