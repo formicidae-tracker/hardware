@@ -359,7 +359,6 @@ bool HostBaudrateSelectCommand(uint8_t commandSize) {
 
 bool HostCANTxCommand(uint8_t commandSize, bool idebit, bool rtrbit) {
 	if ( (link.status && SLCAN_TX) == 0x00 ) {
-		LEDDataBlink(1);
 		HostSendSingleCharUnsafe(SLCAN_NACK);
 		return true;
 	}
@@ -376,26 +375,31 @@ bool HostCANTxCommand(uint8_t commandSize, bool idebit, bool rtrbit) {
 	}
 	if (commandSize <= expectedSize ) {
 		HostSendSingleCharUnsafe(SLCAN_NACK);
-		LEDDataBlink(2);
 		return true;
 	}
 
 	uint8_t dlc = RB_FROM_HEAD(link.in,expectedSize,RB_IN_SIZE) - '0';
 	if ( dlc < 0 || dlc > 8 || commandSize != expectedSize + 2 * dlc + 1 ) {
 		HostSendSingleCharUnsafe(SLCAN_NACK);
-		LEDDataBlink(5);
 		return true;
 	}
 
 	uint32_t ID = 0;
 
 	for (uint8_t i = 1; i < expectedSize; ++i) {
-		ID = ID << 4;
 		uint8_t toAdd = hex_to_bin(RB_FROM_HEAD(link.in,i,RB_IN_SIZE));
 		if (toAdd == 0xff) {
 			HostSendSingleCharUnsafe(SLCAN_NACK);
-			LEDDataBlink(3);
 			return true;
+		}
+		if ( i == 1) {
+			if ( (idebit  && (toAdd > 0x01) ) || ( (!idebit) && (toAdd > 0x07) ) ) {
+				//wrong ID
+				HostSendSingleCharUnsafe(SLCAN_NACK);
+				return true;
+			}
+		} else {
+			ID = ID << 4;
 		}
 		ID |= toAdd;
 	}
@@ -411,20 +415,19 @@ bool HostCANTxCommand(uint8_t commandSize, bool idebit, bool rtrbit) {
 		uint8_t MSB = hex_to_bin(RB_FROM_HEAD(link.in,expectedSize + 1 + 2*i,RB_IN_SIZE));
 		if ( MSB == 0xff ) {
 			HostSendSingleCharUnsafe(SLCAN_NACK);
-			LEDDataBlink(4);
 			return true;
 		}
 		uint8_t LSB = hex_to_bin(RB_FROM_HEAD(link.in,expectedSize + 2 + 2*i,RB_IN_SIZE));
 		if (LSB == 0xff ) {
 			HostSendSingleCharUnsafe(SLCAN_NACK);
-			LEDDataBlink(4);
 			return true;
 		}
 		link.tx[next].data[i] = (MSB << 4) | LSB;
 	}
 
 	yaacl_send(&link.tx[next]);
-	HostSendSingleCharUnsafe(SLCAN_ACK);
+	// DO NOT SEND ACKNOWLEDGEMNT YET
+	// Wait for CAN txn result
 
 	return true;
 }
@@ -516,7 +519,7 @@ void ProcessIncoming() {
 		                                      RB_HEAD(link.in) == 'T' || RB_HEAD(link.in) == 'R',
 		                                      RB_HEAD(link.in) == 'r' || RB_HEAD(link.in) == 'R');
 		break;
-	case 'Z':
+	case 'W':
 		messageIsProcessed = HostFullResetCommand(commandSize);
 		break;
 	default:
@@ -538,13 +541,28 @@ void ProcessIncoming() {
 
 void ProcessCan() {
 	for (uint8_t i = 0; i < NB_TXN; ++i ) {
-		if (yaacl_txn_status(&link.tx[i]) != YAACL_TXN_UNSUBMITTED &&
-		    yaacl_txn_status(&link.tx[i]) != YAACL_TXN_PENDING &&
-		    yaacl_txn_status(&link.tx[i]) != YAACL_TXN_COMPLETED ) {
-			//we had an error
-			//TODO report TX error
+		yaacl_txn_status_e s = yaacl_txn_status(&link.tx[i]);
+		if ( s == YAACL_TXN_UNSUBMITTED ||
+		     s == YAACL_TXN_PENDING ) {
+			// wait for completion
+			continue;
 		}
 
+		if ( link.out.size > RB_OUT_SIZE - 2 ) {
+			HostReportHostTxBufferOverflow();
+			continue;
+		}
+
+		if ( s == YAACL_TXN_COMPLETED ) {
+			HostSendSingleCharUnsafe( (yaacl_idt_test_idebit(link.tx[i].ID)) ? 'Z' : 'z');
+			HostSendSingleCharUnsafe( SLCAN_ACK );
+		} else {
+			HostSendSingleCharUnsafe( SLCAN_NACK );
+		}
+	}
+
+
+	for (uint8_t i = 0; i < NB_TXN; ++i ) {
 		yaacl_txn_status_e s = yaacl_txn_status(&link.rx[i]);
 
 		if ( s == YAACL_TXN_PENDING ) {
@@ -568,7 +586,7 @@ void ProcessCan() {
 			}
 
 			if (link.out.size >= RB_OUT_SIZE - size - 2 * link.rx[i].length ) {
-				//TODO report error;
+				HostReportHostTxBufferOverflow();
 				continue;
 			}
 
@@ -594,7 +612,6 @@ void ProcessCan() {
 				HostSendSingleCharUnsafe( bin_to_hex(link.rx[i].ID) );
 			}
 			HostSendSingleCharUnsafe(SLCAN_ACK);
-
 
 		} else {
 			//TODO report and error

@@ -32,6 +32,7 @@
 		yaacl_mob_clear_status(); \
 	}while(0)
 
+
 #define yaacl_clear_mob() do{ \
 		CANSTMOB = 0x0; \
 		CANCDMOB = 0x0; \
@@ -119,7 +120,7 @@
 	}while(0);
 
 #define yaacl_get_mob_idt_ext(idt) do {	  \
-		*((uint8_t*)(&(idt)) + 3) = CANIDT1 >> 5; \
+		*((uint8_t*)(&(idt)) + 3) = CANIDT1 >> 3 | (YAACL_IDEBIT_MSK >> 24) ; \
 		if ( (CANIDT4 & _BV(RTRTAG) ) != 0 ) { \
 			*((uint8_t*)(&(idt)) + 3) |= YAACL_RTRBIT_MSK >> 24; \
 		} \
