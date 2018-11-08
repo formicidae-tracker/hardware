@@ -326,10 +326,9 @@ yaacl_txn_status_e yaacl_txn_status(yaacl_txn_t * txn) {
 	}
 	// so we get any error, we re-arm
 
-	//TODO: report the actual last error
 	yaacl_mob_rearm();
 	txn->MobID = YAACL_NB_MOB;
-	return YAACL_TXN_ERR_UNSPECIFIED;
+	return (mob_status & 0x1f) << 2;
 }
 
 

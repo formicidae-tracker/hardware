@@ -131,11 +131,7 @@ typedef struct HostData {
 } HostData;
 HostData link;
 
-void HostReportHostRxBufferOverflow();
-void HostReportHostSOFMissing();
-void HostReportHostRxInvalidChecksum();
-void HostReportHostRxUnknownPacketID();
-void HostReportHostTxBufferOverflow();
+
 
 #define SLCAN_ACK  '\r'
 #define SLCAN_NACK '\a'
@@ -172,17 +168,35 @@ void InitHostLink() {
 
 volatile uint8_t discarder;
 
+typedef enum {
+	ARKE_RX_ERROR = (1<<0),
+	ARKE_RX_OVERFLOW_ERROR = (1<<1),
+	ARKE_TX_OVERFLOW_ERROR = (1<<2),
+	ARKE_INTERNAL_ERROR = (1<<3),
+	ARKE_CAN_TX_ACK_ERROR = (1<<4),
+	ARKE_CAN_TX_ERROR = (1<<5),
+	ARKE_CAN_RX_CRC_ERROR = (1<<6),
+	ARKE_CAN_RX_ERROR = (1<<7)
+} ArkeStatusFlags_e;
+
+
+void HostReportUARTRxError();
+void HostReportRxOverflow();
+void HostReportTxBufferOverflow();
+void HostReportInternalError();
+void HostReportCANTxError(yaacl_txn_status_e s);
+void HostReportCANRxError(yaacl_txn_status_e s);
+
+
 ISR(LIN_ERR_vect) {
-	//TODO report error
-	LEDErrorOn();
+	HostReportUARTRxError();
 	discarder = LINDAT;
 }
 
 ISR(LIN_TC_vect) {
 	uint8_t data = LINDAT;
 	if ( RB_FULL(link.in,RB_IN_SIZE) ) {
-		LEDErrorOn();
-		//TODO report error
+		HostReportRxOverflow();
 		return;
 	}
 
@@ -232,16 +246,37 @@ void HostInitYaacl() {
 }
 
 
+bool HostTestAndRespondTx(yaacl_txn_status_e s, bool idebit) {
+	if ( s == YAACL_TXN_UNSUBMITTED ) {
+		return true;
+	}
+	if (s == YAACL_TXN_PENDING ) {
+		// wait for completion
+		return false;
+	}
+
+	if ( link.out.size > RB_OUT_SIZE - 2 ) {
+		HostReportTxBufferOverflow();
+		return true;
+	}
+
+	if ( s == YAACL_TXN_COMPLETED ) {
+		HostSendSingleCharUnsafe( idebit ? 'Z' : 'z');
+		HostSendSingleCharUnsafe( SLCAN_ACK );
+	} else {
+		HostReportCANTxError(s);
+		HostSendSingleCharUnsafe( SLCAN_NACK );
+	}
+	return true;
+}
+
+
 uint8_t HostNextFreeTx() {
 	for (uint8_t i = 0; i < NB_TXN ; ++i ) {
 		yaacl_txn_status_e s = yaacl_txn_status(&link.tx[i]);
-		if ( s == YAACL_TXN_PENDING ) {
-			continue;
+		if ( HostTestAndRespondTx(s,yaacl_idt_test_idebit(link.tx[i].ID)) ) {
+			return i;
 		}
-		if ( s != YAACL_TXN_COMPLETED && s != YAACL_TXN_UNSUBMITTED ) {
-			//TODO report error
-		}
-		return i;
 	}
 	//none free
 	return 0xff;
@@ -291,9 +326,10 @@ bool HostCloseCommand(uint8_t commandSize) {
 		return true;
 	}
 
-	//TODO deinitialize yaacl
 	yaacl_deinit();
 	link.status = SLCAN_CLOSED;
+	link.errorStatus = 0;
+	LEDErrorOff();
 	HostSendSingleCharUnsafe(SLCAN_ACK);
 	return true;
 }
@@ -305,15 +341,17 @@ bool HostStatusCommand(uint8_t commandSize) {
 		return true;
 		}
 	if ( link.out.size > RB_OUT_SIZE - 4) {
-		HostReportHostTxBufferOverflow();
+		HostReportTxBufferOverflow();
 		// we will treat the packet later when the out buffer will
 		// be free.
 		return false;
 	}
-		//TODO return actual status flags
+
 	HostSendSingleCharUnsafe('F');
-	HostSendSingleCharUnsafe('0');
-	HostSendSingleCharUnsafe('0');
+	HostSendSingleCharUnsafe(bin_to_hex(link.errorStatus>>4));
+	HostSendSingleCharUnsafe(bin_to_hex(link.errorStatus>>0));
+	link.errorStatus = 0;
+	LEDErrorOff();
 	HostSendSingleCharUnsafe(SLCAN_ACK);
 	return true;
 }
@@ -324,7 +362,7 @@ bool HostVersionCommand(uint8_t commandSize) {
 		return true;
 	}
 	if (link.out.size > RB_OUT_SIZE - 6) {
-		HostReportHostTxBufferOverflow();
+		HostReportTxBufferOverflow();
 		// we will treat the packet later when the out buffer will
 		// be free.
 		return false;
@@ -471,7 +509,7 @@ void ProcessIncoming() {
 
 	if (found == false ) {
 		//Bad internal issue
-		//TODO: report issue
+		HostReportInternalError();
 		cli();
 		RB_INIT(link.in);
 		link.pendingRx = 0;
@@ -480,7 +518,7 @@ void ProcessIncoming() {
 	}
 
 	if ( RB_FULL(link.out,RB_OUT_SIZE) ) {
-		HostReportHostTxBufferOverflow();
+		HostReportTxBufferOverflow();
 		return;
 	}
 
@@ -542,23 +580,7 @@ void ProcessIncoming() {
 void ProcessCan() {
 	for (uint8_t i = 0; i < NB_TXN; ++i ) {
 		yaacl_txn_status_e s = yaacl_txn_status(&link.tx[i]);
-		if ( s == YAACL_TXN_UNSUBMITTED ||
-		     s == YAACL_TXN_PENDING ) {
-			// wait for completion
-			continue;
-		}
-
-		if ( link.out.size > RB_OUT_SIZE - 2 ) {
-			HostReportHostTxBufferOverflow();
-			continue;
-		}
-
-		if ( s == YAACL_TXN_COMPLETED ) {
-			HostSendSingleCharUnsafe( (yaacl_idt_test_idebit(link.tx[i].ID)) ? 'Z' : 'z');
-			HostSendSingleCharUnsafe( SLCAN_ACK );
-		} else {
-			HostSendSingleCharUnsafe( SLCAN_NACK );
-		}
+		HostTestAndRespondTx(s, yaacl_idt_test_idebit(link.tx[i].ID));
 	}
 
 
@@ -586,7 +608,7 @@ void ProcessCan() {
 			}
 
 			if (link.out.size >= RB_OUT_SIZE - size - 2 * link.rx[i].length ) {
-				HostReportHostTxBufferOverflow();
+				HostReportTxBufferOverflow();
 				continue;
 			}
 
@@ -614,7 +636,7 @@ void ProcessCan() {
 			HostSendSingleCharUnsafe(SLCAN_ACK);
 
 		} else {
-			//TODO report and error
+			HostReportCANRxError(s);
 		}
 
 		//re-init the transaction as soon as possible
@@ -632,6 +654,18 @@ void ProcessHostLink() {
 	ProcessHostTx();
 	ProcessIncoming();
 	ProcessCan();
+
+	if ( RB_FULL(link.in,RB_IN_SIZE) || RB_FULL(link.out,RB_OUT_SIZE) ) {
+		LEDReadyOff();
+	} else {
+		LEDReadyOn();
+	}
+
+	if ( RB_EMPTY(link.in) && RB_EMPTY(link.out) ) {
+		LEDDataOff();
+	} else {
+		LEDDataOn();
+	}
 }
 
 
@@ -640,7 +674,6 @@ int HostSendCANPacket(const yaacl_txn_t * txn) {
 	return 0;
 }
 
-
 //ERROR LED priority, Higher the winner
 typedef enum {
 	LED_ERR_HOST_RX_PRIORITY = 1,
@@ -648,25 +681,49 @@ typedef enum {
 	LED_ERR_BUFFER_OVERFLOW = 3,
 } LEDErrorBlinkPriority;
 
+#define set_error_led_blink() do{	  \
+		uint8_t count = 0; \
+		for (uint8_t i = 0; i < 8; ++i) { \
+			if ( (link.errorStatus & _BV(i)) != 0 ) { \
+				++count; \
+			} \
+		} \
+		LEDErrorBlink(count); \
+	}while(0)
 
-void HostReportCANRxError() {
-	LEDErrorBlink(LED_ERR_CAN_TXN_ERR_PRIORITY);
-}
-void HostReportCANTxError() {
-	LEDErrorBlink(LED_ERR_CAN_TXN_ERR_PRIORITY);
+
+void HostReportUARTRxError() {
+	link.errorStatus |= ARKE_RX_ERROR;
+	set_error_led_blink();
 }
 
-void HostReportHostRxBufferOverflow() {
-	LEDErrorBlink(LED_ERR_BUFFER_OVERFLOW);
+void HostReportRxOverflow() {
+	link.errorStatus |= ARKE_RX_OVERFLOW_ERROR;
+	set_error_led_blink();
 }
-void HostReportHostSOFMissing() {
 
+void HostReportTxBufferOverflow() {
+	link.errorStatus |= ARKE_TX_OVERFLOW_ERROR;
+	set_error_led_blink();
 }
-void HostReportHostRxInvalidChecksum() {
+
+void HostReportInternalError() {
+	link.errorStatus |= ARKE_INTERNAL_ERROR;
+	set_error_led_blink();
 }
-void HostReportHostRxUnknownPacketID() {
-	LEDErrorBlink(LED_ERR_HOST_RX_PRIORITY);
+
+void HostReportCANTxError(yaacl_txn_status_e s) {
+	link.errorStatus |= ARKE_CAN_TX_ERROR;
+	if ( (s & YAACL_TXN_ACK_ERROR) != 0 ) {
+		link.errorStatus |= ARKE_CAN_TX_ACK_ERROR;
+	}
+	set_error_led_blink();
 }
-void HostReportHostTxBufferOverflow() {
-	LEDErrorBlink(LED_ERR_BUFFER_OVERFLOW);
+
+void HostReportCANRxError(yaacl_txn_status_e s) {
+	link.errorStatus |= ARKE_CAN_RX_ERROR;
+	if ( (s & YAACL_TXN_CRC_ERROR) != 0 ) {
+		link.errorStatus |= ARKE_CAN_RX_CRC_ERROR;
+	}
+	set_error_led_blink();
 }

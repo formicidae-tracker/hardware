@@ -5,18 +5,22 @@
 // Represents the status of a transaction <yaacl_txn_t>
 typedef enum yaacl_txn_status_e {
 	// Transaction is not yet submitted
-	YAACL_TXN_UNSUBMITTED,
+	YAACL_TXN_UNSUBMITTED = 0,
 	// Transaction is submitted and waiting to complete
-	YAACL_TXN_PENDING,
+	YAACL_TXN_PENDING = 1,
 	// Transaction is completed.
-	YAACL_TXN_COMPLETED,
+	YAACL_TXN_COMPLETED = 2,
 	// Transaction had an unspecified error (to be removed)
-	YAACL_TXN_ERR_UNSPECIFIED,
+	YAACL_TXN_ACK_ERROR = (1 << 2),
+	YAACL_TXN_FORM_ERROR = (1 << 3),
+	YAACL_TXN_CRC_ERROR = (1 << 4),
+	YAACL_TXN_STUFFING_ERROR = (1 << 5),
+	YAACL_TXN_BIT_ERROR = (1 << 6),
 	// Rx buffer was too small
-	YAACL_TXN_ERR_RX_OVERFLOW
+	YAACL_TXN_ERR_RX_OVERFLOW = (1 << 7)
 } yaacl_txn_status_e;
 
-#define yaacl_txn_had_error(status) ((status) >= YAACL_TXN_ERR_UNSPECIFIED)
+#define yaacl_txn_had_error(status) ((status) > YAACL_TXN_COMPLETED)
 
 // Represents a transaction on the CAN bus
 //
