@@ -33,6 +33,9 @@ set(CMAKE_C_STANDARD 99)
 set(YAACL_ROOT ${PROJECT_SOURCE_DIR}/../lib/yaacl)
 set(YAACL_INCLUDE_DIR ${YAACL_ROOT}/src)
 set(YAACL_SRC_FILES ${YAACL_ROOT}/src/yaacl-src-all.c)
+set(YAAIL_ROOT ${PROJECT_SOURCE_DIR}/../lib/yaail)
+set(YAAIL_INCLUDE_DIR ${YAAIL_ROOT}/src)
+set(YAAIL_SRC_FILES ${YAAIL_ROOT}/src/yaail-src-all.c)
 set(LIBARKE_ROOT ${PROJECT_SOURCE_DIR}/../deps/fort-libarke)
 set(LIBARKE_INCLUDE_DIR ${LIBARKE_ROOT}/include)
 set(LIBARKE_SRC_FILES ${LIBARKE_ROOT}/src-avr/arke-src-all.c)
@@ -41,19 +44,22 @@ set(LIBARKE_SRC_FILES ${LIBARKE_ROOT}/src-avr/arke-src-all.c)
 include_directories(${AVR_GCC_INCLUDE}
 	                ${PROJECT_SOURCE_DIR}/../
 	                ${YAACL_INCLUDE_DIR}
+	                ${YAAIL_INCLUDE_DIR}
 	                ${LIBARKE_INCLUDE_DIR}
 	                ${PROJECT_SOURCE_DIR}/include)
 
-# add_definitions("-DARKE_MY_FW_MAJOR_VERSION=${PROJECT_VERSION_MAJOR}"
-# 	            "-DARKE_MY_FW_MINOR_VERSION=${PROJECT_VERSION_MINOR}"
-# 	            "-DARKE_MY_CLASS=0xe"
-# 	            "-DARKE_MY_SUBID=0x01"
-# 	            )
+add_definitions("-DARKE_MY_FW_MAJOR_VERSION=${PROJECT_VERSION_MAJOR}"
+	            "-DARKE_MY_FW_MINOR_VERSION=${PROJECT_VERSION_MINOR}"
+	            "-DARKE_MY_CLASS=0xe"
+	            "-DARKE_MY_SUBID=0x01"
+	            )
 
 add_avr_library(yaacl ${YAACL_SRC_FILES})
 
-# add_avr_library(libarke ${LIBARKE_SRC_FILES})
+add_avr_library(libarke ${LIBARKE_SRC_FILES})
 
-# avr_target_link_libraries(libarke yaacl)
+add_avr_library(yaail ${YAAIL_SRC_FILES})
+
+avr_target_link_libraries(libarke yaacl)
 
 add_subdirectory(src)
