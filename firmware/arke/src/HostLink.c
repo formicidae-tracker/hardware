@@ -104,15 +104,15 @@ enum SlcanBaudrate {
 #define UNSUPPORTED YAACL_NB_SUPPORTED_BAUDRATE
 
 yaacl_baudrate_e supportedBaudrate[9] = {
-	UNSUPPORTED,
-	UNSUPPORTED,
-	UNSUPPORTED,
-	YAACL_BR_100,
-	YAACL_BR_125,
-	YAACL_BR_250,
-	YAACL_BR_500,
-	UNSUPPORTED,
-	YAACL_BR_1000
+	UNSUPPORTED,  //  '0'
+	UNSUPPORTED,  //  '1'
+	UNSUPPORTED,  //  '2'
+	YAACL_BR_100, //  '3'
+	YAACL_BR_125, //  '4'
+	YAACL_BR_250, //  '5'
+	YAACL_BR_500, //  '6'
+	UNSUPPORTED,  //  '7'
+	YAACL_BR_1000 //  '8'
 };
 
 
