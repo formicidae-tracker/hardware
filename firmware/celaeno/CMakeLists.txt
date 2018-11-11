@@ -40,13 +40,15 @@ set(LIBARKE_ROOT ${PROJECT_SOURCE_DIR}/../deps/fort-libarke)
 set(LIBARKE_INCLUDE_DIR ${LIBARKE_ROOT}/include)
 set(LIBARKE_SRC_FILES ${LIBARKE_ROOT}/src-avr/arke-src-all.c)
 
+set(EMC_IC_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/../lib/emc-ic)
 
 include_directories(${AVR_GCC_INCLUDE}
 	                ${PROJECT_SOURCE_DIR}/../
 	                ${YAACL_INCLUDE_DIR}
 	                ${YAAIL_INCLUDE_DIR}
 	                ${LIBARKE_INCLUDE_DIR}
-	                ${PROJECT_SOURCE_DIR}/include)
+	                ${PROJECT_SOURCE_DIR}/include
+	                ${EMC_IC_INCLUDE_DIR})
 
 add_definitions("-DARKE_MY_FW_MAJOR_VERSION=${PROJECT_VERSION_MAJOR}"
 	            "-DARKE_MY_FW_MINOR_VERSION=${PROJECT_VERSION_MINOR}"

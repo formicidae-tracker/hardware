@@ -2,14 +2,9 @@
 
 #include "LEDs.h"
 #include "Systime.h"
-#include <util/delay.h>
-
+#include "FanControl.h"
 
 #include <yaacl.h>
-#include <yaail.h>
-
-uint16_t lookup[512];
-
 
 int main() {
 	InitSystime();
@@ -17,56 +12,33 @@ int main() {
 	LEDReadyPulse();
 	LEDErrorOff();
 	DDRD |= _BV(0) ;
-	yaail_init(YAAIL_100);
 
-	uint8_t data[2];
-	data[0] = 0x33;
-	data[1] = 0x68;
-	yaail_write(0x2e,data,2);
-	while( YAAIL_BUSY == yaail_poll() ){
-	}
-	yaail_rearm();
-	data[0] = 0x32;
-	data[1] = 0x03;
-	yaail_write(0x2e,data,2);
-	while( YAAIL_BUSY == yaail_poll() ){
-	}
-	yaail_rearm();
-	data[0] = 0x30;
-	data[1] = 0x30;
-	yaail_write(0x2e,data,2);
-	while( YAAIL_BUSY == yaail_poll() ){
-	}
-	yaail_rearm();
-	data[0] = 0x20;
-	data[1] = 0x40;
-	yaail_write(0x2e,data,2);
-	while( YAAIL_BUSY == yaail_poll() ){
-	}
-	yaail_rearm();
+	InitFanControl();
+	SetFan1Power(0x80);
+	Systime_t last = 0;
+	uint8_t i = 0;
+	yaacl_config_t c;
+	c.baudrate = YAACL_BR_200;
+	yaacl_init(&c);
 
-	uint8_t i= 0;
 	while(true) {
 		ProcessLEDs();
-
-		switch(yaail_poll()) {
-		case YAAIL_NO_ERROR:
-			_delay_ms(1);
-			data[0] = 0x3e | ( ++i & 0x01 ) ;
-			yaail_write_and_read(0x2e,data,1,1);
-			break;
-		case YAAIL_BUSY:
-			break;
-		case YAAIL_ACK_ERROR:
-		case YAAIL_DONE:
-			yaail_write(lookup[data[0]],0,0);
-			LEDErrorOff();
-			yaail_rearm();
-			break;
-		default:
+		FanControlStatus_e s = ProcessFanControl();
+		if ( (s & FAN_1_STALL) != 0x00 ) {
 			LEDErrorOn();
-			yaail_rearm();
+		} else {
+			LEDErrorOff();
 		}
-
+		Systime_t now = GetSystime();
+		if ( (now-last) >= 10000 ) {
+			if (++i % 2 == 1) {
+				SetFan1Power(0x00);
+				SetFan2Power(0x80);
+			} else {
+				SetFan1Power(0x80);
+				SetFan2Power(0x00);
+			}
+			last = now;
+		}
 	}
 }
