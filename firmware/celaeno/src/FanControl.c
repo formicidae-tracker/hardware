@@ -60,7 +60,7 @@ void InitFanControl() {
 
 	yaacl_init_txn(&FC.tx);
 	yaacl_make_std_idt(FC.tx.ID,0,0);
-	FC.tx.data = FC.data;
+	FC.tx.data = (uint8_t*)&FC.RPM[0];
 	FC.tx.length = 2;
 }
 
@@ -94,6 +94,7 @@ FanControlStatus_e ProcessFanControl() {
 		switch(FC.currentAction) {
 		case GET_F1:
 			FC.RPM[0] = tach_to_RPM(FC.data[0]);
+			yaacl_send(&FC.tx);
 			break;
 		case GET_F2:
 			FC.RPM[1] = tach_to_RPM(FC.data[0]);
