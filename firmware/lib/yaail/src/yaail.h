@@ -27,10 +27,17 @@ void yaail_deinit();
 
 yaail_status_e yaail_read(uint8_t address, uint8_t * buffer, uint8_t length);
 
-yaail_status_e yaail_write(uint8_t address, uint8_t * buffer, uint8_t length);
+yaail_status_e yaail_write(uint8_t address, const uint8_t * buffer, uint8_t length);
 
 yaail_status_e yaail_write_and_read(uint8_t address, uint8_t * data, uint8_t lengthWrite, uint8_t lengthRead);
 
 yaail_status_e yaail_poll();
 
 yaail_status_e yaail_rearm();
+
+
+yaail_status_e yaail_read_and_spin(uint8_t address, uint8_t * buffer, uint8_t length);
+
+yaail_status_e yaail_write_and_spin(uint8_t address, const uint8_t * buffer, uint8_t length);
+
+yaail_status_e yaail_write_and_read_and_spin(uint8_t address, uint8_t * data, uint8_t lengthWrite, uint8_t lengthRead);
