@@ -17,3 +17,5 @@ void SetFan2Power(uint8_t value);
 
 uint16_t GetFan1RPM();
 uint16_t GetFan2RPM();
+uint8_t GetFan1Power();
+uint8_t GetFan2Power();

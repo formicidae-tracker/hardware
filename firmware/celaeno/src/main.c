@@ -6,6 +6,8 @@
 
 #include <yaacl.h>
 #define NOMINAL_LVL 0x30
+
+
 int main() {
 	InitSystime();
 	InitLEDs();
@@ -14,7 +16,8 @@ int main() {
 	DDRD |= _BV(0) ;
 
 	InitFanControl();
-	Systime_t last = 0;
+	Systime_t last = -10000;
+
 	uint8_t i = 1;
 
 	while(true) {
