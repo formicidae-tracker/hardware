@@ -5,7 +5,7 @@
 #include "FanControl.h"
 
 #include <yaacl.h>
-
+#define NOMINAL_LVL 0x30
 int main() {
 	InitSystime();
 	InitLEDs();
@@ -14,9 +14,8 @@ int main() {
 	DDRD |= _BV(0) ;
 
 	InitFanControl();
-	SetFan1Power(0xff);
 	Systime_t last = 0;
-	uint8_t i = 0;
+	uint8_t i = 1;
 
 	while(true) {
 		ProcessLEDs();
@@ -30,10 +29,10 @@ int main() {
 		if ( (now-last) >= 10000 ) {
 			if (++i % 2 == 1) {
 				SetFan1Power(0x00);
-				SetFan2Power(0xff);
+				SetFan2Power(NOMINAL_LVL);
 			} else {
-				SetFan1Power(0xff);
-				SetFan2Power(0x00);
+				SetFan1Power(NOMINAL_LVL);
+				SetFan2Power(0);
 			}
 			last = now;
 		}

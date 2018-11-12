@@ -61,16 +61,22 @@ void InitFanControl() {
 	FC.data[FC_TACH2_COUNT] = EMC_FAN2_TACH_COUNT_REG_H;
 	FC.data[FC_FAN_STALL] = EMC_FAN_STALL_REG;
 
+	#define NB_CONF 10
 
-	uint8_t registers_and_data[2*6] = {EMC_FAN1_SET_POINT_REG,0x00,
-	                                   EMC_FAN2_SET_POINT_REG,0x00,
-	                                   EMC_FAN1_CONF1_REG, EMC_DIS_ALGO | EMC_RANGE_500 | EMC_EDGES_3 | EMC_UPDATE_200MS,
-	                                   EMC_FAN2_CONF1_REG, EMC_DIS_ALGO | EMC_RANGE_500 | EMC_EDGES_3 | EMC_UPDATE_200MS,
-	                                   EMC_FAN1_CONF2_REG, 0x68,
-	                                   EMC_FAN2_CONF2_REG, 0x68};
+	uint8_t registers_and_data[2*NB_CONF] = {EMC_FAN1_SET_POINT_REG,0x00,
+	                                         EMC_FAN2_SET_POINT_REG,0x00,
+	                                         EMC_FAN1_CONF1_REG, EMC_DIS_ALGO | EMC_RANGE_500 | EMC_EDGES_3 | EMC_UPDATE_200MS,
+	                                         EMC_FAN2_CONF1_REG, EMC_DIS_ALGO | EMC_RANGE_500 | EMC_EDGES_3 | EMC_UPDATE_200MS,
+	                                         EMC_FAN1_CONF2_REG, 0x68,
+	                                         EMC_FAN2_CONF2_REG, 0x68,
+	                                         EMC_FAN1_SPIN_UP_REG,EMC_DRIVE_FAIL_COUNT_0 | EMC_ENABLE_KICK | EMC_SPIN_TIME_1000MS | EMC_SPIN_LVL_65,
+	                                         EMC_FAN2_SPIN_UP_REG,EMC_DRIVE_FAIL_COUNT_0 | EMC_ENABLE_KICK | EMC_SPIN_TIME_1000MS | EMC_SPIN_LVL_65,
+	                                         EMC_FAN1_VALID_TACH_REG,0xfe,
+	                                         EMC_FAN2_VALID_TACH_REG,0xfe,
+	};
 
 	FC.status = FAN_OK;
-	yaail_txn_t txn[6];
+	yaail_txn_t txn[NB_CONF];
 
 	yaacl_config_t conf;
 	conf.baudrate = YAACL_BR_500;
@@ -78,21 +84,17 @@ void InitFanControl() {
 	yaacl_init(&conf);
 	yaacl_init_txn(&FC.txn);
 	yaacl_make_std_idt(FC.txn.ID,0,0);
-	uint8_t dataReset[6];
 
-	FC.txn.length = 6;
-	FC.txn.data = dataReset;
-	for (uint8_t i = 0; i < 6; ++i ) {
+	for (uint8_t i = 0; i < NB_CONF; ++i ) {
 		yaail_error_e err = yaail_write(&txn[i],EMC2302_1_I2C_ADDRESS,&registers_and_data[2*i],2);
 		if ( err != YAAIL_NO_ERROR) {
 			LEDErrorBlink(3);
 		}
 	}
 
-	for (uint8_t i = 0; i < 6; ++i){
-		dataReset[i] = yaail_spin_until_done(&txn[i]);
-	};
-	yaacl_send(&FC.txn);
+	yaail_spin_until_done(&txn[NB_CONF-1]);
+
+
 
 	FC.txn.data = (uint8_t*)&FC.RPM[0];
 	FC.txn.length = 2;

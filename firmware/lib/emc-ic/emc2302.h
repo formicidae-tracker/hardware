@@ -81,6 +81,28 @@
 #define EMC_FAN1_SPIN_UP_REG 0x36
 #define EMC_FAN2_SPIN_UP_REG 0x46
 
+#define EMC_DRIVE_FAIL_COUNT_0 0
+#define EMC_DRIVE_FAIL_COUNT_16 (1 << 6)
+#define EMC_DRIVE_FAIL_COUNT_32 (2 << 6)
+#define EMC_DRIVE_FAIL_COUNT_64 (3 << 6)
+
+#define EMC_ENABLE_KICK 0
+#define EMC_DISABLE_KICK (1 << 5)
+#define EMC_SPIN_LVL_30 0
+#define EMC_SPIN_LVL_35 (1 << 2)
+#define EMC_SPIN_LVL_40 (2 << 2)
+#define EMC_SPIN_LVL_45 (3 << 2)
+#define EMC_SPIN_LVL_50 (4 << 2)
+#define EMC_SPIN_LVL_55 (5 << 2)
+#define EMC_SPIN_LVL_60 (6 << 2)
+#define EMC_SPIN_LVL_65 (7 << 2)
+
+#define EMC_SPIN_TIME_250MS (0)
+#define EMC_SPIN_TIME_500MS (1)
+#define EMC_SPIN_TIME_1000MS (2)
+#define EMC_SPIN_TIME_2000MS (3)
+
+
 #define EMC_FAN1_MAX_STEP_REG 0x37
 #define EMC_FAN2_MAX_STEP_REG 0x47
 
