@@ -130,7 +130,7 @@
 	}while(0);
 
 #define yaacl_set_mob_dlc(dlc) do {	  \
-		CANCDMOB |= (dlc) & 0x0f; \
+		CANCDMOB = (CANCDMOB & 0xf0) |  ((dlc) & 0x0f); \
 	}while(0)
 
 
@@ -238,12 +238,11 @@ yaacl_error_e  yaacl_send(yaacl_txn_t * txn) {
 	} else {
 		yaacl_set_mob_idt_std(txn->ID);
 	}
+	yaacl_set_mob_dlc(txn->length);
 	//setting the data to send
 	for (uint8_t i = 0; i < txn->length; i++ ) {
 		CANMSG = *(txn->data + i);
 	}
-
-	yaacl_set_mob_dlc(txn->length);
 	yaacl_enable_mob_tx();
 
 	return YAACL_GENERIC_ERROR;
@@ -301,8 +300,9 @@ yaacl_txn_status_e yaacl_txn_status(yaacl_txn_t * txn) {
 		return YAACL_TXN_COMPLETED;
 	}
 
-	if ( mob_status & _BV(RXOK) ) {
+	if ( (mob_status & 0x3f) == _BV(RXOK) ) {
 		// readout the received ID
+		mob_command = CANCDMOB;
 		if ( (mob_command & _BV(IDE)) != 0 ) {
 			yaacl_get_mob_idt_ext(txn->ID);
 		} else {

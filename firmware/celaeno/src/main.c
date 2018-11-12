@@ -4,11 +4,13 @@
 #include <arke-avr.h>
 #include "FanControl.h"
 
+
+
 #define NOMINAL_LVL 0x30
 
+implements_ArkeSoftwareReset()
 
 int main() {
-	ArkeInitSystime();
 	InitLEDs();
 	LEDReadyPulse();
 	LEDErrorOff();
@@ -17,10 +19,13 @@ int main() {
 	InitFanControl();
 	ArkeSystime_t last = -10000;
 
+	InitArke();
+
 	uint8_t i = 1;
 
 	while(true) {
 		ProcessLEDs();
+		ArkeProcess();
 		FanControlStatus_e s = ProcessFanControl();
 		if ( (s & FAN_1_STALL) != 0x00 ) {
 			LEDErrorOn();
