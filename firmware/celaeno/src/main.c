@@ -14,12 +14,9 @@ int main() {
 	DDRD |= _BV(0) ;
 
 	InitFanControl();
-	//SetFan1Power(0xff);
+	SetFan1Power(0xff);
 	Systime_t last = 0;
-	uint8_t i = 1;
-	yaacl_config_t c;
-	c.baudrate = YAACL_BR_200;
-	yaacl_init(&c);
+	uint8_t i = 0;
 
 	while(true) {
 		ProcessLEDs();

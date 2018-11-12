@@ -1,6 +1,31 @@
 #include "yaail.h"
 
 #include <util/twi.h>
+#include <avr/interrupt.h>
+
+#ifndef YAAIL_FIFO_SIZE
+//USING default FIFO size
+#define YAAIL_FIFO_SIZE 16
+#endif
+
+#if YAAIL_FIFO_SIZE > 128
+#error "Maximum YAAIL_FIFO_SIZE is 128"
+#endif
+
+#define is_power_of_two(x) (x == 2 || x == 4 || x == 8 || x == 16 || x == 32 || x == 64 || x == 128 )
+
+#if is_power_of_two(YAAIL_FIFO_SIZE)
+#define YAAIL_FIFO_MASK (YAAIL_FIFO_SIZE-1)
+#else
+#error "YAAIL_FIFO_SIZE_ must be a power of two"
+#endif
+
+#if F_CPU==16000000L
+uint8_t brr[2] = {18,10};
+#else
+#error "Unsupported F_CPU"
+#endif
+
 
 enum yaail_status_e {
 	YAAIL_NONE = 0,
@@ -9,266 +34,292 @@ enum yaail_status_e {
 	YAAIL_WAITING_DATA = 3,
 	YAAIL_WAITING_REARM = 4,
 	YAAIL_WAITING_RESTART = 5,
+	YAAIL_WAITING_STOP = 6
 };
 
-enum yaail_op_e {
-	YAAIL_WRITE = 0,
-	YAAIL_READ = 1,
-	YAAIL_WRITE_AND_READ = 2,
+
+struct yaail_private_txn_t{
+	uint8_t address;
+	uint8_t length,lengthRead;
+	uint8_t * data;
+	volatile yaail_txn_t * txn;
 };
+
+struct yaail_txn_fifo_t {
+	struct yaail_private_txn_t data[YAAIL_FIFO_SIZE];
+	volatile uint8_t size,head,tail;
+};
+
+
 
 struct yaail_t {
 	enum yaail_status_e status;
-	enum yaail_op_e op;
-	uint8_t address;
-	uint8_t *data;
-
-	uint8_t length;
-	uint8_t lengthRead;
 	uint8_t done;
 
-	bool rearmOK;
-	bool waitForFirstByte;
+	struct yaail_txn_fifo_t fifo;
 };
 
-#if F_CPU==16000000L
-uint8_t brr[2] = {18,10};
-#else
-#error "Unsupported F_CPU"
-#endif
+#define FIFO_INIT(f) do {	  \
+		(f).size = 0; \
+		(f).head = 0; \
+		(f).tail = 0; \
+	}while(0)
+#define FIFO_FULL(f) ((f).size >= YAAIL_FIFO_SIZE)
+#define FIFO_EMPTY(f) ((f).size == 0)
+#define FIFO_HEAD(f) ((f).data[(f).head])
+#define FIFO_TAIL(f) ((f).data[(f).tail])
+#define FIFO_INCR_PTR(p) (p) = ((p) + 1) & YAAIL_FIFO_MASK
+#define FIFO_INCREMENT_HEAD(f) do{	  \
+		FIFO_INCR_PTR((f).head); \
+		(f).size -= 1; \
+	}while(0)
+#define FIFO_INCREMENT_TAIL(f) do{	  \
+		FIFO_INCR_PTR((f).tail); \
+		(f).size += 1; \
+	}while(0)
+
 
 struct yaail_t il;
 
 
-yaail_status_e yaail_init(yaail_baudrate_e br) {
+yaail_error_e yaail_init(yaail_baudrate_e br) {
 	il.status = YAAIL_NONE;
 	if (br >= YAAIL_NB_SUPPORTED_BAUDRATE) {
-		return YAAIL_UNSUPPORTED_BAUDRATE;
+		return YAAIL_UNSUPPORTED_BAUDRATE_ERROR;
 	}
+	FIFO_INIT(il.fifo);
 	TWBR = brr[br];
-	il.rearmOK = true;
+	sei();
 	return YAAIL_NO_ERROR;
 }
 
-void yaail_deinit() {
-}
+#define yaail_ignite_fifo_unsafe() do {	  \
+		if (il.status == YAAIL_NONE) { \
+			il.status = YAAIL_WAITING_START; \
+			*(FIFO_HEAD(il.fifo).txn) = YAAIL_PENDING; \
+			TWCR = _BV(TWIE) | _BV(TWINT) | _BV(TWSTA) | _BV(TWEN); \
+		} \
+	}while(0)
 
-yaail_status_e yaail_read(uint8_t address, uint8_t * data, uint8_t length) {
-	if ( il.status != YAAIL_NONE ) {
-		return YAAIL_BUSY;
-	}
 
-	if ( (address & 0x80 ) != 0 || length == 0) {
-		return YAAIL_INVALID_ADDRESS_ERROR;
-	}
+#define yaail_validate_op(address,length) do {	  \
+		uint8_t sreg = SREG; \
+		cli(); \
+		if ( FIFO_FULL(il.fifo) ) { \
+			SREG = sreg; \
+			return YAAIL_BUFFER_OVERFLOW_ERROR; \
+		} \
+		/*ok to re-enable, interrupt will only decrease the fifo*/ \
+		SREG = sreg; \
+		if ( (address & 0x80 ) != 0 ) { \
+			return YAAIL_INVALID_ADDRESS_ERROR; \
+		} \
+		if ( length == 0 ) { \
+			return YAAIL_INVALID_LENGTH_ERROR; \
+		} \
+	}while(0)
 
-	il.address = (address << 1) | 0x01;
-	il.data = data;
-	il.length = length;
-	TWCR = _BV(TWINT) | _BV(TWSTA) | _BV(TWEN);
-	il.status = YAAIL_WAITING_START;
-	il.rearmOK = false;
-	il.op = YAAIL_READ;
+yaail_error_e yaail_read(yaail_txn_t * txn,
+                         uint8_t address,
+                         uint8_t * data, uint8_t length) {
+	yaail_validate_op(address,length);
+	struct yaail_private_txn_t * txnp = &FIFO_TAIL(il.fifo);
+	txnp->txn = txn;
+	txnp->address = (address << 1) | 0x01;
+	txnp->data = data;
+	txnp->length = length;
+	txnp->lengthRead = length;
+	*(txnp->txn) = YAAIL_SCHEDULED;
+	uint8_t sreg = SREG;
+	cli();
+	FIFO_INCREMENT_TAIL(il.fifo);
+	yaail_ignite_fifo_unsafe();
+	SREG = sreg;
 	return YAAIL_NO_ERROR;
 }
 
-yaail_status_e yaail_write(uint8_t address, const uint8_t * data, uint8_t length) {
-	if ( il.status != YAAIL_NONE ) {
-		return YAAIL_BUSY;
-	}
-
-	if ( (address & 0x80 ) != 0 || length == 0) {
-		return YAAIL_INVALID_ADDRESS_ERROR;
-	}
-	il.address = address << 1;
-	il.data = (uint8_t*)data;
-	il.length = length;
-	TWCR = _BV(TWINT) | _BV(TWSTA) | _BV(TWEN);
-	il.status = YAAIL_WAITING_START;
-	il.op = YAAIL_WRITE;
-	il.rearmOK = false;
-	il.op = YAAIL_WRITE;
+yaail_error_e yaail_write(yaail_txn_t * txn,
+                          uint8_t address,
+                          const uint8_t * data,
+                          uint8_t length) {
+	yaail_validate_op(address,length);
+	struct yaail_private_txn_t * txnp = &FIFO_TAIL(il.fifo);
+	txnp->txn = txn;
+	txnp->address = address << 1;
+	txnp->data = (uint8_t*)data;
+	txnp->length = length;
+	txnp->lengthRead = 0;
+	*(txnp->txn) = YAAIL_SCHEDULED;
+	uint8_t sreg = SREG;
+	cli();
+	FIFO_INCREMENT_TAIL(il.fifo);
+	yaail_ignite_fifo_unsafe();
+	SREG = sreg;
 	return YAAIL_NO_ERROR;
 }
 
-yaail_status_e yaail_write_and_read(uint8_t address, uint8_t * data, uint8_t lengthWrite, uint8_t lengthRead) {
-	if ( il.status != YAAIL_NONE ) {
-		return YAAIL_BUSY;
+yaail_error_e yaail_write_and_read(yaail_txn_t * txn,
+                                   uint8_t address,
+                                   uint8_t * data,
+                                   uint8_t lengthWrite,
+                                   uint8_t lengthRead) {
+	yaail_validate_op(address,lengthWrite);
+	if (lengthRead == 0) {
+		return YAAIL_INVALID_LENGTH_ERROR;
 	}
-
-	if ( (address & 0x80 ) != 0 || lengthWrite == 0 || lengthRead == 0) {
-		return YAAIL_INVALID_ADDRESS_ERROR;
-	}
-	il.address = address << 1;
-	il.data = data;
-	il.length = lengthWrite;
-	il.lengthRead = lengthRead;
-	TWCR = _BV(TWINT) | _BV(TWSTA) | _BV(TWEN);
-	il.status = YAAIL_WAITING_START;
-	il.rearmOK = false;
-	il.op = YAAIL_WRITE_AND_READ;
+	struct yaail_private_txn_t * txnp = &FIFO_TAIL(il.fifo);
+	txnp->txn = txn;
+	txnp->address = address << 1;
+	txnp->data = data;
+	txnp->length = lengthWrite;
+	txnp->lengthRead = lengthRead;
+	*(txnp->txn) = YAAIL_SCHEDULED;
+	uint8_t sreg = SREG;
+	cli();
+	FIFO_INCREMENT_TAIL(il.fifo);
+	yaail_ignite_fifo_unsafe();
+	SREG = sreg;
 	return YAAIL_NO_ERROR;
 }
 
+#define go_to_stop_twi(status_) do {\
+		TWCR = _BV(TWIE) | _BV(TWINT) | _BV(TWSTO) | _BV(TWEN); \
+		*(txn->txn) = status_; \
+		FIFO_INCREMENT_HEAD(il.fifo); \
+		if ( FIFO_EMPTY(il.fifo) ) { \
+			il.status = YAAIL_NONE; \
+			return; \
+		} \
+		*(FIFO_HEAD(il.fifo).txn) = YAAIL_PENDING; \
+		il.status = YAAIL_WAITING_START; \
+		TWCR = _BV(TWIE) | _BV(TWINT) | _BV(TWSTA) | _BV(TWEN); \
+	}while(0)
 
-yaail_status_e yaail_poll_write() {
-	switch(il.status) {
-	case YAAIL_WAITING_START:
+ISR(TWI_vect) {
+	if (FIFO_EMPTY(il.fifo)) {
+		il.status = YAAIL_NONE;
+		TWCR = _BV(TWINT); //clear flag
+
+		return;
+	}
+	struct yaail_private_txn_t * txn = &FIFO_HEAD(il.fifo);
+	if ( il.status == YAAIL_WAITING_START ) {
 		if ( (TWSR & 0xf8) != TW_START && (TWSR &0xf8) != TW_REP_START ) {
-			il.rearmOK = true;
-			return YAAIL_START_ERROR;
-		}
-		il.status = YAAIL_WAITING_SLA;
-		TWDR = il.address;
-		TWCR = _BV(TWINT) | _BV(TWEN) ;
-		break;
-	case YAAIL_WAITING_SLA:
-		if ( (TWSR & 0xf8) != TW_MT_SLA_ACK ) {
-			il.rearmOK = true;
-			TWCR = _BV(TWINT) | _BV(TWSTO) | _BV(TWEN);
-			return YAAIL_ACK_ERROR;//TODO SLA_ACK_ERROR
-		}
-		il.status = YAAIL_WAITING_DATA;
-		il.done = 0x0;
-		TWDR = il.data[il.done];
-		TWCR = _BV(TWINT) | _BV(TWEN);
-		break;
-	case YAAIL_WAITING_DATA:
-		if ( (TWSR & 0xf8) != TW_MT_DATA_ACK) {
-			il.rearmOK = true;
-			TWCR = _BV(TWINT) | _BV(TWSTO) | _BV(TWEN);
-			return YAAIL_ACK_ERROR;//TODO DATA_ACK_ERROR
-		}
-		if ( ++il.done >= il.length ) {
-			if ( il.op == YAAIL_WRITE_AND_READ) {
-				TWCR = _BV(TWINT) | _BV(TWEN) | _BV(TWSTA) ;
-				il.address |= 0x01;
-				il.status = YAAIL_WAITING_START;
-				il.op = YAAIL_READ;
-				il.length = il.lengthRead;
-				return YAAIL_BUSY;
+			*(txn->txn) = YAAIL_START_ERROR;
+			FIFO_INCREMENT_HEAD(il.fifo);
+			if ( FIFO_EMPTY(il.fifo) ) {
+				il.status = YAAIL_NONE;
+				TWCR = _BV(TWINT);
+				return;
 			} else {
-				TWCR = _BV(TWINT) | _BV(TWEN) | _BV(TWSTO) ;
-				il.rearmOK = true;
-				il.status = YAAIL_WAITING_REARM;
-				return YAAIL_DONE;
+				TWCR = _BV(TWIE) | _BV(TWINT) | _BV(TWSTA) | _BV(TWEN);
+				*(FIFO_HEAD(il.fifo).txn) = YAAIL_PENDING;
+				return;
 			}
 		}
-		TWDR = il.data[il.done];
-		TWCR = _BV(TWINT) | _BV(TWEN);
-		break;
-	default:
-		break;
-	}
-	return YAAIL_BUSY;
-
-}
-
-yaail_status_e yaail_poll_read() {
-	switch(il.status) {
-	case YAAIL_WAITING_START:
-		if ( (TWSR & 0xf8) != TW_START && (TWSR &0xf8) != TW_REP_START ) {
-			il.rearmOK = true;
-			return YAAIL_START_ERROR;
-		}
 		il.status = YAAIL_WAITING_SLA;
-		TWDR = il.address;
-		TWCR = _BV(TWINT) | _BV(TWEN) ;
-		break;
-	case YAAIL_WAITING_SLA:
-		if ( (TWSR & 0xf8) != TW_MR_SLA_ACK ) {
-			il.rearmOK = true;
-			TWCR = _BV(TWINT) | _BV(TWSTO) | _BV(TWEN);
-			return YAAIL_ACK_ERROR;//TODO SLA_ACK_ERROR
-		}
-		il.done = 0x0;
-		il.status = YAAIL_WAITING_DATA;
-		if (il.length > 1) {
-			TWCR = _BV(TWINT) | _BV(TWEN) | _BV(TWEA);
-		} else {
-			TWCR = _BV(TWINT) | _BV(TWEN);
-		}
-		break;
-	case YAAIL_WAITING_DATA:
-		il.data[il.done] = TWDR;
-		if (++il.done >= il.length) {
-			TWCR = _BV(TWINT) | _BV(TWSTO) | _BV(TWEN);
-			il.rearmOK = true;
-			il.status = YAAIL_WAITING_REARM;
-			return YAAIL_DONE;
-		}
-		if ( il.done + 1 < il.length ) {
-			TWCR = _BV(TWINT) | _BV(TWEN) | _BV(TWEA);
-		} else {
-			TWCR = _BV(TWINT) | _BV(TWEN);
-		}
-		break;
-	default:
-		break;
+		TWDR = txn->address;
+		TWCR = _BV(TWIE) | _BV(TWINT) | _BV(TWEN) ;
+		return;
 	}
-	return YAAIL_BUSY;
+
+	if ( (txn->address & 0x01) == 0x00) {
+		//Write case
+		switch(il.status) {
+		case YAAIL_WAITING_SLA:
+			if ( (TWSR & 0xf8) != TW_MT_SLA_ACK ) {
+				go_to_stop_twi(YAAIL_SLA_ACK_ERROR);
+				return;
+			}
+			il.status = YAAIL_WAITING_DATA;
+			il.done = 0x0;
+			TWDR = txn->data[il.done];
+			TWCR = _BV(TWIE) | _BV(TWINT) | _BV(TWEN);
+			break;
+		case YAAIL_WAITING_DATA:
+			if ( (TWSR & 0xf8) != TW_MT_DATA_ACK) {
+				go_to_stop_twi(YAAIL_DATA_ACK_ERROR);
+				return;
+			}
+			if ( ++il.done >= txn->length ) {
+				if ( txn->lengthRead != 0 ) {
+					TWCR = _BV(TWIE) | _BV(TWINT) | _BV(TWEN) | _BV(TWSTA) ;
+					txn->address = txn->address | 0x01;
+					il.status = YAAIL_WAITING_START;
+					txn->length = txn->lengthRead;
+					return;
+				} else {
+					go_to_stop_twi(YAAIL_DONE);
+					return;
+				}
+			}
+			TWDR = txn->data[il.done];
+			TWCR = _BV(TWIE) | _BV(TWINT) | _BV(TWEN);
+			break;
+		default:
+			break;
+		}
+	} else { // Read case
+		switch(il.status) {
+		case YAAIL_WAITING_SLA:
+			if ( (TWSR & 0xf8) != TW_MR_SLA_ACK ) {
+				go_to_stop_twi(YAAIL_SLA_ACK_ERROR);
+				return;
+			}
+			il.done = 0x0;
+			il.status = YAAIL_WAITING_DATA;
+			if (txn->length > 1) {
+				TWCR = _BV(TWIE) | _BV(TWINT) | _BV(TWEN) | _BV(TWEA);
+			} else {
+				TWCR = _BV(TWIE) | _BV(TWINT) | _BV(TWEN);
+			}
+			break;
+		case YAAIL_WAITING_DATA:
+			if ( ( (il.done + 1 >= txn->length)
+			       && (TWSR & 0xf8) != TW_MR_DATA_NACK) ||
+			     ( (il.done + 1 <  txn->length)
+			       && (TWSR & 0xf8) != TW_MR_DATA_ACK ) ) {
+				go_to_stop_twi(TWSR);
+				return;
+			}
+			txn->data[il.done] = TWDR;
+			if (++il.done >= txn->length) {
+				go_to_stop_twi(YAAIL_DONE);
+				return;
+			}
+			if ( il.done + 1 < txn->length ) {
+				TWCR = _BV(TWIE) | _BV(TWINT) | _BV(TWEN) | _BV(TWEA);
+			} else {
+				TWCR = _BV(TWIE) | _BV(TWINT) | _BV(TWEN);
+			}
+			break;
+		default:
+			break;
+		}
+	}
 }
 
-yaail_status_e yaail_poll() {
-	if ( il.status == YAAIL_NONE ) {
-		return YAAIL_NO_ERROR;
-	}
 
-	if ( il.status == YAAIL_WAITING_REARM ) {
-		return YAAIL_DONE;
-	}
 
-	if ( (TWCR  & _BV(TWINT) ) == 0x00 ) {
-		return YAAIL_BUSY;
-	}
-
-	if ( (il.address & 0x01) == 0x01 ) {
-		return yaail_poll_read();
-	} else {
-		return yaail_poll_write();
-	}
+yaail_txn_status_e yaail_txn_status(const yaail_txn_t * txn) {
+	uint8_t sreg = SREG;
+	cli();
+	yaail_txn_status_e ret = *txn;
+	SREG = sreg;
+	return ret;
 }
 
-
-
-yaail_status_e yaail_rearm() {
-	if (il.rearmOK == false) {
-		return YAAIL_BUSY;
-	}
-	il.status= YAAIL_NONE;
-	return YAAIL_NO_ERROR;
-}
-
-
-yaail_status_e yaail_read_and_spin(uint8_t address, uint8_t * buffer, uint8_t length) {
-	yaail_status_e err = yaail_read(address,buffer,length);
-	if ( err != YAAIL_NO_ERROR) {
-		return err;
-	}
+yaail_txn_status_e yaail_spin_until_done(const yaail_txn_t * txn) {
+	yaail_txn_status_e s;
 	do {
-		err = yaail_poll();
-	} while(err == YAAIL_BUSY);
-	return err;
+		s = yaail_txn_status(txn);
+	} while(s == YAAIL_SCHEDULED || s == YAAIL_PENDING);
+	return s;
 }
 
-yaail_status_e yaail_write_and_spin(uint8_t address, const uint8_t * buffer, uint8_t length) {
-	yaail_status_e err = yaail_write(address,buffer,length);
-	if ( err != YAAIL_NO_ERROR) {
-		return err;
-	}
-	do {
-		err = yaail_poll();
-	} while(err == YAAIL_BUSY);
-	return err;
-}
-
-yaail_status_e yaail_write_and_read_and_spin(uint8_t address, uint8_t * data, uint8_t lengthWrite, uint8_t lengthRead) {
-	yaail_status_e err = yaail_write_and_read(address,data,lengthWrite,lengthRead);
-	if ( err != YAAIL_NO_ERROR) {
-		return err;
-	}
-	do {
-		err = yaail_poll();
-	} while(err == YAAIL_BUSY);
-	return err;
+void yaail_init_txn(yaail_txn_t * txn){
+	uint8_t sreg = SREG;
+	cli();
+	*txn = YAAIL_DONE;
+	SREG = sreg;
 }
