@@ -5,7 +5,7 @@
 #include <yaail.h>
 #include <emc2302.h>
 #include "LEDs.h"
-#include "Systime.h"
+#include <arke-avr/systime.h>
 
 #define FC_UPDATE_PERIOD 200
 #define FC_IGNORE_ALERT_TIME 400
@@ -35,7 +35,7 @@ enum DataBufferByteIdx {
 
 
 typedef struct {
-	Systime_t last;
+	ArkeSystime_t last;
 	FanControlStatus_e status;
 	uint16_t RPM[2];
 	uint8_t data[FC_DATA_BUFFER_SIZE];
@@ -102,7 +102,7 @@ uint16_t tach_to_RPM(uint8_t highTachByte) {
 
 FanControlStatus_e ProcessFanControl() {
 
-	Systime_t now = GetSystime();
+	ArkeSystime_t now = ArkeGetSystime();
 	if ( (now - FC.last) >= FC_UPDATE_PERIOD ) {
 		FC.data[FC_TACH1_COUNT] = EMC_FAN1_TACH_COUNT_REG_H;
 		FC.data[FC_TACH2_COUNT] = EMC_FAN2_TACH_COUNT_REG_H;

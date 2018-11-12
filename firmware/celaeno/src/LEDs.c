@@ -1,6 +1,6 @@
 #include "LEDs.h"
 
-#include "Systime.h"
+#include <arke-avr/systime.h>
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
@@ -16,7 +16,7 @@ typedef struct {
 	declare_led_fields(Ready);
 	declare_led_fields(Error);
 	declare_led_fields(Data);
-	Systime_t last;
+	ArkeSystime_t last;
 	uint8_t multiplier;
 } LEDData_t;
 
@@ -120,7 +120,7 @@ void InitLEDs() {
 
 
 void ProcessLEDs() {
-	Systime_t now = GetSystime();
+	ArkeSystime_t now = ArkeGetSystime();
 	if ( (now-LED.last) <  PULSE_PERIOD_MS) {
 		return;
 	}

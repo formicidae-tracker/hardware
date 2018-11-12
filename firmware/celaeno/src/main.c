@@ -1,22 +1,21 @@
-#include <arke-avr.h>
+#include <arke-avr/systime.h>
 
 #include "LEDs.h"
-#include "Systime.h"
+#include <arke-avr.h>
 #include "FanControl.h"
 
-#include <yaacl.h>
 #define NOMINAL_LVL 0x30
 
 
 int main() {
-	InitSystime();
+	ArkeInitSystime();
 	InitLEDs();
 	LEDReadyPulse();
 	LEDErrorOff();
 	DDRD |= _BV(0) ;
 
 	InitFanControl();
-	Systime_t last = -10000;
+	ArkeSystime_t last = -10000;
 
 	uint8_t i = 1;
 
@@ -28,7 +27,7 @@ int main() {
 		} else {
 			LEDErrorOff();
 		}
-		Systime_t now = GetSystime();
+		ArkeSystime_t now = ArkeGetSystime();
 		if ( (now-last) >= 10000 ) {
 			if (++i % 2 == 1) {
 				SetFan1Power(0x00);

@@ -1,10 +1,8 @@
 set(SRC_FILES main.c
-	          Systime.c
 	          LEDs.c
 	          FanControl.c)
 
-set(HDR_FILES Systime.h
-	          LEDs.h
+set(HDR_FILES LEDs.h
 	          FanControl.h)
 
 add_avr_executable(celaeno ${SRC_FILES} ${HDR_FILES})
