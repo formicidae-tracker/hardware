@@ -629,9 +629,9 @@ void ProcessCan() {
 				HostSendSingleCharUnsafe( bin_to_hex(link.rx[i].ID) );
 			}
 			HostSendSingleCharUnsafe( link.rx[i].length + '0' );
-			for (uint8_t i = 0 ; i < link.rx[i].length; ++i ) {
-				HostSendSingleCharUnsafe( bin_to_hex(link.rx[i].ID >> 4) );
-				HostSendSingleCharUnsafe( bin_to_hex(link.rx[i].ID) );
+			for (uint8_t j = 0 ; j < link.rx[i].length; ++j ) {
+				HostSendSingleCharUnsafe( bin_to_hex(link.rx[i].data[j] >> 4) );
+				HostSendSingleCharUnsafe( bin_to_hex(link.rx[i].data[j]) );
 			}
 			HostSendSingleCharUnsafe(SLCAN_ACK);
 
