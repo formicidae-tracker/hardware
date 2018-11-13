@@ -52,8 +52,9 @@ include_directories(${AVR_GCC_INCLUDE}
 
 add_definitions("-DARKE_MY_FW_MAJOR_VERSION=${PROJECT_VERSION_MAJOR}"
 	            "-DARKE_MY_FW_MINOR_VERSION=${PROJECT_VERSION_MINOR}"
-	            "-DARKE_MY_CLASS=0xe"
+	            "-DARKE_MY_CLASS=0x30"
 	            "-DARKE_MY_SUBID=0x01"
+	            "-DARKE_MY_SIZE=4"
 	            )
 
 add_avr_library(yaacl ${YAACL_SRC_FILES})
