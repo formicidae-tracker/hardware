@@ -132,19 +132,16 @@ void ProcessIncoming() {
 	if ( res == ARKE_NO_MESSAGE ) {
 		return;
 	}
-	PORTE ^= _BV(4);
 	bool rtr = yaacl_idt_test_rtrbit(res);
 	ArkeMessageClass a = (res & 0x1f8) >> 3;
 	if ( a == ARKE_CELAENO_SET_POINT && rtr ) {
 		if ( yaacl_txn_status(&C.txSetPoint) != YAACL_TXN_PENDING ) {
-			PORTE ^= _BV(4);
 			ArkeSendCelaenoSetPoint(&C.txSetPoint,false,&C.targetSetPoint);
 		}
 	}
 
 	if ( a == ARKE_CELAENO_STATUS && rtr ) {
 		if ( yaacl_txn_status(&C.txStatus) != YAACL_TXN_PENDING ) {
-			PORTE ^= _BV(4);
 			ArkeSendCelaenoStatus(&C.txStatus,false,&C.status);
 		}
 	}
@@ -155,20 +152,20 @@ void ProcessSensors(ArkeSystime_t now) {
 	readout_switch(C.critLevel,A,1,now);
 	uint8_t last = C.status.waterLevel;
 	if ( C.warnLevel.value == false && C.critLevel.value == false ) {
-		//LEDErrorOff();
+		LEDErrorOff();
 		C.status.waterLevel = ARKE_CELAENO_NOMINAL;
 	} else if ( C.critLevel.value == true && C.warnLevel.value == false ) {
 		C.status.waterLevel |= ARKE_CELAENO_RO_ERROR;
 		if (C.status.waterLevel != last) {
-			//LEDErrorBlink(4);
+			LEDErrorBlink(4);
 		}
 	} else if ( C.critLevel.value == false && C.warnLevel.value == true ) {
-		//LEDErrorOn();
+		LEDErrorOn();
 		C.status.waterLevel = ARKE_CELAENO_WARNING;
 	} else {
 		C.status.waterLevel = ARKE_CELAENO_WARNING | ARKE_CELAENO_CRITICAL;
 		if (C.status.waterLevel != last) {
-			//LEDErrorBlink(2);
+			LEDErrorBlink(2);
 		}
 	}
 }

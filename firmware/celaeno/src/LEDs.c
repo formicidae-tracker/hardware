@@ -26,6 +26,7 @@ LEDData_t LED;
 #define MAX(a,b) ( ((a) > (b) ) ? (a) : (b) )
 #define CLAMP(value,min,max) MIN(MAX(min,value),max)
 
+#define is_io_on(port,pin) ( (PORT ## port & _BV(pin)) != 0x00 )
 #define io_on(port,pin) PORT ## port |= _BV(pin)
 #define io_off(port,pin) PORT ## port &= ~(_BV(pin))
 #define io_toggle(port,pin) PORT ## port ^= _BV(pin)
@@ -68,7 +69,11 @@ LEDData_t LED;
 		LED.name ## Count = LED.name ## Target * 2; \
 	} \
 	void LED ## name ## Pulse() { \
-		LED.name ## PulseValue = 0; \
+		if ( is_io_on(port,pin) ){ \
+			LED.name ## PulseValue = 0xff; \
+		} else { \
+			LED.name ## PulseValue = 0x00; \
+		} \
 		LED.name ## Target = 0xff; \
 		LED.name ## Increment = 1; \
 	} \
