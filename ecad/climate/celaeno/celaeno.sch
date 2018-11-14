@@ -7,7 +7,7 @@ encoding utf-8
 Sheet 1 8
 Title "Celaeno Nebulizer Control Board"
 Date "06/11/2018"
-Rev "A"
+Rev "B"
 Comp "Université de Lausanne"
 Comment1 "Author: Alexandre Tuleu"
 Comment2 "Licensed under the CERN OHL v1.2"
@@ -82,9 +82,9 @@ F2 "PWM1" O R 9500 4300 60
 F3 "PWM2" O R 9500 4600 60 
 F4 "TACH1" I R 9500 4400 60 
 F5 "TACH2" I R 9500 4700 60 
-F6 "~ALERT" O L 8500 4250 60 
-F7 "SDA" B L 8500 4400 60 
-F8 "SCL" I L 8500 4500 60 
+F6 "SDA" B L 8500 4400 60 
+F7 "SCL" I L 8500 4500 60 
+F8 "~ALERT" O L 8500 4300 50 
 $EndSheet
 $Comp
 L Connector_Generic:Conn_01x04 J5
@@ -152,10 +152,10 @@ L Connector_Generic:Conn_01x02 J3
 U 1 1 5BA567FD
 P 3700 1800
 F 0 "J3" H 3700 1900 50  0000 C CNN
-F 1 "MCV 1,5/ 2-G-3,5" H 3700 1600 50  0000 C CNN
-F 2 "Connector_Phoenix_MC:PhoenixContact_MCV_1,5_2-G-3.5_1x02_P3.50mm_Vertical" H 3700 1800 50  0001 C CNN
+F 1 "5566-02A" H 3700 1600 50  0000 C CNN
+F 2 "Connector_Molex:Molex_Mini-Fit_Jr_5566-02A_2x01_P4.20mm_Vertical" H 3700 1800 50  0001 C CNN
 F 3 "" H 3700 1800 50  0001 C CNN
-F 4 "MCV 1,5/ 2-G-3,5" H 3700 1800 60  0001 C CNN "Part Number"
+F 4 "39-28-1023" H 3700 1800 60  0001 C CNN "Part Number"
 	1    3700 1800
 	-1   0    0    -1  
 $EndComp
@@ -253,12 +253,6 @@ Wire Wire Line
 Wire Wire Line
 	4850 4300 6100 4300
 Wire Wire Line
-	8050 4250 8500 4250
-Wire Wire Line
-	7350 4100 8050 4100
-Wire Wire Line
-	8050 4100 8050 4250
-Wire Wire Line
 	7350 4200 8000 4200
 Wire Wire Line
 	8000 4200 8000 4400
@@ -282,8 +276,6 @@ Wire Wire Line
 	4350 1800 4500 1800
 Wire Wire Line
 	10300 4600 10300 4000
-Wire Wire Line
-	4850 4100 6100 4100
 Wire Wire Line
 	10300 5150 10300 4600
 Connection ~ 10300 4600
@@ -416,4 +408,12 @@ Wire Wire Line
 	8400 1950 8700 1950
 Text Notes 550  7750 0    50   ~ 0
 © 2018 Université de Lausanne\n\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.2.\n\nYou may redistribute and modify this documentation under the terms of\nthe CERN OHL v.1.2. (http://ohwr.org/cernohl). This documentation is\ndistributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,\nINCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND\nFITNESS FOR A PARTICULAR PURPOSE. Please see the CERN OHL v.1.2\nfor applicable conditions
+Wire Wire Line
+	7350 4100 8100 4100
+Wire Wire Line
+	8500 4300 8100 4300
+Wire Wire Line
+	8100 4100 8100 4300
+Wire Wire Line
+	6100 4100 4850 4100
 $EndSCHEMATC

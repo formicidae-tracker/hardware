@@ -596,10 +596,6 @@ NoConn ~ 6400 4650
 NoConn ~ 6400 4750
 NoConn ~ 6400 3650
 NoConn ~ 6400 3750
-Wire Wire Line
-	7450 5150 6400 5150
-Text HLabel 7450 5150 2    60   Input ~ 0
-~FAN_ALERT
 Text HLabel 7750 2250 2    50   Input ~ 0
 LVL_0
 Text HLabel 7750 2350 2    50   Input ~ 0
@@ -685,4 +681,8 @@ Text HLabel 7700 3350 2    50   Output ~ 0
 RELAY
 Text Notes 550  7750 0    50   ~ 0
 © 2018 Université de Lausanne\n\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.2.\n\nYou may redistribute and modify this documentation under the terms of\nthe CERN OHL v.1.2. (http://ohwr.org/cernohl). This documentation is\ndistributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,\nINCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND\nFITNESS FOR A PARTICULAR PURPOSE. Please see the CERN OHL v.1.2\nfor applicable conditions
+Text HLabel 7450 5150 2    60   Input ~ 0
+~FAN_ALERT
+Wire Wire Line
+	7450 5150 6400 5150
 $EndSCHEMATC
