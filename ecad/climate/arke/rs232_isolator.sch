@@ -1,7 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:power
-LIBS:74xx
-LIBS:fort
 LIBS:arke-cache
 EELAYER 26 0
 EELAYER END

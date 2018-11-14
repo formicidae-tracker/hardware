@@ -4,10 +4,10 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 10
+Sheet 1 9
 Title "Zeus - Climate Control Board"
 Date "06/11/2018"
-Rev "A"
+Rev "B"
 Comp "Université de Lausanne"
 Comment1 "Author: Alexandre Tuleu"
 Comment2 "Licensed under the CERN OHL v1.2"
@@ -74,10 +74,10 @@ F 3 "" H 5400 1250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Sheet
-S 8500 4100 1000 850 
+S 8500 4100 1000 2050
 U 5BA5AC9B
 F0 "Fan PWM Controller 1" 60
-F1 "../../common/Fan_controller.sch" 60
+F1 "./Fan_controller.sch" 60
 F2 "PWM1" O R 9500 4300 60 
 F3 "PWM2" O R 9500 4600 60 
 F4 "TACH1" I R 9500 4400 60 
@@ -85,6 +85,10 @@ F5 "TACH2" I R 9500 4700 60
 F6 "~ALERT" O L 8500 4250 60 
 F7 "SDA" B L 8500 4400 60 
 F8 "SCL" I L 8500 4500 60 
+F9 "PWM3" O R 9500 5500 50 
+F10 "PWM4" O R 9500 5800 50 
+F11 "TACH3" I R 9500 5600 50 
+F12 "TACH4" I R 9500 5900 50 
 $EndSheet
 $Comp
 L Connector_Generic:Conn_01x04 J5
@@ -178,10 +182,10 @@ L Connector_Generic:Conn_01x02 J3
 U 1 1 5BA567FD
 P 1550 1500
 F 0 "J3" H 1550 1600 50  0000 C CNN
-F 1 "MCV 1,5/ 2-G-3,5" H 1550 1300 50  0000 C CNN
-F 2 "Connector_Phoenix_MC:PhoenixContact_MCV_1,5_2-G-3.5_1x02_P3.50mm_Vertical" H 1550 1500 50  0001 C CNN
+F 1 "5566-02A" H 1550 1300 50  0000 C CNN
+F 2 "Connector_Molex:Molex_Mini-Fit_Jr_5566-02A_2x01_P4.20mm_Vertical" H 1550 1500 50  0001 C CNN
 F 3 "" H 1550 1500 50  0001 C CNN
-F 4 "MCV 1,5/ 2-G-3,5" H 1550 1500 60  0001 C CNN "Part Number"
+F 4 "39-28-1023" H 1550 1500 60  0001 C CNN "Part Number"
 	1    1550 1500
 	-1   0    0    -1  
 $EndComp
@@ -246,19 +250,6 @@ F5 "HEAT1" O R 4850 3800 60
 F6 "HEAT2" O R 4850 3900 60 
 F7 "SDA_5V" B R 4850 4200 60 
 F8 "SCL_5V" O R 4850 4300 60 
-$EndSheet
-$Sheet
-S 8500 5300 1000 850 
-U 5BAA713E
-F0 "Fan PWM Controller 2" 60
-F1 "../../common/Fan_controller.sch" 60
-F2 "PWM1" O R 9500 5500 60 
-F3 "PWM2" O R 9500 5800 60 
-F4 "TACH1" I R 9500 5600 60 
-F5 "TACH2" I R 9500 5900 60 
-F6 "~ALERT" O L 8500 5450 60 
-F7 "SDA" B L 8500 5600 60 
-F8 "SCL" I L 8500 5700 60 
 $EndSheet
 $Comp
 L Connector_Generic:Conn_01x04 J10
@@ -410,69 +401,21 @@ Wire Wire Line
 Wire Wire Line
 	8050 4250 8500 4250
 Wire Wire Line
-	7800 5450 8500 5450
-$Sheet
-S 6100 3550 1250 1300
-U 5BAB6A7C
-F0 "I2C Multiplexer" 60
-F1 "i2c_mux.sch" 60
-F2 "~INT" O L 6100 4100 60 
-F3 "SCL_5V" I L 6100 4300 60 
-F4 "SDA_5V" B L 6100 4200 60 
-F5 "SCL_3V3_0" O R 7350 3900 60 
-F6 "SCL_3V3_1" O R 7350 4300 60 
-F7 "SCL_3V3_2" O R 7350 4700 60 
-F8 "SDA_3V3_0" B R 7350 3800 60 
-F9 "SDA_3V3_1" B R 7350 4200 60 
-F10 "SDA_3V3_2" B R 7350 4600 60 
-F11 "~INT1" I R 7350 4100 60 
-F12 "~INT2" I R 7350 4500 60 
-F13 "~INT0" I R 7350 3700 50 
-$EndSheet
-Wire Wire Line
-	7350 3800 7900 3800
-Wire Wire Line
-	7900 3800 7900 3150
-Wire Wire Line
-	7900 3150 10400 3150
-Wire Wire Line
-	10400 3250 8000 3250
-Wire Wire Line
-	8000 3250 8000 3900
-Wire Wire Line
-	8000 3900 7350 3900
-Wire Wire Line
 	7350 4100 8050 4100
 Wire Wire Line
 	8050 4100 8050 4250
 Wire Wire Line
-	7350 4200 8000 4200
+	7350 4200 7600 4200
 Wire Wire Line
 	8000 4200 8000 4400
 Wire Wire Line
 	8000 4400 8500 4400
 Wire Wire Line
-	7350 4300 7900 4300
+	7350 4300 7700 4300
 Wire Wire Line
 	7900 4300 7900 4500
 Wire Wire Line
 	7900 4500 8500 4500
-Wire Wire Line
-	7350 4500 7800 4500
-Wire Wire Line
-	7800 4500 7800 5450
-Wire Wire Line
-	7350 4600 7700 4600
-Wire Wire Line
-	7700 4600 7700 5600
-Wire Wire Line
-	7700 5600 8500 5600
-Wire Wire Line
-	7350 4700 7600 4700
-Wire Wire Line
-	7600 4700 7600 5700
-Wire Wire Line
-	7600 5700 8500 5700
 Wire Wire Line
 	3750 1500 4000 1500
 Wire Wire Line
@@ -545,4 +488,30 @@ Wire Wire Line
 	8850 1250 9100 1250
 Text Notes 550  7750 0    50   ~ 0
 © 2018 Université de Lausanne\n\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.2.\n\nYou may redistribute and modify this documentation under the terms of\nthe CERN OHL v.1.2. (http://ohwr.org/cernohl). This documentation is\ndistributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,\nINCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND\nFITNESS FOR A PARTICULAR PURPOSE. Please see the CERN OHL v.1.2\nfor applicable conditions
+$Sheet
+S 6100 3950 1250 500 
+U 5BEDDB19
+F0 "I2C Level Shifter" 50
+F1 "./i2c_level_shifter.sch" 50
+F2 "SDA_5V" B L 6100 4200 50 
+F3 "SCL_5V" B L 6100 4300 50 
+F4 "SDA_3V3" B R 7350 4200 50 
+F5 "SCL_3V3" B R 7350 4300 50 
+F6 "~INT_3V3" B R 7350 4100 50 
+F7 "~INT_5V" B L 6100 4100 50 
+$EndSheet
+Wire Wire Line
+	7600 3150 7600 4200
+Wire Wire Line
+	7600 3150 10400 3150
+Connection ~ 7600 4200
+Wire Wire Line
+	7600 4200 8000 4200
+Wire Wire Line
+	7700 3250 7700 4300
+Wire Wire Line
+	7700 3250 10400 3250
+Connection ~ 7700 4300
+Wire Wire Line
+	7700 4300 7900 4300
 $EndSCHEMATC

@@ -1,10 +1,10 @@
 EESchema Schematic File Version 4
-LIBS:celaeno-cache
+LIBS:zeus-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 6 8
+Sheet 9 9
 Title "I2C 5V / 3V3 Level Shifter"
 Date "06/11/2018"
 Rev "A"
@@ -15,10 +15,10 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Transistor_FET:BSS138 Q3
+L Transistor_FET:BSS138 Q5
 U 1 1 5BB396C4
 P 5800 3750
-F 0 "Q3" V 6050 3750 50  0000 C CNN
+F 0 "Q5" V 6050 3750 50  0000 C CNN
 F 1 "BSS138" V 6141 3750 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 6000 3675 50  0001 L CIN
 F 3 "https://www.fairchildsemi.com/datasheets/BS/BSS138.pdf" H 5800 3750 50  0001 L CNN
@@ -38,10 +38,10 @@ F 3 "" H 5100 2200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3V3 #PWR09
+L power:+3V3 #PWR0117
 U 1 1 5BB3983E
 P 7100 2200
-F 0 "#PWR09" H 7100 2050 50  0001 C CNN
+F 0 "#PWR0117" H 7100 2050 50  0001 C CNN
 F 1 "+3V3" H 7115 2373 50  0000 C CNN
 F 2 "" H 7100 2200 50  0001 C CNN
 F 3 "" H 7100 2200 50  0001 C CNN
@@ -49,10 +49,10 @@ F 3 "" H 7100 2200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:BSS138 Q2
+L Transistor_FET:BSS138 Q4
 U 1 1 5BB39855
 P 6300 3400
-F 0 "Q2" V 6550 3400 50  0000 C CNN
+F 0 "Q4" V 6550 3400 50  0000 C CNN
 F 1 "BSS138" V 6641 3400 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 6500 3325 50  0001 L CIN
 F 3 "https://www.fairchildsemi.com/datasheets/BS/BSS138.pdf" H 6300 3400 50  0001 L CNN
@@ -73,10 +73,10 @@ F 4 "GPR060310K" H 4800 2500 50  0001 C CNN "Part Number"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R6
+L Device:R R10
 U 1 1 5BB39A93
 P 5100 2500
-F 0 "R6" H 5170 2546 50  0000 L CNN
+F 0 "R10" H 5170 2546 50  0000 L CNN
 F 1 "10k" H 5170 2455 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 5030 2500 50  0001 C CNN
 F 3 "~" H 5100 2500 50  0001 C CNN
@@ -85,27 +85,27 @@ F 4 "GPR060310K" H 5100 2500 50  0001 C CNN "Part Number"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R11
+L Device:R R15
 U 1 1 5BB39C33
 P 7550 2500
-F 0 "R11" H 7620 2546 50  0000 L CNN
-F 1 "10k" H 7620 2455 50  0000 L CNN
+F 0 "R15" H 7620 2546 50  0000 L CNN
+F 1 "4k99" H 7620 2455 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 7480 2500 50  0001 C CNN
 F 3 "~" H 7550 2500 50  0001 C CNN
-F 4 "GPR060310K" H 7550 2500 50  0001 C CNN "Part Number"
+F 4 "GPR06034K99" H 7550 2500 50  0001 C CNN "Part Number"
 	1    7550 2500
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R12
+L Device:R R16
 U 1 1 5BB39C3B
-P 7800 2500
-F 0 "R12" H 7870 2546 50  0000 L CNN
-F 1 "10k" H 7870 2455 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 7730 2500 50  0001 C CNN
-F 3 "~" H 7800 2500 50  0001 C CNN
-F 4 "GPR060310K" H 7800 2500 50  0001 C CNN "Part Number"
-	1    7800 2500
+P 7850 2500
+F 0 "R16" H 7920 2546 50  0000 L CNN
+F 1 "4k99" H 7920 2455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 7780 2500 50  0001 C CNN
+F 3 "~" H 7850 2500 50  0001 C CNN
+F 4 "GPR06034K99" H 7850 2500 50  0001 C CNN "Part Number"
+	1    7850 2500
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -123,9 +123,7 @@ Wire Wire Line
 Wire Wire Line
 	7550 3500 6500 3500
 Wire Wire Line
-	7800 2650 7800 3850
-Wire Wire Line
-	7800 3850 6000 3850
+	7850 2650 7850 3850
 Wire Wire Line
 	5100 2650 5100 3500
 Wire Wire Line
@@ -161,31 +159,23 @@ Wire Wire Line
 	7550 3500 8050 3500
 Connection ~ 7550 3500
 Wire Wire Line
-	7800 3850 8050 3850
-Connection ~ 7800 3850
-Wire Wire Line
 	7550 2300 7550 2350
 Wire Wire Line
-	7550 2300 7800 2300
-Wire Wire Line
-	7800 2300 7800 2350
-Connection ~ 7550 2300
+	7850 2300 7850 2350
 Text Notes 550  7750 0    50   ~ 0
 © 2018 Université de Lausanne\n\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.2.\n\nYou may redistribute and modify this documentation under the terms of\nthe CERN OHL v.1.2. (http://ohwr.org/cernohl). This documentation is\ndistributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,\nINCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND\nFITNESS FOR A PARTICULAR PURPOSE. Please see the CERN OHL v.1.2\nfor applicable conditions
 Wire Wire Line
-	5100 2250 5350 2250
-Wire Wire Line
-	5350 2250 5350 2350
+	5400 2250 5400 2350
 $Comp
-L Device:R R7
+L Device:R R11
 U 1 1 5BB39AC5
-P 5350 2500
-F 0 "R7" H 5420 2546 50  0000 L CNN
-F 1 "10k" H 5420 2455 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 5280 2500 50  0001 C CNN
-F 3 "~" H 5350 2500 50  0001 C CNN
-F 4 "GPR060310K" H 5350 2500 50  0001 C CNN "Part Number"
-	1    5350 2500
+P 5400 2500
+F 0 "R11" H 5470 2546 50  0000 L CNN
+F 1 "10k" H 5470 2455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5330 2500 50  0001 C CNN
+F 3 "~" H 5400 2500 50  0001 C CNN
+F 4 "GPR060310K" H 5400 2500 50  0001 C CNN "Part Number"
+	1    5400 2500
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -196,14 +186,14 @@ Connection ~ 7250 2300
 Wire Wire Line
 	7250 2300 7250 2350
 $Comp
-L Device:R R10
+L Device:R R12
 U 1 1 5BB39C2B
 P 7250 2500
-F 0 "R10" H 7320 2546 50  0000 L CNN
-F 1 "10k" H 7320 2455 50  0000 L CNN
+F 0 "R12" H 7320 2546 50  0000 L CNN
+F 1 "4k99" H 7320 2455 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 7180 2500 50  0001 C CNN
 F 3 "~" H 7250 2500 50  0001 C CNN
-F 4 "GPR060310K" H 7250 2500 50  0001 C CNN "Part Number"
+F 4 "GPR06034K99" H 7250 2500 50  0001 C CNN "Part Number"
 	1    7250 2500
 	1    0    0    -1  
 $EndComp
@@ -224,10 +214,10 @@ Connection ~ 6800 2300
 Wire Wire Line
 	6800 2850 6800 2300
 $Comp
-L Transistor_FET:BSS138 Q1
+L Transistor_FET:BSS138 Q3
 U 1 1 5BB3988D
 P 6800 3050
-F 0 "Q1" V 7050 3050 50  0000 C CNN
+F 0 "Q3" V 7050 3050 50  0000 C CNN
 F 1 "BSS138" V 7141 3050 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 7000 2975 50  0001 L CIN
 F 3 "https://www.fairchildsemi.com/datasheets/BS/BSS138.pdf" H 6800 3050 50  0001 L CNN
@@ -236,12 +226,22 @@ F 4 "BSS138" H 6800 3050 50  0001 C CNN "Part Number"
 	0    -1   1    0   
 $EndComp
 Wire Wire Line
-	6600 3150 5350 3150
+	6600 3150 5400 3150
 Wire Wire Line
-	5350 3150 5350 2650
-Connection ~ 5350 3150
-Wire Wire Line
-	4600 3150 5350 3150
+	5400 3150 5400 2650
 Text HLabel 4600 3150 0    50   BiDi ~ 0
 ~INT_5V
+Connection ~ 7850 3850
+Wire Wire Line
+	7850 3850 8050 3850
+Wire Wire Line
+	6000 3850 7850 3850
+Wire Wire Line
+	7550 2300 7850 2300
+Connection ~ 7550 2300
+Connection ~ 5400 3150
+Wire Wire Line
+	4600 3150 5400 3150
+Wire Wire Line
+	5100 2250 5400 2250
 $EndSCHEMATC

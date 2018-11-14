@@ -1,7 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:power
-LIBS:74xx
-LIBS:fort
 LIBS:arke-cache
 EELAYER 26 0
 EELAYER END
@@ -10,7 +7,7 @@ encoding utf-8
 Sheet 1 5
 Title "Arke - RS232 <-> CAN Isolated Interface"
 Date "06/11/2018"
-Rev "A"
+Rev "B"
 Comp "Université de Lausanne"
 Comment1 "Author: Alexandre Tuleu"
 Comment2 "Licensed under the CERN OHL v1.2"
@@ -129,10 +126,10 @@ L Connector_Generic:Conn_01x02 J1
 U 1 1 5BA2BBBF
 P 9900 3250
 F 0 "J1" H 9900 3350 50  0000 C CNN
-F 1 "MCV 1,5/ 2-G-3,5" H 9900 3050 50  0000 C CNN
-F 2 "Connector_Phoenix_MC:PhoenixContact_MCV_1,5_2-G-3.5_1x02_P3.50mm_Vertical" H 9900 3250 50  0001 C CNN
+F 1 "5566-02A" H 9900 3050 50  0000 C CNN
+F 2 "Connector_Molex:Molex_Mini-Fit_Jr_5566-02A_2x01_P4.20mm_Vertical" H 9900 3250 50  0001 C CNN
 F 3 "" H 9900 3250 50  0001 C CNN
-F 4 "MCV 1,5/ 2-G-3,5" H 9900 3250 60  0001 C CNN "Part Number"
+F 4 "39-28-1023" H 9900 3250 60  0001 C CNN "Part Number"
 	1    9900 3250
 	1    0    0    -1  
 $EndComp

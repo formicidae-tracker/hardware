@@ -1,10 +1,10 @@
 EESchema Schematic File Version 4
-LIBS:zeus-cache
+LIBS:arke-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 10
+Sheet 4 5
 Title "5V Buck Converter w/o LDO"
 Date "06/11/2018"
 Rev "A"

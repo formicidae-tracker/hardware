@@ -1,0 +1,372 @@
+EESchema Schematic File Version 4
+LIBS:zeus-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 5 9
+Title "4 Wire PC FAN Controller"
+Date "06/11/2018"
+Rev "B"
+Comp "Université de Lausanne"
+Comment1 "Author: Alexandre Tuleu"
+Comment2 "Licensed under the CERN OHL v1.2"
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L power:+3.3V #PWR0103
+U 1 1 5BA5AD44
+P 6000 950
+AR Path="/5BA5AC9B/5BA5AD44" Ref="#PWR0103"  Part="1" 
+AR Path="/5BAA713E/5BA5AD44" Ref="#PWR?"  Part="1" 
+AR Path="/5BA5AD44" Ref="#PWR?"  Part="1" 
+F 0 "#PWR0103" H 6000 800 50  0001 C CNN
+F 1 "+3.3V" H 6000 1090 50  0000 C CNN
+F 2 "" H 6000 950 50  0001 C CNN
+F 3 "" H 6000 950 50  0001 C CNN
+	1    6000 950 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6000 950  6000 1000
+$Comp
+L Device:C C4
+U 1 1 5BA5AE71
+P 5700 1200
+AR Path="/5BA5AC9B/5BA5AE71" Ref="C4"  Part="1" 
+AR Path="/5BAA713E/5BA5AE71" Ref="C?"  Part="1" 
+F 0 "C4" H 5725 1300 50  0000 L CNN
+F 1 "100nF" H 5725 1100 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 5738 1050 50  0001 C CNN
+F 3 "" H 5700 1200 50  0001 C CNN
+F 4 "06035C104KAT2A" H 5700 1200 60  0001 C CNN "Part Number"
+	1    5700 1200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 1050 5700 1000
+Wire Wire Line
+	5700 1000 6000 1000
+Connection ~ 6000 1000
+$Comp
+L power:GND #PWR0106
+U 1 1 5BA5AEA9
+P 5700 1450
+AR Path="/5BA5AC9B/5BA5AEA9" Ref="#PWR0106"  Part="1" 
+AR Path="/5BAA713E/5BA5AEA9" Ref="#PWR?"  Part="1" 
+F 0 "#PWR0106" H 5700 1200 50  0001 C CNN
+F 1 "GND" H 5700 1300 50  0000 C CNN
+F 2 "" H 5700 1450 50  0001 C CNN
+F 3 "" H 5700 1450 50  0001 C CNN
+	1    5700 1450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 1450 5700 1350
+$Comp
+L power:GND #PWR0107
+U 1 1 5BA5B0F5
+P 6000 3700
+AR Path="/5BA5AC9B/5BA5B0F5" Ref="#PWR0107"  Part="1" 
+AR Path="/5BAA713E/5BA5B0F5" Ref="#PWR?"  Part="1" 
+F 0 "#PWR0107" H 6000 3450 50  0001 C CNN
+F 1 "GND" H 6000 3550 50  0000 C CNN
+F 2 "" H 6000 3700 50  0001 C CNN
+F 3 "" H 6000 3700 50  0001 C CNN
+	1    6000 3700
+	1    0    0    -1  
+$EndComp
+Text HLabel 8150 2050 2    60   Output ~ 0
+PWM1
+Text HLabel 8150 2350 2    60   Output ~ 0
+PWM2
+Text HLabel 8150 2150 2    60   Input ~ 0
+TACH1
+Text HLabel 8150 2450 2    60   Input ~ 0
+TACH2
+Text HLabel 4000 2200 0    60   BiDi ~ 0
+SDA
+Text HLabel 4000 2300 0    60   Input ~ 0
+SCL
+Wire Wire Line
+	6000 1000 6000 1550
+Text Notes 550  7750 0    50   ~ 0
+© 2018 Université de Lausanne\n\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.2.\n\nYou may redistribute and modify this documentation under the terms of\nthe CERN OHL v.1.2. (http://ohwr.org/cernohl). This documentation is\ndistributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,\nINCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND\nFITNESS FOR A PARTICULAR PURPOSE. Please see the CERN OHL v.1.2\nfor applicable conditions
+$Comp
+L Device:R R?
+U 1 1 5BE6233F
+P 7350 1800
+AR Path="/5BB3963A/5BE6233F" Ref="R?"  Part="1" 
+AR Path="/5BA5AC9B/5BE6233F" Ref="R1"  Part="1" 
+F 0 "R1" H 7420 1846 50  0000 L CNN
+F 1 "10k" H 7420 1755 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 7280 1800 50  0001 C CNN
+F 3 "~" H 7350 1800 50  0001 C CNN
+F 4 "GPR060310K" H 7350 1800 50  0001 C CNN "Part Number"
+	1    7350 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5BE6236B
+P 7650 1800
+AR Path="/5BB3963A/5BE6236B" Ref="R?"  Part="1" 
+AR Path="/5BA5AC9B/5BE6236B" Ref="R2"  Part="1" 
+F 0 "R2" H 7720 1846 50  0000 L CNN
+F 1 "10k" H 7720 1755 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 7580 1800 50  0001 C CNN
+F 3 "~" H 7650 1800 50  0001 C CNN
+F 4 "GPR060310K" H 7650 1800 50  0001 C CNN "Part Number"
+	1    7650 1800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7350 1950 7350 2150
+$Comp
+L power:+3.3V #PWR0108
+U 1 1 5BE6376D
+P 7500 1450
+AR Path="/5BA5AC9B/5BE6376D" Ref="#PWR0108"  Part="1" 
+AR Path="/5BAA713E/5BE6376D" Ref="#PWR?"  Part="1" 
+AR Path="/5BE6376D" Ref="#PWR?"  Part="1" 
+F 0 "#PWR0108" H 7500 1300 50  0001 C CNN
+F 1 "+3.3V" H 7500 1590 50  0000 C CNN
+F 2 "" H 7500 1450 50  0001 C CNN
+F 3 "" H 7500 1450 50  0001 C CNN
+	1    7500 1450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7350 1650 7350 1550
+Wire Wire Line
+	7350 1550 7500 1550
+Wire Wire Line
+	7650 1650 7650 1550
+Wire Wire Line
+	7500 1550 7500 1450
+Connection ~ 7500 1550
+Wire Wire Line
+	7500 1550 7650 1550
+Wire Wire Line
+	7650 1950 7650 2450
+Wire Wire Line
+	6000 2950 6000 3700
+NoConn ~ 5350 2500
+Wire Wire Line
+	6650 2150 7350 2150
+Wire Wire Line
+	6650 2450 7650 2450
+Wire Wire Line
+	6650 2350 8150 2350
+Wire Wire Line
+	6650 2050 8150 2050
+Connection ~ 7350 2150
+Wire Wire Line
+	7350 2150 8150 2150
+Connection ~ 7650 2450
+Wire Wire Line
+	7650 2450 8150 2450
+Text HLabel 4000 2000 0    50   Output ~ 0
+~ALERT
+$Comp
+L fort:EMC2302-1-AIZL-TR U5
+U 1 1 5BA5AD00
+P 6000 2250
+AR Path="/5BA5AC9B/5BA5AD00" Ref="U5"  Part="1" 
+AR Path="/5BAA713E/5BA5AD00" Ref="U?"  Part="1" 
+F 0 "U5" H 5600 2800 60  0000 C CNN
+F 1 "EMC2302-1-AIZL-TR" H 6550 1700 60  0000 C CNN
+F 2 "Package_SO:MSOP-10_3x3mm_P0.5mm" H 6100 2250 60  0001 C CNN
+F 3 "" H 6100 2250 60  0001 C CNN
+F 4 "EMC2302-1-AIZL-TR" H 6100 2250 60  0001 C CNN "Part Number"
+	1    6000 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR0113
+U 1 1 5BED5E10
+P 6000 4200
+AR Path="/5BA5AC9B/5BED5E10" Ref="#PWR0113"  Part="1" 
+AR Path="/5BAA713E/5BED5E10" Ref="#PWR?"  Part="1" 
+AR Path="/5BED5E10" Ref="#PWR?"  Part="1" 
+F 0 "#PWR0113" H 6000 4050 50  0001 C CNN
+F 1 "+3.3V" H 6000 4340 50  0000 C CNN
+F 2 "" H 6000 4200 50  0001 C CNN
+F 3 "" H 6000 4200 50  0001 C CNN
+	1    6000 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6000 4200 6000 4250
+$Comp
+L Device:C C5
+U 1 1 5BED5E18
+P 5700 4450
+AR Path="/5BA5AC9B/5BED5E18" Ref="C5"  Part="1" 
+AR Path="/5BAA713E/5BED5E18" Ref="C?"  Part="1" 
+F 0 "C5" H 5725 4550 50  0000 L CNN
+F 1 "100nF" H 5725 4350 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 5738 4300 50  0001 C CNN
+F 3 "" H 5700 4450 50  0001 C CNN
+F 4 "06035C104KAT2A" H 5700 4450 60  0001 C CNN "Part Number"
+	1    5700 4450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 4300 5700 4250
+Wire Wire Line
+	5700 4250 6000 4250
+Connection ~ 6000 4250
+$Comp
+L power:GND #PWR0114
+U 1 1 5BED5E22
+P 5700 4700
+AR Path="/5BA5AC9B/5BED5E22" Ref="#PWR0114"  Part="1" 
+AR Path="/5BAA713E/5BED5E22" Ref="#PWR?"  Part="1" 
+F 0 "#PWR0114" H 5700 4450 50  0001 C CNN
+F 1 "GND" H 5700 4550 50  0000 C CNN
+F 2 "" H 5700 4700 50  0001 C CNN
+F 3 "" H 5700 4700 50  0001 C CNN
+	1    5700 4700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 4700 5700 4600
+$Comp
+L power:GND #PWR0115
+U 1 1 5BED5E29
+P 6000 6950
+AR Path="/5BA5AC9B/5BED5E29" Ref="#PWR0115"  Part="1" 
+AR Path="/5BAA713E/5BED5E29" Ref="#PWR?"  Part="1" 
+F 0 "#PWR0115" H 6000 6700 50  0001 C CNN
+F 1 "GND" H 6000 6800 50  0000 C CNN
+F 2 "" H 6000 6950 50  0001 C CNN
+F 3 "" H 6000 6950 50  0001 C CNN
+	1    6000 6950
+	1    0    0    -1  
+$EndComp
+Text HLabel 8150 5300 2    60   Output ~ 0
+PWM3
+Text HLabel 8150 5600 2    60   Output ~ 0
+PWM4
+Text HLabel 8150 5400 2    60   Input ~ 0
+TACH3
+Text HLabel 8150 5700 2    60   Input ~ 0
+TACH4
+Wire Wire Line
+	6000 4250 6000 4800
+$Comp
+L Device:R R?
+U 1 1 5BED5E39
+P 7350 5050
+AR Path="/5BB3963A/5BED5E39" Ref="R?"  Part="1" 
+AR Path="/5BA5AC9B/5BED5E39" Ref="R13"  Part="1" 
+F 0 "R13" H 7420 5096 50  0000 L CNN
+F 1 "10k" H 7420 5005 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 7280 5050 50  0001 C CNN
+F 3 "~" H 7350 5050 50  0001 C CNN
+F 4 "GPR060310K" H 7350 5050 50  0001 C CNN "Part Number"
+	1    7350 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5BED5E41
+P 7650 5050
+AR Path="/5BB3963A/5BED5E41" Ref="R?"  Part="1" 
+AR Path="/5BA5AC9B/5BED5E41" Ref="R14"  Part="1" 
+F 0 "R14" H 7720 5096 50  0000 L CNN
+F 1 "10k" H 7720 5005 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 7580 5050 50  0001 C CNN
+F 3 "~" H 7650 5050 50  0001 C CNN
+F 4 "GPR060310K" H 7650 5050 50  0001 C CNN "Part Number"
+	1    7650 5050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7350 5200 7350 5400
+$Comp
+L power:+3.3V #PWR0116
+U 1 1 5BED5E49
+P 7500 4700
+AR Path="/5BA5AC9B/5BED5E49" Ref="#PWR0116"  Part="1" 
+AR Path="/5BAA713E/5BED5E49" Ref="#PWR?"  Part="1" 
+AR Path="/5BED5E49" Ref="#PWR?"  Part="1" 
+F 0 "#PWR0116" H 7500 4550 50  0001 C CNN
+F 1 "+3.3V" H 7500 4840 50  0000 C CNN
+F 2 "" H 7500 4700 50  0001 C CNN
+F 3 "" H 7500 4700 50  0001 C CNN
+	1    7500 4700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7350 4900 7350 4800
+Wire Wire Line
+	7350 4800 7500 4800
+Wire Wire Line
+	7650 4900 7650 4800
+Wire Wire Line
+	7500 4800 7500 4700
+Connection ~ 7500 4800
+Wire Wire Line
+	7500 4800 7650 4800
+Wire Wire Line
+	7650 5200 7650 5700
+Wire Wire Line
+	6000 6200 6000 6950
+NoConn ~ 5350 5750
+Wire Wire Line
+	6650 5400 7350 5400
+Wire Wire Line
+	6650 5700 7650 5700
+Wire Wire Line
+	6650 5600 8150 5600
+Wire Wire Line
+	6650 5300 8150 5300
+Connection ~ 7350 5400
+Wire Wire Line
+	7350 5400 8150 5400
+Connection ~ 7650 5700
+Wire Wire Line
+	7650 5700 8150 5700
+$Comp
+L fort:EMC2302-2-AIZL-TR U6
+U 1 1 5BED7CBE
+P 6000 5500
+F 0 "U6" H 5600 6050 60  0000 C CNN
+F 1 "EMC2302-2-AIZL-TR" H 6550 4950 60  0000 C CNN
+F 2 "Housings_SSOP:MSOP-10_3x3mm_Pitch0.5mm" H 6100 5500 60  0001 C CNN
+F 3 "" H 6100 5500 60  0001 C CNN
+F 4 "EMC2302-2-AIZL-TR" H 6100 5500 60  0001 C CNN "Part Number"
+	1    6000 5500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4000 2000 5150 2000
+Wire Wire Line
+	5350 5250 5150 5250
+Wire Wire Line
+	5150 5250 5150 2000
+Connection ~ 5150 2000
+Wire Wire Line
+	5150 2000 5350 2000
+Wire Wire Line
+	5050 5450 5050 2200
+Wire Wire Line
+	4950 2300 4950 5550
+Connection ~ 4950 2300
+Wire Wire Line
+	4950 2300 5350 2300
+Connection ~ 5050 2200
+Wire Wire Line
+	5050 2200 5350 2200
+Wire Wire Line
+	4000 2200 5050 2200
+Wire Wire Line
+	4000 2300 4950 2300
+Wire Wire Line
+	4950 5550 5350 5550
+Wire Wire Line
+	5050 5450 5350 5450
+$EndSCHEMATC
