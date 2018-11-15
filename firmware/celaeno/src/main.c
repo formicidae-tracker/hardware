@@ -9,6 +9,7 @@
 #define CRITICAL_REPORT_PERIOD 500
 #define CELAENO_RAMP_UP_TIME_MS 1000
 #define CELAENO_RAMP_DOWN_TIME_MS 1000
+#define CELAENO_MIN_ON_TIME   1000
 
 implements_ArkeSoftwareReset()
 
@@ -76,6 +77,7 @@ struct Celaeno_t {
 	struct Button_t warnLevel,critLevel;
 	ArkeSystime_t lastCriticalReport,last;
 	enum CelaenoState_t state;
+	bool lockOn;
 };
 
 struct Celaeno_t C;
@@ -212,6 +214,15 @@ enum CelaenoState_t CelaenoOffState(ArkeSystime_t now) {
 }
 
 enum CelaenoState_t CelaenoOnState(ArkeSystime_t now) {
+	if ( C.lockOn ) {
+		//to protect the relay, we avoid to switch it on back and
+		//forth unless a minimum on time is met.
+		if ( (now - C.last ) >= CELAENO_MIN_ON_TIME ) {
+			C.lockOn = false;
+		} else {
+			return CELAENO_ON;
+		}
+	}
 	if ( water_level_critical_error() || C.targetSetPoint.Power == 0 ) {
 		relay_off();
 		C.last = now;
@@ -237,6 +248,8 @@ enum CelaenoState_t CelaenoRampUpState(ArkeSystime_t now) {
 	if ( (now - C.last) >= CELAENO_RAMP_UP_TIME_MS ) {
 		relay_on();
 		LEDReadyOn();
+		C.lockOn = true;
+		C.last = now;
 		return CELAENO_ON;
 	}
 
