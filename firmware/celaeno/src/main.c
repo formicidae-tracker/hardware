@@ -3,13 +3,17 @@
 #include "LEDs.h"
 #include <arke-avr.h>
 #include "FanControl.h"
+#include <avr/eeprom.h>
+#include <avr/interrupt.h>
 
+ArkeCelaenoConfig EEMEM eepromConfig = {
+	.RampUpTimeMS = 500,
+	.RampDownTimeMS = 500,
+	.MinOnTimeMS = 1000,
+	.DebounceTimeMS = 500
+};
 
-#define DEBOUNCE_TIME_MS 500
 #define CRITICAL_REPORT_PERIOD 500
-#define CELAENO_RAMP_UP_TIME_MS 1000
-#define CELAENO_RAMP_DOWN_TIME_MS 1000
-#define CELAENO_MIN_ON_TIME   1000
 
 implements_ArkeSoftwareReset()
 
@@ -31,7 +35,7 @@ struct Button_t {
 			(s).lastValue = reading; \
 			break; \
 		} \
-		if ( (curtime - (s).debounceStart) >= DEBOUNCE_TIME_MS ) { \
+		if ( (curtime - (s).debounceStart) >= C.config.DebounceTimeMS ) { \
 			(s).value = reading; \
 		} \
 	}while(0)
@@ -70,9 +74,18 @@ StateFnct_t stateFunctions[NB_CELAENO_STATES] = {
 };
 
 struct Celaeno_t {
-	yaacl_txn_t txStatus,txSetPoint;
+	union {
+		ArkeCelaenoConfig config;
+		struct __attribute__((packed)){
+			uint8_t Power;
+			uint8_t ignored[7];
+		} setPoint;
+		uint8_t bytes[8];
+	} inBuffer;
+	yaacl_txn_t txStatus,txSetPoint,txConfig;
 	ArkeCelaenoSetPoint targetSetPoint;
 	ArkeCelaenoSetPoint setPoint;
+	ArkeCelaenoConfig   config;
 	ArkeCelaenoStatus status;
 	struct Button_t warnLevel,critLevel;
 	ArkeSystime_t lastCriticalReport,last;
@@ -89,7 +102,7 @@ void ProcessCelaeno();
 int main() {
 	InitLEDs();
 	DDRD |= _BV(0) ;
-	InitArke((uint8_t*)&C.targetSetPoint,1);
+	InitArke((uint8_t*)&C.inBuffer,8);
 
 	InitCelaeno();
 
@@ -104,7 +117,7 @@ void InitCelaeno() {
 	init_relay();
 	relay_off();
 	LEDReadyPulse();
-	//LEDErrorOff();
+	LEDErrorOff();
 
 	C.state = CELAENO_OFF;
 	C.setPoint.Power = 0;
@@ -122,9 +135,13 @@ void InitCelaeno() {
 	InitFanControl();
 	yaacl_init_txn(&C.txStatus);
 	yaacl_init_txn(&C.txSetPoint);
+	yaacl_init_txn(&C.txConfig);
 	SetFan1Power(0);
 	SetFan2Power(0);
 
+	cli();
+	eeprom_read_block(&C.config,&eepromConfig,sizeof(ArkeCelaenoConfig));
+	sei();
 }
 
 
@@ -136,47 +153,110 @@ void ProcessIncoming() {
 	}
 	bool rtr = yaacl_idt_test_rtrbit(res);
 	ArkeMessageClass a = (res & 0x1f8) >> 3;
-	if ( a == ARKE_CELAENO_SET_POINT && rtr ) {
-		if ( yaacl_txn_status(&C.txSetPoint) != YAACL_TXN_PENDING ) {
+	if ( a == ARKE_CELAENO_SET_POINT) {
+		if ( rtr && yaacl_txn_status(&C.txSetPoint) != YAACL_TXN_PENDING ) {
 			ArkeSendCelaenoSetPoint(&C.txSetPoint,false,&C.targetSetPoint);
+			return;
 		}
+
+		if (!rtr && length == 1) {
+			C.targetSetPoint.Power = C.inBuffer.setPoint.Power;
+			return;
+		}
+		return;
 	}
 
 	if ( a == ARKE_CELAENO_STATUS && rtr ) {
 		if ( yaacl_txn_status(&C.txStatus) != YAACL_TXN_PENDING ) {
 			ArkeSendCelaenoStatus(&C.txStatus,false,&C.status);
 		}
+		return;
 	}
+
+	if ( a == ARKE_CELAENO_CONFIG) {
+		if (rtr && yaacl_txn_status(&C.txConfig) != YAACL_TXN_PENDING ) {
+			ArkeSendCelaenoConfig(&C.txConfig,false,&C.config);
+			return;
+		}
+		if (!rtr && length == 8 ) {
+			for (uint8_t i = 0; i < 4; ++i) {
+				uint16_t * actual = (uint16_t*)&C.config + i;
+				uint16_t * target = (uint16_t*)&C.inBuffer.bytes + i;
+				uint16_t * eeprom = (uint16_t*)&eepromConfig + i;
+				if ( *actual != *target) {
+					*actual = *target;
+					uint8_t sreg = SREG;
+					cli();
+					eeprom_write_word(eeprom,*target);
+					SREG = sreg;
+				}
+			}
+			return;
+		}
+
+		return;
+	}
+
 }
 
 void ProcessSensors(ArkeSystime_t now) {
 	readout_switch(C.warnLevel,A,0,now);
 	readout_switch(C.critLevel,A,1,now);
-	uint8_t last = C.status.waterLevel;
 	if ( C.warnLevel.value == false && C.critLevel.value == false ) {
-		LEDErrorOff();
 		C.status.waterLevel = ARKE_CELAENO_NOMINAL;
 	} else if ( C.critLevel.value == true && C.warnLevel.value == false ) {
 		C.status.waterLevel |= ARKE_CELAENO_RO_ERROR;
-		if (C.status.waterLevel != last) {
-			LEDErrorBlink(4);
-		}
 	} else if ( C.critLevel.value == false && C.warnLevel.value == true ) {
-		LEDErrorOn();
 		C.status.waterLevel = ARKE_CELAENO_WARNING;
 	} else {
 		C.status.waterLevel = ARKE_CELAENO_WARNING | ARKE_CELAENO_CRITICAL;
-		if (C.status.waterLevel != last) {
-			LEDErrorBlink(2);
-		}
 	}
 }
 
+void SetLED(uint8_t lastWaterLevel, bool lastFanAlert) {
+	if ( ArkeCelaenoFanStall(C.status) && !lastFanAlert ) {
+		LEDErrorBlink(4);
+		return;
+	}
+
+	if ( (C.status.waterLevel & ARKE_CELAENO_RO_ERROR) != 0 &&
+	     (lastWaterLevel & ARKE_CELAENO_RO_ERROR) == 0 ) {
+		LEDErrorBlink(3);
+		return;
+	}
+
+	if ( (C.status.waterLevel >= ARKE_CELAENO_CRITICAL) &&
+	     (lastWaterLevel < ARKE_CELAENO_CRITICAL) ) {
+		LEDErrorBlink(2);
+		return;
+	}
+
+	if( C.status.waterLevel == ARKE_CELAENO_WARNING ) {
+		LEDErrorOn();
+		return;
+	}
+
+	LEDErrorOff();
+}
+
 void ProcessCelaeno() {
+	bool lastFanFailed = ArkeCelaenoFanStall(C.status);
+	uint8_t lastWaterLevel = C.status.waterLevel;
+	bool shouldReport = false;
 	ArkeSystime_t now = ArkeGetSystime();
 	ProcessSensors(now);
+	if (C.status.waterLevel > ARKE_CELAENO_WARNING && C.targetSetPoint.Power > 0 ) {
+		shouldReport = true;
+	}
 	FanControlStatus_e s = ProcessFanControl();
-	C.status.fanStatus = GetFan1RPM() | ( (s & FAN_1_STALL) != 0 ? 0x8000 : 0);
+	C.status.fanStatus = GetFan1RPM();
+	if( (s & FAN_1_STALL) != 0 ){
+		C.status.fanStatus |= ARKE_CELAENO_FAN_STALL_ALERT;
+		shouldReport = true;
+	}
+
+	SetLED(lastWaterLevel,lastFanFailed);
+
 	ProcessIncoming();
 
 	//now process the state machine
@@ -184,8 +264,6 @@ void ProcessCelaeno() {
 		C.state = stateFunctions[C.state](now);
 	}
 
-	bool shouldReport = ( (s & FAN_1_STALL) != 0 ||
-	                      (C.status.waterLevel > ARKE_CELAENO_WARNING && C.targetSetPoint.Power > 0 ) );
 	if ( !shouldReport || yaacl_txn_status(&C.txStatus) != YAACL_TXN_UNSUBMITTED ) {
 		return;
 	}
@@ -217,7 +295,7 @@ enum CelaenoState_t CelaenoOnState(ArkeSystime_t now) {
 	if ( C.lockOn ) {
 		//to protect the relay, we avoid to switch it on back and
 		//forth unless a minimum on time is met.
-		if ( (now - C.last ) >= CELAENO_MIN_ON_TIME ) {
+		if ( (now - C.last ) >= C.config.MinOnTimeMS ) {
 			C.lockOn = false;
 		} else {
 			return CELAENO_ON;
@@ -233,6 +311,7 @@ enum CelaenoState_t CelaenoOnState(ArkeSystime_t now) {
 	if (C.targetSetPoint.Power != C.setPoint.Power ) {
 		C.setPoint.Power = C.targetSetPoint.Power;
 		SetFan1Power(C.setPoint.Power);
+		SetFan2Power(C.setPoint.Power);
 	}
 
 	return CELAENO_ON;
@@ -241,11 +320,12 @@ enum CelaenoState_t CelaenoOnState(ArkeSystime_t now) {
 enum CelaenoState_t CelaenoRampUpState(ArkeSystime_t now) {
 	if ( water_level_critical_error() || C.targetSetPoint.Power == 0 ) {
 		SetFan1Power(0);
+		SetFan2Power(0);
 		C.setPoint.Power = 0;
 		return CELAENO_OFF;
 	}
 
-	if ( (now - C.last) >= CELAENO_RAMP_UP_TIME_MS ) {
+	if ( (now - C.last) >= C.config.RampUpTimeMS ) {
 		relay_on();
 		LEDReadyOn();
 		C.lockOn = true;
@@ -257,10 +337,11 @@ enum CelaenoState_t CelaenoRampUpState(ArkeSystime_t now) {
 
 }
 enum CelaenoState_t CelaenoRampDownState(ArkeSystime_t now) {
-	if ( (now - C.last) < CELAENO_RAMP_DOWN_TIME_MS ) {
+	if ( (now - C.last) < C.config.RampDownTimeMS ) {
 		return CELAENO_RAMPDOWN;
 	}
 	C.setPoint.Power = 0;
 	SetFan1Power(0);
+	SetFan2Power(0);
 	return CELAENO_OFF;
 }
