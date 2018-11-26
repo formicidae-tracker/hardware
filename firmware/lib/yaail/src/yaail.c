@@ -102,7 +102,7 @@ yaail_error_e yaail_init(yaail_baudrate_e br) {
 	}while(0)
 
 
-#define yaail_validate_op(address,length) do {	  \
+#define yaail_validate_address(address) do { \
 		uint8_t sreg = SREG; \
 		cli(); \
 		if ( FIFO_FULL(il.fifo) ) { \
@@ -114,6 +114,11 @@ yaail_error_e yaail_init(yaail_baudrate_e br) {
 		if ( (address & 0x80 ) != 0 ) { \
 			return YAAIL_INVALID_ADDRESS_ERROR; \
 		} \
+	}while(0)
+
+
+#define yaail_validate_op(address,length) do {	  \
+		yaail_validate_address(address); \
 		if ( length == 0 ) { \
 			return YAAIL_INVALID_LENGTH_ERROR; \
 		} \
@@ -142,7 +147,8 @@ yaail_error_e yaail_write(yaail_txn_t * txn,
                           uint8_t address,
                           const uint8_t * data,
                           uint8_t length) {
-	yaail_validate_op(address,length);
+	//we permits write of zero
+	yaail_validate_address(address);
 	struct yaail_private_txn_t * txnp = &FIFO_TAIL(il.fifo);
 	txnp->txn = txn;
 	txnp->address = address << 1;
@@ -163,7 +169,8 @@ yaail_error_e yaail_write_and_read(yaail_txn_t * txn,
                                    uint8_t * data,
                                    uint8_t lengthWrite,
                                    uint8_t lengthRead) {
-	yaail_validate_op(address,lengthWrite);
+	//we permit writes of 0;
+	yaail_validate_op(address,lengthRead);
 	if (lengthRead == 0) {
 		return YAAIL_INVALID_LENGTH_ERROR;
 	}
