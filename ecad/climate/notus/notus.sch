@@ -1,0 +1,117 @@
+EESchema Schematic File Version 4
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Device:Heater R1
+U 1 1 5BF5BA91
+P 5450 3700
+F 0 "R1" V 5600 3600 50  0000 L CNN
+F 1 "10R, 20W" V 5300 3550 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_Power_L60.0mm_W14.0mm_P71.12mm" V 5380 3700 50  0001 C CNN
+F 3 "~" H 5450 3700 50  0001 C CNN
+F 4 "SQP20AJB-10R" H 5450 3700 50  0001 C CNN "Part Number"
+	1    5450 3700
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x02 J1
+U 1 1 5BF692D0
+P 4400 3700
+F 0 "J1" H 4400 3450 50  0000 C CNN
+F 1 "640454-2" H 4450 3850 50  0000 C CNN
+F 2 "FORT:640454-2" H 4400 3700 50  0001 C CNN
+F 3 "~" H 4400 3700 50  0001 C CNN
+F 4 "640454-2" H 4400 3700 50  0001 C CNN "Part Number"
+	1    4400 3700
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole MH1
+U 1 1 5BF69646
+P 5600 3100
+F 0 "MH1" H 5700 3146 50  0000 L CNN
+F 1 "MountingHole" H 5700 3055 50  0000 L CNN
+F 2 "MountingHole:MountingHole_4.3mm_M4_DIN965" H 5600 3100 50  0001 C CNN
+F 3 "~" H 5600 3100 50  0001 C CNN
+	1    5600 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole MH2
+U 1 1 5BF696E5
+P 5650 4500
+F 0 "MH2" H 5750 4546 50  0000 L CNN
+F 1 "MountingHole" H 5750 4455 50  0000 L CNN
+F 2 "MountingHole:MountingHole_4.3mm_M4_DIN965" H 5650 4500 50  0001 C CNN
+F 3 "~" H 5650 4500 50  0001 C CNN
+	1    5650 4500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4600 3700 5150 3700
+Wire Wire Line
+	5600 3700 5750 3700
+Wire Wire Line
+	5900 4200 4850 4200
+Wire Wire Line
+	4650 4200 4650 3800
+Wire Wire Line
+	4650 3800 4600 3800
+Text Label 4800 3700 0    50   ~ 0
+PWM_+
+$Comp
+L power:GND #PWR0101
+U 1 1 5BF6A01B
+P 4850 4350
+F 0 "#PWR0101" H 4850 4100 50  0001 C CNN
+F 1 "GND" H 4855 4177 50  0000 C CNN
+F 2 "" H 4850 4350 50  0001 C CNN
+F 3 "" H 4850 4350 50  0001 C CNN
+	1    4850 4350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4850 4350 4850 4200
+Connection ~ 4850 4200
+Wire Wire Line
+	4850 4200 4650 4200
+Wire Wire Line
+	5900 3700 5900 4200
+$Comp
+L Diode:1N4001 D1
+U 1 1 5BF6C3E1
+P 5450 4050
+F 0 "D1" H 5450 4266 50  0000 C CNN
+F 1 "1N4001" H 5450 4175 50  0000 C CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 5450 3875 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 5450 4050 50  0001 C CNN
+	1    5450 4050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5300 4050 5150 4050
+Wire Wire Line
+	5150 4050 5150 3700
+Connection ~ 5150 3700
+Wire Wire Line
+	5150 3700 5300 3700
+Wire Wire Line
+	5600 4050 5750 4050
+Wire Wire Line
+	5750 4050 5750 3700
+Connection ~ 5750 3700
+Wire Wire Line
+	5750 3700 5900 3700
+$EndSCHEMATC
