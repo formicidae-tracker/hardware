@@ -1,0 +1,150 @@
+EESchema Schematic File Version 4
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L 74xGxx:74LVC1G17 U1
+U 1 1 5BFD5E32
+P 5350 3650
+F 0 "U1" H 5325 3917 50  0000 C CNN
+F 1 "74LVC1G17" H 5325 3826 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-5_HandSoldering" H 5350 3650 50  0001 C CNN
+F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 5350 3650 50  0001 C CNN
+	1    5350 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x03 J1
+U 1 1 5BFD5FA3
+P 3450 3650
+F 0 "J1" H 3370 3967 50  0000 C CNN
+F 1 "Conn_01x03" H 3370 3876 50  0000 C CNN
+F 2 "Connector_Phoenix_MC:PhoenixContact_MCV_1,5_3-G-3.5_1x03_P3.50mm_Vertical" H 3450 3650 50  0001 C CNN
+F 3 "~" H 3450 3650 50  0001 C CNN
+	1    3450 3650
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x03 J2
+U 1 1 5BFD6130
+P 7100 3650
+F 0 "J2" H 7180 3692 50  0000 L CNN
+F 1 "Conn_01x03" H 7180 3601 50  0000 L CNN
+F 2 "Connector_Phoenix_MC:PhoenixContact_MCV_1,5_3-G-3.5_1x03_P3.50mm_Vertical" H 7100 3650 50  0001 C CNN
+F 3 "~" H 7100 3650 50  0001 C CNN
+	1    7100 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 5BFD61F5
+P 6250 3000
+F 0 "C1" H 6365 3046 50  0000 L CNN
+F 1 "C" H 6365 2955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6288 2850 50  0001 C CNN
+F 3 "~" H 6250 3000 50  0001 C CNN
+	1    6250 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR0101
+U 1 1 5BFD6343
+P 6250 2650
+F 0 "#PWR0101" H 6250 2500 50  0001 C CNN
+F 1 "VCC" H 6267 2823 50  0000 C CNN
+F 2 "" H 6250 2650 50  0001 C CNN
+F 3 "" H 6250 2650 50  0001 C CNN
+	1    6250 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6250 2650 6250 2850
+$Comp
+L power:GND #PWR0102
+U 1 1 5BFD63B6
+P 6250 3350
+F 0 "#PWR0102" H 6250 3100 50  0001 C CNN
+F 1 "GND" H 6255 3177 50  0000 C CNN
+F 2 "" H 6250 3350 50  0001 C CNN
+F 3 "" H 6250 3350 50  0001 C CNN
+	1    6250 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6250 3350 6250 3150
+$Comp
+L power:VCC #PWR0103
+U 1 1 5BFD63DE
+P 6750 3450
+F 0 "#PWR0103" H 6750 3300 50  0001 C CNN
+F 1 "VCC" H 6767 3623 50  0000 C CNN
+F 2 "" H 6750 3450 50  0001 C CNN
+F 3 "" H 6750 3450 50  0001 C CNN
+	1    6750 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0104
+U 1 1 5BFD63F1
+P 6750 3900
+F 0 "#PWR0104" H 6750 3650 50  0001 C CNN
+F 1 "GND" H 6755 3727 50  0000 C CNN
+F 2 "" H 6750 3900 50  0001 C CNN
+F 3 "" H 6750 3900 50  0001 C CNN
+	1    6750 3900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6750 3750 6900 3750
+Wire Wire Line
+	6750 3900 6750 3750
+Wire Wire Line
+	6750 3450 6750 3550
+Wire Wire Line
+	6750 3550 6900 3550
+$Comp
+L power:VCC #PWR0105
+U 1 1 5BFD6442
+P 3950 3350
+F 0 "#PWR0105" H 3950 3200 50  0001 C CNN
+F 1 "VCC" H 3967 3523 50  0000 C CNN
+F 2 "" H 3950 3350 50  0001 C CNN
+F 3 "" H 3950 3350 50  0001 C CNN
+	1    3950 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3950 3350 3950 3550
+Wire Wire Line
+	3950 3550 3650 3550
+$Comp
+L power:GND #PWR0106
+U 1 1 5BFD64B0
+P 4000 3850
+F 0 "#PWR0106" H 4000 3600 50  0001 C CNN
+F 1 "GND" H 4005 3677 50  0000 C CNN
+F 2 "" H 4000 3850 50  0001 C CNN
+F 3 "" H 4000 3850 50  0001 C CNN
+	1    4000 3850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3650 3750 4000 3750
+Wire Wire Line
+	4000 3750 4000 3850
+Wire Wire Line
+	3650 3650 5050 3650
+Wire Wire Line
+	5600 3650 6900 3650
+$EndSCHEMATC
