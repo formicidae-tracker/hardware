@@ -22,7 +22,7 @@ int main() {
 
 
 	LEDReadyPulse();
-	yaail_init(YAAIL_100);
+	yaail_init(YAAIL_25);
 	yaacl_init_txn(&Z.report);
 
 	while(true) {

@@ -21,7 +21,7 @@
 #endif
 
 #if F_CPU==16000000L
-uint8_t brr[2] = {18,10};
+uint8_t brr[4] = {10,18,36,72};
 #else
 #error "Unsupported F_CPU"
 #endif

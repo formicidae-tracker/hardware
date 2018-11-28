@@ -5,8 +5,10 @@
 
 
 typedef enum {
-	YAAIL_100 = 0,
-	YAAIL_166,
+	YAAIL_166 = 0,
+	YAAIL_100,
+	YAAIL_50,
+	YAAIL_25,
 	YAAIL_NB_SUPPORTED_BAUDRATE
 } yaail_baudrate_e;
 

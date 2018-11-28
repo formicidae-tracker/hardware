@@ -41,7 +41,7 @@ void Execute(int argc, char ** argv) {
 	}
 	auto c = CANSocket::Open(std::string(argv[1]),{});
 
-	std::signal(SIGINT,&sigint_handler);
+	//	std::signal(SIGINT,&sigint_handler);
 	unsigned int i  = 0;
 	while(shouldStop == false) {
 		struct can_frame f;
@@ -56,15 +56,16 @@ void Execute(int argc, char ** argv) {
 		Report r;
 		ReadReport(f,r);
 		if(file) {
-			if (++i % 10 == 1 ) {
+			++i;
+			//			if (i % 10 == 1 ) {
 				*file << i
 				      << " " << r.Humidity
 				      << " " << r.Temperature[0]
 				      << " " << r.Temperature[1]
 				      << " " << r.Temperature[2]
-				      << " " << r.Temperature[4]
+				      << " " << r.Temperature[3]
 				      << std::endl;
-			}
+				//			}
 		} else {
 			LOG(INFO) << "Data: " << std::setw(2) << std::hex << std::setfill('0')
 			          << (int)f.data[0]
