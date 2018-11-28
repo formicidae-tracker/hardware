@@ -277,4 +277,48 @@ Wire Wire Line
 	7600 3450 7600 5150
 Text Label 4600 5150 0    50   ~ 0
 TRIG_w_NOISE
+$Comp
+L Mechanical:MountingHole MH1
+U 1 1 5BFF644B
+P 6300 7000
+F 0 "MH1" H 6400 7046 50  0000 L CNN
+F 1 "M3" H 6400 6955 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_DIN965" H 6400 6909 50  0001 L CNN
+F 3 "~" H 6300 7000 50  0001 C CNN
+	1    6300 7000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole MH2
+U 1 1 5BFF7966
+P 6300 7200
+F 0 "MH2" H 6400 7246 50  0000 L CNN
+F 1 "M3" H 6400 7155 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_DIN965" H 6400 7109 50  0001 L CNN
+F 3 "~" H 6300 7200 50  0001 C CNN
+	1    6300 7200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole MH3
+U 1 1 5BFF798E
+P 6300 7400
+F 0 "MH3" H 6400 7446 50  0000 L CNN
+F 1 "M3" H 6400 7355 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_DIN965" H 6400 7309 50  0001 L CNN
+F 3 "~" H 6300 7400 50  0001 C CNN
+	1    6300 7400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole MH4
+U 1 1 5BFF79BA
+P 6300 7600
+F 0 "MH4" H 6400 7646 50  0000 L CNN
+F 1 "M3" H 6400 7555 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_DIN965" H 6400 7509 50  0001 L CNN
+F 3 "~" H 6300 7600 50  0001 C CNN
+	1    6300 7600
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
