@@ -7,6 +7,7 @@ set(SRC_FILES main.c
 set(HDR_FILES LEDs.h
 	          Systime.h
 	          HostLink.h
+	          config.h
 	          SoftReset.h)
 
 

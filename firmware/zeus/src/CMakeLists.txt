@@ -4,6 +4,7 @@ set(SRC_FILES main.c
 	          Sensors.c)
 
 set(HDR_FILES LEDs.h
+	          config.h
 	          Heaters.h
 	          Sensors.h)
 
