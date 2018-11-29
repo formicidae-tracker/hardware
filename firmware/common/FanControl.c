@@ -91,10 +91,9 @@ void InitFanControl() {
 		if ( err != YAAIL_NO_ERROR) {
 			LEDErrorBlink(3);
 		}
-		yaail_spin_until_done(&txn)
+		yaail_spin_until_done(&txn);
 #endif
 	}
-
 	FC.ignoreFailureAtStart = true;
 }
 

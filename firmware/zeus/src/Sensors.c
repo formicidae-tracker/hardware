@@ -131,6 +131,9 @@ SensorState_e SensorProcessWaitForResult(bool* ret) {
 			S.report.Temperature1 = (S.hih6130Data[3] >> 2) | ( ((uint16_t)S.hih6130Data[2]) << 6);
 		}
 
+	} else {
+		S.report.Humidity = 0x3fff;
+		S.report.Temperature1 = 0x3fff;
 	}
 
 	uint16_t results[3];

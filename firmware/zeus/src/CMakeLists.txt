@@ -1,11 +1,15 @@
 set(SRC_FILES main.c
 	          LEDs.c
+	          FanControl.c
 	          Heaters.c
+	          ClimateController.c
 	          Sensors.c)
 
 set(HDR_FILES LEDs.h
 	          config.h
+	          FanControl.c
 	          Heaters.h
+	          ClimateController.h
 	          Sensors.h)
 
 

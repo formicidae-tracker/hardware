@@ -11,3 +11,5 @@
 #define LED_ERROR_PIN 4
 #define LED_ERROR_TIMER 3
 #define LED_ERROR_COMP B
+
+#define FAN_CONTROL_4FAN

@@ -1,8 +1,9 @@
 #include "LEDs.h"
 #include "Sensors.h"
+#include "FanControl.h"
+#include "Heaters.h"
 
 #include <arke-avr.h>
-
 #include <yaail.h>
 
 
@@ -19,7 +20,8 @@ int main() {
 	InitArke(Z.inBuffer,8);
 	InitLEDs();
 	InitSensors();
-
+	InitHeaters();
+	InitFanControl();
 
 	LEDReadyPulse();
 	yaail_init(YAAIL_25);
