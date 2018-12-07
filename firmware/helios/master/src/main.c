@@ -7,95 +7,90 @@
 
 #include <string.h>
 
-#define DEAD_TIME 30
+#define DEAD_TIME 10
 
-struct MasterData {
-	yaacl_txn_t rx[2];
+#define min(a,b) ( (a) < (b) ? (a) : (b) )
+#define max(a,b) ( (a) > (b) ? (a) : (b) )
+#define clamp(value,low,high) (min(max(value,low),high))
+
+struct HeliosMaster_t {
+	union {
+		ArkeHeliosSetPoint setPoint;
+		uint8_t bytes[2];
+	} inBuffer;
+
 	yaacl_txn_t tx;
-	uint8_t dataBuffer[8];
-	ArkeHeliosSetPoint setPoint;
+
+	bool pulseMode;
+	int16_t pulseValue;
+	int8_t pulseIncrement;
+	ArkeSystime_t lastPulse;
 };
-struct MasterData app;
+struct HeliosMaster_t HM;
 
 #define MY_MASK ( (ARKE_NODE_CLASS_MASK & (~0x03)) | ARKE_SUBID_MASK)
 
 implements_ArkeSoftwareReset()
 
 void ProcessIncoming() {
-
-	for ( uint8_t i = 0 ; i < 2; ++i) {
-		yaacl_txn_status_e s = yaacl_txn_status(&(app.rx[i]));
-		if ( s == YAACL_TXN_PENDING ) {
-			continue;
+	uint8_t  dlc = 0;
+	yaacl_idt_t idt = ArkeProcess(&dlc);
+	bool rtr = yaacl_idt_test_rtrbit(idt);
+	ArkeMessageClass a = (idt & 0x1f8) >> 3;
+	switch (a) {
+	case ARKE_HELIOS_SET_POINT:
+		if (rtr && yaacl_txn_status(&HM.tx) != YAACL_TXN_PENDING ) {
+			ArkeSendHeliosSetPoint(&HM.tx,false,&(HM.inBuffer.setPoint));
+			return;
 		}
-		uint8_t length = app.rx[i].length;
-		app.rx[i].length = 8;
-		yaacl_listen(&(app.rx[i]));
-
-		if ( ((app.rx[i].ID & ARKE_MESSAGE_TYPE_MASK) >> 9) == ARKE_HEARTBEAT ) {
-			//discard
-			continue;
+		SendToModule(HM.inBuffer.setPoint.Visible,HM.inBuffer.setPoint.UV);
+		break;
+	case ARKE_HELIOS_PULSE_MODE:
+		HM.pulseMode = !HM.pulseMode;
+		if (HM.pulseMode) {
+			HM.lastPulse = ArkeGetSystime();
+			HM.pulseValue = HM.inBuffer.setPoint.Visible;
+			HM.pulseIncrement = 1;
+		} else {
+			SendToModule(HM.inBuffer.setPoint.Visible,HM.inBuffer.setPoint.UV);
 		}
-
-		uint8_t mID = (app.rx[i].ID & ARKE_NODE_CLASS_MASK) >> 3;
-		bool rtr = yaacl_idt_test_rtrbit(app.rx[i].ID);
-
-		//we are sure its either a broadcast or
-		if (mID != ARKE_HELIOS_SET_POINT ) {
-			continue;
-		}
-		if (rtr) {
-			ArkeSendHeliosSetPoint(&(app.tx),false,false,ARKE_MY_SUBID,&(app.setPoint));
-			continue;
-		}
-
-		if (length != 2) {
-			continue;
-		}
-
-		memcpy(&(app.setPoint),app.rx[i].data,2);
-		SendToModule(app.setPoint.Visible, app.setPoint.UV);
-
+		break;
+	default:
+		return;
 	}
 }
 
 int main() {
-	InitArke();
-	app.setPoint.Visible = 0;
-	app.setPoint.UV = 0;
-	yaacl_init_txn(&(app.rx[0]));
-	yaacl_init_txn(&(app.rx[1]));
-	yaacl_init_txn(&(app.tx));
-	yaacl_make_std_idt(app.rx[0].ID,ARKE_MY_CLASS << 3 | ARKE_MY_SUBID,0);
-
-	yaacl_make_std_idt(app.rx[1].ID,ARKE_MY_CLASS << 3,0);
-	SendToModule(app.setPoint.Visible,app.setPoint.UV);
-
-	for ( uint8_t i = 0 ; i < 2; ++i) {
-		app.rx[i].length = 8;
-		app.rx[i].data = &(app.dataBuffer[0]);
-		yaacl_make_std_mask(app.rx[i].mask,MY_MASK,0,1);
-		yaacl_listen(&(app.rx[i]));
-
-	}
-
+	HM.pulseMode = false;
 	InitModuleManager();
-	Systime_t last = 0;
+
+	HM.inBuffer.setPoint.Visible = 0;
+	HM.inBuffer.setPoint.UV = 0;
+	yaacl_init_txn(&HM.tx);
+	InitArke(&(HM.inBuffer.bytes[0]),sizeof(HM.inBuffer));
+
+
+	SendToModule(HM.inBuffer.setPoint.Visible,HM.inBuffer.setPoint.UV);
+
 	while(1) {
 		ProcessModuleManager();
-		ArkeProcess();
-		Systime_t now = ArkeGetSystime();
-		if ( (now - last ) >= 500 ) {
-			last = now;
-
-			SendToModule(255,0);
+		ProcessIncoming();
+		if(!HM.pulseMode) {
+			continue;
 		}
-
-
-		//		ProcessIncoming();
-		//		yaacl_txn_status(&(app.tx));
-
-		// implements
+		ArkeSystime_t now = ArkeGetSystime();
+		if ( (now - HM.lastPulse) < 10 ) {
+			continue;
+		}
+		HM.lastPulse = now;
+		if (HM.pulseValue >= 255 + DEAD_TIME) {
+			HM.pulseIncrement = -1;
+		} else if (HM.pulseValue <= -DEAD_TIME) {
+			HM.pulseIncrement = +1;
+		}
+		HM.pulseValue += HM.pulseIncrement;
+		uint8_t toSend = clamp(HM.pulseValue,0,255);
+		SendToModule(toSend,toSend);
 
 	}
 
