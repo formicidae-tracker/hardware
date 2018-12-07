@@ -94,9 +94,11 @@ struct ClimateControl_t CC;
 
 void InitClimateControl() {
 	ArkePDConfig h,t;
+	uint8_t sreg = SREG;
+	cli();
 	eeprom_read_block(&h,&EEHumidity,sizeof(ArkePDConfig));
 	eeprom_read_block(&t,&EETemperature,sizeof(ArkePDConfig));
-
+	SREG = sreg;
 	InitPDController(&CC.Humidity,DEFAULT_HUMIDITY,&h);
 	InitPDController(&CC.Temperature,DEFAULT_TEMPERATURE,&t);
 
@@ -116,7 +118,10 @@ void ClimateControlSetTarget(const ArkeZeusSetPoint * sp) {
 void ClimateControlConfigure(const ArkeZeusConfig * c) {
 #define update_config(type) do { \
 		memcpy(&(CC.type.config),&(c->type),sizeof(ArkePDConfig)); \
+		uint8_t sreg = SREG; \
+		cli(); \
 		eeprom_update_block(&(c->type),&EE ## type,sizeof(ArkePDConfig)); \
+		SREG = sreg; \
 	}while(0)
 	update_config(Humidity);
 	update_config(Temperature);
