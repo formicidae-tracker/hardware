@@ -1,0 +1,292 @@
+EESchema Schematic File Version 4
+LIBS:LED_driver-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 8 9
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L LED_driver-rescue:UA9637 U?
+U 1 1 5C12989D
+P 6050 4350
+AR Path="/5C12989D" Ref="U?"  Part="1" 
+AR Path="/5C12803A/5C12989D" Ref="U1"  Part="1" 
+F 0 "U1" H 6050 4450 50  0000 C CNN
+F 1 "UA9637" H 6050 4250 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6050 4350 50  0001 C CNN
+F 3 "" H 6050 4350 50  0001 C CNN
+F 4 "UA9637ACDR" H 6050 4350 60  0001 C CNN "Part Number"
+	1    6050 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED_driver-rescue:UA9637 U?
+U 2 1 5C1298A4
+P 6050 3100
+AR Path="/5C1298A4" Ref="U?"  Part="2" 
+AR Path="/5C12803A/5C1298A4" Ref="U1"  Part="2" 
+F 0 "U1" H 6050 3200 50  0000 C CNN
+F 1 "UA9637" H 6050 3000 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6050 3100 50  0001 C CNN
+F 3 "" H 6050 3100 50  0001 C CNN
+	2    6050 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED_driver-rescue:GND #PWR?
+U 1 1 5C1298AB
+P 6050 3500
+AR Path="/5C1298AB" Ref="#PWR?"  Part="1" 
+AR Path="/5C12803A/5C1298AB" Ref="#PWR012"  Part="1" 
+F 0 "#PWR012" H 6050 3250 50  0001 C CNN
+F 1 "GND" H 6050 3350 50  0000 C CNN
+F 2 "" H 6050 3500 50  0001 C CNN
+F 3 "" H 6050 3500 50  0001 C CNN
+	1    6050 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED_driver-rescue:GND #PWR?
+U 1 1 5C1298B1
+P 6050 4750
+AR Path="/5C1298B1" Ref="#PWR?"  Part="1" 
+AR Path="/5C12803A/5C1298B1" Ref="#PWR016"  Part="1" 
+F 0 "#PWR016" H 6050 4500 50  0001 C CNN
+F 1 "GND" H 6050 4600 50  0000 C CNN
+F 2 "" H 6050 4750 50  0001 C CNN
+F 3 "" H 6050 4750 50  0001 C CNN
+	1    6050 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED_driver-rescue:+5V #PWR?
+U 1 1 5C1298B7
+P 6050 3900
+AR Path="/5C1298B7" Ref="#PWR?"  Part="1" 
+AR Path="/5C12803A/5C1298B7" Ref="#PWR015"  Part="1" 
+F 0 "#PWR015" H 6050 3750 50  0001 C CNN
+F 1 "+5V" H 6050 4040 50  0000 C CNN
+F 2 "" H 6050 3900 50  0001 C CNN
+F 3 "" H 6050 3900 50  0001 C CNN
+	1    6050 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED_driver-rescue:+5V #PWR?
+U 1 1 5C1298BD
+P 6050 2650
+AR Path="/5C1298BD" Ref="#PWR?"  Part="1" 
+AR Path="/5C12803A/5C1298BD" Ref="#PWR010"  Part="1" 
+F 0 "#PWR010" H 6050 2500 50  0001 C CNN
+F 1 "+5V" H 6050 2790 50  0000 C CNN
+F 2 "" H 6050 2650 50  0001 C CNN
+F 3 "" H 6050 2650 50  0001 C CNN
+	1    6050 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED_driver-rescue:C C?
+U 1 1 5C1298C4
+P 6350 2750
+AR Path="/5C1298C4" Ref="C?"  Part="1" 
+AR Path="/5C12803A/5C1298C4" Ref="C1"  Part="1" 
+F 0 "C1" H 6375 2850 50  0000 L CNN
+F 1 "100nF" H 6375 2650 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6388 2600 50  0001 C CNN
+F 3 "" H 6350 2750 50  0001 C CNN
+F 4 "06035C104KAT2A" H 6350 2750 60  0001 C CNN "Part Number"
+	1    6350 2750
+	0    1    1    0   
+$EndComp
+$Comp
+L LED_driver-rescue:GND #PWR?
+U 1 1 5C1298CB
+P 6650 2850
+AR Path="/5C1298CB" Ref="#PWR?"  Part="1" 
+AR Path="/5C12803A/5C1298CB" Ref="#PWR011"  Part="1" 
+F 0 "#PWR011" H 6650 2600 50  0001 C CNN
+F 1 "GND" H 6650 2700 50  0000 C CNN
+F 2 "" H 6650 2850 50  0001 C CNN
+F 3 "" H 6650 2850 50  0001 C CNN
+	1    6650 2850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6050 3500 6050 3400
+Wire Wire Line
+	6050 4750 6050 4650
+Wire Wire Line
+	6050 2650 6050 2750
+Wire Wire Line
+	6050 2750 6200 2750
+Connection ~ 6050 2750
+Wire Wire Line
+	6500 2750 6650 2750
+Wire Wire Line
+	6650 2750 6650 2850
+Wire Wire Line
+	6550 3100 7400 3100
+$Comp
+L LED_driver-rescue:GND #PWR?
+U 1 1 5C129909
+P 4900 3800
+AR Path="/5C129909" Ref="#PWR?"  Part="1" 
+AR Path="/5C12803A/5C129909" Ref="#PWR013"  Part="1" 
+F 0 "#PWR013" H 4900 3550 50  0001 C CNN
+F 1 "GND" H 4900 3650 50  0000 C CNN
+F 2 "" H 4900 3800 50  0001 C CNN
+F 3 "" H 4900 3800 50  0001 C CNN
+	1    4900 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED_driver-rescue:GND #PWR?
+U 1 1 5C129910
+P 5300 3800
+AR Path="/5C129910" Ref="#PWR?"  Part="1" 
+AR Path="/5C12803A/5C129910" Ref="#PWR014"  Part="1" 
+F 0 "#PWR014" H 5300 3550 50  0001 C CNN
+F 1 "GND" H 5300 3650 50  0000 C CNN
+F 2 "" H 5300 3800 50  0001 C CNN
+F 3 "" H 5300 3800 50  0001 C CNN
+	1    5300 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5300 3800 5300 3700
+Wire Wire Line
+	6050 2750 6050 2800
+Text HLabel 4250 3000 0    60   Input ~ 0
+DATA_+
+Text HLabel 4250 3200 0    60   Input ~ 0
+DATA_-
+Text HLabel 4300 4250 0    60   Input ~ 0
+TRIG_+
+Text HLabel 4300 4450 0    60   Input ~ 0
+TRIG_-
+Text HLabel 7400 3100 2    60   Output ~ 0
+DATA
+Text HLabel 7350 4350 2    60   Output ~ 0
+TRIG
+Wire Wire Line
+	6550 4350 7350 4350
+Wire Wire Line
+	6050 3900 6050 4050
+Wire Wire Line
+	4900 3800 4900 3700
+$Comp
+L fort:SP1002-02TG U8
+U 1 1 5C24D629
+P 4900 3550
+F 0 "U8" H 5000 3750 60  0000 R CNN
+F 1 "SP1002-02TG" H 5200 3650 60  0000 R CNN
+F 2 "Package_TO_SOT_SMD:SOT-353_SC-70-5" H 4800 3550 60  0001 C CNN
+F 3 "" H 4900 3650 60  0001 C CNN
+F 4 "SP1002-02TG" H 5000 3750 60  0001 C CNN "Part Number"
+	1    4900 3550
+	0    -1   1    0   
+$EndComp
+$Comp
+L fort:SP1002-02TG U8
+U 2 1 5C24D6CE
+P 5300 3550
+F 0 "U8" H 5400 3750 60  0000 R CNN
+F 1 "SP1002-02TG" H 5600 3650 60  0000 R CNN
+F 2 "Package_TO_SOT_SMD:SOT-353_SC-70-5" H 5200 3550 60  0001 C CNN
+F 3 "" H 5300 3650 60  0001 C CNN
+F 4 "SP1002-02TG" H 5400 3750 60  0001 C CNN "Part Number"
+	2    5300 3550
+	0    -1   1    0   
+$EndComp
+Wire Wire Line
+	4250 3000 5300 3000
+Wire Wire Line
+	4250 3200 4900 3200
+Wire Wire Line
+	4300 4250 5250 4250
+$Comp
+L LED_driver-rescue:GND #PWR?
+U 1 1 5C24EA3D
+P 4850 5050
+AR Path="/5C24EA3D" Ref="#PWR?"  Part="1" 
+AR Path="/5C12803A/5C24EA3D" Ref="#PWR0101"  Part="1" 
+F 0 "#PWR0101" H 4850 4800 50  0001 C CNN
+F 1 "GND" H 4850 4900 50  0000 C CNN
+F 2 "" H 4850 5050 50  0001 C CNN
+F 3 "" H 4850 5050 50  0001 C CNN
+	1    4850 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED_driver-rescue:GND #PWR?
+U 1 1 5C24EA43
+P 5250 5050
+AR Path="/5C24EA43" Ref="#PWR?"  Part="1" 
+AR Path="/5C12803A/5C24EA43" Ref="#PWR0102"  Part="1" 
+F 0 "#PWR0102" H 5250 4800 50  0001 C CNN
+F 1 "GND" H 5250 4900 50  0000 C CNN
+F 2 "" H 5250 5050 50  0001 C CNN
+F 3 "" H 5250 5050 50  0001 C CNN
+	1    5250 5050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5250 5050 5250 4950
+Wire Wire Line
+	4850 5050 4850 4950
+$Comp
+L fort:SP1002-02TG U9
+U 1 1 5C24EA4C
+P 4850 4800
+F 0 "U9" H 4950 5000 60  0000 R CNN
+F 1 "SP1002-02TG" H 5150 4900 60  0000 R CNN
+F 2 "Package_TO_SOT_SMD:SOT-353_SC-70-5" H 4750 4800 60  0001 C CNN
+F 3 "" H 4850 4900 60  0001 C CNN
+F 4 "SP1002-02TG" H 4950 5000 60  0001 C CNN "Part Number"
+	1    4850 4800
+	0    -1   1    0   
+$EndComp
+$Comp
+L fort:SP1002-02TG U9
+U 2 1 5C24EA54
+P 5250 4800
+F 0 "U9" H 5350 5000 60  0000 R CNN
+F 1 "SP1002-02TG" H 5550 4900 60  0000 R CNN
+F 2 "Package_TO_SOT_SMD:SOT-353_SC-70-5" H 5150 4800 60  0001 C CNN
+F 3 "" H 5250 4900 60  0001 C CNN
+F 4 "SP1002-02TG" H 5350 5000 60  0001 C CNN "Part Number"
+	2    5250 4800
+	0    -1   1    0   
+$EndComp
+Wire Wire Line
+	4850 4650 4850 4450
+Wire Wire Line
+	4300 4450 4850 4450
+Connection ~ 4850 4450
+Wire Wire Line
+	4850 4450 5550 4450
+Wire Wire Line
+	5250 4650 5250 4250
+Connection ~ 5250 4250
+Wire Wire Line
+	5250 4250 5550 4250
+Wire Wire Line
+	4900 3400 4900 3200
+Connection ~ 4900 3200
+Wire Wire Line
+	4900 3200 5550 3200
+Wire Wire Line
+	5300 3400 5300 3000
+Connection ~ 5300 3000
+Wire Wire Line
+	5300 3000 5550 3000
+$EndSCHEMATC
