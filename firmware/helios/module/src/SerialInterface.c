@@ -19,7 +19,7 @@ void InitSerialInterface() {
 	uint8_t sreg = SREG;
 	cli();
 	// from a 20MHz clocks, sets the baudrate to 19200
-	UBRR0 =64;
+	UBRR0 = 4;
 	//RX mode only
 	UCSR0C |= _BV(UCSZ01) | _BV(UCSZ00);
 
