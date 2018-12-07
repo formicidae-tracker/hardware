@@ -41,7 +41,7 @@ AR Path="/5AC443F5/5AC3A227" Ref="Q5"  Part="1"
 AR Path="/5AC3A227" Ref="Q7"  Part="1" 
 F 0 "Q1" H 2600 1450 50  0000 L CNN
 F 1 "IRF9Z34NPbF" H 2600 1350 50  0000 L CNN
-F 2 "Package_TO_SOT_THT:TO-220-3_Horizontal_TabDown" H 2600 1500 50  0001 C CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 2600 1500 50  0001 C CNN
 F 3 "" H 2400 1400 50  0001 C CNN
 F 4 "IRF9Z34NPbF" H 2400 1400 60  0001 C CNN "Part Number"
 	1    2400 1400
@@ -112,10 +112,10 @@ AR Path="/5AC440F9/5AC3EBB4" Ref="C11"  Part="1"
 AR Path="/5AC443F1/5AC3EBB4" Ref="C20"  Part="1" 
 AR Path="/5AC443F5/5AC3EBB4" Ref="C29"  Part="1" 
 F 0 "C7" H 3575 3900 50  0000 L CNN
-F 1 "100nF" H 3575 3700 50  0000 L CNN
+F 1 "100n" H 3575 3700 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 3588 3650 50  0001 C CNN
 F 3 "" H 3550 3800 50  0001 C CNN
-F 4 "06035C104KAT2A" H 3550 3800 60  0001 C CNN "Part Number"
+F 4 "CC0603KRX7R8BB104" H 3550 3800 60  0001 C CNN "Part Number"
 	1    3550 3800
 	1    0    0    -1  
 $EndComp
@@ -128,10 +128,10 @@ AR Path="/5AC440F9/5AC3EDD3" Ref="C10"  Part="1"
 AR Path="/5AC443F1/5AC3EDD3" Ref="C19"  Part="1" 
 AR Path="/5AC443F5/5AC3EDD3" Ref="C28"  Part="1" 
 F 0 "C6" H 1775 3850 50  0000 L CNN
-F 1 "100nF" H 1775 3650 50  0000 L CNN
+F 1 "100n" H 1775 3650 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 1788 3600 50  0001 C CNN
 F 3 "" H 1750 3750 50  0001 C CNN
-F 4 "06035C104KAT2A" H 1750 3750 60  0001 C CNN "Part Number"
+F 4 "CC0603KRX7R8BB104" H 1750 3750 60  0001 C CNN "Part Number"
 	1    1750 3750
 	1    0    0    -1  
 $EndComp
@@ -175,7 +175,7 @@ AR Path="/5AC440F9/5AC3FC48" Ref="J6"  Part="1"
 AR Path="/5AC443F1/5AC3FC48" Ref="J8"  Part="1" 
 AR Path="/5AC443F5/5AC3FC48" Ref="J10"  Part="1" 
 F 0 "J6" H 9600 4400 50  0000 C CNN
-F 1 "MiniFit JR 5556 08A2" H 9600 3900 50  0000 C CNN
+F 1 "MiniFit JR 5566 08A2" H 9600 3900 50  0000 C CNN
 F 2 "FORT:Molex_MiniFit-JR-5556-08A_2x04x4.20mm_Straight" H 9550 4200 50  0001 C CNN
 F 3 "" H 9550 4200 50  0001 C CNN
 F 4 "39-28-1083" H 9550 4200 60  0001 C CNN "Part Number"
@@ -249,10 +249,10 @@ AR Path="/5AC440F9/5AC420D7" Ref="C9"  Part="1"
 AR Path="/5AC443F1/5AC420D7" Ref="C18"  Part="1" 
 AR Path="/5AC443F5/5AC420D7" Ref="C27"  Part="1" 
 F 0 "C5" H 6125 3450 50  0000 L CNN
-F 1 "100nF" H 6125 3250 50  0000 L CNN
+F 1 "100n" H 6125 3250 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 6138 3200 50  0001 C CNN
 F 3 "" H 6100 3350 50  0001 C CNN
-F 4 "06035C104KAT2A" H 6100 3350 60  0001 C CNN "Part Number"
+F 4 "CC0603KRX7R8BB104" H 6100 3350 60  0001 C CNN "Part Number"
 	1    6100 3350
 	1    0    0    -1  
 $EndComp
@@ -572,7 +572,7 @@ AR Path="/5AC440F9/5B3E77BC" Ref="C47"  Part="1"
 AR Path="/5AC443F1/5B3E77BC" Ref="C51"  Part="1" 
 AR Path="/5AC443F5/5B3E77BC" Ref="C55"  Part="1" 
 F 0 "C3" H 10575 1900 50  0000 L CNN
-F 1 "47uF, 50V" H 10575 1700 50  0000 L CNN
+F 1 "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               " H 10575 1700 50  0000 L CNN
 F 2 "Capacitor_SMD:CP_Elec_6.3x7.7" H 10588 1650 50  0001 C CNN
 F 3 "" H 10550 1800 50  0001 C CNN
 F 4 "EEE1HA470XP" H 10550 1800 60  0001 C CNN "Part Number"
@@ -594,7 +594,7 @@ AR Path="/5AC440F9/5B3E7AB8" Ref="C46"  Part="1"
 AR Path="/5AC443F1/5B3E7AB8" Ref="C50"  Part="1" 
 AR Path="/5AC443F5/5B3E7AB8" Ref="C54"  Part="1" 
 F 0 "C2" H 5975 1800 50  0000 L CNN
-F 1 "47uF, 50V" H 5975 1600 50  0000 L CNN
+F 1 "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               " H 5975 1600 50  0000 L CNN
 F 2 "Capacitor_SMD:CP_Elec_6.3x7.7" H 5988 1550 50  0001 C CNN
 F 3 "" H 5950 1700 50  0001 C CNN
 F 4 "EEE1HA470XP" H 5950 1700 60  0001 C CNN "Part Number"
@@ -616,10 +616,10 @@ AR Path="/5AC443F1/5B3E7E16" Ref="C49"  Part="1"
 AR Path="/5AC443F5/5B3E7E16" Ref="C53"  Part="1" 
 AR Path="/5AC39A79/5B3E7E16" Ref="C1"  Part="1" 
 F 0 "C1" H 5675 1800 50  0000 L CNN
-F 1 "100nF" H 5675 1600 50  0000 L CNN
+F 1 "100n" H 5675 1600 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 5688 1550 50  0001 C CNN
 F 3 "" H 5650 1700 50  0001 C CNN
-F 4 "06035C104KAT2A" H 5650 1700 60  0001 C CNN "Part Number"
+F 4 "CC0603KRX7R8BB104" H 5650 1700 60  0001 C CNN "Part Number"
 	1    5650 1700
 	1    0    0    -1  
 $EndComp

@@ -100,7 +100,7 @@ Wire Wire Line
 	3250 3750 3000 3750
 Wire Wire Line
 	3150 3850 3000 3850
-Text Notes 4000 4700 0    60   ~ 0
+Text Notes 4000 5450 0    60   ~ 0
 Pull-up required only \nif using isolated contact output
 $Comp
 L master-rescue:Conn_01x03 J4
@@ -240,11 +240,9 @@ F 4 "SN74LVC1G17DBVR" H 5500 5150 50  0001 C CNN "Part Number"
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3850 5150 5200 5150
+	3850 5150 4450 5150
 Wire Wire Line
 	7600 3450 7850 3450
-Wire Wire Line
-	5750 5150 7600 5150
 $Sheet
 S 3600 3250 1550 300 
 U 5BF9C366
@@ -274,7 +272,7 @@ Wire Wire Line
 	7000 1850 7000 1650
 Connection ~ 6750 1850
 Wire Wire Line
-	7600 3450 7600 5150
+	7600 3450 7600 4800
 Text Label 4600 5150 0    50   ~ 0
 TRIG_w_NOISE
 $Comp
@@ -321,4 +319,30 @@ F 3 "~" H 6300 7600 50  0001 C CNN
 	1    6300 7600
 	1    0    0    -1  
 $EndComp
+$Comp
+L Device:Jumper_NC_Dual JP1
+U 1 1 5C01514F
+P 6400 4800
+F 0 "JP1" V 6446 4902 50  0000 L CNN
+F 1 ".100 Header" V 6355 4902 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 6400 4800 50  0001 C CNN
+F 3 "PREC003SAAN-RC" H 6400 4800 50  0001 C CNN
+	1    6400 4800
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6500 4800 7600 4800
+Wire Wire Line
+	5750 5150 6400 5150
+Wire Wire Line
+	6400 5150 6400 5050
+Wire Wire Line
+	4450 4350 6400 4350
+Wire Wire Line
+	6400 4350 6400 4550
+Connection ~ 4450 5150
+Wire Wire Line
+	4450 5150 5200 5150
+Wire Wire Line
+	4450 4350 4450 5150
 $EndSCHEMATC
