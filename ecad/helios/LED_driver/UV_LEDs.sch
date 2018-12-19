@@ -5,12 +5,12 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 9 9
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
+Title "Helios - Module - UV Illumination"
+Date "12/10/2018"
+Rev "C"
+Comp "Université de Lausanne"
+Comment1 "Author: Alexandre Tuleu"
+Comment2 "Licensed under the CERN OHL v1.2"
 Comment3 ""
 Comment4 ""
 $EndDescr
@@ -111,7 +111,7 @@ P 5850 4450
 AR Path="/5C217CCB" Ref="R?"  Part="1" 
 AR Path="/5C214647/5C217CCB" Ref="R40"  Part="1" 
 F 0 "R40" V 5930 4450 50  0000 C CNN
-F 1 "100K" V 5850 4450 50  0000 C CNN
+F 1 "100k" V 5850 4450 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 5780 4450 50  0001 C CNN
 F 3 "" H 5850 4450 50  0001 C CNN
 F 4 "RMCF0603FT100K" H 5850 4450 60  0001 C CNN "Part Number"
@@ -264,4 +264,6 @@ UV_ON
 Wire Wire Line
 	4150 4250 5850 4250
 Connection ~ 5850 4250
+Text Notes 550  7750 0    60   ~ 0
+© 2018 Université de Lausanne\n\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.2.\n\nYou may redistribute and modify this documentation under the terms of\nthe CERN OHL v.1.2. (http://ohwr.org/cernohl). This documentation is\ndistributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,\nINCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND\nFITNESS FOR A PARTICULAR PURPOSE. Please see the CERN OHL v.1.2\nfor applicable conditions
 $EndSCHEMATC

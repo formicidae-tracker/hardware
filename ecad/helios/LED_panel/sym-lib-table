@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name Helios_LED_panel-rescue)(type Legacy)(uri ${KIPRJMOD}/Helios_LED_panel-rescue.lib)(options "")(descr ""))
+)

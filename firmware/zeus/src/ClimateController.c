@@ -1,6 +1,7 @@
 #include "ClimateController.h"
 
 #include <avr/eeprom.h>
+#include <avr/interrupt.h>
 #include <stdbool.h>
 #include <string.h>
 

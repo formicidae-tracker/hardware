@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/tuleu/devel/c4science/fort-hardware/ecad/climate/zeus/zeus.sch)
-    (date "Fri 30 Nov 2018 06:18:37 PM CET")
+    (date "Mon 10 Dec 2018 05:10:59 PM CET")
     (tool "Eeschema 5.0.0+dfsg1-2~bpo9+1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -153,7 +153,7 @@
       (tstamp 5BA560A5))
     (comp (ref J3)
       (value 5566-02A)
-      (footprint Connector_Molex:Molex_Mini-Fit_Jr_5566-02A_2x01_P4.20mm_Vertical)
+      (footprint FORT:Molex_Mini-Fit_Jr_5566-02A_2x01_P4.20mm_Vertical)
       (fields
         (field (name "Part Number") 39-28-1023))
       (libsource (lib Connector_Generic) (part Conn_01x02) (description "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"))
@@ -204,7 +204,7 @@
       (value 100n)
       (footprint Capacitor_SMD:C_0603_1608Metric)
       (fields
-        (field (name "Part Number") CC0603KRX7R8BB104))
+        (field (name "Part Number") GPC0603104))
       (libsource (lib Device) (part C) (description "Unpolarized capacitor"))
       (sheetpath (names "/CAN Transceiver/") (tstamps /5BA4C5E7/))
       (tstamp 5BA2863D))
@@ -220,7 +220,7 @@
       (value 10nF)
       (footprint Capacitor_SMD:C_0603_1608Metric)
       (fields
-        (field (name "Part Number") 06035C103KAT2A))
+        (field (name "Part Number") GPC0603103))
       (libsource (lib Device) (part C) (description "Unpolarized capacitor"))
       (sheetpath (names "/3v3 LDO/") (tstamps /5BA4EFD7/))
       (tstamp 5BA4F2CA))
@@ -228,7 +228,7 @@
       (value 1uF)
       (footprint Capacitor_SMD:C_0603_1608Metric)
       (fields
-        (field (name "Part Number") 0603YD105KAT2A))
+        (field (name "Part Number") GPC0603105))
       (libsource (lib Device) (part C) (description "Unpolarized capacitor"))
       (sheetpath (names "/3v3 LDO/") (tstamps /5BA4EFD7/))
       (tstamp 5BA4F2D2))
@@ -236,7 +236,7 @@
       (value 1uF)
       (footprint Capacitor_SMD:C_0603_1608Metric)
       (fields
-        (field (name "Part Number") 0603YD105KAT2A))
+        (field (name "Part Number") GPC0603105))
       (libsource (lib Device) (part C) (description "Unpolarized capacitor"))
       (sheetpath (names "/3v3 LDO/") (tstamps /5BA4EFD7/))
       (tstamp 5BA4F2DA))
@@ -268,7 +268,7 @@
       (value 15k)
       (footprint Resistor_SMD:R_0603_1608Metric)
       (fields
-        (field (name "Part Number") RMCF0603FT15K0))
+        (field (name "Part Number") GPR060315k))
       (libsource (lib Device) (part R) (description Resistor))
       (sheetpath (names "/5V Buck Converter/") (tstamps /5BA4BC5D/))
       (tstamp 5BA11005))
@@ -292,7 +292,7 @@
       (value "4u7, 6.3V")
       (footprint Capacitor_SMD:C_0603_1608Metric)
       (fields
-        (field (name "Part Number") CL10A475KQ8NNNC))
+        (field (name "Part Number") GPC0603475))
       (libsource (lib Device) (part C) (description "Unpolarized capacitor"))
       (sheetpath (names "/5V Buck Converter/") (tstamps /5BA4BC5D/))
       (tstamp 5BA11119))
@@ -300,7 +300,7 @@
       (value 100n)
       (footprint Capacitor_SMD:C_0603_1608Metric)
       (fields
-        (field (name "Part Number") CC0603KRX7R8BB104))
+        (field (name "Part Number") GPC0603104))
       (libsource (lib Device) (part C) (description "Unpolarized capacitor"))
       (sheetpath (names "/5V Buck Converter/") (tstamps /5BA4BC5D/))
       (tstamp 5BA11162))
@@ -332,7 +332,7 @@
       (value 100n)
       (footprint Capacitor_SMD:C_0603_1608Metric)
       (fields
-        (field (name "Part Number") CC0603KRX7R8BB104))
+        (field (name "Part Number") GPC0603104))
       (libsource (lib Device) (part C) (description "Unpolarized capacitor"))
       (sheetpath (names "/Fan PWM Controller 1/") (tstamps /5BA5AC9B/))
       (tstamp 5BA5AE71))
@@ -356,13 +356,13 @@
       (value 100n)
       (footprint Capacitor_SMD:C_0603_1608Metric)
       (fields
-        (field (name "Part Number") CC0603KRX7R8BB104))
+        (field (name "Part Number") GPC0603104))
       (libsource (lib Device) (part C) (description "Unpolarized capacitor"))
       (sheetpath (names "/Fan PWM Controller 1/") (tstamps /5BA5AC9B/))
       (tstamp 5BED5E18))
     (comp (ref U6)
       (value EMC2302-2-AIZL-TR)
-      (footprint Housings_SSOP:MSOP-10_3x3mm_Pitch0.5mm)
+      (footprint Package_SO:MSOP-10_3x3mm_P0.5mm)
       (fields
         (field (name "Part Number") EMC2302-2-AIZL-TR))
       (libsource (lib fort) (part EMC2302-2-AIZL-TR) (description ""))
@@ -479,7 +479,7 @@
       (footprint Package_TO_SOT_SMD:SOT-23)
       (datasheet ~)
       (fields
-        (field (name "Part Number") CPDT-5V0-HF))
+        (field (name "Part Number") CPDT-5V0USP-HF))
       (libsource (lib Device) (part D_TVS_x2_AAC) (description "Bidirectional dual transient-voltage-suppression (TVS) diode (center=pin3)"))
       (sheetpath (names "/Fan PWM Controller 1/") (tstamps /5BA5AC9B/))
       (tstamp 5BF1DCE4))
@@ -488,7 +488,7 @@
       (footprint Package_TO_SOT_SMD:SOT-23)
       (datasheet ~)
       (fields
-        (field (name "Part Number") CPDT-5V0-HF))
+        (field (name "Part Number") CPDT-5V0USP-HF))
       (libsource (lib Device) (part D_TVS_x2_AAC) (description "Bidirectional dual transient-voltage-suppression (TVS) diode (center=pin3)"))
       (sheetpath (names "/Fan PWM Controller 1/") (tstamps /5BA5AC9B/))
       (tstamp 5BF1DCF4))
@@ -496,7 +496,7 @@
       (value 100n)
       (footprint Capacitor_SMD:C_0603_1608Metric)
       (fields
-        (field (name "Part Number") CC0603KRX7R8BB104))
+        (field (name "Part Number") GPC0603104))
       (libsource (lib Device) (part C) (description "Unpolarized capacitor"))
       (sheetpath (names /UC/) (tstamps /5BA4D58C/))
       (tstamp 5BA26A6C))
@@ -504,7 +504,7 @@
       (value 100n)
       (footprint Capacitor_SMD:C_0603_1608Metric)
       (fields
-        (field (name "Part Number") CC0603KRX7R8BB104))
+        (field (name "Part Number") GPC0603104))
       (libsource (lib Device) (part C) (description "Unpolarized capacitor"))
       (sheetpath (names /UC/) (tstamps /5BA4D58C/))
       (tstamp 5BA26BCD))
@@ -512,7 +512,7 @@
       (value 100n)
       (footprint Capacitor_SMD:C_0603_1608Metric)
       (fields
-        (field (name "Part Number") CC0603KRX7R8BB104))
+        (field (name "Part Number") GPC0603104))
       (libsource (lib Device) (part C) (description "Unpolarized capacitor"))
       (sheetpath (names /UC/) (tstamps /5BA4D58C/))
       (tstamp 5BA26C4E))
@@ -528,7 +528,7 @@
       (value 18pF)
       (footprint Capacitor_SMD:C_0603_1608Metric)
       (fields
-        (field (name "Part Number") C0603C180K5GACTU))
+        (field (name "Part Number") GPC0603180))
       (libsource (lib Device) (part C) (description "Unpolarized capacitor"))
       (sheetpath (names /UC/) (tstamps /5BA4D58C/))
       (tstamp 5BA26E57))
@@ -536,7 +536,7 @@
       (value 18pF)
       (footprint Capacitor_SMD:C_0603_1608Metric)
       (fields
-        (field (name "Part Number") C0603C180K5GACTU))
+        (field (name "Part Number") GPC0603180))
       (libsource (lib Device) (part C) (description "Unpolarized capacitor"))
       (sheetpath (names /UC/) (tstamps /5BA4D58C/))
       (tstamp 5BA26EDA))
@@ -576,7 +576,7 @@
       (value 100k)
       (footprint Resistor_SMD:R_0603_1608Metric)
       (fields
-        (field (name "Part Number") RMCF0603FT100K))
+        (field (name "Part Number") GPR0603100K))
       (libsource (lib Device) (part R) (description Resistor))
       (sheetpath (names /UC/) (tstamps /5BA4D58C/))
       (tstamp 5BA2819A))

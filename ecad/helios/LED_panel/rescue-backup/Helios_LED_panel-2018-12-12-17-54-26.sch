@@ -1,6 +1,38 @@
-EESchema Schematic File Version 4
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:switches
+LIBS:relays
+LIBS:motors
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
 LIBS:Helios_LED_panel-cache
-EELAYER 26 0
+EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -15,7 +47,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Helios_LED_panel-rescue:LED_PAD D4
+L LED_PAD D4
 U 1 1 5A997385
 P 5900 2000
 F 0 "D4" H 5900 2300 50  0000 C CNN
@@ -28,7 +60,7 @@ F 4 "SFH 4235-Z" H 5900 1650 60  0000 C CNN "Part Number"
 $EndComp
 NoConn ~ 5900 2200
 $Comp
-L Helios_LED_panel-rescue:LED_PAD D5
+L LED_PAD D5
 U 1 1 5A9974F5
 P 6550 2000
 F 0 "D5" H 6550 2300 50  0000 C CNN
@@ -41,7 +73,7 @@ F 4 "SFH 4235-Z" H 6550 1650 60  0000 C CNN "Part Number"
 $EndComp
 NoConn ~ 6550 2200
 $Comp
-L Helios_LED_panel-rescue:LED_PAD D6
+L LED_PAD D6
 U 1 1 5A997579
 P 7200 2000
 F 0 "D6" H 7200 2300 50  0000 C CNN
@@ -54,7 +86,7 @@ F 4 "SFH 4235-Z" H 7200 1650 60  0000 C CNN "Part Number"
 $EndComp
 NoConn ~ 7200 2200
 $Comp
-L Helios_LED_panel-rescue:LED_PAD D1
+L LED_PAD D1
 U 1 1 5A997629
 P 3950 2000
 F 0 "D1" H 3950 2300 50  0000 C CNN
@@ -67,7 +99,7 @@ F 4 "SFH 4235-Z" H 3950 1650 60  0000 C CNN "Part Number"
 $EndComp
 NoConn ~ 3950 2200
 $Comp
-L Helios_LED_panel-rescue:LED_PAD D2
+L LED_PAD D2
 U 1 1 5A997631
 P 4600 2000
 F 0 "D2" H 4600 2300 50  0000 C CNN
@@ -80,7 +112,7 @@ F 4 "SFH 4235-Z" H 4600 1650 60  0000 C CNN "Part Number"
 $EndComp
 NoConn ~ 4600 2200
 $Comp
-L Helios_LED_panel-rescue:LED_PAD D3
+L LED_PAD D3
 U 1 1 5A997639
 P 5250 2000
 F 0 "D3" H 5250 2300 50  0000 C CNN
@@ -105,7 +137,7 @@ Wire Wire Line
 Wire Wire Line
 	7350 2000 8400 2000
 $Comp
-L Helios_LED_panel-rescue:LED_PAD D10
+L LED_PAD D10
 U 1 1 5A997A5A
 P 5900 2950
 F 0 "D10" H 5900 3250 50  0000 C CNN
@@ -118,7 +150,7 @@ F 4 "SFH 4235-Z" H 5900 2600 60  0000 C CNN "Part Number"
 $EndComp
 NoConn ~ 5900 3150
 $Comp
-L Helios_LED_panel-rescue:LED_PAD D11
+L LED_PAD D11
 U 1 1 5A997A62
 P 6550 2950
 F 0 "D11" H 6550 3250 50  0000 C CNN
@@ -131,7 +163,7 @@ F 4 "SFH 4235-Z" H 6550 2600 60  0000 C CNN "Part Number"
 $EndComp
 NoConn ~ 6550 3150
 $Comp
-L Helios_LED_panel-rescue:LED_PAD D12
+L LED_PAD D12
 U 1 1 5A997A6A
 P 7200 2950
 F 0 "D12" H 7200 3250 50  0000 C CNN
@@ -144,7 +176,7 @@ F 4 "SFH 4235-Z" H 7200 2600 60  0000 C CNN "Part Number"
 $EndComp
 NoConn ~ 7200 3150
 $Comp
-L Helios_LED_panel-rescue:LED_PAD D7
+L LED_PAD D7
 U 1 1 5A997A7A
 P 3950 2950
 F 0 "D7" H 3950 3250 50  0000 C CNN
@@ -157,7 +189,7 @@ F 4 "SFH 4235-Z" H 3950 2600 60  0000 C CNN "Part Number"
 $EndComp
 NoConn ~ 3950 3150
 $Comp
-L Helios_LED_panel-rescue:LED_PAD D8
+L LED_PAD D8
 U 1 1 5A997A82
 P 4600 2950
 F 0 "D8" H 4600 3250 50  0000 C CNN
@@ -170,7 +202,7 @@ F 4 "SFH 4235-Z" H 4600 2600 60  0000 C CNN "Part Number"
 $EndComp
 NoConn ~ 4600 3150
 $Comp
-L Helios_LED_panel-rescue:LED_PAD D9
+L LED_PAD D9
 U 1 1 5A997A8A
 P 5250 2950
 F 0 "D9" H 5250 3250 50  0000 C CNN
@@ -195,7 +227,7 @@ Wire Wire Line
 Wire Wire Line
 	7350 2950 8400 2950
 $Comp
-L Helios_LED_panel-rescue:LED_PAD D13
+L LED_PAD D13
 U 1 1 5A997AD1
 P 4150 3950
 F 0 "D13" H 4150 4250 50  0000 C CNN
@@ -208,7 +240,7 @@ F 4 "LCW W5SM-JYKZ-4J8K" H 4150 3650 60  0000 C CNN "Part Number"
 $EndComp
 NoConn ~ 4150 4150
 $Comp
-L Helios_LED_panel-rescue:LED_PAD D14
+L LED_PAD D14
 U 1 1 5A997FFD
 P 5300 3950
 F 0 "D14" H 5300 4250 50  0000 C CNN
@@ -221,7 +253,7 @@ F 4 "LCW W5SM-JYKZ-4J8K" H 5300 3650 60  0000 C CNN "Part Number"
 $EndComp
 NoConn ~ 5300 4150
 $Comp
-L Helios_LED_panel-rescue:LED_PAD D15
+L LED_PAD D15
 U 1 1 5A998181
 P 6450 3950
 F 0 "D15" H 6450 4250 50  0000 C CNN
@@ -234,7 +266,7 @@ F 4 "LCW W5SM-JYKZ-4J8K" H 6450 3650 60  0000 C CNN "Part Number"
 $EndComp
 NoConn ~ 6450 4150
 $Comp
-L Helios_LED_panel-rescue:LED_PAD D16
+L LED_PAD D16
 U 1 1 5A998189
 P 7600 3950
 F 0 "D16" H 7600 4250 50  0000 C CNN
@@ -273,7 +305,7 @@ Wire Wire Line
 Wire Wire Line
 	8400 4450 3450 4450
 $Comp
-L Helios_LED_panel-rescue:Conn_01x02 J1
+L Conn_01x02 J1
 U 1 1 5B741CF2
 P 3200 2300
 F 0 "J1" H 3200 2400 50  0000 C CNN
@@ -289,7 +321,7 @@ Wire Wire Line
 Wire Wire Line
 	3400 2500 3400 2300
 $Comp
-L Helios_LED_panel-rescue:Conn_01x02 J2
+L Conn_01x02 J2
 U 1 1 5B742865
 P 3250 3250
 F 0 "J2" H 3250 3350 50  0000 C CNN
@@ -301,7 +333,7 @@ F 4 "009176002701106" H 3250 3250 60  0001 C CNN "Part Number"
 	-1   0    0    1   
 $EndComp
 $Comp
-L Helios_LED_panel-rescue:Conn_01x02 J3
+L Conn_01x02 J3
 U 1 1 5B742A5B
 P 3250 4250
 F 0 "J3" H 3250 4350 50  0000 C CNN

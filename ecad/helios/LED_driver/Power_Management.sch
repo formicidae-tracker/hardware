@@ -5,12 +5,12 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 9
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
+Title "Helios - Module - Power Management"
+Date "12/10/2018"
+Rev "C"
+Comp "Université de Lausanne"
+Comment1 "Author: Alexandre Tuleu"
+Comment2 "Licensed under the CERN OHL v1.2"
 Comment3 ""
 Comment4 ""
 $EndDescr
@@ -68,7 +68,7 @@ L LED_driver-rescue:R R29
 U 1 1 5AB12727
 P 2950 1900
 F 0 "R29" V 3030 1900 50  0000 C CNN
-F 1 "100K" V 2950 1900 50  0000 C CNN
+F 1 "100k" V 2950 1900 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 2880 1900 50  0001 C CNN
 F 3 "" H 2950 1900 50  0001 C CNN
 F 4 "RMCF0603FT100K" H 2950 1900 60  0001 C CNN "Part Number"
@@ -105,10 +105,10 @@ L LED_driver-rescue:R R33
 U 1 1 5AB13C41
 P 4550 2800
 F 0 "R33" V 4630 2800 50  0000 C CNN
-F 1 "2.94K" V 4450 2800 50  0000 C CNN
+F 1 "3k" V 4450 2800 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 4480 2800 50  0001 C CNN
 F 3 "" H 4550 2800 50  0001 C CNN
-F 4 "RMCF0603FT2K94" H 4550 2800 60  0001 C CNN "Part Number"
+F 4 "GPR06033K" H 4550 2800 60  0001 C CNN "Part Number"
 	1    4550 2800
 	1    0    0    -1  
 $EndComp
@@ -117,7 +117,7 @@ L LED_driver-rescue:R R32
 U 1 1 5AB13D7F
 P 4100 2800
 F 0 "R32" V 4180 2800 50  0000 C CNN
-F 1 "100K" V 4000 2800 50  0000 C CNN
+F 1 "100k" V 4000 2800 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 4030 2800 50  0001 C CNN
 F 3 "" H 4100 2800 50  0001 C CNN
 F 4 "RMCF0603FT100K" H 4100 2800 60  0001 C CNN "Part Number"
@@ -133,7 +133,7 @@ L LED_driver-rescue:R R30
 U 1 1 5AB195D7
 P 3600 2200
 F 0 "R30" V 3680 2200 50  0000 C CNN
-F 1 "10K" V 3500 2200 50  0000 C CNN
+F 1 "10k" V 3500 2200 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 3530 2200 50  0001 C CNN
 F 3 "" H 3600 2200 50  0001 C CNN
 F 4 "RMCF0603FT10K0" H 3600 2200 60  0001 C CNN "Part Number"
@@ -170,7 +170,7 @@ L LED_driver-rescue:R R35
 U 1 1 5AB3FBD1
 P 3050 5350
 F 0 "R35" V 3130 5350 50  0000 C CNN
-F 1 "100K" V 3050 5350 50  0000 C CNN
+F 1 "100k" V 3050 5350 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 2980 5350 50  0001 C CNN
 F 3 "" H 3050 5350 50  0001 C CNN
 F 4 "RMCF0603FT100K" H 3050 5350 60  0001 C CNN "Part Number"
@@ -193,7 +193,7 @@ L LED_driver-rescue:R R31
 U 1 1 5AB50B93
 P 3850 2800
 F 0 "R31" V 3930 2800 50  0000 C CNN
-F 1 "100K" V 3750 2800 50  0000 C CNN
+F 1 "100k" V 3750 2800 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 3780 2800 50  0001 C CNN
 F 3 "" H 3850 2800 50  0001 C CNN
 F 4 "RMCF0603FT100K" H 3850 2800 60  0001 C CNN "Part Number"
@@ -406,4 +406,6 @@ Wire Wire Line
 	4700 5600 5400 5600
 Wire Wire Line
 	5400 5600 5750 5600
+Text Notes 550  7750 0    60   ~ 0
+© 2018 Université de Lausanne\n\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.2.\n\nYou may redistribute and modify this documentation under the terms of\nthe CERN OHL v.1.2. (http://ohwr.org/cernohl). This documentation is\ndistributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,\nINCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND\nFITNESS FOR A PARTICULAR PURPOSE. Please see the CERN OHL v.1.2\nfor applicable conditions
 $EndSCHEMATC

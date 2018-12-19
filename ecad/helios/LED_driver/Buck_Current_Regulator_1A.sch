@@ -5,12 +5,12 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 7 9
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
+Title "Helios - Module - Buck Current Regulator 1A"
+Date "12/10/2018"
+Rev "C"
+Comp "Université de Lausanne"
+Comment1 "Author: Alexandre Tuleu"
+Comment2 "Licensed under the CERN OHL v1.2"
 Comment3 ""
 Comment4 ""
 $EndDescr
@@ -96,7 +96,7 @@ L LED_driver-rescue:R R23
 U 1 1 5AA67053
 P 7200 2600
 F 0 "R23" V 7280 2600 50  0000 C CNN
-F 1 "1K" V 7200 2600 50  0000 C CNN
+F 1 "1k" V 7200 2600 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 7130 2600 50  0001 C CNN
 F 3 "" H 7200 2600 50  0001 C CNN
 F 4 "RMCF0603FT1K00" H 7200 2600 60  0001 C CNN "Part Number"
@@ -109,7 +109,7 @@ U 1 1 5AA674C8
 P 8400 3350
 F 0 "R27" V 8480 3350 50  0000 C CNN
 F 1 "3.3, 1%, 0.5W" H 8700 3200 50  0000 C CNN
-F 2 "Resistor_SMD:R_1206_3216Metric" V 8330 3350 50  0001 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 8330 3350 50  0001 C CNN
 F 3 "" H 8400 3350 50  0001 C CNN
 F 4 "ERJ-8BQF3R3V" H 8400 3350 60  0001 C CNN "Part Number"
 	1    8400 3350
@@ -196,10 +196,10 @@ L LED_driver-rescue:R R21
 U 1 1 5AA6928B
 P 4450 2250
 F 0 "R21" V 4530 2250 50  0000 C CNN
-F 1 "1.96M" V 4450 2250 50  0000 C CNN
+F 1 "1.8M" V 4450 2250 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 4380 2250 50  0001 C CNN
 F 3 "" H 4450 2250 50  0001 C CNN
-F 4 "RMCF0603FT1M96" H 4450 2250 60  0001 C CNN "Part Number"
+F 4 "GPR06031M8" H 4450 2250 60  0001 C CNN "Part Number"
 	1    4450 2250
 	1    0    0    -1  
 $EndComp
@@ -208,10 +208,10 @@ L LED_driver-rescue:R R24
 U 1 1 5AA692ED
 P 4450 2750
 F 0 "R24" V 4530 2750 50  0000 C CNN
-F 1 "66.5k" V 4450 2750 50  0000 C CNN
+F 1 "68k" V 4450 2750 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 4380 2750 50  0001 C CNN
 F 3 "" H 4450 2750 50  0001 C CNN
-F 4 "RMCF0603FT66K5" H 4450 2750 60  0001 C CNN "Part Number"
+F 4 "GPR060368k" H 4450 2750 60  0001 C CNN "Part Number"
 	1    4450 2750
 	1    0    0    -1  
 $EndComp
@@ -232,10 +232,10 @@ L LED_driver-rescue:R R25
 U 1 1 5AA70026
 P 5350 3200
 F 0 "R25" V 5430 3200 50  0000 C CNN
-F 1 "162k" V 5350 3200 50  0000 C CNN
+F 1 "160k" V 5350 3200 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 5280 3200 50  0001 C CNN
 F 3 "" H 5350 3200 50  0001 C CNN
-F 4 "RMCF0603FT162K" H 5350 3200 60  0001 C CNN "Part Number"
+F 4 "GPR0603160K" H 5350 3200 60  0001 C CNN "Part Number"
 	1    5350 3200
 	1    0    0    -1  
 $EndComp
@@ -413,4 +413,6 @@ Wire Wire Line
 	2650 3400 3150 3400
 Wire Wire Line
 	4850 3400 5350 3400
+Text Notes 550  7750 0    60   ~ 0
+© 2018 Université de Lausanne\n\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.2.\n\nYou may redistribute and modify this documentation under the terms of\nthe CERN OHL v.1.2. (http://ohwr.org/cernohl). This documentation is\ndistributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,\nINCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND\nFITNESS FOR A PARTICULAR PURPOSE. Please see the CERN OHL v.1.2\nfor applicable conditions
 $EndSCHEMATC

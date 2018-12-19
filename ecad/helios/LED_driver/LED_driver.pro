@@ -1,4 +1,4 @@
-update=Thu 06 Dec 2018 02:14:29 PM CET
+update=Mon 10 Dec 2018 12:16:36 PM CET
 version=1
 last_client=kicad
 [pcbnew]
@@ -30,7 +30,7 @@ version=1
 LibDir=
 [schematic_editor]
 version=1
-PageLayoutDescrFile=/home/tuleu/devel/c4science/fort-hardware/ecad/lib/unil.kicad_wks
+PageLayoutDescrFile=${KIPRJMOD}/../../lib/unil.kicad_wks
 PlotDirectoryName=
 SubpartIdSeparator=0
 SubpartFirstId=65

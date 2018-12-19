@@ -5,12 +5,12 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 8 9
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
+Title "Helios - Module - Data Receivers"
+Date "12/10/2018"
+Rev "C"
+Comp "Université de Lausanne"
+Comment1 "Author: Alexandre Tuleu"
+Comment2 "Licensed under the CERN OHL v1.2"
 Comment3 ""
 Comment4 ""
 $EndDescr
@@ -24,7 +24,7 @@ F 0 "U1" H 6050 4450 50  0000 C CNN
 F 1 "UA9637" H 6050 4250 50  0000 C CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6050 4350 50  0001 C CNN
 F 3 "" H 6050 4350 50  0001 C CNN
-F 4 "UA9637ACDR" H 6050 4350 60  0001 C CNN "Part Number"
+F 4 "UA9637" H 6050 4350 60  0001 C CNN "Part Number"
 	1    6050 4350
 	1    0    0    -1  
 $EndComp
@@ -38,6 +38,7 @@ F 0 "U1" H 6050 3200 50  0000 C CNN
 F 1 "UA9637" H 6050 3000 50  0000 C CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6050 3100 50  0001 C CNN
 F 3 "" H 6050 3100 50  0001 C CNN
+F 4 "UA9637" H 0   0   50  0001 C CNN "Part Number"
 	2    6050 3100
 	1    0    0    -1  
 $EndComp
@@ -188,10 +189,10 @@ L fort:SP1002-02TG U8
 U 1 1 5C24D629
 P 4900 3550
 F 0 "U8" H 5000 3750 60  0000 R CNN
-F 1 "SP1002-02TG" H 5200 3650 60  0000 R CNN
+F 1 "SP1002-02JTG" H 5200 3650 60  0000 R CNN
 F 2 "Package_TO_SOT_SMD:SOT-353_SC-70-5" H 4800 3550 60  0001 C CNN
 F 3 "" H 4900 3650 60  0001 C CNN
-F 4 "SP1002-02TG" H 5000 3750 60  0001 C CNN "Part Number"
+F 4 "SP1002-02JTG" H 5000 3750 60  0001 C CNN "Part Number"
 	1    4900 3550
 	0    -1   1    0   
 $EndComp
@@ -200,10 +201,10 @@ L fort:SP1002-02TG U8
 U 2 1 5C24D6CE
 P 5300 3550
 F 0 "U8" H 5400 3750 60  0000 R CNN
-F 1 "SP1002-02TG" H 5600 3650 60  0000 R CNN
+F 1 "SP1002-02JTG" H 5600 3650 60  0000 R CNN
 F 2 "Package_TO_SOT_SMD:SOT-353_SC-70-5" H 5200 3550 60  0001 C CNN
 F 3 "" H 5300 3650 60  0001 C CNN
-F 4 "SP1002-02TG" H 5400 3750 60  0001 C CNN "Part Number"
+F 4 "SP1002-02JTG" H 5400 3750 60  0001 C CNN "Part Number"
 	2    5300 3550
 	0    -1   1    0   
 $EndComp
@@ -248,10 +249,10 @@ L fort:SP1002-02TG U9
 U 1 1 5C24EA4C
 P 4850 4800
 F 0 "U9" H 4950 5000 60  0000 R CNN
-F 1 "SP1002-02TG" H 5150 4900 60  0000 R CNN
+F 1 "SP1002-02JTG" H 5150 4900 60  0000 R CNN
 F 2 "Package_TO_SOT_SMD:SOT-353_SC-70-5" H 4750 4800 60  0001 C CNN
 F 3 "" H 4850 4900 60  0001 C CNN
-F 4 "SP1002-02TG" H 4950 5000 60  0001 C CNN "Part Number"
+F 4 "SP1002-02JTG" H 4950 5000 60  0001 C CNN "Part Number"
 	1    4850 4800
 	0    -1   1    0   
 $EndComp
@@ -260,10 +261,10 @@ L fort:SP1002-02TG U9
 U 2 1 5C24EA54
 P 5250 4800
 F 0 "U9" H 5350 5000 60  0000 R CNN
-F 1 "SP1002-02TG" H 5550 4900 60  0000 R CNN
+F 1 "SP1002-02JTG" H 5550 4900 60  0000 R CNN
 F 2 "Package_TO_SOT_SMD:SOT-353_SC-70-5" H 5150 4800 60  0001 C CNN
 F 3 "" H 5250 4900 60  0001 C CNN
-F 4 "SP1002-02TG" H 5350 5000 60  0001 C CNN "Part Number"
+F 4 "SP1002-02JTG" H 5350 5000 60  0001 C CNN "Part Number"
 	2    5250 4800
 	0    -1   1    0   
 $EndComp
@@ -289,4 +290,6 @@ Wire Wire Line
 Connection ~ 5300 3000
 Wire Wire Line
 	5300 3000 5550 3000
+Text Notes 550  7750 0    60   ~ 0
+© 2018 Université de Lausanne\n\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.2.\n\nYou may redistribute and modify this documentation under the terms of\nthe CERN OHL v.1.2. (http://ohwr.org/cernohl). This documentation is\ndistributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,\nINCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND\nFITNESS FOR A PARTICULAR PURPOSE. Please see the CERN OHL v.1.2\nfor applicable conditions
 $EndSCHEMATC

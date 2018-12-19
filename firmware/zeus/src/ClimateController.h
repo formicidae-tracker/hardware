@@ -14,4 +14,4 @@ void ClimateControlUpdate(const ArkeZeusReport * r);
 
 uint8_t ClimateControllerGetWind();
 uint16_t ClimateControllerGetHumidity();
-uint16_t ClimateControllerGetTemeprature();
+uint16_t ClimateControllerGetTemperature();

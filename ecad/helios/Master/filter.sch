@@ -1,0 +1,186 @@
+EESchema Schematic File Version 4
+LIBS:master-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 7 8
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L power:+5V #PWR04
+U 1 1 5C10111E
+P 3750 3550
+AR Path="/5C100773/5C10111E" Ref="#PWR04"  Part="1" 
+AR Path="/5C1001FD/5C10111E" Ref="#PWR016"  Part="1" 
+F 0 "#PWR016" H 3750 3400 50  0001 C CNN
+F 1 "+5V" H 3750 3690 50  0000 C CNN
+F 2 "" H 3750 3550 50  0001 C CNN
+F 3 "" H 3750 3550 50  0001 C CNN
+	1    3750 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L master-rescue:R R1
+U 1 1 5C101125
+P 3750 3750
+AR Path="/5C100773/5C101125" Ref="R1"  Part="1" 
+AR Path="/5C1001FD/5C101125" Ref="R18"  Part="1" 
+F 0 "R18" V 3830 3750 50  0000 C CNN
+F 1 "10K" V 3750 3750 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 3680 3750 50  0001 C CNN
+F 3 "" H 3750 3750 50  0001 C CNN
+F 4 "RMCF0603FT10K0" H 3750 3750 60  0001 C CNN "Part Number"
+	1    3750 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3750 3600 3750 3550
+$Comp
+L 74xGxx:74LVC1G17 U1
+U 1 1 5C101134
+P 6150 4150
+AR Path="/5C100773/5C101134" Ref="U1"  Part="1" 
+AR Path="/5C1001FD/5C101134" Ref="U10"  Part="1" 
+F 0 "U10" H 6125 4417 50  0000 C CNN
+F 1 "74LVC1G17" H 6125 4326 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-5" H 6150 4150 50  0001 C CNN
+F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 6150 4150 50  0001 C CNN
+F 4 "SN74LVC1G17DBVR" H 6150 4150 50  0001 C CNN "Part Number"
+	1    6150 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Jumper_NC_Dual JP1
+U 1 1 5C10113D
+P 7050 3800
+AR Path="/5C100773/5C10113D" Ref="JP1"  Part="1" 
+AR Path="/5C1001FD/5C10113D" Ref="JP2"  Part="1" 
+F 0 "JP2" V 7096 3902 50  0000 L CNN
+F 1 ".100 Header" V 7005 3902 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 7050 3800 50  0001 C CNN
+F 3 "PREC003SAAN-RC" H 7050 3800 50  0001 C CNN
+	1    7050 3800
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7150 3800 8250 3800
+Wire Wire Line
+	6400 4150 7050 4150
+Wire Wire Line
+	7050 4150 7050 4050
+Wire Wire Line
+	7050 3350 7050 3550
+$Comp
+L master-rescue:R R19
+U 1 1 5C101A8C
+P 4550 4300
+AR Path="/5C100773/5C101A8C" Ref="R19"  Part="1" 
+AR Path="/5C1001FD/5C101A8C" Ref="R20"  Part="1" 
+F 0 "R20" V 4630 4300 50  0000 C CNN
+F 1 "10K" V 4550 4300 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 4480 4300 50  0001 C CNN
+F 3 "" H 4550 4300 50  0001 C CNN
+F 4 "RMCF0603FT10K0" H 4550 4300 60  0001 C CNN "Part Number"
+	1    4550 4300
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C23
+U 1 1 5C101B5C
+P 5350 4400
+AR Path="/5C100773/5C101B5C" Ref="C23"  Part="1" 
+AR Path="/5C1001FD/5C101B5C" Ref="C24"  Part="1" 
+F 0 "C24" H 5465 4446 50  0000 L CNN
+F 1 "1nF" H 5465 4355 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 5388 4250 50  0001 C CNN
+F 3 "~" H 5350 4400 50  0001 C CNN
+F 4 "GPC0603102" H 0   0   50  0001 C CNN "Part Number"
+	1    5350 4400
+	1    0    0    -1  
+$EndComp
+Text HLabel 3300 4150 0    50   Input ~ 0
+IN
+Text HLabel 8250 3800 2    50   Output ~ 0
+OUT
+Wire Wire Line
+	3300 4150 3750 4150
+Wire Wire Line
+	3750 3900 3750 4150
+Wire Wire Line
+	4300 4000 4400 4000
+Wire Wire Line
+	4300 4150 4300 4300
+Wire Wire Line
+	4300 4300 4400 4300
+Wire Wire Line
+	4700 4300 4850 4300
+Wire Wire Line
+	4850 4000 4700 4000
+Wire Wire Line
+	4300 4000 4300 4150
+Connection ~ 4300 4150
+Text Label 5450 3350 0    50   ~ 0
+NOISY
+Wire Wire Line
+	3750 4150 4300 4150
+Connection ~ 3750 4150
+Wire Wire Line
+	4300 4000 4300 3350
+Wire Wire Line
+	4300 3350 7050 3350
+Connection ~ 4300 4000
+Wire Wire Line
+	4850 4000 4850 4150
+Wire Wire Line
+	5850 4150 5350 4150
+Connection ~ 4850 4150
+Wire Wire Line
+	4850 4150 4850 4300
+Wire Wire Line
+	5350 4250 5350 4150
+Connection ~ 5350 4150
+Wire Wire Line
+	5350 4150 4850 4150
+Text Label 5250 4150 0    50   ~ 0
+SMOOTHED
+$Comp
+L power:GND #PWR012
+U 1 1 5C103C8C
+P 5350 4650
+AR Path="/5C100773/5C103C8C" Ref="#PWR012"  Part="1" 
+AR Path="/5C1001FD/5C103C8C" Ref="#PWR019"  Part="1" 
+F 0 "#PWR019" H 5350 4400 50  0001 C CNN
+F 1 "GND" H 5355 4477 50  0000 C CNN
+F 2 "" H 5350 4650 50  0001 C CNN
+F 3 "" H 5350 4650 50  0001 C CNN
+	1    5350 4650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5350 4650 5350 4550
+Text Label 6550 4150 0    50   ~ 0
+FILTERED
+$Comp
+L master-rescue:D_Schottky D?
+U 1 1 5C128492
+P 4550 4000
+AR Path="/5BFAC0A8/5C128492" Ref="D?"  Part="1" 
+AR Path="/5C1001FD/5C128492" Ref="D11"  Part="1" 
+AR Path="/5C100773/5C128492" Ref="D10"  Part="1" 
+F 0 "D11" H 4550 4100 50  0000 C CNN
+F 1 "BAT54" H 4550 3900 50  0000 C CNN
+F 2 "Diode_SMD:D_SOT-23_ANK" H 4550 4000 50  0001 C CNN
+F 3 "" H 4550 4000 50  0001 C CNN
+F 4 "BAT54" H 4550 4000 60  0001 C CNN "Part Number"
+	1    4550 4000
+	-1   0    0    1   
+$EndComp
+$EndSCHEMATC

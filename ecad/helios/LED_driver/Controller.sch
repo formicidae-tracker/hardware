@@ -5,12 +5,12 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 3 9
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
+Title "Helios - Module - Microcontroller"
+Date "12/10/2018"
+Rev "C"
+Comp "Université de Lausanne"
+Comment1 "Author: Alexandre Tuleu"
+Comment2 "Licensed under the CERN OHL v1.2"
 Comment3 ""
 Comment4 ""
 $EndDescr
@@ -174,7 +174,7 @@ L LED_driver-rescue:R R36
 U 1 1 5AB49A1F
 P 10250 3100
 F 0 "R36" V 10330 3100 50  0000 C CNN
-F 1 "100K" V 10250 3100 50  0000 C CNN
+F 1 "100k" V 10250 3100 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 10180 3100 50  0001 C CNN
 F 3 "" H 10250 3100 50  0001 C CNN
 F 4 "RMCF0603FT100K" H 10250 3100 60  0001 C CNN "Part Number"
@@ -241,7 +241,7 @@ L LED_driver-rescue:R R38
 U 1 1 5AB49ED9
 P 6550 5700
 F 0 "R38" V 6630 5700 50  0000 C CNN
-F 1 "10K" V 6550 5700 50  0000 C CNN
+F 1 "10k" V 6550 5700 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 6480 5700 50  0001 C CNN
 F 3 "" H 6550 5700 50  0001 C CNN
 F 4 "RMCF0603FT10K0" H 6550 5700 60  0001 C CNN "Part Number"
@@ -579,4 +579,6 @@ Wire Wire Line
 	4400 5200 4750 5200
 NoConn ~ 4400 5100
 NoConn ~ 4400 4800
+Text Notes 550  7750 0    60   ~ 0
+© 2018 Université de Lausanne\n\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.2.\n\nYou may redistribute and modify this documentation under the terms of\nthe CERN OHL v.1.2. (http://ohwr.org/cernohl). This documentation is\ndistributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,\nINCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND\nFITNESS FOR A PARTICULAR PURPOSE. Please see the CERN OHL v.1.2\nfor applicable conditions
 $EndSCHEMATC

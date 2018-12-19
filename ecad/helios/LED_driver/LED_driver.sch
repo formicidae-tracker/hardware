@@ -5,19 +5,19 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 9
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
+Title "Helios - Module"
+Date "12/10/2018"
+Rev "C"
+Comp "Université de Lausanne"
+Comment1 "Author: Alexandre Tuleu"
+Comment2 "Licensed under the CERN OHL v1.2"
 Comment3 ""
 Comment4 ""
 $EndDescr
 $Sheet
 S 3950 2600 1400 400 
 U 5AB14C4B
-F0 "Power_Management.sch" 60
+F0 "Power_Management" 60
 F1 "Power_Management.sch" 60
 F2 "VS36" I L 3950 2700 60 
 F3 "VS6" I L 3950 2800 60 
@@ -72,7 +72,7 @@ F 0 "J1" H 2100 3750 50  0000 C CNN
 F 1 "5566-08A2" H 2100 3250 50  0000 C CNN
 F 2 "FORT:Molex_MiniFit-JR-5556-08A_2x04x4.20mm_Straight" H 2050 3550 50  0001 C CNN
 F 3 "" H 2050 3550 50  0001 C CNN
-F 4 "39-30-1080" H 2050 3550 60  0001 C CNN "Part Number"
+F 4 "39-28-1083" H 2050 3550 60  0001 C CNN "Part Number"
 	1    2050 3550
 	1    0    0    -1  
 $EndComp
@@ -84,7 +84,7 @@ F 0 "J3" H 2100 4300 50  0000 C CNN
 F 1 "5566-08A2" H 2100 3800 50  0000 C CNN
 F 2 "FORT:Molex_MiniFit-JR-5556-08A_2x04x4.20mm_Straight" H 2050 4100 50  0001 C CNN
 F 3 "" H 2050 4100 50  0001 C CNN
-F 4 "39-30-1080" H 2050 4100 60  0001 C CNN "Part Number"
+F 4 "39-28-1083" H 2050 4100 60  0001 C CNN "Part Number"
 	1    2050 4100
 	1    0    0    -1  
 $EndComp
@@ -300,4 +300,6 @@ Wire Wire Line
 Connection ~ 1350 3550
 Wire Wire Line
 	8500 4500 10850 4500
+Text Notes 550  7750 0    60   ~ 0
+© 2018 Université de Lausanne\n\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.2.\n\nYou may redistribute and modify this documentation under the terms of\nthe CERN OHL v.1.2. (http://ohwr.org/cernohl). This documentation is\ndistributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,\nINCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND\nFITNESS FOR A PARTICULAR PURPOSE. Please see the CERN OHL v.1.2\nfor applicable conditions
 $EndSCHEMATC

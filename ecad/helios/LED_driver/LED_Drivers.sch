@@ -5,19 +5,19 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 4 9
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
+Title "Helios - Module - LED Drivers"
+Date "12/10/2018"
+Rev "C"
+Comp "Université de Lausanne"
+Comment1 "Author: Alexandre Tuleu"
+Comment2 "Licensed under the CERN OHL v1.2"
 Comment3 ""
 Comment4 ""
 $EndDescr
 $Sheet
 S 6750 3150 1750 500 
 U 5C0F6264
-F0 "sheet5C0F625B" 60
+F0 "Buck Current Regulator 1.5A 1" 60
 F1 "Buck_Current_Regulator_1.5A.sch" 60
 F2 "LED+" O R 8500 3350 60 
 F3 "LED-" I R 8500 3450 60 
@@ -28,7 +28,7 @@ $EndSheet
 $Sheet
 S 6750 4450 1750 500 
 U 5C0F626B
-F0 "sheet5C0F625C" 60
+F0 "Buck Current Regulator 1.5A 2" 60
 F1 "Buck_Current_Regulator_1.5A.sch" 60
 F2 "LED+" O R 8500 4650 60 
 F3 "LED-" I R 8500 4750 60 
@@ -39,7 +39,7 @@ $EndSheet
 $Sheet
 S 6750 1850 1750 500 
 U 5C0F6272
-F0 "sheet5C0F625D" 60
+F0 "Buck Current Regulator 1A" 60
 F1 "Buck_Current_Regulator_1A.sch" 60
 F2 "LED+" O R 8500 2050 60 
 F3 "LED-" I R 8500 2150 60 
@@ -113,7 +113,7 @@ F 0 "R6" V 4480 4900 50  0000 C CNN
 F 1 "100k" V 4400 4900 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 4330 4900 50  0001 C CNN
 F 3 "" H 4400 4900 50  0001 C CNN
-F 4 "RMCF0603FT100k" H 4400 4900 60  0001 C CNN "Part Number"
+F 4 "RMCF0603FT100K" H 4400 4900 60  0001 C CNN "Part Number"
 	1    4400 4900
 	1    0    0    -1  
 $EndComp
@@ -219,7 +219,7 @@ P 6550 2300
 AR Path="/5C0F62EC" Ref="R?"  Part="1" 
 AR Path="/5C0F5EE2/5C0F62EC" Ref="R26"  Part="1" 
 F 0 "R26" V 6630 2300 50  0000 C CNN
-F 1 "100K" V 6550 2300 50  0000 C CNN
+F 1 "100k" V 6550 2300 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 6480 2300 50  0001 C CNN
 F 3 "" H 6550 2300 50  0001 C CNN
 F 4 "RMCF0603FT100K" H 6550 2300 60  0001 C CNN "Part Number"
@@ -233,7 +233,7 @@ P 6500 3700
 AR Path="/5C0F62F4" Ref="R?"  Part="1" 
 AR Path="/5C0F5EE2/5C0F62F4" Ref="R12"  Part="1" 
 F 0 "R12" V 6580 3700 50  0000 C CNN
-F 1 "100K" V 6500 3700 50  0000 C CNN
+F 1 "100k" V 6500 3700 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 6430 3700 50  0001 C CNN
 F 3 "" H 6500 3700 50  0001 C CNN
 F 4 "RMCF0603FT100K" H 6500 3700 60  0001 C CNN "Part Number"
@@ -304,7 +304,7 @@ F 0 "R41" V 4680 4900 50  0000 C CNN
 F 1 "100k" V 4600 4900 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 4530 4900 50  0001 C CNN
 F 3 "" H 4600 4900 50  0001 C CNN
-F 4 "RMCF0603FT100k" H 4600 4900 60  0001 C CNN "Part Number"
+F 4 "RMCF0603FT100K" H 4600 4900 60  0001 C CNN "Part Number"
 	1    4600 4900
 	1    0    0    -1  
 $EndComp
@@ -377,7 +377,7 @@ F 0 "R42" V 4880 4900 50  0000 C CNN
 F 1 "100k" V 4800 4900 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 4730 4900 50  0001 C CNN
 F 3 "" H 4800 4900 50  0001 C CNN
-F 4 "RMCF0603FT100k" H 4800 4900 60  0001 C CNN "Part Number"
+F 4 "RMCF0603FT100K" H 4800 4900 60  0001 C CNN "Part Number"
 	1    4800 4900
 	1    0    0    -1  
 $EndComp
@@ -404,6 +404,7 @@ F 0 "JP1" H 3950 2980 50  0000 C CNN
 F 1 "S1621-46R" H 3960 2840 50  0000 C CNN
 F 2 "FORT:S1621-46R" H 3950 2900 50  0001 C CNN
 F 3 "~" H 3950 2900 50  0001 C CNN
+F 4 "S1621-46R" H 0   0   50  0001 C CNN "Part Number"
 	1    3950 2900
 	-1   0    0    1   
 $EndComp
@@ -427,6 +428,7 @@ F 0 "JP2" H 3950 4280 50  0000 C CNN
 F 1 "S1621-46R" H 3960 4140 50  0000 C CNN
 F 2 "FORT:S1621-46R" H 3950 4200 50  0001 C CNN
 F 3 "~" H 3950 4200 50  0001 C CNN
+F 4 "S1621-46R" H 0   0   50  0001 C CNN "Part Number"
 	1    3950 4200
 	-1   0    0    1   
 $EndComp
@@ -459,7 +461,7 @@ P 6500 5000
 AR Path="/5C10E7BE" Ref="R?"  Part="1" 
 AR Path="/5C0F5EE2/5C10E7BE" Ref="R19"  Part="1" 
 F 0 "R19" V 6580 5000 50  0000 C CNN
-F 1 "100K" V 6500 5000 50  0000 C CNN
+F 1 "100k" V 6500 5000 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 6430 5000 50  0001 C CNN
 F 3 "" H 6500 5000 50  0001 C CNN
 F 4 "RMCF0603FT100K" H 6500 5000 60  0001 C CNN "Part Number"
@@ -532,4 +534,6 @@ F 3 "" H 4400 3850 50  0001 C CNN
 	1    4400 3850
 	1    0    0    -1  
 $EndComp
+Text Notes 550  7750 0    60   ~ 0
+© 2018 Université de Lausanne\n\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.2.\n\nYou may redistribute and modify this documentation under the terms of\nthe CERN OHL v.1.2. (http://ohwr.org/cernohl). This documentation is\ndistributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,\nINCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND\nFITNESS FOR A PARTICULAR PURPOSE. Please see the CERN OHL v.1.2\nfor applicable conditions
 $EndSCHEMATC

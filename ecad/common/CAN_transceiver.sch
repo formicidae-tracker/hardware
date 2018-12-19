@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 6 6
+Sheet 6 8
 Title "CAN Transceiver"
 Date "20/11/2018"
 Rev "A"
@@ -71,7 +71,7 @@ F 0 "C12" H 5475 3000 50  0000 L CNN
 F 1 "100n" H 5475 2800 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 5488 2750 50  0001 C CNN
 F 3 "" H 5450 2900 50  0001 C CNN
-F 4 "CC0603KRX7R8BB104" H 5450 2900 60  0001 C CNN "Part Number"
+F 4 "GPC0603104" H 5450 2900 60  0001 C CNN "Part Number"
 	1    5450 2900
 	1    0    0    -1  
 $EndComp

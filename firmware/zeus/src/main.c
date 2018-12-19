@@ -52,8 +52,8 @@ void ProcessIncoming() {
 			return;
 		}
 
-		if (!rtr && length == sizeof(ArkeZeusSetPoint) )  {
-			ClimateControllerSetTarget(
+		if (!rtr && dlc == sizeof(ArkeZeusSetPoint) )  {
+			ClimateControlSetTarget(&Z.inBuffer.sp);
 
 		}
 	}
@@ -68,7 +68,7 @@ int main() {
 	InitSensors();
 	InitHeaters();
 	InitFanControl();
-	InitClimateController();
+	InitClimateControl();
 	InitZeus();
 
 	while(true) {

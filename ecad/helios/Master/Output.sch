@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 6
+Sheet 2 8
 Title "Isolated Helios Channel"
 Date "20/11/2018"
 Rev "C"
@@ -115,7 +115,7 @@ F 0 "C7" H 3575 3900 50  0000 L CNN
 F 1 "100n" H 3575 3700 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 3588 3650 50  0001 C CNN
 F 3 "" H 3550 3800 50  0001 C CNN
-F 4 "CC0603KRX7R8BB104" H 3550 3800 60  0001 C CNN "Part Number"
+F 4 "GPC0603104" H 3550 3800 60  0001 C CNN "Part Number"
 	1    3550 3800
 	1    0    0    -1  
 $EndComp
@@ -131,7 +131,7 @@ F 0 "C6" H 1775 3850 50  0000 L CNN
 F 1 "100n" H 1775 3650 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 1788 3600 50  0001 C CNN
 F 3 "" H 1750 3750 50  0001 C CNN
-F 4 "CC0603KRX7R8BB104" H 1750 3750 60  0001 C CNN "Part Number"
+F 4 "GPC0603104" H 1750 3750 60  0001 C CNN "Part Number"
 	1    1750 3750
 	1    0    0    -1  
 $EndComp
@@ -147,7 +147,7 @@ F 0 "U7" H 5600 4200 50  0000 C CNN
 F 1 "UA9638" H 5650 4100 50  0000 C CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 5750 4100 50  0001 C CNN
 F 3 "" H 5750 4100 50  0001 C CNN
-F 4 "UA9638CDR" H 5750 4100 60  0001 C CNN "Part Number"
+F 4 "UA9638" H 5750 4100 60  0001 C CNN "Part Number"
 	1    5750 4100
 	1    0    0    -1  
 $EndComp
@@ -163,6 +163,7 @@ F 0 "U7" H 5600 5350 50  0000 C CNN
 F 1 "UA9638" H 5700 5250 50  0000 C CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 5750 5250 50  0001 C CNN
 F 3 "" H 5750 5250 50  0001 C CNN
+F 4 "UA9638" H 0   0   50  0001 C CNN "Part Number"
 	2    5750 5250
 	1    0    0    -1  
 $EndComp
@@ -252,7 +253,7 @@ F 0 "C5" H 6125 3450 50  0000 L CNN
 F 1 "100n" H 6125 3250 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 6138 3200 50  0001 C CNN
 F 3 "" H 6100 3350 50  0001 C CNN
-F 4 "CC0603KRX7R8BB104" H 6100 3350 60  0001 C CNN "Part Number"
+F 4 "GPC0603104" H 6100 3350 60  0001 C CNN "Part Number"
 	1    6100 3350
 	1    0    0    -1  
 $EndComp
@@ -260,7 +261,7 @@ Text Label 6350 3150 0    60   ~ 0
 V5
 Text Label 6200 3650 0    60   ~ 0
 GNDSUPPLY
-Text Label 7200 4750 0    60   ~ 0
+Text Label 7400 4750 0    60   ~ 0
 GNDSUPPLY
 Text Label 5700 4800 0    60   ~ 0
 V5
@@ -306,7 +307,6 @@ Wire Wire Line
 Connection ~ 2400 1750
 Wire Wire Line
 	2400 2150 2400 2550
-Connection ~ 2400 2550
 Wire Wire Line
 	4750 4200 4750 4100
 Wire Wire Line
@@ -379,15 +379,9 @@ Wire Wire Line
 Wire Wire Line
 	5650 4500 5650 4600
 Wire Wire Line
-	5650 4600 6400 4600
-Wire Wire Line
 	5700 4800 5650 4800
 Wire Wire Line
 	5650 4800 5650 4850
-Wire Wire Line
-	5650 5650 5650 5750
-Wire Wire Line
-	5650 5750 6300 5750
 Wire Wire Line
 	5050 1400 5300 1400
 Wire Wire Line
@@ -401,21 +395,11 @@ Helios Light Connector
 Text Notes 750  1100 0    60   ~ 0
 Alim 36V 4A
 Wire Wire Line
-	1300 1400 1300 2550
-Wire Wire Line
-	6400 4600 6400 4750
-Wire Wire Line
-	6300 5750 6300 5900
-Wire Wire Line
 	2600 1300 3050 1300
-Wire Wire Line
-	1300 2550 2400 2550
 Wire Wire Line
 	3600 2550 3600 1450
 Wire Wire Line
 	3600 1450 3950 1450
-Wire Wire Line
-	1200 1400 1300 1400
 $Comp
 L master-rescue:R R3
 U 1 1 5B3E5625
@@ -425,10 +409,10 @@ AR Path="/5AC440F9/5B3E5625" Ref="R4"  Part="1"
 AR Path="/5AC443F1/5B3E5625" Ref="R23"  Part="1" 
 AR Path="/5AC443F5/5B3E5625" Ref="R30"  Part="1" 
 F 0 "R3" V 8880 1350 50  0000 C CNN
-F 1 "25.5" V 8800 1350 50  0000 C CNN
+F 1 "51" V 8800 1350 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 8730 1350 50  0001 C CNN
 F 3 "" H 8800 1350 50  0001 C CNN
-F 4 "RMCF0603FT25R5" H 8800 1350 60  0001 C CNN "Part Number"
+F 4 "GPR060351" H 8800 1350 60  0001 C CNN "Part Number"
 	1    8800 1350
 	1    0    0    -1  
 $EndComp
@@ -452,10 +436,10 @@ AR Path="/5AC440F9/5B3E5960" Ref="R7"  Part="1"
 AR Path="/5AC443F1/5B3E5960" Ref="R24"  Part="1" 
 AR Path="/5AC443F5/5B3E5960" Ref="R31"  Part="1" 
 F 0 "R4" V 10230 1350 50  0000 C CNN
-F 1 "412K" V 10150 1350 50  0000 C CNN
+F 1 "390k" V 10150 1350 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 10080 1350 50  0001 C CNN
 F 3 "" H 10150 1350 50  0001 C CNN
-F 4 "RMCF0603FT412K" H 10150 1350 60  0001 C CNN "Part Number"
+F 4 "GPC0603390k" H 10150 1350 60  0001 C CNN "Part Number"
 	1    10150 1350
 	1    0    0    -1  
 $EndComp
@@ -520,10 +504,10 @@ AR Path="/5AC440F9/5B3E62B7" Ref="R2"  Part="1"
 AR Path="/5AC443F1/5B3E62B7" Ref="R19"  Part="1" 
 AR Path="/5AC443F5/5B3E62B7" Ref="R29"  Part="1" 
 F 0 "R2" V 6530 1350 50  0000 C CNN
-F 1 "249K" V 6450 1350 50  0000 C CNN
+F 1 "270k" V 6450 1350 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 6380 1350 50  0001 C CNN
 F 3 "" H 6450 1350 50  0001 C CNN
-F 4 "RMCF0603FT249K" H 6450 1350 60  0001 C CNN "Part Number"
+F 4 "GPR0603270k" H 6450 1350 60  0001 C CNN "Part Number"
 	1    6450 1350
 	1    0    0    -1  
 $EndComp
@@ -572,7 +556,7 @@ AR Path="/5AC440F9/5B3E77BC" Ref="C47"  Part="1"
 AR Path="/5AC443F1/5B3E77BC" Ref="C51"  Part="1" 
 AR Path="/5AC443F5/5B3E77BC" Ref="C55"  Part="1" 
 F 0 "C3" H 10575 1900 50  0000 L CNN
-F 1 "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               " H 10575 1700 50  0000 L CNN
+F 1 "47uF" H 10575 1700 50  0000 L CNN
 F 2 "Capacitor_SMD:CP_Elec_6.3x7.7" H 10588 1650 50  0001 C CNN
 F 3 "" H 10550 1800 50  0001 C CNN
 F 4 "EEE1HA470XP" H 10550 1800 60  0001 C CNN "Part Number"
@@ -594,7 +578,7 @@ AR Path="/5AC440F9/5B3E7AB8" Ref="C46"  Part="1"
 AR Path="/5AC443F1/5B3E7AB8" Ref="C50"  Part="1" 
 AR Path="/5AC443F5/5B3E7AB8" Ref="C54"  Part="1" 
 F 0 "C2" H 5975 1800 50  0000 L CNN
-F 1 "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               " H 5975 1600 50  0000 L CNN
+F 1 "47uF" H 5975 1600 50  0000 L CNN
 F 2 "Capacitor_SMD:CP_Elec_6.3x7.7" H 5988 1550 50  0001 C CNN
 F 3 "" H 5950 1700 50  0001 C CNN
 F 4 "EEE1HA470XP" H 5950 1700 60  0001 C CNN "Part Number"
@@ -619,7 +603,7 @@ F 0 "C1" H 5675 1800 50  0000 L CNN
 F 1 "100n" H 5675 1600 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 5688 1550 50  0001 C CNN
 F 3 "" H 5650 1700 50  0001 C CNN
-F 4 "CC0603KRX7R8BB104" H 5650 1700 60  0001 C CNN "Part Number"
+F 4 "GPC0603104" H 5650 1700 60  0001 C CNN "Part Number"
 	1    5650 1700
 	1    0    0    -1  
 $EndComp
@@ -741,10 +725,10 @@ AR Path="/5AC440F9/5B3EAB71" Ref="R17"  Part="1"
 AR Path="/5AC443F1/5B3EAB71" Ref="R28"  Part="1" 
 AR Path="/5AC443F5/5B3EAB71" Ref="R35"  Part="1" 
 F 0 "R9" V 9530 2150 50  0000 C CNN
-F 1 "604" V 9450 2150 50  0000 C CNN
+F 1 "1k" V 9450 2150 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 9380 2150 50  0001 C CNN
 F 3 "" H 9450 2150 50  0001 C CNN
-F 4 "RMCF0603FT604R" H 9450 2150 60  0001 C CNN "Part Number"
+F 4 "GPC06031k" H 9450 2150 60  0001 C CNN "Part Number"
 	1    9450 2150
 	1    0    0    -1  
 $EndComp
@@ -816,7 +800,7 @@ Wire Wire Line
 Wire Wire Line
 	6100 3150 6350 3150
 Wire Wire Line
-	8800 1150 10150 1150
+	8800 1150 9000 1150
 Wire Wire Line
 	10150 1150 10550 1150
 Wire Wire Line
@@ -855,72 +839,149 @@ Wire Wire Line
 	6450 2550 6750 2550
 Wire Wire Line
 	7100 1150 7100 1250
+Text Notes 550  7750 0    50   ~ 0
+© 2018 Université de Lausanne\n\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.2.\n\nYou may redistribute and modify this documentation under the terms of\nthe CERN OHL v.1.2. (http://ohwr.org/cernohl). This documentation is\ndistributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,\nINCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND\nFITNESS FOR A PARTICULAR PURPOSE. Please see the CERN OHL v.1.2\nfor applicable conditions
 $Comp
-L Device:D_TVS_x2_AAC D3
-U 1 1 5BF6330B
-P 6850 4550
-F 0 "D3" H 6850 4766 50  0000 C CNN
-F 1 "CPDT-5V0USP-HF" H 6850 4675 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 6700 4550 50  0001 C CNN
-F 3 "~" H 6700 4550 50  0001 C CNN
-F 4 "CPDT-5V0USP-HF" H 6850 4550 50  0001 C CNN "Part Number"
-	1    6850 4550
+L master-rescue:R R21
+U 1 1 5C119690
+P 9000 1350
+AR Path="/5AC39A79/5C119690" Ref="R21"  Part="1" 
+AR Path="/5AC440F9/5C119690" Ref="R?"  Part="1" 
+AR Path="/5AC443F1/5C119690" Ref="R?"  Part="1" 
+AR Path="/5AC443F5/5C119690" Ref="R?"  Part="1" 
+F 0 "R21" V 9080 1350 50  0000 C CNN
+F 1 "51" V 9000 1350 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 8930 1350 50  0001 C CNN
+F 3 "" H 9000 1350 50  0001 C CNN
+F 4 "GPR060351" H 9000 1350 60  0001 C CNN "Part Number"
+	1    9000 1350
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
+	8800 1600 9000 1600
+Wire Wire Line
+	9000 1600 9000 1500
+Connection ~ 8800 1600
+Wire Wire Line
+	9000 1200 9000 1150
+Connection ~ 9000 1150
+Wire Wire Line
+	9000 1150 10150 1150
+Wire Wire Line
+	6350 4300 6400 4300
+Wire Wire Line
 	6350 3900 7200 3900
 Wire Wire Line
-	6300 5900 6850 5900
+	6400 4650 6400 4700
 Wire Wire Line
-	6500 4550 6500 4300
+	6400 4700 6100 4700
 Wire Wire Line
-	6350 4300 6500 4300
-Connection ~ 6500 4300
+	6100 4700 6100 4600
 Wire Wire Line
-	6500 4300 7300 4300
+	6100 4600 5650 4600
+Connection ~ 6400 4700
 Wire Wire Line
-	7200 4550 7200 3900
+	6400 4700 6400 4750
+Wire Wire Line
+	6400 4750 7200 4750
+Wire Wire Line
+	7200 4650 7200 4750
+Wire Wire Line
+	7200 4750 7400 4750
+Connection ~ 7200 4750
+Wire Wire Line
+	7200 4350 7200 3900
 Connection ~ 7200 3900
 Wire Wire Line
 	7200 3900 7300 3900
 Wire Wire Line
-	6850 4700 6850 4750
+	6400 4350 6400 4300
+Connection ~ 6400 4300
 Wire Wire Line
-	6400 4750 6850 4750
-Connection ~ 6850 4750
-Wire Wire Line
-	6850 4750 7200 4750
+	6400 4300 7300 4300
 $Comp
-L Device:D_TVS_x2_AAC D4
-U 1 1 5BF75307
-P 6850 5700
-F 0 "D4" H 6850 5916 50  0000 C CNN
-F 1 "CPDT-5V0USP-HF" H 6850 5825 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 6700 5700 50  0001 C CNN
-F 3 "~" H 6700 5700 50  0001 C CNN
-F 4 "CPDT-5V0USP-HF" H 6850 5700 50  0001 C CNN "Part Number"
-	1    6850 5700
-	1    0    0    -1  
+L fort:SP1002-02TG D3
+U 1 1 5C151999
+P 6400 4500
+F 0 "D3" V 6347 4579 60  0000 L CNN
+F 1 "SP1002-02TG" V 6453 4579 60  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-353_SC-70-5" H 6300 4500 60  0001 C CNN
+F 3 "" H 6400 4600 60  0001 C CNN
+F 4 "SP1002-02TG" H 6500 4700 60  0001 C CNN "Part Number"
+	1    6400 4500
+	0    1    1    0   
+$EndComp
+$Comp
+L fort:SP1002-02TG D3
+U 2 1 5C151A91
+P 7200 4500
+F 0 "D3" V 7147 4579 60  0000 L CNN
+F 1 "SP1002-02TG" V 7253 4579 60  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-353_SC-70-5" H 7100 4500 60  0001 C CNN
+F 3 "" H 7200 4600 60  0001 C CNN
+F 4 "SP1002-02TG" H 7300 4700 60  0001 C CNN "Part Number"
+	2    7200 4500
+	0    1    1    0   
 $EndComp
 Wire Wire Line
+	6350 5450 6400 5450
+Wire Wire Line
 	6350 5050 7200 5050
+$Comp
+L fort:SP1002-02TG D4
+U 1 1 5C151DFA
+P 6400 5650
+F 0 "D4" V 6347 5729 60  0000 L CNN
+F 1 "SP1002-02TG" V 6453 5729 60  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-353_SC-70-5" H 6300 5650 60  0001 C CNN
+F 3 "" H 6400 5750 60  0001 C CNN
+F 4 "SP1002-02TG" H 6500 5850 60  0001 C CNN "Part Number"
+	1    6400 5650
+	0    1    1    0   
+$EndComp
+$Comp
+L fort:SP1002-02TG D4
+U 2 1 5C151E02
+P 7200 5650
+F 0 "D4" V 7147 5729 60  0000 L CNN
+F 1 "SP1002-02TG" V 7253 5729 60  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-353_SC-70-5" H 7100 5650 60  0001 C CNN
+F 3 "" H 7200 5750 60  0001 C CNN
+F 4 "SP1002-02TG" H 7300 5850 60  0001 C CNN "Part Number"
+	2    7200 5650
+	0    1    1    0   
+$EndComp
 Wire Wire Line
-	6350 5450 6500 5450
+	5650 5850 6400 5850
 Wire Wire Line
-	7200 5700 7200 5050
+	6400 5850 6400 5800
+Wire Wire Line
+	5650 5650 5650 5850
+Wire Wire Line
+	6400 5850 6400 5900
+Wire Wire Line
+	6400 5900 7200 5900
+Connection ~ 6400 5850
+Wire Wire Line
+	7200 5900 7200 5800
+Connection ~ 7200 5900
+Wire Wire Line
+	7200 5900 7400 5900
+Wire Wire Line
+	7200 5500 7200 5050
 Connection ~ 7200 5050
 Wire Wire Line
 	7200 5050 7300 5050
 Wire Wire Line
-	6500 5700 6500 5450
-Connection ~ 6500 5450
+	6400 5500 6400 5450
+Connection ~ 6400 5450
 Wire Wire Line
-	6500 5450 7300 5450
+	6400 5450 7300 5450
 Wire Wire Line
-	6850 5850 6850 5900
-Connection ~ 6850 5900
+	1600 1400 1600 2550
 Wire Wire Line
-	6850 5900 7400 5900
-Text Notes 550  7750 0    50   ~ 0
-© 2018 Université de Lausanne\n\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.2.\n\nYou may redistribute and modify this documentation under the terms of\nthe CERN OHL v.1.2. (http://ohwr.org/cernohl). This documentation is\ndistributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,\nINCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND\nFITNESS FOR A PARTICULAR PURPOSE. Please see the CERN OHL v.1.2\nfor applicable conditions
+	1600 2550 2400 2550
+Wire Wire Line
+	1200 1400 1600 1400
+Connection ~ 2400 2550
 $EndSCHEMATC

@@ -6,7 +6,7 @@ set(AVR_PROGRAMMER arduinoisp)
 set(AVR_UPLOADTOOL_PORT usb)
 set(AVR_UPLOADTOOL_OPTIONS -C ${CMAKE_CURRENT_SOURCE_DIR}/../avrdude.conf)
 
-set(AVR_MCU at90can128)
+set(AVR_MCU at90can32)
 set(AVR_L_FUSE 0xde)
 set(AVR_H_FUSE 0x99)
 set(AVR_E_FUSE 0xfd)
