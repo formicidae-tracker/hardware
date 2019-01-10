@@ -6,8 +6,8 @@
 #include <yaacl.h>
 
 int main() {
-	InitLEDs();
 	InitSystime();
+	InitLEDs();
 	InitHostLink();
 
 	while(1) {
