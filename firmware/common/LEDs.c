@@ -94,9 +94,12 @@ LEDData_t LED;
 	} \
 	void LED ## name ## Blink( uint8_t count) { \
 		disable_comp(timer,comp); \
-		LED.name ## Target = CLAMP(MAX(count,LED.name ## Target),1,8); \
-		LED.name ## Count = LED.name ## Target * 2; \
-	} \
+		count = CLAMP(MAX(count,LED.name ## Target),1,8); \
+		if (LED.name ## Target == 0 ) { \
+			LED.name ## Count = count * 2; \
+		} \
+		LED.name ## Target = count; \
+}	  \
 	void LED ## name ## Pulse() { \
 		if ( is_io_on(port,pin) ){ \
 			LED.name ## PulseValue = 0xff; \
@@ -168,8 +171,11 @@ implements_led_io(Data,LED_DATA_PORT,LED_DATA_PIN,LED_DATA_TIMER,LED_DATA_COMP)
 		} \
 	} \
 	void LED ## name ## Blink( uint8_t count) { \
-		LED.name ## Target = CLAMP(MAX(count,LED.name ## Target),1,8); \
-		LED.name ## Count = LED.name ## Target * 2; \
+		count = CLAMP(MAX(count,LED.name ## Target),1,8); \
+		if (LED.name ## Target == 0 ) { \
+			LED.name ## Count = count * 2; \
+		} \
+		LED.name ## Target = count; \
 	} \
 	void LED ## name ## Loop(bool blink) { \
 		if (LED.name ## Target == 0) { \
@@ -236,7 +242,7 @@ void InitLEDs() {
 	init_timer(LED_DATA_TIMER);
 #endif
 #endif
-		LED.last = 0;
+	LED.last = 0;
 }
 
 

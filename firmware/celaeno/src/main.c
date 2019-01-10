@@ -4,6 +4,8 @@
 #include "FanControl.h"
 #include <avr/eeprom.h>
 #include <avr/interrupt.h>
+#include <yaail.h>
+
 
 ArkeCelaenoConfig EEMEM eepromConfig = {
 	.RampUpTimeMS = 500,
@@ -130,7 +132,7 @@ void InitCelaeno() {
 	C.state = CELAENO_OFF;
 
 	//sets
-
+	yaail_init(YAAIL_25);
 	InitFanControl();
 	yaacl_init_txn(&C.txStatus);
 	yaacl_init_txn(&C.txSetPoint);
@@ -212,20 +214,18 @@ void ProcessSensors(ArkeSystime_t now) {
 	}
 }
 
-void SetLED(uint8_t lastWaterLevel, bool lastFanAlert) {
-	if ( ArkeCelaenoFanStall(C.status) && !lastFanAlert ) {
+void SetLED() {
+	if ( ArkeFanStall(C.status) != 0  ) {
 		LEDErrorBlink(4);
 		return;
 	}
 
-	if ( (C.status.waterLevel & ARKE_CELAENO_RO_ERROR) != 0 &&
-	     (lastWaterLevel & ARKE_CELAENO_RO_ERROR) == 0 ) {
+	if ( (C.status.waterLevel & ARKE_CELAENO_RO_ERROR) != 0) {
 		LEDErrorBlink(3);
 		return;
 	}
 
-	if ( (C.status.waterLevel >= ARKE_CELAENO_CRITICAL) &&
-	     (lastWaterLevel < ARKE_CELAENO_CRITICAL) ) {
+	if ( (C.status.waterLevel >= ARKE_CELAENO_CRITICAL) ) {
 		LEDErrorBlink(2);
 		return;
 	}
@@ -239,8 +239,6 @@ void SetLED(uint8_t lastWaterLevel, bool lastFanAlert) {
 }
 
 void ProcessCelaeno() {
-	bool lastFanFailed = ArkeCelaenoFanStall(C.status);
-	uint8_t lastWaterLevel = C.status.waterLevel;
 	bool shouldReport = false;
 	ArkeSystime_t now = ArkeGetSystime();
 	ProcessSensors(now);
@@ -250,11 +248,11 @@ void ProcessCelaeno() {
 	FanControlStatus_e s = ProcessFanControl();
 	C.status.fanStatus = GetFan1RPM();
 	if( (s & FAN_1_STALL) != 0 ){
-		C.status.fanStatus |= ARKE_CELAENO_FAN_STALL_ALERT;
+		C.status.fanStatus |= ARKE_FAN_STALL_ALERT;
 		shouldReport = true;
 	}
 
-	SetLED(lastWaterLevel,lastFanFailed);
+	SetLED();
 
 	ProcessIncoming();
 
