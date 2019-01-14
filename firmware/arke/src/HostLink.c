@@ -10,6 +10,8 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
+#include <avr/eeprom.h>
+
 
 #include <stdio.h>
 
@@ -115,6 +117,8 @@ yaacl_baudrate_e supportedBaudrate[9] = {
 	YAACL_BR_1000 //  '8'
 };
 
+enum SlcanBaudrate EEMEM savedCanBaudrate;
+enum SlcanStatus EEMEM savedCanStatus;
 
 typedef struct HostData {
 	volatile HostPacketInRingBuffer in;
@@ -141,6 +145,8 @@ HostData link;
 		RB_INCREMENT_TAIL(link.out,RB_OUT_SIZE); \
 	}while(0)
 
+void HostInitYaacl();
+
 // Init the UART link.
 void InitHostLink() {
 	RB_INIT(link.in);
@@ -163,7 +169,21 @@ void InitHostLink() {
 	LINCR = _BV(LENA) | _BV(LCMD2) |  _BV(LCMD1) |  _BV(LCMD0) ;
 
 	LINENIR = _BV(LENERR) | _BV(LENRXOK);
+	enum SlcanBaudrate savedBaudrate = eeprom_read_byte(&savedCanBaudrate);
+	if (savedBaudrate < (enum SlcanBaudrate)UNSUPPORTED ) {
+		link.canBaudrate = savedBaudrate + S0;
+	}
+
+	enum SlcanStatus savedStatus =  eeprom_read_byte(&savedCanStatus);
 	sei();
+	if ( savedStatus == SLCAN_CLOSED
+	     || savedStatus > (SLCAN_RX | SLCAN_TX)
+	     || link.canBaudrate == SLCAN_UNKNOWN_BAUDRATE) {
+		return;
+	}
+
+	link.status = savedStatus;
+	HostInitYaacl();
 }
 
 volatile uint8_t discarder;
@@ -297,6 +317,11 @@ bool HostOpenCommand(uint8_t commandSize) {
 	}
 	link.status = SLCAN_TX | SLCAN_RX;
 
+	uint8_t sreg = SREG;
+	cli();
+	eeprom_update_byte(&savedCanStatus,link.status);
+	SREG = sreg;
+
 	HostInitYaacl();
 	HostSendSingleCharUnsafe(SLCAN_ACK);
 
@@ -313,6 +338,13 @@ bool HostListenCommand(uint8_t commandSize){
 	}
 
 	link.status = SLCAN_RX;
+
+	uint8_t sreg = SREG;
+	cli();
+	eeprom_update_byte(&savedCanStatus,link.status);
+	SREG = sreg;
+
+
 	HostInitYaacl();
 	HostSendSingleCharUnsafe(SLCAN_ACK);
 
@@ -331,6 +363,12 @@ bool HostCloseCommand(uint8_t commandSize) {
 	link.errorStatus = 0;
 	LEDErrorOff();
 	HostSendSingleCharUnsafe(SLCAN_ACK);
+
+	uint8_t sreg = SREG;
+	cli();
+	eeprom_update_byte(&savedCanStatus,link.status);
+	SREG = sreg;
+
 	return true;
 }
 
@@ -391,6 +429,12 @@ bool HostBaudrateSelectCommand(uint8_t commandSize) {
 	}
 	link.canBaudrate = value + S0;
 	HostSendSingleCharUnsafe(SLCAN_ACK);
+
+	uint8_t sreg = SREG;
+	cli();
+	eeprom_update_byte(&savedCanBaudrate,value);
+	SREG = sreg;
+
 	return true;
 }
 
