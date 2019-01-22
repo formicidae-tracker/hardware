@@ -51,6 +51,9 @@ struct Button_t {
 		PORTB &= ~_BV(2); \
 	}while(0)
 
+#define relay_is_on() ( (PORTB & _BV(2)) != 0 )
+#define relay_is_off() ( (PORTB & _BV(2)) == 0 )
+
 enum CelaenoState_t {
 	CELAENO_OFF = 0,
 	CELAENO_ON = 1,
@@ -66,6 +69,7 @@ enum CelaenoState_t CelaenoOffState(ArkeSystime_t now);
 enum CelaenoState_t CelaenoOnState(ArkeSystime_t now);
 enum CelaenoState_t CelaenoRampUpState(ArkeSystime_t now);
 enum CelaenoState_t CelaenoRampDownState(ArkeSystime_t now);
+
 
 StateFnct_t stateFunctions[NB_CELAENO_STATES] = {
 	&CelaenoOffState,
@@ -242,14 +246,21 @@ void ProcessCelaeno() {
 	bool shouldReport = false;
 	ArkeSystime_t now = ArkeGetSystime();
 	ProcessSensors(now);
-	if (C.status.waterLevel > ARKE_CELAENO_WARNING && C.targetSetPoint.Power > 0 ) {
+	if (C.status.waterLevel >= ARKE_CELAENO_WARNING && C.targetSetPoint.Power > 0 ) {
 		shouldReport = true;
 	}
 	FanControlStatus_e s = ProcessFanControl();
 	C.status.fanStatus = GetFan1RPM();
 	if( (s & FAN_1_STALL) != 0 ){
 		C.status.fanStatus |= ARKE_FAN_STALL_ALERT;
+		C.status.fanStatus &= ~ARKE_FAN_AGING_ALERT;
 		shouldReport = true;
+	} else if ( ( s & FAN_1_AGING) !=0 ) {
+		C.status.fanStatus |= ARKE_FAN_AGING_ALERT;
+		C.status.fanStatus &= ~ARKE_FAN_STALL_ALERT;
+		shouldReport = true;
+	} else {
+		C.status.fanStatus &= ~(ARKE_FAN_STALL_ALERT | ARKE_FAN_AGING_ALERT);
 	}
 
 	SetLED();
@@ -269,11 +280,12 @@ void ProcessCelaeno() {
 		return;
 	}
 	C.lastCriticalReport = now;
-	//send the alert on the bus
 	ArkeSendCelaenoStatus(&C.txStatus,true,&C.status);
 }
 
 #define water_level_critical_error() (C.status.waterLevel >= 0x02)
+#define fan_critical_error() ( (C.status.fanStatus & ARKE_FAN_STALL_ALERT) != 0)
+
 
 enum CelaenoState_t CelaenoOffState(ArkeSystime_t now) {
 	if ( water_level_critical_error() ) {
@@ -283,6 +295,7 @@ enum CelaenoState_t CelaenoOffState(ArkeSystime_t now) {
 		C.last = now;
 		C.setPoint = C.targetSetPoint;
 		SetFan1Power(C.setPoint.Power);
+		SetFan2Power(C.setPoint.Power);
 		return CELAENO_RAMPUP;
 	}
 	return CELAENO_OFF;
@@ -298,7 +311,18 @@ enum CelaenoState_t CelaenoOnState(ArkeSystime_t now) {
 			return CELAENO_ON;
 		}
 	}
-	if ( water_level_critical_error() || C.targetSetPoint.Power == 0 ) {
+
+	// We should not go on a rampdown / off state on a fan stall
+	// condition, otherwise the power would go to zero and therefore
+	// the condition would be cleared.
+	if ( relay_is_on() && fan_critical_error() ) {
+		relay_off();
+	} else if ( relay_is_off() && !fan_critical_error() ) {
+		relay_on();
+	}
+
+	if ( water_level_critical_error()
+	     || C.targetSetPoint.Power == 0 ) {
 		relay_off();
 		C.last = now;
 		LEDReadyPulse();
@@ -315,7 +339,8 @@ enum CelaenoState_t CelaenoOnState(ArkeSystime_t now) {
 }
 
 enum CelaenoState_t CelaenoRampUpState(ArkeSystime_t now) {
-	if ( water_level_critical_error() || C.targetSetPoint.Power == 0 ) {
+	if ( water_level_critical_error()
+	     || C.targetSetPoint.Power == 0 ) {
 		SetFan1Power(0);
 		SetFan2Power(0);
 		C.setPoint.Power = 0;
