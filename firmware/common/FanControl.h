@@ -8,9 +8,13 @@ typedef enum {
 	FAN_OK = 0,
 	FAN_1_STALL = (1 << 0),
 	FAN_2_STALL = (1 << 1),
+	FAN_1_AGING = (1 << 4),
+	FAN_2_AGING = (1 << 5),
 #ifdef FAN_CONTROL_4FAN
 	FAN_3_STALL = (1 << 2),
 	FAN_4_STALL = (1 << 3),
+	FAN_3_AGING = (1 << 6),
+	FAN_4_AGING = (1 << 7),
 #endif
 } FanControlStatus_e;
 
