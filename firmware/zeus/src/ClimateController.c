@@ -11,6 +11,7 @@
 #include "Heaters.h"
 #include "FanControl.h"
 #include "LEDs.h"
+#include "Sensors.h"
 
 #define abs(a) ( ((a) < 0) ? -(a) : (a) )
 #define max(a,b) ((a) > (b) ? (a) : (b) )
@@ -85,15 +86,16 @@ int16_t PDControllerCompute(PDController * c, uint16_t current , ArkeSystime_t e
 struct ClimateControl_t {
 	PDController  Humidity,Temperature;
 	uint8_t       Wind;
-	yaacl_txn_t   CelaenoCommand,ZeusReport;
-	bool          Active;
+	yaacl_txn_t   CelaenoCommand;
 	ArkeSystime_t LastUpdate;
+	int16_t       TemperatureCommand,HumidityCommand;
+	uint8_t       Status;
 };
 
 struct ClimateControl_t CC;
 
 
-void InitClimateControl() {
+void InitClimateController() {
 	ArkePDConfig h,t;
 	uint8_t sreg = SREG;
 	cli();
@@ -105,18 +107,18 @@ void InitClimateControl() {
 
 	CC.Wind = 0;
 	yaacl_init_txn(&(CC.CelaenoCommand));
-	CC.Active = false;
 	CC.LastUpdate = ArkeGetSystime();
+	CC.Status = ARKE_ZEUS_IDLE;
 }
 
-void ClimateControlSetTarget(const ArkeZeusSetPoint * sp) {
+void ClimateControllerSetTarget(const ArkeZeusSetPoint * sp) {
 	CC.Humidity.target = sp->Humidity;
 	CC.Temperature.target = sp->Temperature;
 	CC.Wind = sp->Wind;
-	CC.Active = false;
+	CC.Status |= ARKE_ZEUS_ACTIVE;
 }
 
-void ClimateControlConfigure(const ArkeZeusConfig * c) {
+void ClimateControllerConfigure(const ArkeZeusConfig * c) {
 #define update_config(type) do { \
 		memcpy(&(CC.type.config),&(c->type),sizeof(ArkePDConfig)); \
 		uint8_t sreg = SREG; \
@@ -130,30 +132,30 @@ void ClimateControlConfigure(const ArkeZeusConfig * c) {
 }
 
 
-
-void ClimateControlUpdateUnsafe(const ArkeZeusReport * r,ArkeSystime_t now) {
+void ClimateControllerUpdateUnsafe(const ArkeZeusReport * r,ArkeSystime_t now) {
 	ArkeSystime_t ellapsed = now - CC.LastUpdate;
 	CC.LastUpdate = now;
 
+	CC.HumidityCommand = PDControllerCompute(&CC.Humidity,r->Humidity,ellapsed);
+	CC.TemperatureCommand = PDControllerCompute(&CC.Temperature,r->Temperature1,ellapsed);
 
 	ArkeCelaenoSetPoint sp;
-	sp.Power = clamp(PDControllerCompute(&CC.Humidity,r->Humidity,ellapsed),0,255);
+	sp.Power = clamp(CC.HumidityCommand,0,255);
 
 	if ( yaacl_txn_status(&(CC.CelaenoCommand)) != YAACL_TXN_PENDING ) {
 		ArkeSendCelaenoSetPoint(&(CC.CelaenoCommand),false,&sp);
 	}
 
-	uint16_t tempCommand = PDControllerCompute(&CC.Temperature,r->Temperature1,ellapsed);
 
 	uint8_t heatPower;
 	uint8_t ventPower;
 	uint8_t windPower;
-	if ( tempCommand > 0 ) {
-		heatPower = min(255,tempCommand);
+	if ( CC.TemperatureCommand > 0 ) {
+		heatPower = min(255,CC.TemperatureCommand);
 		windPower = max(0x40,CC.Wind);
 		ventPower = 0;
 	} else {
-		ventPower = min(255,-tempCommand);
+		ventPower = min(255,-CC.TemperatureCommand);
 		heatPower = 0;
 		windPower = CC.Wind;
 	}
@@ -162,23 +164,52 @@ void ClimateControlUpdateUnsafe(const ArkeZeusReport * r,ArkeSystime_t now) {
 	HeaterSetPower2(heatPower);
 	SetFan1Power(ventPower);
 	SetFan2Power(windPower);
+
+}
+
+void ClimateControllerProcess(bool hasNewData) {
+	const ArkeZeusReport * r = GetSensorData();
+	ArkeSystime_t now = ArkeGetSystime();
+	if ( hasNewData
+	     && ( (CC.Status & ARKE_ZEUS_ACTIVE) != 0 )
+	     && r->Humidity != 0x3fff && r->Temperature1 != 0x3fff ) {
+		ClimateControllerUpdateUnsafe(r,now);
+		CC.Status &= ~ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD;
+		return;
+	}
+
+
+	if ( (now - CC.LastUpdate ) >= WATCHDOG_MS ) {
+		CC.Status |= ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD;
+	}
+
 }
 
 
+uint8_t ClimateControllerStatus() {
+	return CC.Status;
+}
 
-void ClimateControlUpdate(const ArkeZeusReport * r ) {
-	ArkeSystime_t now = ArkeGetSystime();
-	if ( CC.Active && r->Humidity != 0x3fff && r->Temperature1 != 0x3fff ) {
-		ClimateControlUpdateUnsafe(r,now);
-		return;
-	}
+int16_t ClimateControllerGetHumidityCommand() {
+	return CC.HumidityCommand;
+}
+
+int16_t ClimateControllerGetTemperatureCommand() {
+	return CC.TemperatureCommand;
+}
 
 
-	if ( (now - CC.LastUpdate ) < WATCHDOG_MS ) {
-		return;
-	}
-	CC.LastUpdate = now;
+uint8_t ClimateControllerGetWindTarget() {
+	return CC.Wind;
+}
+uint16_t ClimateControllerGetHumidityTarget() {
+	return CC.Humidity.target;
+}
+uint16_t ClimateControllerGetTemperatureTarget() {
+	return CC.Temperature.target;
+}
 
-	//TODO send alert message because climate is uncontrolled
-
+void ClimateControllerGetConfig(ArkeZeusConfig * config) {
+	config->Humidity = CC.Humidity.config;
+	config->Temperature = CC.Temperature.config;
 }

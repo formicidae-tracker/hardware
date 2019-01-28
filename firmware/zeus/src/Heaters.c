@@ -30,7 +30,7 @@ void InitHeaters() {
 	set_heat2(0);
 
 	TCCR1A = _BV(WGM10);
-	TCCR3B = _BV(WGM12) | _BV(CS11);
+	TCCR1B = _BV(WGM12) | _BV(CS11);
 
 
 }

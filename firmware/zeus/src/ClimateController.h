@@ -1,17 +1,24 @@
 #pragma once
 
 #include <arke.h>
+#include <stdbool.h>
 
 
+void InitClimateController();
 
-void InitClimateControl();
+void ClimateControllerSetTarget(const ArkeZeusSetPoint * sp);
 
-void ClimateControlSetTarget(const ArkeZeusSetPoint * sp);
+void ClimateControllerConfigure(const ArkeZeusConfig * c);
 
-void ClimateControlConfigure(const ArkeZeusConfig * c);
+void ClimateControllerProcess(bool hasNewData);
 
-void ClimateControlUpdate(const ArkeZeusReport * r);
+uint8_t ClimateControllerStatus();
 
-uint8_t ClimateControllerGetWind();
-uint16_t ClimateControllerGetHumidity();
-uint16_t ClimateControllerGetTemperature();
+int16_t ClimateControllerGetHumidityCommand();
+int16_t ClimateControllerGetTemperatureCommand();
+
+
+uint8_t ClimateControllerGetWindTarget();
+uint16_t ClimateControllerGetHumidityTarget();
+uint16_t ClimateControllerGetTemperatureTarget();
+void ClimateControllerGetConfig(ArkeZeusConfig *  config);
