@@ -1,32 +1,22 @@
 #pragma once
 
 #include <inttypes.h>
+#include <stdbool.h>
 #include "config.h"
+#include <arke.h>
 
-
-typedef enum {
-	FAN_OK = 0,
-	FAN_1_STALL = (1 << 0),
-	FAN_2_STALL = (1 << 1),
-	FAN_1_AGING = (1 << 4),
-	FAN_2_AGING = (1 << 5),
-#ifdef FAN_CONTROL_4FAN
-	FAN_3_STALL = (1 << 2),
-	FAN_4_STALL = (1 << 3),
-	FAN_3_AGING = (1 << 6),
-	FAN_4_AGING = (1 << 7),
-#endif
-} FanControlStatus_e;
 
 void InitFanControl();
 
-FanControlStatus_e ProcessFanControl();
+bool ProcessFanControl();
 
 void SetFan1Power(uint8_t value);
 void SetFan2Power(uint8_t value);
 
-uint16_t GetFan1RPM();
-uint16_t GetFan2RPM();
+
+
+ArkeFanStatus GetFan1RPM();
+ArkeFanStatus GetFan2RPM();
 uint8_t GetFan1Power();
 uint8_t GetFan2Power();
 
@@ -34,8 +24,8 @@ uint8_t GetFan2Power();
 void SetFan3Power(uint8_t value);
 void SetFan4Power(uint8_t value);
 
-uint16_t GetFan3RPM();
-uint16_t GetFan4RPM();
+ArkeFanStatus GetFan3RPM();
+ArkeFanStatus GetFan4RPM();
 uint8_t GetFan3Power();
 uint8_t GetFan4Power();
 #endif

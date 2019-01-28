@@ -249,20 +249,8 @@ void ProcessCelaeno() {
 	if (C.status.waterLevel >= ARKE_CELAENO_WARNING && C.targetSetPoint.Power > 0 ) {
 		shouldReport = true;
 	}
-	FanControlStatus_e s = ProcessFanControl();
+	ProcessFanControl();
 	C.status.fanStatus = GetFan1RPM();
-	if( (s & FAN_1_STALL) != 0 ){
-		C.status.fanStatus |= ARKE_FAN_STALL_ALERT;
-		C.status.fanStatus &= ~ARKE_FAN_AGING_ALERT;
-		shouldReport = true;
-	} else if ( ( s & FAN_1_AGING) !=0 ) {
-		C.status.fanStatus |= ARKE_FAN_AGING_ALERT;
-		C.status.fanStatus &= ~ARKE_FAN_STALL_ALERT;
-		shouldReport = true;
-	} else {
-		C.status.fanStatus &= ~(ARKE_FAN_STALL_ALERT | ARKE_FAN_AGING_ALERT);
-	}
-
 	SetLED();
 
 	ProcessIncoming();

@@ -24,7 +24,6 @@ typedef struct {
 
 typedef struct {
 	ArkeSystime_t last;
-	FanControlStatus_e status;
 	EMC2302Communication_t emc1;
 #ifdef FAN_CONTROL_4FAN
 	EMC2302Communication_t emc2;
@@ -74,7 +73,6 @@ void InitFanControl() {
 	                                         EMC_FAN2_VALID_TACH_REG,0xfd,
 	};
 
-	FC.status = FAN_OK;
 	yaail_txn_t txn;
 
 
@@ -116,23 +114,23 @@ uint16_t tach_to_RPM(uint8_t highTachByte) {
 
 #define update_fan_status(emc,ID,target,rpm,now,start) do {	  \
 		if ( target == 0 || (now-start) < FC_IGNORE_ALERT_TIME ) { \
-			FC.status &= ~(FAN_ ## ID ## _AGING | FAN_ ## ID ## _STALL); \
+			FC.RPM[ID-1] &= ~(ARKE_FAN_AGING_ALERT | ARKE_FAN_STALL_ALERT); \
 			break; \
 		} \
 		if ( rpm == 0 ) { \
-			FC.status &= ~(FAN_ ## ID ## _AGING); \
-			FC.status |= FAN_ ## ID ## _STALL; \
+			FC.RPM[ID-1] &= ~(ARKE_FAN_AGING_ALERT); \
+			FC.RPM[ID-1] |= ARKE_FAN_STALL_ALERT; \
 			break; \
 		}\
 		if ( rpm < FAN_AGING_THRESHOLD(target) ) { \
-			FC.status &= ~(FAN_ ## ID ## _STALL); \
-			FC.status |= FAN_ ## ID ## _AGING; \
+			FC.RPM[ID-1] &= ~(ARKE_FAN_STALL_ALERT); \
+			FC.RPM[ID-1] |= ARKE_FAN_AGING_ALERT; \
 			break; \
 		}\
-		FC.status &= ~(FAN_ ## ID ## _AGING | FAN_ ## ID ## _STALL); \
+		FC.RPM[ID-1] &= ~(ARKE_FAN_AGING_ALERT | ARKE_FAN_STALL_ALERT); \
 	}while(0)
 
-#define emc_pull_get_info(emc,fan1ID,fan2ID,now) do {	  \
+#define emc_pull_get_info(emc,fan1ID,fan2ID,now,hasNew) do {	  \
 		if ( yaail_txn_status(&(emc.tachCount[0])) == YAAIL_DONE ) { \
 			emc.tachCount[0] = YAAIL_DONE+1; \
 			FC.RPM[fan1ID-1] = tach_to_RPM(emc.tachCountData[0]); \
@@ -142,6 +140,7 @@ uint16_t tach_to_RPM(uint8_t highTachByte) {
 			                  FC.RPM[fan1ID-1],\
 			                  now,\
 			                  fan_set_point_on_time(emc,fan1ID)); \
+			hasNew = true; \
 		} \
 		if ( yaail_txn_status(&(emc.tachCount[1])) == YAAIL_DONE ) { \
 			emc.tachCount[1] = YAAIL_DONE+1; \
@@ -152,13 +151,14 @@ uint16_t tach_to_RPM(uint8_t highTachByte) {
 			                  FC.RPM[fan2ID-1],\
 			                  now,\
 			                  fan_set_point_on_time(emc,fan2ID)); \
+			hasNew = true; \
 		} \
 	}while(0)
 
 
 
-FanControlStatus_e ProcessFanControl() {
-
+bool ProcessFanControl() {
+	bool hasNew = false;
 	ArkeSystime_t now = ArkeGetSystime();
 	if ( (now - FC.last) >= FC_UPDATE_PERIOD ) {
 		emc_push_get_info(FC.emc1,1);
@@ -168,12 +168,11 @@ FanControlStatus_e ProcessFanControl() {
 		FC.last = now;
 	}
 
-	emc_pull_get_info(FC.emc1,1,2,now);
+	emc_pull_get_info(FC.emc1,1,2,now,hasNew);
 #ifdef FAN_CONTROL_4FAN
-	emc_pull_get_info(FC.emc2,3,4,now);
+	emc_pull_get_info(FC.emc2,3,4,now,hasNew);
 #endif
-
-	return FC.status;
+return hasNew;
 }
 
 #define implements_fan(ID,emc,emcID)	  \
