@@ -13,8 +13,9 @@
 implements_ArkeSoftwareReset()
 
 typedef struct {
-	yaacl_txn_t report,txSetPoint,status,txConfig;
+	yaacl_txn_t report,txSetPoint,status,txConfig,txControlPoint;
 	ArkeZeusStatus statusData;
+	ArkeZeusControlPoint cpData;
 	ArkeSystime_t reportPeriod,lastReport;
 	union {
 		ArkeZeusSetPoint sp;
@@ -37,6 +38,7 @@ void InitZeus() {
 	yaacl_init_txn(&Z.txSetPoint);
 	yaacl_init_txn(&Z.status);
 	yaacl_init_txn(&Z.txConfig);
+	yaacl_init_txn(&Z.txControlPoint);
 
 }
 
@@ -76,10 +78,11 @@ void ProcessIncoming() {
 	}
 
 	if ( a == ARKE_ZEUS_STATUS && rtr && yaacl_txn_status(&Z.status) != YAACL_TXN_PENDING ) {
-		Z.statusData.Status = ClimateControllerStatus();
-		Z.statusData.Data.Fan[0] = GetFan1RPM();
-		Z.statusData.Data.Fan[1] = GetFan2RPM();
 		ArkeSendZeusStatus(&Z.status,false,&Z.statusData);
+	}
+
+	if ( a == ARKE_ZEUS_CONTROL_POINT && rtr && yaacl_txn_status(&Z.txControlPoint) != YAACL_TXN_PENDING ) {
+		ArkeSendZeusControlPoint(&Z.txControlPoint,false,&Z.cpData);
 	}
 
 	if ( a == ARKE_ZEUS_REPORT && rtr && yaacl_txn_status(&Z.report) != YAACL_TXN_PENDING) {
@@ -104,33 +107,36 @@ int main() {
 		ProcessLEDs();
 		ProcessIncoming();
 		bool hasNew =ProcessFanControl();
+		if (hasNew) {
+			Z.statusData.Fan[0] = GetFan1RPM();
+			Z.statusData.Fan[1] = GetFan2RPM();
+		}
 		hasNew = ProcessSensors();
 		if ( hasNew && yaacl_txn_status(&Z.report) != YAACL_TXN_PENDING) {
 			ArkeSendZeusReport(&Z.report,false,GetSensorData());
 		}
 		ClimateControllerProcess(hasNew);
 		Z.statusData.Status = ClimateControllerStatus();
-		#ifdef ZEUS_DEBUG_CONTROL
-		if ( hasNew && yaacl_txn_status(&Z.status) != YAACL_TXN_PENDING ) {
-			Z.statusData.Status |= ARKE_ZEUS_STATUS_IS_COMMAND_DATA;
-			Z.statusData.Data.Command.Humidity = ClimateControllerGetHumidityCommand();
-			Z.statusData.Data.Command.Temperature = ClimateControllerGetTemperatureCommand();
-			ArkeSendZeusStatus(&Z.status,false,&Z.statusData);
-		}
+		if ( hasNew ) {
+			Z.cpData.Humidity = ClimateControllerGetHumidityCommand();
+			Z.cpData.Temperature = ClimateControllerGetTemperatureCommand();
+#ifdef ZEUS_DEBUG_CONTROL
+			if(yaacl_txn_status(&Z.txControlPoint) != YAACL_TXN_PENDING ) {
+				ArkeSendZeusStatus(&Z.status,false,&Z.statusData);
+			}
 #endif
-#define fan_has_no_error(fanRPM) ( (fanRPM & (ARKE_FAN_AGING_ALERT | ARKE_FAN_STALL_ALERT)) == 0x00)
+		}
 
+#define fan_has_no_error(fanRPM) ( (fanRPM & (ARKE_FAN_AGING_ALERT | ARKE_FAN_STALL_ALERT)) == 0x00)
 
 		if ( (Z.statusData.Status & ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD) == 0
 		     && fan_has_no_error(GetFan1RPM())
 		     && fan_has_no_error(GetFan2RPM())) {
 			continue;
 		}
+
 		ArkeSystime_t now = ArkeGetSystime();
 		if ( (now - lastCriticalStatus) >= 1000  && yaacl_txn_status(&Z.status) != YAACL_TXN_PENDING ) {
-			Z.statusData.Status &= ~ARKE_ZEUS_STATUS_IS_COMMAND_DATA;
-			Z.statusData.Data.Fan[0] = GetFan1RPM();
-			Z.statusData.Data.Fan[1] = GetFan2RPM();
 			ArkeSendZeusStatus(&Z.status,false,&Z.statusData);
 		}
 
