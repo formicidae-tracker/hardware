@@ -9,9 +9,9 @@
 
 ArkeCelaenoConfig EEMEM eepromConfig = {
 	.RampUpTimeMS = 500,
-	.RampDownTimeMS = 500,
-	.MinOnTimeMS = 1000,
-	.DebounceTimeMS = 500
+	.RampDownTimeMS = 3000,
+	.MinOnTimeMS = 500,
+	.DebounceTimeMS = 1000
 };
 
 #define CRITICAL_REPORT_PERIOD 500
@@ -314,6 +314,8 @@ enum CelaenoState_t CelaenoOnState(ArkeSystime_t now) {
 		relay_off();
 		C.last = now;
 		LEDReadyPulse();
+		SetFan1Power(255);
+		SetFan2Power(255);
 		return CELAENO_RAMPDOWN;
 	}
 
