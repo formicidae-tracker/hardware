@@ -136,21 +136,24 @@ void ClimateControllerUpdateUnsafe(const ArkeZeusReport * r,ArkeSystime_t now) {
 	CC.HumidityCommand = PDControllerCompute(&CC.Humidity,r->Humidity,ellapsed);
 	CC.TemperatureCommand = PDControllerCompute(&CC.Temperature,r->Temperature1,ellapsed);
 
-	ArkeCelaenoSetPoint sp;
-	sp.Power = clamp(CC.HumidityCommand,0,255);
 
-	if ( yaacl_txn_status(&(CC.CelaenoCommand)) != YAACL_TXN_PENDING ) {
-		ArkeSendCelaenoSetPoint(&(CC.CelaenoCommand),false,&sp);
-	}
 	uint8_t heatPower;
 	uint8_t ventPower;
 	uint8_t windPower;
+	ArkeCelaenoSetPoint sp;
+	sp.Power = clamp(CC.HumidityCommand,0,255);
+
 	if ( CC.TemperatureCommand > 0 ) {
 		heatPower = min(255,CC.TemperatureCommand);
 		windPower = max(0x40,CC.Wind);
 		ventPower = 0;
 	} else {
-		ventPower = min(255,-CC.TemperatureCommand);
+		if (sp.Power>0) {
+			sp.Power = clamp(clamp(CC.HumidityCommand,0,255)+clamp(-CC.TemperatureCommand,0,255),0,255);
+			ventPower = 0;
+		} else {
+			ventPower = min(255,-CC.TemperatureCommand);
+		}
 		heatPower = 0;
 		windPower = CC.Wind;
 	}
@@ -159,6 +162,9 @@ void ClimateControllerUpdateUnsafe(const ArkeZeusReport * r,ArkeSystime_t now) {
 	HeaterSetPower2(heatPower);
 	SetFan1Power(ventPower);
 	SetFan2Power(windPower);
+	if ( yaacl_txn_status(&(CC.CelaenoCommand)) != YAACL_TXN_PENDING ) {
+		ArkeSendCelaenoSetPoint(&(CC.CelaenoCommand),false,&sp);
+	}
 
 }
 
