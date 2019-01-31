@@ -35,16 +35,16 @@ typedef struct PDController_t PDController;
 
 ArkePDConfig EEMEM EEHumidity = {
 	.DeadRegion = 100,
-	.ProportionalMult = 100,
-	.DerivativeMult = 20,
+	.ProportionalMult = 2,
+	.DerivativeMult = 2,
 	.ProportionalDivPower2 = 6,
 	.DerivativeDivPower2 = 6,
 };
 
 ArkePDConfig EEMEM EETemperature = {
 	.DeadRegion = 100,
-	.ProportionalMult = 100,
-	.DerivativeMult = 20,
+	.ProportionalMult = 2,
+	.DerivativeMult = 2,
 	.ProportionalDivPower2 = 6,
 	.DerivativeDivPower2 = 6,
 };
@@ -57,8 +57,7 @@ void InitPDController(PDController * c,uint16_t target,ArkePDConfig * config) {
 }
 
 int16_t PDControllerCompute(PDController * c, uint16_t current , ArkeSystime_t ellapsed) {
-	LEDErrorOn();
-	int32_t error = c->target - current;
+	int32_t error = (int32_t)(c->target) - (int32_t)(current);
 	int32_t derror;
 	if (c->lastError != UNSET_DERROR_VALUE) {
 		 derror = (error - c->lastError);
@@ -70,14 +69,12 @@ int16_t PDControllerCompute(PDController * c, uint16_t current , ArkeSystime_t e
 
 
 	if ( abs(error) < c->config.DeadRegion ) {
-		LEDErrorOff();
 		return 0;
 	}
 
 	int32_t res = (c->config.ProportionalMult * error) >> c->config.ProportionalDivPower2;
 	res	+= ((c->config.DerivativeMult * derror) / ellapsed ) >> c->config.DerivativeDivPower2;
 
-	LEDErrorOff();
 	return res;
 }
 
@@ -145,8 +142,6 @@ void ClimateControllerUpdateUnsafe(const ArkeZeusReport * r,ArkeSystime_t now) {
 	if ( yaacl_txn_status(&(CC.CelaenoCommand)) != YAACL_TXN_PENDING ) {
 		ArkeSendCelaenoSetPoint(&(CC.CelaenoCommand),false,&sp);
 	}
-
-
 	uint8_t heatPower;
 	uint8_t ventPower;
 	uint8_t windPower;
@@ -167,9 +162,8 @@ void ClimateControllerUpdateUnsafe(const ArkeZeusReport * r,ArkeSystime_t now) {
 
 }
 
-void ClimateControllerProcess(bool hasNewData) {
+void ClimateControllerProcess(bool hasNewData,ArkeSystime_t now) {
 	const ArkeZeusReport * r = GetSensorData();
-	ArkeSystime_t now = ArkeGetSystime();
 	if ( hasNewData
 	     && ( (CC.Status & ARKE_ZEUS_ACTIVE) != 0 )
 	     && r->Humidity != 0x3fff && r->Temperature1 != 0x3fff ) {

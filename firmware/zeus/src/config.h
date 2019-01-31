@@ -12,7 +12,7 @@
 #define LED_ERROR_TIMER 3
 #define LED_ERROR_COMP B
 
-#define FAN_CONTROL_4FAN
+//#define FAN_CONTROL_4FAN
 
 
 #define ZEUS_DEBUG_CONTROL

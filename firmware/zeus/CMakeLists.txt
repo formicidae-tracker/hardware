@@ -2,7 +2,7 @@ set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/../deps/cmake-avr/generic-g
 
 
 set(AVR_UPLOADTOOL avrdude)
-set(AVR_PROGRAMMER arduinoisp)
+set(AVR_PROGRAMMER avrispmkii)
 set(AVR_UPLOADTOOL_PORT usb)
 set(AVR_UPLOADTOOL_OPTIONS -C ${CMAKE_CURRENT_SOURCE_DIR}/../avrdude.conf)
 

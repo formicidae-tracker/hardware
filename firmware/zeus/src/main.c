@@ -8,7 +8,7 @@
 
 #include <arke-avr.h>
 #include <yaail.h>
-
+#include <avr/interrupt.h>
 
 implements_ArkeSoftwareReset()
 
@@ -33,13 +33,16 @@ void InitZeus() {
 	Z.lastReport = 0;
 
 	LEDReadyPulse();
-	yaail_init(YAAIL_25);
 	yaacl_init_txn(&Z.report);
 	yaacl_init_txn(&Z.txSetPoint);
 	yaacl_init_txn(&Z.status);
 	yaacl_init_txn(&Z.txConfig);
 	yaacl_init_txn(&Z.txControlPoint);
 
+
+	SetFan1Power(0);
+	SetFan2Power(0);
+	sei();
 }
 
 
@@ -51,7 +54,7 @@ void ProcessIncoming() {
 	if ( a == ARKE_ZEUS_SET_POINT ) {
 		if( rtr && yaacl_txn_status(&Z.txSetPoint) != YAACL_TXN_PENDING ) {
 			ArkeZeusSetPoint sp;
-			sp.Humidity = ClimateControllerGetTemperatureTarget();
+			sp.Humidity = ClimateControllerGetHumidityTarget();
 			sp.Temperature = ClimateControllerGetTemperatureTarget();
 			sp.Wind = ClimateControllerGetWindTarget();
 			ArkeSendZeusSetPoint(&Z.txSetPoint,false,&sp);
@@ -60,7 +63,7 @@ void ProcessIncoming() {
 
 		if (!rtr && dlc == sizeof(ArkeZeusSetPoint) )  {
 			ClimateControllerSetTarget(&Z.inBuffer.sp);
-
+			return;
 		}
 	}
 
@@ -74,19 +77,23 @@ void ProcessIncoming() {
 
 		if (!rtr && dlc == sizeof(ArkeZeusConfig) ) {
 			ClimateControllerConfigure(&Z.inBuffer.config);
+			return;
 		}
 	}
 
 	if ( a == ARKE_ZEUS_STATUS && rtr && yaacl_txn_status(&Z.status) != YAACL_TXN_PENDING ) {
 		ArkeSendZeusStatus(&Z.status,false,&Z.statusData);
+		return;
 	}
 
 	if ( a == ARKE_ZEUS_CONTROL_POINT && rtr && yaacl_txn_status(&Z.txControlPoint) != YAACL_TXN_PENDING ) {
 		ArkeSendZeusControlPoint(&Z.txControlPoint,false,&Z.cpData);
+		return;
 	}
 
 	if ( a == ARKE_ZEUS_REPORT && rtr && yaacl_txn_status(&Z.report) != YAACL_TXN_PENDING) {
 		ArkeSendZeusReport(&Z.report,false,GetSensorData());
+		return;
 	}
 
 }
@@ -95,34 +102,43 @@ void ProcessIncoming() {
 int main() {
 
 	InitLEDs();
+	yaail_init(YAAIL_25);
 	InitSensors();
 	InitHeaters();
 	InitFanControl();
-	InitClimateController();
 	InitZeus();
+	// needs Communication on
+	InitClimateController();
+
 
 	ArkeSystime_t lastCriticalStatus = ArkeGetSystime();
 
 	while(true) {
 		ProcessLEDs();
 		ProcessIncoming();
-		bool hasNew =ProcessFanControl();
+
+ 		bool hasNew =ProcessFanControl();
+ 		if (hasNew) {
+ 			Z.statusData.Fan[0] = GetFan1RPM();
+ 			Z.statusData.Fan[1] = GetFan2RPM();
+ 		}
+		ArkeSystime_t now = ArkeGetSystime();
+ 		hasNew = ProcessSensors(now);
+		ProcessHeater(now);
 		if (hasNew) {
-			Z.statusData.Fan[0] = GetFan1RPM();
-			Z.statusData.Fan[1] = GetFan2RPM();
+			LEDErrorToggle();
 		}
-		hasNew = ProcessSensors();
 		if ( hasNew && yaacl_txn_status(&Z.report) != YAACL_TXN_PENDING) {
 			ArkeSendZeusReport(&Z.report,false,GetSensorData());
 		}
-		ClimateControllerProcess(hasNew);
+		ClimateControllerProcess(hasNew,now);
 		Z.statusData.Status = ClimateControllerStatus();
-		if ( hasNew ) {
+		if ( hasNew && (Z.statusData.Status & ARKE_ZEUS_ACTIVE) != 0) {
 			Z.cpData.Humidity = ClimateControllerGetHumidityCommand();
 			Z.cpData.Temperature = ClimateControllerGetTemperatureCommand();
 #ifdef ZEUS_DEBUG_CONTROL
 			if(yaacl_txn_status(&Z.txControlPoint) != YAACL_TXN_PENDING ) {
-				ArkeSendZeusStatus(&Z.status,false,&Z.statusData);
+				ArkeSendZeusControlPoint(&Z.txControlPoint,false,&Z.cpData);
 			}
 #endif
 		}
@@ -135,9 +151,9 @@ int main() {
 			continue;
 		}
 
-		ArkeSystime_t now = ArkeGetSystime();
 		if ( (now - lastCriticalStatus) >= 1000  && yaacl_txn_status(&Z.status) != YAACL_TXN_PENDING ) {
 			ArkeSendZeusStatus(&Z.status,false,&Z.statusData);
+			lastCriticalStatus = now;
 		}
 
 	}

@@ -18,11 +18,11 @@ typedef enum {
 	NB_SENSOR_STATES
 } SensorState_e;
 
-typedef SensorState_e (*StateFunction)( bool *);
+typedef SensorState_e (*StateFunction)( bool *, ArkeSystime_t now);
 
-SensorState_e SensorProcessIdle(bool*);
-SensorState_e SensorProcessWaitForConversion(bool*);
-SensorState_e SensorProcessWaitForResult(bool*);
+SensorState_e SensorProcessIdle(bool*,ArkeSystime_t now);
+SensorState_e SensorProcessWaitForConversion(bool*,ArkeSystime_t now);
+SensorState_e SensorProcessWaitForResult(bool*,ArkeSystime_t now);
 
 StateFunction stateFunctions[NB_SENSOR_STATES] = {
 	&SensorProcessIdle,
@@ -60,9 +60,9 @@ void InitSensors() {
 
 
 
-bool ProcessSensors() {
+bool ProcessSensors(ArkeSystime_t now) {
 	bool toReturn;
-	S.state = stateFunctions[S.state](&toReturn);
+	S.state = stateFunctions[S.state](&toReturn,now);
 	return toReturn;
 }
 
@@ -70,9 +70,8 @@ const ArkeZeusReport * GetSensorData() {
 	return &S.report;
 }
 
-SensorState_e SensorProcessIdle(bool* ret) {
+SensorState_e SensorProcessIdle(bool* ret,ArkeSystime_t now) {
 	*ret = false;
-	ArkeSystime_t now = ArkeGetSystime();
 	if ( (now-S.last) < SENSOR_LOOP_PERIOD_MS ) {
 		return SENSOR_IDLE;
 	}
@@ -89,9 +88,9 @@ SensorState_e SensorProcessIdle(bool* ret) {
 	yaail_write(&S.hih6130,HIH6130_I2C_ADDRESS,0,0);
 	return SENSOR_WAIT_FOR_CONVERSION;
 }
-SensorState_e SensorProcessWaitForConversion(bool* ret) {
+
+SensorState_e SensorProcessWaitForConversion(bool* ret,ArkeSystime_t now) {
 	*ret = false;
-	ArkeSystime_t now = ArkeGetSystime();
 	for ( uint8_t i = 0; i < 3 ; ++i ) {
 		yaail_txn_status_e s = yaail_txn_status(&S.tmp1075[i]);
 		if ( yaail_txn_status_has_error(s) && S.tries[i] < TMP1075_MAX_TRIALS ) {
@@ -114,7 +113,7 @@ SensorState_e SensorProcessWaitForConversion(bool* ret) {
 	return SENSOR_WAIT_FOR_RESULT;
 }
 
-SensorState_e SensorProcessWaitForResult(bool* ret) {
+SensorState_e SensorProcessWaitForResult(bool* ret,ArkeSystime_t now) {
 	*ret = false;
 	yaail_txn_status_e s = yaail_txn_status(&S.hih6130);
 	if( s == YAAIL_PENDING || s == YAAIL_SCHEDULED) {

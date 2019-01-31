@@ -4,11 +4,12 @@
 
 #include <arke.h>
 
+#include <arke-avr/Systime.h>
 
 
 void InitSensors();
 
 //true if there is new data received.
-bool ProcessSensors();
+bool ProcessSensors(ArkeSystime_t now);
 
 const ArkeZeusReport * GetSensorData();

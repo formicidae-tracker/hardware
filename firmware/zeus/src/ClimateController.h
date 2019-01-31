@@ -3,6 +3,7 @@
 #include <arke.h>
 #include <stdbool.h>
 
+#include <arke-avr/Systime.h>
 
 void InitClimateController();
 
@@ -10,7 +11,7 @@ void ClimateControllerSetTarget(const ArkeZeusSetPoint * sp);
 
 void ClimateControllerConfigure(const ArkeZeusConfig * c);
 
-void ClimateControllerProcess(bool hasNewData);
+void ClimateControllerProcess(bool hasNewData,ArkeSystime_t now);
 
 uint8_t ClimateControllerStatus();
 
