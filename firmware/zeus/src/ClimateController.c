@@ -25,7 +25,7 @@
 #define DEFAULT_TEMPERATURE 6354 // 24°C
 
 
-ArkePDConfig EEMEM EEHumidity = {
+ArkePIDConfig EEMEM EEHumidity = {
 	.ProportionalMult = 3,
 	.DerivativeMult = 15,
 	.IntegralMult = 0,
@@ -33,7 +33,7 @@ ArkePDConfig EEMEM EEHumidity = {
 	.DividerPowerInt = 15,
 };
 
-ArkePDConfig EEMEM EETemperature = {
+ArkePIDConfig EEMEM EETemperature = {
 	.ProportionalMult = 15,
 	.DerivativeMult = 0,
 	.IntegralMult = 0,
@@ -56,11 +56,11 @@ struct ClimateControl_t CC;
 
 
 void InitClimateController() {
-	ArkePDConfig h,t;
+	ArkePIDConfig h,t;
 	uint8_t sreg = SREG;
 	cli();
-	eeprom_read_block(&h,&EEHumidity,sizeof(ArkePDConfig));
-	eeprom_read_block(&t,&EETemperature,sizeof(ArkePDConfig));
+	eeprom_read_block(&h,&EEHumidity,sizeof(ArkePIDConfig));
+	eeprom_read_block(&t,&EETemperature,sizeof(ArkePIDConfig));
 	SREG = sreg;
 	InitPIDController(&CC.Humidity);
 	PIDSetConfig(&CC.Humidity,&h);
@@ -87,7 +87,7 @@ void ClimateControllerConfigure(const ArkeZeusConfig * c) {
 		PIDSetConfig(&CC.type,&(c->type)); \
 		uint8_t sreg = SREG; \
 		cli(); \
-		eeprom_update_block(&(c->type),&EE ## type,sizeof(ArkePDConfig)); \
+		eeprom_update_block(&(c->type),&EE ## type,sizeof(ArkePIDConfig)); \
 		SREG = sreg; \
 	}while(0)
 	update_config(Humidity);
@@ -116,7 +116,7 @@ void ClimateControllerUpdateUnsafe(const ArkeZeusReport * r,ArkeSystime_t now) {
 		ventPower = 0;
 	} else {
 		if (sp.Power>0) {
-			sp.Power = clamp(clamp(CC.HumidityCommand,0,255)+clamp(-CC.TemperatureCommand,0,255),0,255);
+			sp.Power = max(clamp(CC.HumidityCommand,0,255),clamp(-CC.TemperatureCommand,0,255));
 			ventPower = sp.Power/2;
 		} else {
 			ventPower = min(255,-CC.TemperatureCommand);
@@ -133,6 +133,18 @@ void ClimateControllerUpdateUnsafe(const ArkeZeusReport * r,ArkeSystime_t now) {
 		ArkeSendCelaenoSetPoint(&(CC.CelaenoCommand),false,&sp);
 	}
 
+	if(PIDIntegralOverflow(&CC.Humidity)) {
+		CC.Status |= ARKE_ZEUS_HUMIDITY_UNREACHABLE;
+	} else {
+		CC.Status &= ~(ARKE_ZEUS_HUMIDITY_UNREACHABLE);
+	}
+
+	if (PIDIntegralOverflow(&CC.Temperature)) {
+		CC.Status |= ARKE_ZEUS_TEMPERATURE_UNREACHABLE;
+	} else {
+		CC.Status &= ~(ARKE_ZEUS_TEMPERATURE_UNREACHABLE);
+	}
+
 }
 
 void ClimateControllerProcess(bool hasNewData,ArkeSystime_t now) {
@@ -144,6 +156,7 @@ void ClimateControllerProcess(bool hasNewData,ArkeSystime_t now) {
 		CC.Status &= ~ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD;
 		return;
 	}
+
 
 
 	if ( (now - CC.LastUpdate ) >= WATCHDOG_MS ) {

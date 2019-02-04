@@ -15,8 +15,15 @@ void PIDSetTarget(PIDController *c,uint16_t target) {
 	c->target = target;
 }
 
-void PIDSetConfig(PIDController *c,const ArkePDConfig * config) {
-	memcpy(&(c->config),config,sizeof(ArkePDConfig));
+void PIDSetConfig(PIDController *c,const ArkePIDConfig * config) {
+	memcpy(&(c->config),config,sizeof(ArkePIDConfig));
+	if (c->config.IntegralMult == 0) {
+		c->integralOverflowThreshold = INT32_MAX;
+	} else {
+		c->integralOverflowThreshold = (255 << c->config.DividerPowerInt) / c->config.IntegralMult;
+		c->integralOverflowThreshold *= 105;
+		c->integralOverflowThreshold /= 100;
+	}
 }
 
 int16_t PIDCompute(PIDController * c, uint16_t current , ArkeSystime_t ellapsed) {
@@ -37,10 +44,10 @@ int16_t PIDCompute(PIDController * c, uint16_t current , ArkeSystime_t ellapsed)
 	int32_t derror;
 	int32_t toAdd = error * ellapsed;
 	toAdd /= 1000;
-	if ( (c->integralError > 0) && (toAdd > (INT32_MAX - c->integralError) ) ) {
-		c->integralError = INT32_MAX;
-	} else if ( (c->integralError < 0) && (toAdd < (INT32_MIN - c->integralError) ) ) {
-		c->integralError = INT32_MIN;
+	if ( (c->integralError > 0) && (toAdd > (c->integralOverflowThreshold - c->integralError) ) ) {
+		c->integralError = c->integralOverflowThreshold;
+	} else if ( (c->integralError < 0) && (toAdd < (-c->integralOverflowThreshold - c->integralError) ) ) {
+		c->integralError = -c->integralOverflowThreshold;
 	} else {
 		c->integralError += toAdd;
 	}
@@ -58,6 +65,7 @@ int16_t PIDCompute(PIDController * c, uint16_t current , ArkeSystime_t ellapsed)
 	res	+= (c->config.DerivativeMult * derror) >> c->config.DividerPower;
 	res += (c->config.IntegralMult * c->integralError ) >> (c->config.DividerPowerInt);
 
+
 	c->lastError = error;
 	return res;
 }
@@ -67,6 +75,15 @@ uint16_t PIDGetTarget(PIDController *c) {
 	return c->target;
 }
 
-const ArkePDConfig* PIDGetConfig(PIDController *c) {
+const ArkePIDConfig* PIDGetConfig(PIDController *c) {
 	return &(c->config);
+}
+
+#define abs(a) ((a)< 0 ? -(a):(a))
+
+bool PIDIntegralOverflow(PIDController *c) {
+	if (c->config.IntegralMult == 0) {
+		return false;
+	}
+	return abs(c->integralError) >= c->integralOverflowThreshold;
 }

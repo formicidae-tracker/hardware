@@ -145,7 +145,7 @@ int main() {
 
 #define fan_has_no_error(fanRPM) ( (fanRPM & (ARKE_FAN_AGING_ALERT | ARKE_FAN_STALL_ALERT)) == 0x00)
 
-		if ( (Z.statusData.Status & ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD) == 0
+		if ( (Z.statusData.Status & (ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD|ARKE_ZEUS_TEMPERATURE_UNREACHABLE|ARKE_ZEUS_HUMIDITY_UNREACHABLE)) == 0
 		     && fan_has_no_error(GetFan1RPM())
 		     && fan_has_no_error(GetFan2RPM())) {
 			continue;
