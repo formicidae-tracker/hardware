@@ -2,7 +2,7 @@
 
 #include <inttypes.h>
 
-#include <arke-avr/Systime.h>
+#include <arke-avr/systime.h>
 
 void InitHeaters();
 void HeaterSetPower1(uint8_t power);

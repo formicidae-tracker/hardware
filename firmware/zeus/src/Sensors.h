@@ -4,7 +4,7 @@
 
 #include <arke.h>
 
-#include <arke-avr/Systime.h>
+#include <arke-avr/systime.h>
 
 
 void InitSensors();
