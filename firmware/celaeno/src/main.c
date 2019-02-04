@@ -8,11 +8,13 @@
 
 
 ArkeCelaenoConfig EEMEM eepromConfig = {
-	.RampUpTimeMS = 500,
+	.RampUpTimeMS = 250,
 	.RampDownTimeMS = 3000,
-	.MinOnTimeMS = 500,
+	.MinOnTimeMS = 1500,
 	.DebounceTimeMS = 1000
 };
+
+#define CLEANING_POWER 0x40
 
 #define CRITICAL_REPORT_PERIOD 500
 
@@ -96,6 +98,7 @@ struct Celaeno_t {
 	ArkeSystime_t lastCriticalReport,last;
 	enum CelaenoState_t state;
 	bool lockOn;
+	bool lockOff;
 };
 
 struct Celaeno_t C;
@@ -134,7 +137,7 @@ void InitCelaeno() {
 	C.lastCriticalReport = 0;
 	C.last = 0;
 	C.state = CELAENO_OFF;
-
+	C.lockOff = false;
 	//sets
 	yaail_init(YAAIL_25);
 	InitFanControl();
@@ -257,7 +260,11 @@ void ProcessCelaeno() {
 
 	//now process the state machine
 	if (C.state < NB_CELAENO_STATES ) {
-		C.state = stateFunctions[C.state](now);
+		enum CelaenoState_t newState = stateFunctions[C.state](now);
+		if ( newState != C.state ) {
+			C.last = now;
+			C.state = newState;
+		}
 	}
 
 	if ( !shouldReport || yaacl_txn_status(&C.txStatus) != YAACL_TXN_UNSUBMITTED ) {
@@ -276,11 +283,17 @@ void ProcessCelaeno() {
 
 
 enum CelaenoState_t CelaenoOffState(ArkeSystime_t now) {
+	if ( C.lockOff == true ) {
+		if ( ( now - C.last ) >= 2*C.config.MinOnTimeMS ) {
+			C.lockOff = false;
+		} else {
+			return CELAENO_OFF;
+		}
+	}
 	if ( water_level_critical_error() ) {
 		return CELAENO_OFF;
 	}
 	if ( C.targetSetPoint.Power > 0 ) {
-		C.last = now;
 		C.setPoint = C.targetSetPoint;
 		SetFan1Power(C.setPoint.Power);
 		SetFan2Power(C.setPoint.Power);
@@ -312,10 +325,9 @@ enum CelaenoState_t CelaenoOnState(ArkeSystime_t now) {
 	if ( water_level_critical_error()
 	     || C.targetSetPoint.Power == 0 ) {
 		relay_off();
-		C.last = now;
 		LEDReadyPulse();
-		SetFan1Power(255);
-		SetFan2Power(255);
+		SetFan1Power(CLEANING_POWER);
+		SetFan2Power(CLEANING_POWER);
 		return CELAENO_RAMPDOWN;
 	}
 
@@ -334,6 +346,7 @@ enum CelaenoState_t CelaenoRampUpState(ArkeSystime_t now) {
 		SetFan1Power(0);
 		SetFan2Power(0);
 		C.setPoint.Power = 0;
+		C.lockOff = true;
 		return CELAENO_OFF;
 	}
 
@@ -341,7 +354,6 @@ enum CelaenoState_t CelaenoRampUpState(ArkeSystime_t now) {
 		relay_on();
 		LEDReadyOn();
 		C.lockOn = true;
-		C.last = now;
 		return CELAENO_ON;
 	}
 
@@ -352,8 +364,10 @@ enum CelaenoState_t CelaenoRampDownState(ArkeSystime_t now) {
 	if ( (now - C.last) < C.config.RampDownTimeMS ) {
 		return CELAENO_RAMPDOWN;
 	}
+
 	C.setPoint.Power = 0;
 	SetFan1Power(0);
 	SetFan2Power(0);
+	C.lockOff = true;
 	return CELAENO_OFF;
 }
