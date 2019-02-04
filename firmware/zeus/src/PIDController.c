@@ -4,6 +4,9 @@
 
 #include "string.h"
 
+#define max(a,b) ( (a) >= (b) ? (a) : (b) )
+#define min(a,b) ( (a) >= (b) ? (b) : (a) )
+#define clamp(value,low,high) max(min(value,high),low)
 
 void InitPIDController(PIDController * c) {
 	c->lastError = UNSET_DERROR_VALUE;
@@ -44,13 +47,14 @@ int16_t PIDCompute(PIDController * c, uint16_t current , ArkeSystime_t ellapsed)
 	int32_t derror;
 	int32_t toAdd = error * ellapsed;
 	toAdd /= 1000;
-	if ( (c->integralError > 0) && (toAdd > (c->integralOverflowThreshold - c->integralError) ) ) {
-		c->integralError = c->integralOverflowThreshold;
-	} else if ( (c->integralError < 0) && (toAdd < (-c->integralOverflowThreshold - c->integralError) ) ) {
-		c->integralError = -c->integralOverflowThreshold;
-	} else {
-		c->integralError += toAdd;
-	}
+	/* if ( (c->integralError > 0) && (toAdd > (c->integralOverflowThreshold - c->integralError) ) ) { */
+	/* 	c->integralError = c->integralOverflowThreshold; */
+	/* } else if ( (c->integralError < 0) && (toAdd < (-1*c->integralOverflowThreshold - c->integralError) ) ) { */
+	/* 	c->integralError = -1*c->integralOverflowThreshold; */
+	/* } else { */
+	/* 	c->integralError += toAdd; */
+	/* } */
+	c->integralError = clamp(c->integralError+toAdd,-c->integralOverflowThreshold,c->integralOverflowThreshold);
 
 	if (c->lastError != UNSET_DERROR_VALUE) {
 		 derror = (error - c->lastError);

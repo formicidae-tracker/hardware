@@ -157,8 +157,6 @@ void ClimateControllerProcess(bool hasNewData,ArkeSystime_t now) {
 		return;
 	}
 
-
-
 	if ( (now - CC.LastUpdate ) >= WATCHDOG_MS ) {
 		CC.Status |= ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD;
 	}
