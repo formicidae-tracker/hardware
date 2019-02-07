@@ -12,11 +12,7 @@
 #include "LEDs.h"
 #include "Sensors.h"
 #include "PIDController.h"
-
-#define abs(a) ( ((a) < 0) ? -(a) : (a) )
-#define max(a,b) ((a) > (b) ? (a) : (b) )
-#define min(a,b) ((a) < (b) ? (a) : (b) )
-#define clamp(value,low,high) max(min(value,high),low)
+#include "math.h"
 
 
 
@@ -117,7 +113,10 @@ void ClimateControllerUpdateUnsafe(const ArkeZeusReport * r,ArkeSystime_t now) {
 	} else {
 		if (sp.Power>0) {
 			sp.Power = max(clamp(CC.HumidityCommand,0,255),clamp(-CC.TemperatureCommand,0,255));
-			ventPower = sp.Power/2;
+			ventPower = sp.Power/4;
+			if (ventPower < 0x30 ) {
+				ventPower = 0
+			}
 		} else {
 			ventPower = min(255,-CC.TemperatureCommand);
 		}
@@ -133,13 +132,13 @@ void ClimateControllerUpdateUnsafe(const ArkeZeusReport * r,ArkeSystime_t now) {
 		ArkeSendCelaenoSetPoint(&(CC.CelaenoCommand),false,&sp);
 	}
 
-	if(PIDIntegralOverflow(&CC.Humidity)) {
+	if(PIDIntegralOverflow(&CC.Humidity) == true) {
 		CC.Status |= ARKE_ZEUS_HUMIDITY_UNREACHABLE;
 	} else {
 		CC.Status &= ~(ARKE_ZEUS_HUMIDITY_UNREACHABLE);
 	}
 
-	if (PIDIntegralOverflow(&CC.Temperature)) {
+	if (PIDIntegralOverflow(&CC.Temperature) == true) {
 		CC.Status |= ARKE_ZEUS_TEMPERATURE_UNREACHABLE;
 	} else {
 		CC.Status &= ~(ARKE_ZEUS_TEMPERATURE_UNREACHABLE);

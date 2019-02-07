@@ -14,7 +14,7 @@ struct PIDController_t {
 	uint16_t target;
 	uint16_t lastMeasure[4];
 	uint8_t idx;
-	uint32_t integralOverflowThreshold;
+	int32_t integralOverflowThreshold;
 };
 
 
