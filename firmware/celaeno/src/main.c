@@ -303,6 +303,12 @@ enum CelaenoState_t CelaenoOffState(ArkeSystime_t now) {
 }
 
 enum CelaenoState_t CelaenoOnState(ArkeSystime_t now) {
+	if (C.targetSetPoint.Power != C.setPoint.Power && C.targetSetPoint.Power != 0) {
+		C.setPoint.Power = C.targetSetPoint.Power;
+		SetFan1Power(C.setPoint.Power);
+		SetFan2Power(C.setPoint.Power);
+	}
+
 	if ( C.lockOn ) {
 		//to protect the relay, we avoid to switch it on back and
 		//forth unless a minimum on time is met.
@@ -331,16 +337,16 @@ enum CelaenoState_t CelaenoOnState(ArkeSystime_t now) {
 		return CELAENO_RAMPDOWN;
 	}
 
-	if (C.targetSetPoint.Power != C.setPoint.Power ) {
+	return CELAENO_ON;
+}
+
+enum CelaenoState_t CelaenoRampUpState(ArkeSystime_t now) {
+	if (C.targetSetPoint.Power != C.setPoint.Power && C.targetSetPoint.Power != 0) {
 		C.setPoint.Power = C.targetSetPoint.Power;
 		SetFan1Power(C.setPoint.Power);
 		SetFan2Power(C.setPoint.Power);
 	}
 
-	return CELAENO_ON;
-}
-
-enum CelaenoState_t CelaenoRampUpState(ArkeSystime_t now) {
 	if ( water_level_critical_error()
 	     || C.targetSetPoint.Power == 0 ) {
 		SetFan1Power(0);
