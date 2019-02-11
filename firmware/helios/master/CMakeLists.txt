@@ -2,14 +2,14 @@ set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/../../deps/cmake-avr/generi
 
 
 set(AVR_UPLOADTOOL avrdude)
-set(AVR_PROGRAMMER arduinoisp)
+set(AVR_PROGRAMMER avrispmkii)
 set(AVR_UPLOADTOOL_PORT usb)
 set(AVR_UPLOADTOOL_OPTIONS -C ${CMAKE_CURRENT_SOURCE_DIR}/../../avrdude.conf)
 
 set(AVR_MCU atmega16m1)
 set(AVR_L_FUSE 0xff)
 set(AVR_H_FUSE 0xd9)
-set(AVR_E_FUSE 0x01)
+set(AVR_E_FUSE 0xc1)
 set(MCU_SPEED "16000000L")
 
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #define MESSAGE_LENGTH 4
-#define MESSAGE_START 0xff
+#define MESSAGE_START 0xaa
 
 
 #define VIS_POS 1

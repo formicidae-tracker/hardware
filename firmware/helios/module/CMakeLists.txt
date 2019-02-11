@@ -1,9 +1,9 @@
 set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/../../deps/cmake-avr/generic-gcc-avr.cmake)
 
 set(AVR_UPLOADTOOL avrdude)
-set(AVR_PROGRAMMER arduinoisp)
+set(AVR_PROGRAMMER avrispmkii)
 set(AVR_UPLOADTOOL_PORT usb)
-set(AVR_UPLOADTOOL_OPTIONS -C ${CMAKE_CURRENT_SOURCE_DIR}/../../avrdude.conf)
+set(AVR_UPLOADTOOL_OPTIONS -C ${CMAKE_CURRENT_SOURCE_DIR}/../../avrdude.conf -B 5)
 
 set(AVR_MCU atmega328pb)
 set(AVR_L_FUSE 0xff)

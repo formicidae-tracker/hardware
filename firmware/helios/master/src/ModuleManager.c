@@ -19,11 +19,11 @@ void InitModuleManager() {
 	// enable UART in TX only mode
 	LINCR = _BV(LENA) |  _BV(LCMD2) | _BV(LCMD0);
 
-	// set baudrate to 231884 within 0.64% of 230400
+	// set baudrate to 250000
 	// BAUD = FIO / ( LBT * (LDIV + 1) )
-	// LBT = 23 LDIV = 2
-	LINBTR = _BV(LDISR) | 23;
-	LINBRR = 2;
+	// LBT = 32 LDIV = 1
+	LINBTR = _BV(LDISR) | 32;
+	LINBRR = 1;
 
 
 }

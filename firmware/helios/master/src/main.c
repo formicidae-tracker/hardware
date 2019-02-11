@@ -7,7 +7,7 @@
 
 #include <string.h>
 
-#define DEAD_TIME 10
+#define DEAD_TIME (int16_t)10
 
 #define min(a,b) ( (a) < (b) ? (a) : (b) )
 #define max(a,b) ( (a) > (b) ? (a) : (b) )
@@ -23,7 +23,7 @@ struct HeliosMaster_t {
 
 	bool pulseMode;
 	int16_t pulseValue;
-	int8_t pulseIncrement;
+	int16_t pulseIncrement;
 	ArkeSystime_t lastPulse;
 };
 struct HeliosMaster_t HM;
@@ -62,6 +62,8 @@ void ProcessIncoming() {
 
 int main() {
 	HM.pulseMode = false;
+	HM.pulseValue = 0;
+	HM.pulseIncrement = 1;
 	InitModuleManager();
 
 	HM.inBuffer.setPoint.Visible = 0;
@@ -83,13 +85,13 @@ int main() {
 			continue;
 		}
 		HM.lastPulse = now;
-		if (HM.pulseValue >= 255 + DEAD_TIME) {
+		if (HM.pulseValue >= (int16_t)255 + DEAD_TIME) {
 			HM.pulseIncrement = -1;
 		} else if (HM.pulseValue <= -DEAD_TIME) {
 			HM.pulseIncrement = +1;
 		}
 		HM.pulseValue += HM.pulseIncrement;
-		uint8_t toSend = clamp(HM.pulseValue,0,255);
+		uint8_t toSend = clamp(HM.pulseValue,(int16_t)0,(int16_t)255);
 		SendToModule(toSend,toSend);
 
 	}
