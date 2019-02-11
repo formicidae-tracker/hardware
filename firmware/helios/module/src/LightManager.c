@@ -36,8 +36,8 @@ volatile LightManager_t LM;
 }while(0)
 
 
-#define IR_SET() PORTD |= _BV(5);
-#define IR_CLEAR() PORTD &= ~(_BV(5));
+#define IR_SET() PORTD |= _BV(5) | _BV(7)
+#define IR_CLEAR() PORTD &= ~(_BV(5) | _BV(7));
 
 #define TIMER3_START() do{	  \
 		TCCR3B =  _BV(CS32); \
@@ -65,7 +65,7 @@ void InitLightManager() {
 
 	//sets the right pin as output;
 	DDRB |= _BV(1) | _BV(2); //Sets UV and Visible as output
-	DDRD |= _BV(5); //sets IR as output
+	DDRD |= _BV(5) | _BV(7); //sets IR as output
 
 
 	LM.setters[UV] = &LMSetUVBrightness;
