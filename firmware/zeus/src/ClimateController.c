@@ -65,6 +65,10 @@ void InitClimateController() {
 	PIDSetConfig(&CC.Temperature,&t);
 	PIDSetTarget(&CC.Temperature,DEFAULT_TEMPERATURE);
 
+
+	CC.Temperature.negativeMultiplier = 1;
+	CC.Temperature.negativeDividerPower2 = 2;
+
 	CC.Wind = 0;
 	yaacl_init_txn(&(CC.CelaenoCommand));
 	CC.LastUpdate = ArkeGetSystime();
@@ -111,14 +115,7 @@ void ClimateControllerUpdateUnsafe(const ArkeZeusReport * r,ArkeSystime_t now) {
 		windPower = max(0x40,CC.Wind);
 		ventPower = 0;
 	} else {
-		ventPower = clamp(-CC.TemperatureCommand/4,0,255) ;
-		if (sp.Power>0) {
-			sp.Power = max(clamp(CC.HumidityCommand,0,255),ventPower);
-			ventPower = sp.Power/4;
-			if (ventPower < 0x30 ) {
-				ventPower = 0;
-			}
-		}
+		ventPower = clamp(-CC.TemperatureCommand,0,255) ;
 		heatPower = 0;
 		windPower = CC.Wind;
 	}

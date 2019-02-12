@@ -10,6 +10,10 @@ void InitPIDController(PIDController * c) {
 	c->lastError = UNSET_DERROR_VALUE;
 	c->idx = 0;
 	c->integralError = 0;
+	c->integralOverflowMax = INT32_MAX;
+	c->integralOverflowMin = INT32_MIN;
+	c->negativeMultiplier = 1;
+	c->negativeDividerPower2 = 0;
 }
 
 void PIDSetTarget(PIDController *c,uint16_t target) {
@@ -19,11 +23,14 @@ void PIDSetTarget(PIDController *c,uint16_t target) {
 void PIDSetConfig(PIDController *c,const ArkePIDConfig * config) {
 	memcpy(&(c->config),config,sizeof(ArkePIDConfig));
 	if (c->config.IntegralMult == 0) {
-		c->integralOverflowThreshold = INT32_MAX;
+		c->integralOverflowMax = INT32_MAX;
+		c->integralOverflowMin = INT32_MIN;
 	} else {
-		c->integralOverflowThreshold = (((int32_t)255) << c->config.DividerPowerInt) / c->config.IntegralMult;
-		c->integralOverflowThreshold *= 120;
-		c->integralOverflowThreshold /= 100;
+		c->integralOverflowMax = (((int32_t)255) << c->config.DividerPowerInt) / c->config.IntegralMult;
+		c->integralOverflowMax *= 120;
+		c->integralOverflowMax /= 100;
+		c->integralOverflowMin = -1 * c->integralOverflowMin * ( 1 << c->negativeDividerPower2);
+		c->integralOverflowMin /= c->negativeMultiplier;
 	}
 }
 
@@ -45,10 +52,10 @@ int16_t PIDCompute(PIDController * c, uint16_t current , ArkeSystime_t ellapsed)
 	int32_t derror;
 	int32_t toAdd = error * ellapsed;
 	toAdd /= 1000;
-	if ( (c->integralError > 0) && (toAdd > (c->integralOverflowThreshold - c->integralError) ) ) {
-		c->integralError = c->integralOverflowThreshold;
-	} else if ( (c->integralError < 0) && (toAdd < (-1*c->integralOverflowThreshold - c->integralError) ) ) {
-		c->integralError = -1*c->integralOverflowThreshold;
+	if ( (c->integralError > 0) && (toAdd > (c->integralOverflowMax - c->integralError) ) ) {
+		c->integralError = c->integralOverflowMax;
+	} else if ( (c->integralError < 0) && (toAdd < (-1*c->integralOverflowMin - c->integralError) ) ) {
+		c->integralError = c->integralOverflowMin;
 	} else {
 		c->integralError += toAdd;
 	}
@@ -62,9 +69,12 @@ int16_t PIDCompute(PIDController * c, uint16_t current , ArkeSystime_t ellapsed)
 	derror *= 1000;
 	derror /= ellapsed;
 
-	int32_t res = (c->config.ProportionalMult * error) >> c->config.DividerPower;
-	res	+= (c->config.DerivativeMult * derror) >> c->config.DividerPower;
-	res += (c->config.IntegralMult * c->integralError ) >> (c->config.DividerPowerInt);
+	int32_t res = (c->config.ProportionalMult * error) / ( 1 << c->config.DividerPower);
+	res	+= (c->config.DerivativeMult * derror) / ( 1 << c->config.DividerPower);
+	int32_t integralCorrection = (c->config.IntegralMult * c->integralError ) / ( 1 << c->config.DividerPowerInt);
+	if (integralCorrection < 0 ) {
+		integralCorrection = (integralCorrection * c->negativeMultiplier) / ( 1 << c->negativeDividerPower2);
+	}
 
 
 	c->lastError = error;
@@ -84,5 +94,5 @@ bool PIDIntegralOverflow(PIDController *c) {
 	if (c->config.IntegralMult == 0) {
 		return false;
 	}
-	return abs(c->integralError) >= c->integralOverflowThreshold;
+	return (c->integralError >= c->integralOverflowMax) || (c->integralError <= c->integralOverflowMin);
 }
