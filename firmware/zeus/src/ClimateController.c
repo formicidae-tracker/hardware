@@ -58,16 +58,12 @@ void InitClimateController() {
 	eeprom_read_block(&h,&EEHumidity,sizeof(ArkePIDConfig));
 	eeprom_read_block(&t,&EETemperature,sizeof(ArkePIDConfig));
 	SREG = sreg;
-	InitPIDController(&CC.Humidity);
+	InitPIDController(&CC.Humidity,1,0);
 	PIDSetConfig(&CC.Humidity,&h);
 	PIDSetTarget(&CC.Humidity,DEFAULT_HUMIDITY);
-	InitPIDController(&CC.Temperature);
+	InitPIDController(&CC.Temperature,1,0);
 	PIDSetConfig(&CC.Temperature,&t);
 	PIDSetTarget(&CC.Temperature,DEFAULT_TEMPERATURE);
-
-
-	CC.Temperature.negativeMultiplier = 1;
-	CC.Temperature.negativeDividerPower2 = 2;
 
 	CC.Wind = 0;
 	yaacl_init_txn(&(CC.CelaenoCommand));
