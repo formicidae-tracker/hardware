@@ -151,7 +151,7 @@ int main() {
 			continue;
 		}
 
-		if ( (now - lastCriticalStatus) >= 1000  && yaacl_txn_status(&Z.status) != YAACL_TXN_PENDING ) {
+		if ( (now - lastCriticalStatus) >= 500  && yaacl_txn_status(&Z.status) != YAACL_TXN_PENDING ) {
 			ArkeSendZeusStatus(&Z.status,false,&Z.statusData);
 			lastCriticalStatus = now;
 		}

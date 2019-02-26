@@ -6,7 +6,7 @@
 #include "math.h"
 
 
-void InitPIDController(PIDController * c,uint8_t negativeMult,uint8_t negativeDivPower2) {
+void InitPIDController(PIDController * c,uint8_t negativeMult,uint8_t negativeDivPower2,int16_t maxCommand) {
 	c->lastError = UNSET_DERROR_VALUE;
 	c->idx = 0;
 	c->integralError = 0;
@@ -14,6 +14,7 @@ void InitPIDController(PIDController * c,uint8_t negativeMult,uint8_t negativeDi
 	c->integralOverflowMin = INT32_MIN;
 	c->negativeMultiplier = negativeMult;
 	c->negativeDividerPower2 = negativeDivPower2;
+	c->maxCommand = maxCommand;
 }
 
 void PIDSetTarget(PIDController *c,uint16_t target) {
@@ -26,7 +27,7 @@ void PIDSetConfig(PIDController *c,const ArkePIDConfig * config) {
 		c->integralOverflowMax = INT32_MAX;
 		c->integralOverflowMin = INT32_MIN;
 	} else {
-		c->integralOverflowMax = (((int32_t)255) << c->config.DividerPowerInt) / c->config.IntegralMult;
+		c->integralOverflowMax = ((c->maxCommand) << c->config.DividerPowerInt) / c->config.IntegralMult;
 		c->integralOverflowMax *= 120;
 		c->integralOverflowMax /= 100;
 		c->integralOverflowMin = (-c->integralOverflowMax) * ( (int32_t)1 << c->negativeDividerPower2);

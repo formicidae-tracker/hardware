@@ -58,10 +58,10 @@ void InitClimateController() {
 	eeprom_read_block(&h,&EEHumidity,sizeof(ArkePIDConfig));
 	eeprom_read_block(&t,&EETemperature,sizeof(ArkePIDConfig));
 	SREG = sreg;
-	InitPIDController(&CC.Humidity,1,0);
+	InitPIDController(&CC.Humidity,1,0,255);
 	PIDSetConfig(&CC.Humidity,&h);
 	PIDSetTarget(&CC.Humidity,DEFAULT_HUMIDITY);
-	InitPIDController(&CC.Temperature,1,0);
+	InitPIDController(&CC.Temperature,1,0,510);
 	PIDSetConfig(&CC.Temperature,&t);
 	PIDSetTarget(&CC.Temperature,DEFAULT_TEMPERATURE);
 
@@ -100,26 +100,31 @@ void ClimateControllerUpdateUnsafe(const ArkeZeusReport * r,ArkeSystime_t now) {
 	CC.TemperatureCommand = PIDCompute(&CC.Temperature,r->Temperature1,ellapsed);
 
 
-	uint8_t heatPower;
-	uint8_t ventPower;
+	uint16_t heatPower;
+	uint16_t ventPower;
 	uint8_t windPower;
 	ArkeCelaenoSetPoint sp;
 	sp.Power = clamp(CC.HumidityCommand,0,255);
 
 	if ( CC.TemperatureCommand > 0 ) {
-		heatPower = min(255,CC.TemperatureCommand);
+		heatPower = min(510,CC.TemperatureCommand);
 		windPower = max(0x40,CC.Wind);
 		ventPower = 0;
 	} else {
-		ventPower = clamp(-CC.TemperatureCommand,0,255) ;
+		ventPower = clamp(-CC.TemperatureCommand,0,510) ;
 		heatPower = 0;
 		windPower = CC.Wind;
 	}
 
-	HeaterSetPower1(heatPower);
-	HeaterSetPower2(heatPower);
-	SetFan1Power(ventPower);
-	SetFan2Power(windPower);
+	HeaterSetPower1(heatPower/2);
+	HeaterSetPower2(heatPower/2);
+	SetFan1Power(windPower);
+	SetFan2Power(clamp(ventPower,0,255));
+	if (ventPower > 255) {
+		SetFan4Power(clamp(ventPower-255,0,255));
+	} else {
+		SetFan4Power(0);
+	}
 	if ( yaacl_txn_status(&(CC.CelaenoCommand)) != YAACL_TXN_PENDING ) {
 		ArkeSendCelaenoSetPoint(&(CC.CelaenoCommand),false,&sp);
 	}

@@ -18,14 +18,14 @@ struct PIDController_t {
 	int32_t integralOverflowMin;
 	int8_t negativeMultiplier;
 	int8_t negativeDividerPower2;
-
+	int32_t maxCommand;
 };
 
 
 struct PIDController_t;
 typedef struct PIDController_t PIDController;
 
-void InitPIDController(PIDController * c,uint8_t negativeMult,uint8_t negativeDivPower2);
+void InitPIDController(PIDController * c,uint8_t negativeMult,uint8_t negativeDivPower2,int16_t maxCommand);
 void PIDSetTarget(PIDController *c, uint16_t target);
 uint16_t PIDGetTarget(PIDController *c);
 void PIDSetConfig(PIDController *c, const ArkePIDConfig *config);
