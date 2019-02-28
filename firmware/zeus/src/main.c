@@ -105,7 +105,7 @@ int main() {
 	yaail_init(YAAIL_25);
 	InitSensors();
 	InitHeaters();
-	InitFanControl();
+	InitFanControl(RANGE_1000_RPM,RANGE_2000_RPM,RANGE_2000_RPM,RANGE_2000_RPM);
 	InitZeus();
 	// needs Communication on
 	InitClimateController();

@@ -120,11 +120,12 @@ void ClimateControllerUpdateUnsafe(const ArkeZeusReport * r,ArkeSystime_t now) {
 	HeaterSetPower2(heatPower/2);
 	SetFan1Power(windPower);
 	SetFan2Power(clamp(ventPower,0,255));
-	if (ventPower > 255) {
-		SetFan4Power(clamp(ventPower-255,0,255));
-	} else {
-		SetFan4Power(0);
-	}
+	/* if (ventPower > 255) { */
+	/* 	SetFan4Power(clamp(ventPower-255,0,255)); */
+	/* } else { */
+	/* 	SetFan4Power(0); */
+	/* } */
+	SetFan3Power(127);
 	if ( yaacl_txn_status(&(CC.CelaenoCommand)) != YAACL_TXN_PENDING ) {
 		ArkeSendCelaenoSetPoint(&(CC.CelaenoCommand),false,&sp);
 	}
