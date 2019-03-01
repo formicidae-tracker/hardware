@@ -111,21 +111,20 @@ void ClimateControllerUpdateUnsafe(const ArkeZeusReport * r,ArkeSystime_t now) {
 		windPower = max(0x40,CC.Wind);
 		ventPower = 0;
 	} else {
-		ventPower = clamp(-CC.TemperatureCommand,0,510) ;
 		heatPower = 0;
 		windPower = CC.Wind;
+		ventPower = clamp(-CC.TemperatureCommand,0,510) ;
 	}
 
 	HeaterSetPower1(heatPower/2);
 	HeaterSetPower2(heatPower/2);
 	SetFan1Power(windPower);
 	SetFan2Power(clamp(ventPower,0,255));
-	/* if (ventPower > 255) { */
-	/* 	SetFan4Power(clamp(ventPower-255,0,255)); */
-	/* } else { */
-	/* 	SetFan4Power(0); */
-	/* } */
-	SetFan3Power(127);
+	if (ventPower > 255) {
+		SetFan3Power(clamp(ventPower-255,0,255));
+	} else {
+		SetFan3Power(0);
+	}
 	if ( yaacl_txn_status(&(CC.CelaenoCommand)) != YAACL_TXN_PENDING ) {
 		ArkeSendCelaenoSetPoint(&(CC.CelaenoCommand),false,&sp);
 	}
@@ -146,6 +145,7 @@ void ClimateControllerUpdateUnsafe(const ArkeZeusReport * r,ArkeSystime_t now) {
 
 void ClimateControllerProcess(bool hasNewData,ArkeSystime_t now) {
 	const ArkeZeusReport * r = GetSensorData();
+
 	if ( hasNewData
 	     && ( (CC.Status & ARKE_ZEUS_ACTIVE) != 0 )
 	     && r->Humidity != 0x3fff && r->Temperature1 != 0x3fff ) {

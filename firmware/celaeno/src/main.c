@@ -140,7 +140,7 @@ void InitCelaeno() {
 	C.lockOff = false;
 	//sets
 	yaail_init(YAAIL_25);
-	InitFanControl();
+	InitFanControl(RANGE_1000_RPM,RANGE_1000_RPM);
 	yaacl_init_txn(&C.txStatus);
 	yaacl_init_txn(&C.txSetPoint);
 	yaacl_init_txn(&C.txConfig);

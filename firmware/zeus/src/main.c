@@ -102,10 +102,11 @@ void ProcessIncoming() {
 int main() {
 
 	InitLEDs();
-	yaail_init(YAAIL_25);
+	yaail_init(YAAIL_50);
 	InitSensors();
 	InitHeaters();
 	InitFanControl(RANGE_1000_RPM,RANGE_2000_RPM,RANGE_2000_RPM,RANGE_2000_RPM);
+
 	InitZeus();
 	// needs Communication on
 	InitClimateController();
@@ -117,7 +118,7 @@ int main() {
 		ProcessLEDs();
 		ProcessIncoming();
 
- 		bool hasNew =ProcessFanControl();
+		bool hasNew = ProcessFanControl();
  		if (hasNew) {
  			Z.statusData.Fan[0] = GetFan1RPM();
  			Z.statusData.Fan[1] = GetFan2RPM();

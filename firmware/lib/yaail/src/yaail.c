@@ -6,7 +6,7 @@
 #ifndef YAAIL_FIFO_SIZE
 //USING default FIFO size
 
-#define YAAIL_FIFO_SIZE 32
+#define YAAIL_FIFO_SIZE 64
 #endif
 
 #if YAAIL_FIFO_SIZE > 128

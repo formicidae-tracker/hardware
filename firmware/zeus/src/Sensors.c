@@ -3,7 +3,7 @@
 #include <arke-avr/systime.h>
 #include <yaail.h>
 
-#define SENSOR_LOOP_PERIOD_MS 300
+#define SENSOR_LOOP_PERIOD_MS 500
 #define HIH6130_CONVERSION_TIME_MS 50
 #define TMP1075_MAX_TRIALS 4
 
