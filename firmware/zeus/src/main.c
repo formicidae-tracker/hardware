@@ -115,6 +115,7 @@ int main() {
 	ArkeSystime_t lastCriticalStatus = ArkeGetSystime();
 
 	while(true) {
+		yaail_start_pending_txn();
 		ProcessLEDs();
 		ProcessIncoming();
 

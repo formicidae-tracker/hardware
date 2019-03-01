@@ -89,19 +89,22 @@ yaail_error_e yaail_init(yaail_baudrate_e br) {
 		return YAAIL_UNSUPPORTED_BAUDRATE_ERROR;
 	}
 	FIFO_INIT(il.fifo);
+	TWSR = 1;
 	TWBR = brr[br];
 	sei();
 	return YAAIL_NO_ERROR;
 }
 
-#define yaail_ignite_fifo_unsafe() do {	  \
-		if (il.status == YAAIL_NONE) { \
-			il.status = YAAIL_WAITING_START; \
-			*(FIFO_HEAD(il.fifo).txn) = YAAIL_PENDING; \
-			TWCR = _BV(TWIE) | _BV(TWINT) | _BV(TWSTA) | _BV(TWEN); \
-		} \
-	}while(0)
-
+void yaail_start_pending_txn() {
+	uint8_t sreg = SREG;
+	cli();
+	if (il.status == YAAIL_NONE && il.fifo.size > 0 ) {
+		il.status = YAAIL_WAITING_START;
+		*(FIFO_HEAD(il.fifo).txn) = YAAIL_PENDING;
+		TWCR = _BV(TWIE) | _BV(TWINT) | _BV(TWSTA) | _BV(TWEN);
+	}
+	SREG = sreg;
+}
 
 #define yaail_validate_address(address) do { \
 		uint8_t sreg = SREG; \
@@ -139,7 +142,6 @@ yaail_error_e yaail_read(yaail_txn_t * txn,
 	uint8_t sreg = SREG;
 	cli();
 	FIFO_INCREMENT_TAIL(il.fifo);
-	yaail_ignite_fifo_unsafe();
 	SREG = sreg;
 	return YAAIL_NO_ERROR;
 }
@@ -160,7 +162,6 @@ yaail_error_e yaail_write(yaail_txn_t * txn,
 	uint8_t sreg = SREG;
 	cli();
 	FIFO_INCREMENT_TAIL(il.fifo);
-	yaail_ignite_fifo_unsafe();
 	SREG = sreg;
 	return YAAIL_NO_ERROR;
 }
@@ -185,7 +186,6 @@ yaail_error_e yaail_write_and_read(yaail_txn_t * txn,
 	uint8_t sreg = SREG;
 	cli();
 	FIFO_INCREMENT_TAIL(il.fifo);
-	yaail_ignite_fifo_unsafe();
 	SREG = sreg;
 	return YAAIL_NO_ERROR;
 }
@@ -194,22 +194,25 @@ yaail_error_e yaail_write_and_read(yaail_txn_t * txn,
 		TWCR = _BV(TWIE) | _BV(TWINT) | _BV(TWSTO) | _BV(TWEN); \
 		*(txn->txn) = status_; \
 		FIFO_INCREMENT_HEAD(il.fifo); \
-		if ( FIFO_EMPTY(il.fifo) ) { \
-			il.status = YAAIL_NONE; \
-			return; \
-		} \
-		*(FIFO_HEAD(il.fifo).txn) = YAAIL_PENDING; \
-		il.status = YAAIL_WAITING_START; \
-		TWCR = _BV(TWIE) | _BV(TWINT) | _BV(TWSTA) | _BV(TWEN); \
+		il.status = YAAIL_NONE; \
 	}while(0)
+
+/* if ( FIFO_EMPTY(il.fifo) ) { \ */
+/* 	il.status = YAAIL_NONE; \ */
+/* 	return; \ */
+/* } \ */
+/* 		*(FIFO_HEAD(il.fifo).txn) = YAAIL_PENDING; \ */
+/* 		il.status = YAAIL_WAITING_START; \ */
+/* 		TWCR = _BV(TWIE) | _BV(TWINT) | _BV(TWSTA) | _BV(TWEN); \ */
+
 
 ISR(TWI_vect) {
 	if (FIFO_EMPTY(il.fifo)) {
 		il.status = YAAIL_NONE;
 		TWCR = _BV(TWINT); //clear flag
-
 		return;
 	}
+
 	struct yaail_private_txn_t * txn = &FIFO_HEAD(il.fifo);
 	if ( il.status == YAAIL_WAITING_START ) {
 		if ( (TWSR & 0xf8) != TW_START && (TWSR &0xf8) != TW_REP_START ) {
@@ -287,7 +290,7 @@ ISR(TWI_vect) {
 			       && (TWSR & 0xf8) != TW_MR_DATA_NACK) ||
 			     ( (il.done + 1 <  txn->length)
 			       && (TWSR & 0xf8) != TW_MR_DATA_ACK ) ) {
-				go_to_stop_twi(TWSR);
+				go_to_stop_twi(YAAIL_DATA_ACK_ERROR);
 				return;
 			}
 			txn->data[il.done] = TWDR;
@@ -320,6 +323,7 @@ yaail_txn_status_e yaail_txn_status(const yaail_txn_t * txn) {
 yaail_txn_status_e yaail_spin_until_done(const yaail_txn_t * txn) {
 	yaail_txn_status_e s;
 	do {
+		yaail_start_pending_txn();
 		s = yaail_txn_status(txn);
 	} while(s == YAAIL_SCHEDULED || s == YAAIL_PENDING);
 	return s;

@@ -41,6 +41,9 @@ yaail_error_e yaail_init(yaail_baudrate_e br);
 
 void yaail_init_txn(yaail_txn_t * txn);
 
+
+void yaail_start_pending_txn();
+
 yaail_error_e yaail_read(yaail_txn_t * txn,
                          uint8_t address,
                          uint8_t * buffer,
