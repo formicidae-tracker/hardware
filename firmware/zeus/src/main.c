@@ -123,6 +123,7 @@ int main() {
  		if (hasNew) {
  			Z.statusData.Fan[0] = GetFan1RPM();
  			Z.statusData.Fan[1] = GetFan2RPM();
+			Z.statusData.Fan[2] = GetFan3RPM();
  		}
 		ArkeSystime_t now = ArkeGetSystime();
  		hasNew = ProcessSensors(now);
@@ -149,7 +150,8 @@ int main() {
 
 		if ( (Z.statusData.Status & (ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD|ARKE_ZEUS_TEMPERATURE_UNREACHABLE|ARKE_ZEUS_HUMIDITY_UNREACHABLE)) == 0
 		     && fan_has_no_error(GetFan1RPM())
-		     && fan_has_no_error(GetFan2RPM())) {
+		     && fan_has_no_error(GetFan2RPM())
+		     && fan_has_no_error(GetFan3RPM())) {
 			continue;
 		}
 
