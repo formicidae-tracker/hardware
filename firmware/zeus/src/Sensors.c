@@ -1,6 +1,12 @@
 #include "Sensors.h"
 
+#include <avr/eeprom.h>
+#include <avr/interrupt.h>
+
+#include <string.h>
+
 #include <arke-avr/systime.h>
+
 #include <yaail.h>
 
 #define SENSOR_LOOP_PERIOD_MS 500
@@ -17,6 +23,11 @@ typedef enum {
 	SENSOR_WAIT_FOR_RESULT = 2,
 	NB_SENSOR_STATES
 } SensorState_e;
+
+
+ArkeZeusDeltaTemperature EEMEM EEDeltas  = {
+	.Delta = {0,0,0,0},
+};
 
 typedef SensorState_e (*StateFunction)( bool *, ArkeSystime_t now);
 
@@ -39,6 +50,7 @@ typedef struct {
 	ArkeSystime_t last;
 	SensorState_e state;
 	bool noNewData;
+	ArkeZeusDeltaTemperature Deltas ;
 } Sensors_t;
 
 Sensors_t S;
@@ -56,6 +68,11 @@ void InitSensors() {
 	S.report.Temperature2 = 0x0fff;
 	S.report.Temperature3 = 0x0fff;
 	S.report.Temperature4 = 0x0fff;
+
+	uint8_t sreg = SREG;
+	cli();
+	eeprom_read_block(&(S.Deltas),&EEDeltas,sizeof(ArkeZeusDeltaTemperature));
+	SREG = sreg;
 }
 
 
@@ -113,6 +130,16 @@ SensorState_e SensorProcessWaitForConversion(bool* ret,ArkeSystime_t now) {
 	return SENSOR_WAIT_FOR_RESULT;
 }
 
+#define add_delta(target,delta,low,high) do {	\
+		if ( (delta) > 0 && (target) > ((high) - (delta)) ) { \
+			(target) = (high); \
+		} else if ( (delta) < 0  && (target) < ((low) - (delta)) ) { \
+			(target) = (low) ; \
+		} else  { \
+			(target) += (delta); \
+		} \
+	}while(0)
+
 SensorState_e SensorProcessWaitForResult(bool* ret,ArkeSystime_t now) {
 	*ret = false;
 	yaail_txn_status_e s = yaail_txn_status(&S.hih6130);
@@ -128,6 +155,7 @@ SensorState_e SensorProcessWaitForResult(bool* ret,ArkeSystime_t now) {
 		} else {
 			S.report.Humidity = S.hih6130Data[1] | ( ( (uint16_t)(S.hih6130Data[0] & 0x3f) ) << 8 );
 			S.report.Temperature1 = (S.hih6130Data[3] >> 2) | ( ((uint16_t)S.hih6130Data[2]) << 6);
+			add_delta(S.report.Temperature1,S.Deltas.Delta[0],0,0x3ffe);
 		}
 
 	} else {
@@ -135,7 +163,7 @@ SensorState_e SensorProcessWaitForResult(bool* ret,ArkeSystime_t now) {
 		S.report.Temperature1 = 0x3fff;
 	}
 
-	uint16_t results[3];
+	int16_t results[3];
 
 	for ( uint8_t i = 0; i < 3; ++i ) {
 		if ( yaail_txn_status(&S.tmp1075[i]) != YAAIL_DONE ) {
@@ -143,9 +171,13 @@ SensorState_e SensorProcessWaitForResult(bool* ret,ArkeSystime_t now) {
 			continue;
 		}
 		results[i] = (S.tmp1075Data[2*i+1] >> 4) | ( ((uint16_t)S.tmp1075Data[2*i]) << 4 );
+		if ( (results[i] & 0x0800) != 0 ) {
+			results[i] |= 0xf000;
+		}
 	}
 
 #define update_report(i) do{\
+		add_delta(results[i-2],S.Deltas.Delta[i-1],(int16_t)0xf800,(int16_t)0x07ff); \
 		S.report.Temperature ## i = results[i-2]; \
 	}while(0)
 	update_report(2);
@@ -154,4 +186,17 @@ SensorState_e SensorProcessWaitForResult(bool* ret,ArkeSystime_t now) {
 #undef udpate_report
 
 	return SENSOR_IDLE;
+}
+
+
+void SensorsSetDeltaTemperature(const ArkeZeusDeltaTemperature * deltas) {
+	memcpy(&(S.Deltas),deltas, sizeof(ArkeZeusDeltaTemperature));
+	uint8_t sreg = SREG;
+	cli();
+	eeprom_update_block(&(S.Deltas),&EEDeltas,sizeof(ArkeZeusDeltaTemperature));
+	SREG = sreg;
+}
+
+const ArkeZeusDeltaTemperature * SensorsGetDeltaTemperature() {
+	return &(S.Deltas);
 }

@@ -13,13 +13,14 @@
 implements_ArkeSoftwareReset()
 
 typedef struct {
-	yaacl_txn_t report,txSetPoint,status,txConfig,txControlPoint;
+	yaacl_txn_t report,txSetPoint,status,txConfig,txControlPoint,deltaT;
 	ArkeZeusStatus statusData;
 	ArkeZeusControlPoint cpData;
 	ArkeSystime_t reportPeriod,lastReport;
 	union {
 		ArkeZeusSetPoint sp;
 		ArkeZeusConfig config;
+		ArkeZeusDeltaTemperature delta;
 		uint8_t bytes[8];
 	} inBuffer;
 } Zeus_t;
@@ -38,6 +39,7 @@ void InitZeus() {
 	yaacl_init_txn(&Z.status);
 	yaacl_init_txn(&Z.txConfig);
 	yaacl_init_txn(&Z.txControlPoint);
+	yaacl_init_txn(&Z.deltaT);
 
 
 	SetFan1Power(0);
@@ -94,6 +96,17 @@ void ProcessIncoming() {
 	if ( a == ARKE_ZEUS_REPORT && rtr && yaacl_txn_status(&Z.report) != YAACL_TXN_PENDING) {
 		ArkeSendZeusReport(&Z.report,false,GetSensorData());
 		return;
+	}
+
+	if ( a == ARKE_ZEUS_DELTA_TEMPERATURE ) {
+		if( rtr && yaacl_txn_status(&Z.deltaT) != YAACL_TXN_PENDING ) {
+			ArkeSendZeusDeltaTemperature(&Z.deltaT,false,SensorsGetDeltaTemperature());
+			return;
+		}
+
+		if ( !rtr && dlc == sizeof(ArkeZeusDeltaTemperature) ) {
+			SensorsSetDeltaTemperature(&Z.inBuffer.delta);
+		}
 	}
 
 }
