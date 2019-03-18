@@ -250,7 +250,7 @@ void ProcessCelaeno() {
 	bool shouldReport = false;
 	ArkeSystime_t now = ArkeGetSystime();
 	ProcessSensors(now);
-	if (C.status.waterLevel >= ARKE_CELAENO_WARNING && C.targetSetPoint.Power > 0 ) {
+	if (C.status.waterLevel >= ARKE_CELAENO_WARNING) {
 		shouldReport = true;
 	}
 	ProcessFanControl();
