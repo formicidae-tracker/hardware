@@ -6,8 +6,11 @@
 #include <string.h>
 
 #include <arke-avr/systime.h>
+#include <arke-avr.h>
 
 #include <yaail.h>
+
+
 
 #define SENSOR_LOOP_PERIOD_MS 500
 #define HIH6130_CONVERSION_TIME_MS 50
@@ -150,6 +153,7 @@ SensorState_e SensorProcessWaitForResult(bool* ret,ArkeSystime_t now) {
 	if ( s == YAAIL_DONE) {
 		*ret = true;
 		if ( (S.hih6130Data[0] & 0xc0) != 0x00 ) {
+			ArkeReportError(0x001f);
 			S.report.Humidity = 0x3fff;
 			S.report.Temperature1 = 0x3fff;
 		} else {
@@ -159,6 +163,7 @@ SensorState_e SensorProcessWaitForResult(bool* ret,ArkeSystime_t now) {
 		}
 
 	} else {
+		ArkeReportError(0x0010 | s);
 		S.report.Humidity = 0x3fff;
 		S.report.Temperature1 = 0x3fff;
 	}
