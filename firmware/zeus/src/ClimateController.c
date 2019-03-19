@@ -79,6 +79,8 @@ void ClimateControllerSetTarget(const ArkeZeusSetPoint * sp) {
 	PIDSetTarget(&CC.Temperature, sp->Temperature);
 	CC.Wind = sp->Wind;
 	CC.Status |= ARKE_ZEUS_ACTIVE;
+	CC.Status &= ~ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD;
+	CC.LastUpdate = ArkeGetSystime();
 }
 
 void ClimateControllerConfigure(const ArkeZeusConfig * c) {
