@@ -22,18 +22,18 @@
 
 
 ArkePIDConfig EEMEM EEHumidity = {
-	.ProportionalMult = 3,
-	.DerivativeMult = 15,
-	.IntegralMult = 0,
-	.DividerPower = 6,
+	.ProportionalMult = 10,
+	.DerivativeMult = 20,
+	.IntegralMult = 10,
+	.DividerPower = 5,
 	.DividerPowerInt = 15,
 };
 
 ArkePIDConfig EEMEM EETemperature = {
-	.ProportionalMult = 15,
-	.DerivativeMult = 0,
-	.IntegralMult = 0,
-	.DividerPower = 6,
+	.ProportionalMult = 100,
+	.DerivativeMult = 10,
+	.IntegralMult = 100,
+	.DividerPower = 5,
 	.DividerPowerInt = 15,
 };
 
