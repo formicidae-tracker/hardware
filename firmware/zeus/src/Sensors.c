@@ -82,6 +82,13 @@ void InitSensors() {
 
 bool ProcessSensors(ArkeSystime_t now) {
 	bool toReturn;
+	//fights memory corruptions and bugs
+	if (S.state < 0 || S.state >= NB_SENSOR_STATES) {
+		// Resets the sensor loop
+		S.state = SENSOR_IDLE;
+		S.last = ArkeGetSystime();
+	}
+
 	S.state = stateFunctions[S.state](&toReturn,now);
 	return toReturn;
 }
@@ -204,4 +211,9 @@ void SensorsSetDeltaTemperature(const ArkeZeusDeltaTemperature * deltas) {
 
 const ArkeZeusDeltaTemperature * SensorsGetDeltaTemperature() {
 	return &(S.Deltas);
+}
+
+
+void SensorsReset() {
+	S.state = NB_SENSOR_STATES;
 }

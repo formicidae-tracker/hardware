@@ -17,3 +17,6 @@ const ArkeZeusReport * GetSensorData();
 void SensorsSetDeltaTemperature(const ArkeZeusDeltaTemperature * deltas);
 
 const ArkeZeusDeltaTemperature * SensorsGetDeltaTemperature();
+
+
+void SensorsReset();

@@ -47,6 +47,7 @@ struct ClimateControl_t {
 	ArkeSystime_t LastCommand;
 	int16_t       TemperatureCommand,HumidityCommand;
 	uint8_t       Status;
+	bool          SensorResetGuard;
 };
 
 struct ClimateControl_t CC;
@@ -70,6 +71,7 @@ void InitClimateController() {
 	yaacl_init_txn(&(CC.CelaenoCommand));
 	CC.LastUpdate = ArkeGetSystime();
 	CC.Status = ARKE_ZEUS_IDLE;
+	CC.SensorResetGuard = false;
 }
 
 void ClimateControllerSetTarget(const ArkeZeusSetPoint * sp) {
@@ -155,9 +157,17 @@ void ClimateControllerProcess(bool hasNewData,ArkeSystime_t now) {
 			ClimateControllerUpdateUnsafe(r,now);
 			CC.Status &= ~ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD;
 			CC.LastCommand = now;
+			CC.SensorResetGuard = false;
 			return;
 		}
 	}
+
+	if ( (now - CC.LastUpdate) >= (WATCHDOG_MS - 2000 ) && CC.SensorResetGuard == false) {
+		ArkeReportError(0x0021);
+		SensorsReset();
+		CC.SensorResetGuard = true;
+	}
+
 
 	if ( (now - CC.LastUpdate ) >= WATCHDOG_MS ) {
 		CC.Status |= ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD;
