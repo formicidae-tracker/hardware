@@ -51,7 +51,7 @@ void InitEMC(EMC2302Communication_t *emc, uint8_t address, uint8_t fan1Mult , ui
 	emc->newSetPoint[1] = false;
 
 
-#define NB_CONF 13
+#define NB_CONF 11
 	uint8_t registers_and_data[2*NB_CONF] = {EMC_CONFIG_REG,0x40,
 	                                         EMC_FAN1_SET_POINT_REG,0x00,
 	                                         EMC_FAN2_SET_POINT_REG,0x00,
