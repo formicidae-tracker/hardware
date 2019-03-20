@@ -19,6 +19,8 @@ struct PIDController_t {
 	int8_t negativeMultiplier;
 	int8_t negativeDividerPower2;
 	int32_t maxCommand;
+	bool    derrorMask;
+	bool    proportionalOverflow;
 };
 
 
