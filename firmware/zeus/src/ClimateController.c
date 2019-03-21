@@ -19,7 +19,7 @@
 #define WATCHDOG_MS 5000
 #define DEFAULT_HUMIDITY 4915  //30%
 #define DEFAULT_TEMPERATURE 6354 // 24°C
-
+#define HUMIDITY_UNCONTROLLED_MIN_TIME 60000 // 1m !!! Should not be more than 2^16-1 = 65535
 
 ArkePIDConfig EEMEM EEHumidity = {
 	.ProportionalMult = 10,
@@ -45,6 +45,7 @@ struct ClimateControl_t {
 	yaacl_txn_t   CelaenoCommand;
 	ArkeSystime_t LastUpdate;
 	ArkeSystime_t LastCommand;
+	ArkeSystime_t LastHumidityControlled;
 	int16_t       TemperatureCommand,HumidityCommand;
 	uint8_t       Status;
 	bool          SensorResetGuard;
@@ -78,9 +79,14 @@ void ClimateControllerSetTarget(const ArkeZeusSetPoint * sp) {
 	PIDSetTarget(&CC.Humidity, sp->Humidity);
 	PIDSetTarget(&CC.Temperature, sp->Temperature);
 	CC.Wind = sp->Wind;
+	if ( (CC.Status & ARKE_ZEUS_ACTIVE) != 0) {
+		return;
+	}
+	ArkeSystime_t now = ArkeGetSystime();
+	CC.Status &= ~(ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD|ARKE_ZEUS_TEMPERATURE_UNREACHABLE|ARKE_ZEUS_HUMIDITY_UNREACHABLE);
+	CC.LastHumidityControlled = now;
+	CC.LastUpdate = now;
 	CC.Status |= ARKE_ZEUS_ACTIVE;
-	CC.Status &= ~ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD;
-	CC.LastUpdate = ArkeGetSystime();
 }
 
 void ClimateControllerConfigure(const ArkeZeusConfig * c) {
@@ -134,10 +140,13 @@ void ClimateControllerUpdateUnsafe(const ArkeZeusReport * r,ArkeSystime_t now) {
 		ArkeSendCelaenoSetPoint(&(CC.CelaenoCommand),false,&sp);
 	}
 
-	if(PIDIntegralOverflow(&CC.Humidity) == true) {
-		CC.Status |= ARKE_ZEUS_HUMIDITY_UNREACHABLE;
+	if(PIDIntegralOverflow(&CC.Humidity) == true ) {
+		if ( (now - CC.LastHumidityControlled) >= HUMIDITY_UNCONTROLLED_MIN_TIME) {
+			CC.Status |= ARKE_ZEUS_HUMIDITY_UNREACHABLE;
+		}
 	} else {
 		CC.Status &= ~(ARKE_ZEUS_HUMIDITY_UNREACHABLE);
+		CC.LastHumidityControlled = now;
 	}
 
 	if (PIDIntegralOverflow(&CC.Temperature) == true) {
