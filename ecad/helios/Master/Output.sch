@@ -15,22 +15,6 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L master-rescue:Conn_01x02 J5
-U 1 1 5AC39A82
-P 1000 1300
-AR Path="/5AC39A79/5AC39A82" Ref="J5"  Part="1" 
-AR Path="/5AC440F9/5AC39A82" Ref="J5"  Part="1" 
-AR Path="/5AC443F1/5AC39A82" Ref="J7"  Part="1" 
-AR Path="/5AC443F5/5AC39A82" Ref="J9"  Part="1" 
-F 0 "J5" H 1000 1400 50  0000 C CNN
-F 1 "MCV 1,5/ 2-G-3,81" H 1000 1100 50  0000 C CNN
-F 2 "Connector_Phoenix_MC:PhoenixContact_MCV_1,5_2-G-3.81_1x02_P3.81mm_Vertical" H 1000 1300 50  0001 C CNN
-F 3 "" H 1000 1300 50  0001 C CNN
-F 4 "1803426" H 1000 1300 60  0001 C CNN "Part Number"
-	1    1000 1300
-	-1   0    0    -1  
-$EndComp
-$Comp
 L master-rescue:Q_PMOS_GDS Q1
 U 1 1 5AC3A227
 P 2400 1400
@@ -728,7 +712,7 @@ F 0 "R9" V 9530 2150 50  0000 C CNN
 F 1 "1k" V 9450 2150 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 9380 2150 50  0001 C CNN
 F 3 "" H 9450 2150 50  0001 C CNN
-F 4 "GPC06031k" H 9450 2150 60  0001 C CNN "Part Number"
+F 4 "GPR06031K" H 9450 2150 60  0001 C CNN "Part Number"
 	1    9450 2150
 	1    0    0    -1  
 $EndComp
@@ -978,10 +962,22 @@ Connection ~ 6400 5450
 Wire Wire Line
 	6400 5450 7300 5450
 Wire Wire Line
-	1600 1400 1600 2550
+	1600 1500 1600 2550
 Wire Wire Line
 	1600 2550 2400 2550
 Wire Wire Line
-	1200 1400 1600 1400
+	1200 1500 1600 1500
 Connection ~ 2400 2550
+$Comp
+L Connector:Barrel_Jack_Switch J5
+U 1 1 5CDFC12E
+P 900 1400
+F 0 "J5" H 955 1717 50  0000 C CNN
+F 1 "PJ-032A" H 955 1626 50  0000 C CNN
+F 2 "FORT:PJ-032A" H 950 1360 50  0001 C CNN
+F 3 "~" H 950 1360 50  0001 C CNN
+F 4 "PJ-032A" H 900 1400 50  0001 C CNN "Part Number"
+	1    900  1400
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
