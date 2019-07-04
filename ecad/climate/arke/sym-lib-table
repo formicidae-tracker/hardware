@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name fort)(type Legacy)(uri ${KIPRJMOD}/../../lib/fort.lib)(options "")(descr ""))
+  (lib (name arke-rescue)(type Legacy)(uri ${KIPRJMOD}/arke-rescue.lib)(options "")(descr ""))
 )

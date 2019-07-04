@@ -1,11 +1,11 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
-# Helios_LED_panel-rescue:Conn_01x02
+# Helios_LED_panel-rescue_Conn_01x02
 #
-DEF Helios_LED_panel-rescue:Conn_01x02 J 0 40 Y N 1 F N
+DEF Helios_LED_panel-rescue_Conn_01x02 J 0 40 Y N 1 F N
 F0 "J" 0 100 50 H V C CNN
-F1 "Helios_LED_panel-rescue:Conn_01x02" 0 -200 50 H V C CNN
+F1 "Helios_LED_panel-rescue_Conn_01x02" 0 -200 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -25,11 +25,11 @@ X Pin_2 2 -200 -100 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Helios_LED_panel-rescue:LED_PAD
+# Helios_LED_panel-rescue_LED_PAD
 #
-DEF Helios_LED_panel-rescue:LED_PAD D 0 40 Y N 1 F N
+DEF Helios_LED_panel-rescue_LED_PAD D 0 40 Y N 1 F N
 F0 "D" 0 225 50 H V C CNN
-F1 "Helios_LED_panel-rescue:LED_PAD" 0 150 50 H V C CNN
+F1 "Helios_LED_panel-rescue_LED_PAD" 0 150 50 H V C CNN
 F2 "" 0 0 50 H V C CNN
 F3 "" 0 0 50 H V C CNN
 $FPLIST

@@ -1,4 +1,4 @@
-(kicad_pcb (version 20171130) (host pcbnew 5.0.0+dfsg1-2~bpo9+1)
+(kicad_pcb (version 20171130) (host pcbnew 5.0.2+dfsg1-1~bpo9+1)
 
   (general
     (thickness 1.6)
@@ -34,7 +34,7 @@
   )
 
   (setup
-    (last_trace_width 1.5)
+    (last_trace_width 0.5)
     (user_trace_width 0.5)
     (user_trace_width 1.5)
     (trace_clearance 0.3)
@@ -60,6 +60,7 @@
     (pad_size 1.524 1.524)
     (pad_drill 0.762)
     (pad_to_mask_clearance 0.2)
+    (solder_mask_min_width 0.25)
     (aux_axis_origin 0 0)
     (visible_elements FFFFFF7F)
     (pcbplotparams
@@ -1305,7 +1306,7 @@
       (xy -4.198507 1.271524)) (layer F.SilkS) (width 0.01))
   )
 
-  (gr_text "FORT Prometheus rev A\n©2018 \nUniversité de Lausanne" (at 120.25 123) (layer F.SilkS) (tstamp 5C01458A)
+  (gr_text "FORT Prometheus rev B\n©2018 \nUniversité de Lausanne" (at 120.25 123) (layer F.SilkS) (tstamp 5C01458A)
     (effects (font (size 1 1) (thickness 0.25)))
   )
   (gr_circle (center 113 116) (end 112.25 115) (layer F.SilkS) (width 0.3) (tstamp 5C0144E4))

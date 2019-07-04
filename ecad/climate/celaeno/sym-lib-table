@@ -1,4 +1,5 @@
 (sym_lib_table
   (lib (name fort)(type Legacy)(uri ${KIPRJMOD}/../../lib/fort.lib)(options "")(descr ""))
   (lib (name AAA)(type Legacy)(uri /tmp/temp2.lib)(options "")(descr ""))
+  (lib (name celaeno-rescue)(type Legacy)(uri ${KIPRJMOD}/celaeno-rescue.lib)(options "")(descr ""))
 )
