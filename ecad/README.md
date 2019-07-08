@@ -8,3 +8,5 @@ Here are the list of boards / module
 * Zeus: Climate control board that monitor environmental and perform the climate control loop.
 * Celaeno :  Nebulizer control board
 * Anemoi : Generic Sensor board with different versions
+* Prometheus: Electric Dispatch board for the FORT
+* Notus: Heater ofb the ant boxes.
