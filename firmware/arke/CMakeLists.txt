@@ -8,9 +8,14 @@ set(AVR_UPLOADTOOL_PORT usb)
 set(AVR_UPLOADTOOL_OPTIONS -C ${CMAKE_CURRENT_SOURCE_DIR}/../avrdude.conf)
 
 set(AVR_MCU atmega16m1)
+# fuses needed to run the board
 set(AVR_L_FUSE 0xff)
 set(AVR_H_FUSE 0xd9)
 set(AVR_E_FUSE 0xf6)
+# Fuse needed to program the board
+#set(AVR_L_FUSE 0x62)
+#set(AVR_H_FUSE 0xdf)
+#set(AVR_E_FUSE 0xff)
 set(MCU_SPEED "16000000L")
 
 cmake_policy(SET CMP0048 NEW)
