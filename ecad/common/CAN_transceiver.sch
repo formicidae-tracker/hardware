@@ -1,10 +1,10 @@
 EESchema Schematic File Version 4
-LIBS:arke-cache
+LIBS:celaeno-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 6 5
+Sheet 6 8
 Title "CAN Transceiver"
 Date "20/11/2018"
 Rev "A"
