@@ -4,6 +4,7 @@
 
 #include "SoftReset.h"
 #include "LEDs.h"
+#include "Systime.h"
 
 #include <HostCommunication.h>
 
@@ -117,8 +118,8 @@ yaacl_baudrate_e supportedBaudrate[9] = {
 	YAACL_BR_1000 //  '8'
 };
 
-enum SlcanBaudrate EEMEM savedCanBaudrate;
-enum SlcanStatus EEMEM savedCanStatus;
+enum SlcanBaudrate EEMEM savedCanBaudrate = S5 - S0;
+enum SlcanStatus EEMEM savedCanStatus = SLCAN_RX | SLCAN_TX;
 
 typedef struct HostData {
 	volatile HostPacketInRingBuffer in;
@@ -132,6 +133,7 @@ typedef struct HostData {
 	uint8_t  errorStatus;
 	volatile uint8_t pendingRx;
 	uint8_t txStatus;
+	Systime_t lastCANError;
 } HostData;
 HostData link;
 
@@ -176,6 +178,7 @@ void InitHostLink() {
 
 	enum SlcanStatus savedStatus =  eeprom_read_byte(&savedCanStatus);
 	sei();
+
 	if ( savedStatus == SLCAN_CLOSED
 	     || savedStatus > (SLCAN_RX | SLCAN_TX)
 	     || link.canBaudrate == SLCAN_UNKNOWN_BAUDRATE) {
@@ -696,6 +699,26 @@ void ProcessCan() {
 
 }
 
+#define CAN_ERRORS (ARKE_CAN_TX_ACK_ERROR | ARKE_CAN_TX_ERROR | ARKE_CAN_RX_CRC_ERROR | ARKE_CAN_RX_ERROR)
+
+#define LINK_HAS_CAN_ERROR(es) ( ( (es) & CAN_ERRORS ) != 0 )
+
+#define set_error_led_blink() do{	  \
+		if ( LINK_HAS_CAN_ERROR(link.errorStatus) ) { \
+			LEDErrorOn(); \
+		} else { \
+			uint8_t count = 0; \
+			for (uint8_t i = 0; i < 8; ++i) { \
+				if ( (link.errorStatus & _BV(i)) != 0 ) { \
+					++count; \
+				} \
+			} \
+			LEDErrorBlink(count); \
+		} \
+	}while(0)
+
+
+
 // Process incoming packet from host
 void ProcessHostLink() {
 	ProcessHostTx();
@@ -713,6 +736,17 @@ void ProcessHostLink() {
 	} else {
 		LEDDataOn();
 	}
+
+	//	Systime_t now = GetSystime();
+
+	/* if ( LINK_HAS_CAN_ERROR(link.errorStatus) && */
+	/*      (now - link.lastCANError) >= 2L * 60L * 1000L ) { */
+	/* 	yaacl_deinit(); */
+	/* 	HostInitYaacl(); */
+	/* 	link.errorStatus &= ~CAN_ERRORS; */
+	/* 	set_error_led_blink(); */
+	/* } */
+
 }
 
 
@@ -728,15 +762,6 @@ typedef enum {
 	LED_ERR_BUFFER_OVERFLOW = 3,
 } LEDErrorBlinkPriority;
 
-#define set_error_led_blink() do{	  \
-		uint8_t count = 0; \
-		for (uint8_t i = 0; i < 8; ++i) { \
-			if ( (link.errorStatus & _BV(i)) != 0 ) { \
-				++count; \
-			} \
-		} \
-		LEDErrorBlink(count); \
-	}while(0)
 
 
 void HostReportUARTRxError() {
@@ -765,6 +790,7 @@ void HostReportCANTxError(yaacl_txn_status_e s) {
 	} else {
 		link.errorStatus |= ARKE_CAN_TX_ERROR;
 	}
+	link.lastCANError = GetSystime();
 	set_error_led_blink();
 }
 
@@ -774,6 +800,6 @@ void HostReportCANRxError(yaacl_txn_status_e s) {
 	} else {
 		link.errorStatus |= ARKE_CAN_RX_ERROR;
 	}
-
+	link.lastCANError = GetSystime();
 	set_error_led_blink();
 }

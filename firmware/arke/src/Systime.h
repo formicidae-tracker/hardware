@@ -2,8 +2,7 @@
 
 #include "inttypes.h"
 
-typedef uint16_t Systime_t;
-
+typedef uint32_t Systime_t;
 
 void InitSystime();
 
