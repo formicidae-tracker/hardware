@@ -23,6 +23,7 @@ typedef struct {
 		ArkeZeusDeltaTemperature delta;
 		uint8_t bytes[8];
 	} inBuffer;
+	uint8_t LEDStealthMode;
 } Zeus_t;
 
 Zeus_t Z;
@@ -32,6 +33,7 @@ void InitZeus() {
 	InitArke(Z.inBuffer.bytes,8);
 	Z.reportPeriod = 0;
 	Z.lastReport = 0;
+	Z.LEDStealthMode = 0;
 
 	LEDReadyPulse();
 	yaacl_init_txn(&Z.report);
@@ -65,6 +67,9 @@ void ProcessIncoming() {
 
 		if (!rtr && dlc == sizeof(ArkeZeusSetPoint) )  {
 			ClimateControllerSetTarget(&Z.inBuffer.sp);
+			Z.LEDStealthMode = 1;
+			LEDReadyOff();
+			LEDErrorOff();
 			return;
 		}
 	}
@@ -142,7 +147,7 @@ int main() {
 		ArkeSystime_t now = ArkeGetSystime();
  		hasNew = ProcessSensors(now);
 		ProcessHeater(now);
-		if (hasNew) {
+		if (hasNew && Z.LEDStealthMode == 0) {
 			LEDErrorToggle();
 		}
 		if ( hasNew && yaacl_txn_status(&Z.report) != YAACL_TXN_PENDING) {
