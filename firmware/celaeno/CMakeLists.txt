@@ -55,6 +55,7 @@ add_definitions("-DARKE_MY_FW_MAJOR_VERSION=${PROJECT_VERSION_MAJOR}"
 	            "-DARKE_MY_CLASS=0x30"
 	            "-DARKE_MY_SUBID=0x01"
 	            "-DARKE_MY_SIZE=4"
+	            "-DFAN_CONTROL_STALL_THRESHOLD=0x10"
 	            )
 
 add_avr_library(yaacl ${YAACL_SRC_FILES})

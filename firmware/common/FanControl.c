@@ -131,7 +131,7 @@ void EMCUpdateFanStatus(EMC2302Communication_t * emc,uint8_t index,ArkeSystime_t
 		emc->RPM[index]  = rpm;
 		return;
 	}
-	if ( rpm == 0 && target > 0x7F ) {
+	if ( rpm == 0 && target > FAN_CONTROL_STALL_THRESHOLD ) {
 		emc->RPM[index] = ARKE_FAN_STALL_ALERT | rpm;
 		return;
 	}

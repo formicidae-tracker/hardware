@@ -108,9 +108,10 @@ void InitCelaeno();
 void ProcessCelaeno();
 
 int main() {
+	InitArke((uint8_t*)&C.inBuffer,8);
 	InitLEDs();
 	DDRD |= _BV(0) ;
-	InitArke((uint8_t*)&C.inBuffer,8);
+
 
 	InitCelaeno();
 
@@ -248,6 +249,8 @@ void SetLED() {
 	LEDErrorOff();
 }
 
+#define fan_has_error(fanRPM) ( (fanRPM & (ARKE_FAN_AGING_ALERT | ARKE_FAN_STALL_ALERT)) != 0x00 )
+
 void ProcessCelaeno() {
 	bool shouldReport = false;
 	ArkeSystime_t now = ArkeGetSystime();
@@ -257,6 +260,9 @@ void ProcessCelaeno() {
 	}
 	ProcessFanControl();
 	C.status.fanStatus = GetFan1RPM();
+	if ( fan_has_error(C.status.fanStatus) ) {
+		shouldReport = true;
+	}
 	SetLED();
 
 	ProcessIncoming();
