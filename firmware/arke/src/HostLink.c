@@ -364,10 +364,13 @@ bool HostCloseCommand(uint8_t commandSize) {
 	LEDErrorOff();
 	HostSendSingleCharUnsafe(SLCAN_ACK);
 
-	uint8_t sreg = SREG;
-	cli();
-	eeprom_update_byte(&savedCanStatus,link.status);
-	SREG = sreg;
+	// We don't save into eeprom closed states. We enable restart of
+	// the connection by closing the interface and turning it up
+	// again, but we do not write it to the eeprom, to reduce write cycle.
+	/* uint8_t sreg = SREG; */
+	/* cli(); */
+	/* eeprom_update_byte(&savedCanStatus,link.status); */
+	/* SREG = sreg; */
 
 	return true;
 }
