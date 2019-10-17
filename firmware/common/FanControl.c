@@ -88,7 +88,10 @@ void InitEMC(EMC2302Communication_t *emc,
 	yaail_txn_t txn;
 
 	for (uint8_t i = 0; i < NB_CONF; ++i ) {
-		yaail_write(&txn,emc->address,&registers_and_data[2*i],2);
+		 yaail_error_e err = yaail_write(&txn,emc->address,&registers_and_data[2*i],2);
+		 if ( err != YAAIL_NO_ERROR ) {
+			 LEDErrorBlink(3);
+		 }
 		yaail_spin_until_done(&txn);
 	}
 }
