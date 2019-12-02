@@ -204,7 +204,7 @@ void LMDeactivateOutput() {
 	cli();
 	LM.backupValues[UV] = (uint8_t)(OCR1A >> 1);
 	LM.backupValues[VISIBLE] = (uint8_t)(OCR1B >> 1);
-	if ( OCR1B == 2*256) {
+	if ( OCR3B == 2*256) {
 		LM.backupValues[IR] = 0;
 	} else {
 		LM.backupValues[IR] = (uint8_t)(OCR3B >> 1);
