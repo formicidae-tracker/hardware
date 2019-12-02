@@ -6,6 +6,7 @@
 #include "LightManager.h"
 #include "SerialInterface.h"
 #include <avr/io.h>
+#include <avr/wdt.h>
 
 
 #define SET_ENABLED() PORTB |= _BV(5);
@@ -27,7 +28,10 @@ int main() {
 	/* Systime_t last = 0; */
 	/* uint8_t value =0; */
 	/* int8_t incr =1; */
+	wdt_enable(WDTO_15MS);
 	while(true) {
+		wdt_reset();
+
 		if ( CMCheckCharge() == true ) {
 			if ( IS_ENABLED() == 0x00 ) {
 				LMActivateOutput();

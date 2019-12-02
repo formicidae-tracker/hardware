@@ -4,7 +4,7 @@
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
-
+#include <util/atomic.h>
 
 
 typedef void (*BrightnessSetter)(uint8_t);
@@ -127,16 +127,24 @@ void LMSetVisibleBrightness(uint8_t value) {
 
 
 ISR(INT0_vect){
+	uint16_t cnt;
+	ATOMIC_BLOCK(ATOMIC_FORCEON) {
+		cnt = TCNT3;
+	}
 	//falling edge
-	if (TCNT3 <=3) {
+	if (cnt <= 3) {
 		return;
 	}
 	IR_CLEAR();
 }
 
 ISR(INT1_vect) {
+	uint16_t cnt;
+	ATOMIC_BLOCK(ATOMIC_FORCEON) {
+		cnt = TCNT3;
+	}
 	// rising edge
-	if ( (!LM.IR_ready && TCNT3 > 3) || !LM.active ) {
+	if ( (!LM.IR_ready && cnt > 3) || !LM.active ) {
 		//ensure armed and active
 		IR_CLEAR(); // to be sure
 		return;
