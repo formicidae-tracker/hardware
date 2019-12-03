@@ -100,8 +100,8 @@ void InitLightManager() {
 	//trigger interrupt on INT1 rising and on INT0 falling
 	DDRD &= ~(_BV(2) | _BV(3) ) ; //makes sure INT1 and INT0 are input
 	// Sets 1 as as rising and 0 as falling
-	EICRA |= _BV(ISC11) | _BV(ISC10) | _BV(ISC01);
-	EIMSK |= _BV(INT1) |_BV(INT0);
+	EICRA |= _BV(ISC00);
+	EIMSK |= _BV(INT0);
 
 	sei(); // we need interrupt enabled
 }
@@ -131,25 +131,21 @@ ISR(INT0_vect){
 	ATOMIC_BLOCK(ATOMIC_FORCEON) {
 		cnt = TCNT3;
 	}
-	//falling edge
-	if (cnt <= 3) {
-		return;
+	if ( PIND & _BV(2) ) {
+		// rising edge
+		if ( (!LM.IR_ready && cnt > 3) || !LM.active ) {
+			//ensure armed and active
+			IR_CLEAR(); // to be sure
+			return;
+		}
+		LM_START_PULSE();
+	} else {
+		//falling edge
+		if (cnt <= 3) {
+			return;
+		}
+		IR_CLEAR();
 	}
-	IR_CLEAR();
-}
-
-ISR(INT1_vect) {
-	uint16_t cnt;
-	ATOMIC_BLOCK(ATOMIC_FORCEON) {
-		cnt = TCNT3;
-	}
-	// rising edge
-	if ( (!LM.IR_ready && cnt > 3) || !LM.active ) {
-		//ensure armed and active
-		IR_CLEAR(); // to be sure
-		return;
-	}
-	LM_START_PULSE();
 }
 
 ISR(TIMER3_COMPA_vect) {
