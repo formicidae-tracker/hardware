@@ -6,31 +6,39 @@
 #include "LightManager.h"
 #include "SerialInterface.h"
 #include <avr/io.h>
+#include <avr/interrupt.h>
 #include <avr/wdt.h>
-
+#include <avr/eeprom.h>
 
 #define SET_ENABLED() PORTB |= _BV(5);
 #define CLEAR_ENABLED() PORTB &= ~(_BV(5));
 #define IS_ENABLED() (PORTB & _BV(5) )
 
+uint8_t EEMEM EEVisible = 0;
+uint8_t EEMEM EEUV = 0;
+
+
 int main() {
-	//	InitSystime();
+	InitSystime();
 
 	InitChargeMonitor();
 	InitLightManager();
 	InitSerialInterface();
 
-
 	DDRB |= _BV(4) | _BV(5);
+	uint8_t visible = eeprom_read_byte(&EEVisible);
+	uint8_t uv = eeprom_read_byte(&EEUV);
+
 	LMSetBrightness(IR,0);
-	LMSetBrightness(VISIBLE,0);
-	LMSetBrightness(UV,0);
-	/* Systime_t last = 0; */
-	/* uint8_t value =0; */
-	/* int8_t incr =1; */
-	wdt_enable(WDTO_15MS);
+	LMSetBrightness(VISIBLE,visible);
+	LMSetBrightness(UV,uv);
+	uint8_t changed = 0;
+	Systime_t lastChange = 0;
+
+	//wdt_enable(WDTO_15MS);
+	wdt_disable();
 	while(true) {
-		wdt_reset();
+		//wdt_reset();
 
 		if ( CMCheckCharge() == true ) {
 			if ( IS_ENABLED() == 0x00 ) {
@@ -41,21 +49,27 @@ int main() {
 			LMDeactivateOutput();
 			CLEAR_ENABLED();
 		}
-		/* Systime_t now = GetSystime(); */
+		uint8_t oldVisible = visible;
+		uint8_t oldUV = uv;
 
-		/* if ((now - last) >= 25 ) { */
-		/* 	last = now; */
-		/* 	if (value ==  255) { */
-		/* 		incr = -1; */
-		/* 	} else if (value == 0) { */
-		/* 		incr = 1; */
-		/* 	} */
-		/* 	value += incr; */
-		/* 	LMSetBrightness(VISIBLE,value); */
+		Systime_t now = GetSystime();
+		if ( SIProcess(&visible,&uv) !=  0 ) {
+			LMSetBrightness(VISIBLE,visible);
+			LMSetBrightness(UV,uv);
+			if (oldVisible != visible || oldUV != uv) {
+				changed = 1;
+				lastChange = now;
+			}
+		}
 
-		/* } */
-
-		SIProcess();
+		if ( changed != 0 && (now - lastChange) >= 60000 ) {
+			changed = 0;
+			uint8_t sreg = SREG;
+			cli();
+			eeprom_update_byte(&EEVisible,visible);
+			eeprom_update_byte(&EEUV,uv);
+			SREG = sreg;
+		}
 
 	}
 

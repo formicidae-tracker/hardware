@@ -1,8 +1,9 @@
 #pragma once
 
+#include <inttypes.h>
 
 
 void InitSerialInterface();
 
 
-void SIProcess();
+uint8_t SIProcess(uint8_t * visible, uint8_t * UV);

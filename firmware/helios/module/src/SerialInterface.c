@@ -5,15 +5,14 @@
 
 #include "common/serial_protocol.h"
 
-#include "LightManager.h"
-
 typedef struct {
 	uint8_t received;
 	uint8_t buffer[MESSAGE_LENGTH];
-
 } SerialInterface_t;
 
 SerialInterface_t SI;
+
+
 
 void InitSerialInterface() {
 	uint8_t sreg = SREG;
@@ -37,10 +36,10 @@ void InitSerialInterface() {
 #define CLEAR_ERROR() PORTB &= ~(_BV(4))
 #define TOGGLE_ERROR() PORTB ^= _BV(4)
 
-void SIProcess() {
+uint8_t SIProcess(uint8_t * visible, uint8_t * UV) {
 	if ( (UCSR0A & _BV(RXC0) ) == 0 ) {
 		// no char received yet
-		return;
+		return 0;
 	}
 
 	uint8_t data = UDR0;
@@ -48,10 +47,10 @@ void SIProcess() {
 	if (SI.received == 0 ) {
 		//waiting for start character
 		if (data != MESSAGE_START ) {
-			return;
+			return 0;
 		}
 		++SI.received;
-		return;
+		return 0;
 	}
 	// data char
 	SI.buffer[SI.received] = data;
@@ -59,7 +58,7 @@ void SIProcess() {
 
 	if (SI.received != MESSAGE_LENGTH) {
 		//not enough char received, wait for more
-		return;
+		return 0;
 	}
 	//we will treat the message, restart the RX loop now
 	SI.received = 0;
@@ -68,9 +67,9 @@ void SIProcess() {
 	if (cs != SI.buffer[CS_POS]) {
 		TOGGLE_ERROR();
 		//checksum error
-		return;
+		return 0;
 	}
-
-	LMSetBrightness(VISIBLE, SI.buffer[VIS_POS]);
-	LMSetBrightness(UV, SI.buffer[UV_POS]);
+	*visible = SI.buffer[VIS_POS];
+	*UV = SI.buffer[UV_POS];
+	return 2;
 }
