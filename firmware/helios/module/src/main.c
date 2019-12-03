@@ -35,10 +35,14 @@ int main() {
 	uint8_t changed = 0;
 	Systime_t lastChange = 0;
 
-	//wdt_enable(WDTO_15MS);
-	wdt_disable();
+	wdt_enable(WDTO_15MS);
 	while(true) {
-		//wdt_reset();
+		wdt_reset();
+		if ( XFDCSR & _BV(XFDIF) ) {
+			//external clock failure, we issue a software reset
+			// by letting go the watchdog;
+			for (;;) {}
+		}
 
 		if ( CMCheckCharge() == true ) {
 			if ( IS_ENABLED() == 0x00 ) {

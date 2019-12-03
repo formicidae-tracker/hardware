@@ -8,7 +8,7 @@ set(AVR_UPLOADTOOL_OPTIONS -C ${CMAKE_CURRENT_SOURCE_DIR}/../../avrdude.conf -B 
 set(AVR_MCU atmega328pb)
 set(AVR_L_FUSE 0xff)
 set(AVR_H_FUSE 0xd9)
-set(AVR_E_FUSE 0xf4)
+set(AVR_E_FUSE 0xfc)
 set(MCU_SPEED "20000000L")
 
 
