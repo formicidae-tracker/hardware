@@ -32,15 +32,23 @@ typedef struct {
 	uint16_t RPM[2];
 	FanRPMRange_e fanMult[2];
 	ArkeSystime_t setPointOnTime[2];
+	uint8_t fansMinValue[2];
 } EMC2302Communication_t;
 
 
-void InitEMC(EMC2302Communication_t *emc, uint8_t address, uint8_t fan1Mult , uint8_t fan2Mult ) {
+void InitEMC(EMC2302Communication_t *emc,
+             uint8_t address,
+             uint8_t fan1Mult,
+             uint8_t fan2Mult,
+             uint8_t fan1MinValue,
+             uint8_t fan2MinValue) {
 	emc->address = address;
 	emc->setPointData[0] = EMC_FAN1_SET_POINT_REG;
 	emc->setPointData[1] = 0x00;
 	emc->setPointData[2] = EMC_FAN2_SET_POINT_REG;
 	emc->setPointData[3] = 0x00;
+	emc->fansMinValue[0] = fan1MinValue;
+	emc->fansMinValue[1] = fan2MinValue;
 	yaail_init_txn(&(emc->setPoint[0]));
 	yaail_init_txn(&(emc->setPoint[1]));
 	yaail_init_txn(&(emc->tachCount[0]));
@@ -80,10 +88,10 @@ void InitEMC(EMC2302Communication_t *emc, uint8_t address, uint8_t fan1Mult , ui
 	yaail_txn_t txn;
 
 	for (uint8_t i = 0; i < NB_CONF; ++i ) {
-		yaail_error_e err = yaail_write(&txn,emc->address,&registers_and_data[2*i],2);
-		if ( err != YAAIL_NO_ERROR) {
-			LEDErrorBlink(3);
-		}
+		 yaail_error_e err = yaail_write(&txn,emc->address,&registers_and_data[2*i],2);
+		 if ( err != YAAIL_NO_ERROR ) {
+			 LEDErrorBlink(3);
+		 }
 		yaail_spin_until_done(&txn);
 	}
 }
@@ -123,7 +131,7 @@ void EMCUpdateFanStatus(EMC2302Communication_t * emc,uint8_t index,ArkeSystime_t
 		emc->RPM[index]  = rpm;
 		return;
 	}
-	if ( rpm == 0 ) {
+	if ( rpm == 0 && target > FAN_CONTROL_STALL_THRESHOLD ) {
 		emc->RPM[index] = ARKE_FAN_STALL_ALERT | rpm;
 		return;
 	}
@@ -150,9 +158,10 @@ void EMCSetFanPower(EMC2302Communication_t * emc, uint8_t index, uint8_t value) 
 	if ( index > 1) {
 		return;
 	}
-	if ( value > 0 && value < 0x30) {
+	uint8_t minValue = emc->fansMinValue[index];
+	if ( value > 0 && value < minValue) {
 		//sets a minimum spin value of 18%, otherwise the fan won't spin
-		value = 0x30;
+		value = minValue;
 	}
 	emc->targetSetPoint[index] = value;
 	emc->newSetPoint[index] = true;
@@ -183,14 +192,16 @@ FanControl_t FC;
 
 
 #ifdef FAN_CONTROL_4FAN
-void InitFanControl(FanRPMRange_e fan1, FanRPMRange_e fan2, FanRPMRange_e fan3, FanRPMRange_e fan4) {
+void InitFanControl(FanRPMRange_e ranges[4],
+                    uint8_t minValues[4]) {
 #else
-void InitFanControl(FanRPMRange_e fan1, FanRPMRange_e fan2) {
+void InitFanControl(FanRPMRange_e ranges[2],
+                    uint8_t minValues[2]) {
 #endif
 	FC.last = 0;
-	InitEMC(&(FC.emc[0]),EMC2302_1_I2C_ADDRESS,fan1,fan2);
+	InitEMC(&(FC.emc[0]),EMC2302_1_I2C_ADDRESS,ranges[0],ranges[1],minValues[0],minValues[1]);
 #ifdef FAN_CONTROL_4FAN
-	InitEMC(&(FC.emc[1]),EMC2302_2_I2C_ADDRESS,fan3,fan4);
+	InitEMC(&(FC.emc[1]),EMC2302_2_I2C_ADDRESS,ranges[2],ranges[3],minValues[2],minValues[3]);
 #endif
 }
 

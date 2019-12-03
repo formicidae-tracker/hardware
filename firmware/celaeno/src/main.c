@@ -108,9 +108,10 @@ void InitCelaeno();
 void ProcessCelaeno();
 
 int main() {
+	InitArke((uint8_t*)&C.inBuffer,8);
 	InitLEDs();
 	DDRD |= _BV(0) ;
-	InitArke((uint8_t*)&C.inBuffer,8);
+
 
 	InitCelaeno();
 
@@ -141,7 +142,9 @@ void InitCelaeno() {
 	C.lockOff = false;
 	//sets
 	yaail_init(YAAIL_25);
-	InitFanControl(RANGE_1000_RPM,RANGE_1000_RPM);
+	FanRPMRange_e ranges[2] = {RANGE_1000_RPM,RANGE_1000_RPM};
+	uint8_t minValues[2] = {0x30,0x30};
+	InitFanControl(ranges,minValues);
 	yaacl_init_txn(&C.txStatus);
 	yaacl_init_txn(&C.txSetPoint);
 	yaacl_init_txn(&C.txConfig);
@@ -246,6 +249,8 @@ void SetLED() {
 	LEDErrorOff();
 }
 
+#define fan_has_error(fanRPM) ( (fanRPM & (ARKE_FAN_AGING_ALERT | ARKE_FAN_STALL_ALERT)) != 0x00 )
+
 void ProcessCelaeno() {
 	bool shouldReport = false;
 	ArkeSystime_t now = ArkeGetSystime();
@@ -255,6 +260,9 @@ void ProcessCelaeno() {
 	}
 	ProcessFanControl();
 	C.status.fanStatus = GetFan1RPM();
+	if ( fan_has_error(C.status.fanStatus) ) {
+		shouldReport = true;
+	}
 	SetLED();
 
 	ProcessIncoming();

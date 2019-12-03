@@ -12,9 +12,11 @@ typedef enum {
 } FanRPMRange_e;
 
 #ifdef FAN_CONTROL_4FAN
-void InitFanControl(FanRPMRange_e fan1, FanRPMRange_e fan2, FanRPMRange_e fan3, FanRPMRange_e fan4);
+void InitFanControl(FanRPMRange_e ranges[4],
+                    uint8_t minValues[4]);
 #else
-void InitFanControl(FanRPMRange_e fan1, FanRPMRange_e fan2);
+void InitFanControl(FanRPMRange_e ranges[2],
+                    uint8_t minValues[2]);
 #endif
 
 bool ProcessFanControl();

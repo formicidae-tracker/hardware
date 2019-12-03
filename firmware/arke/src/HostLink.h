@@ -5,8 +5,6 @@
 #include "yaacl.h"
 
 
-
-
 // Init the UART link.
 void InitHostLink();
 
