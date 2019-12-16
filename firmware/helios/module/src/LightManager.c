@@ -133,7 +133,12 @@ ISR(INT0_vect){
 	}
 	if ( PIND & _BV(2) ) {
 		// rising edge
-		if ( (!LM.IR_ready && cnt > 3) || !LM.active ) {
+		if ( !LM.IR_ready ) {
+			//double rising edge pulses due to electic noise, do
+			//nothing
+			return;
+		}
+		if ( cnt > 3 || !LM.active ) {
 			//ensure armed and active
 			IR_CLEAR(); // to be sure
 			return;
@@ -142,8 +147,10 @@ ISR(INT0_vect){
 	} else {
 		//falling edge
 		if (cnt <= 3) {
+			//avoids bouncing due to electric noise
 			return;
 		}
+		//multiple failing edges are not a big deal
 		IR_CLEAR();
 	}
 }
