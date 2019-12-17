@@ -11,9 +11,9 @@ void InitSystime() {
 
 	DDRB = _BV(0);
 	cli();
-	//sets Timer 4 as 1ms clock, aka CTC mode, prescaler at 8 from 20MHz clock, TOP to 2499
+	//sets Timer 4 as 1ms clock, aka CTC mode, prescaler at 8 from 8MHz clock, TOP to 999
 	TIMSK4 = _BV(OCIE4A);
-	OCR4A = 2499;
+	OCR4A = 999;
 	TCCR4A = 0x00;
 	TCCR4B = _BV(WGM42) | _BV(CS41); // this will starts the timer
 

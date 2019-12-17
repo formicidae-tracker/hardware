@@ -6,10 +6,10 @@ set(AVR_UPLOADTOOL_PORT usb)
 set(AVR_UPLOADTOOL_OPTIONS -C ${CMAKE_CURRENT_SOURCE_DIR}/../../avrdude.conf -B 8)
 
 set(AVR_MCU atmega328pb)
-set(AVR_L_FUSE 0xff)
+set(AVR_L_FUSE 0xe2)
 set(AVR_H_FUSE 0xd9)
 set(AVR_E_FUSE 0xfc)
-set(MCU_SPEED "20000000L")
+set(MCU_SPEED "8000000L")
 
 
 project(helio-module C CXX)

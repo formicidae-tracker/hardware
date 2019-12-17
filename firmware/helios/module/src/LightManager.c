@@ -40,7 +40,7 @@ volatile LightManager_t LM;
 #define IR_CLEAR() PORTD &= ~(_BV(5) | _BV(7));
 
 #define TIMER3_START() do{	  \
-		TCCR3B =  _BV(CS32); \
+		TCCR3B =  _BV(CS31) | _BV(CS30); \
 	}while(0)
 #define TIMER3_STOP() do{	  \
 		TCCR3B = 0x00; \
@@ -74,7 +74,7 @@ void InitLightManager() {
 	// Sets TC1 as PWM source for Visible and UV
 	// TPS92512 requires a PWM frequency between 100Hz and 1kHz
 	// If we choose a fast PWM, we have F =1 / (N * (TOP+1)) N in 1,8,64,256,1024
-	// with N == 64 and TOP=511 we got a frequency of 610 Hz
+	// with N == 64 and TOP=511 we got a frequency of 244 Hz
 	// sets a fast pwm mode, disconnect all compare output, and 1/64
 	TCCR1A = _BV(WGM11);
 	TCCR1B = _BV(WGM12) | _BV(CS11) | _BV(CS00);
@@ -89,8 +89,8 @@ void InitLightManager() {
 	// Set Timer3 to measure IR pulses
 	// Normal mode, timer prescaled 1/256, we want maximu duty of 0.25 and max pulse of 6.664ms
 	// Duty ratio of 0.25 max
-	OCR3A = 2*256*4; // A sets the period between pulse, we want no more than a duty ratio of 0.25
-	OCR3B = 2*256; // B sets the pulse length 6.5664ms
+	OCR3A = 508*4; // A sets the period between pulse, we want no more than a duty ratio of 0.25
+	OCR3B = 508; // B sets the pulse length 6.5664ms
 
 	TIMSK3 = _BV(OCIE3B) | _BV(OCIE3A);
 	TCCR3A = 0 ;
@@ -138,7 +138,7 @@ ISR(INT0_vect){
 			//nothing
 			return;
 		}
-		if ( cnt > 3 || !LM.active ) {
+		if ( cnt > 4 || !LM.active ) {
 			//ensure armed and active
 			IR_CLEAR(); // to be sure
 			return;
@@ -146,7 +146,7 @@ ISR(INT0_vect){
 		LM_START_PULSE();
 	} else {
 		//falling edge
-		if (cnt <= 3) {
+		if (cnt <= 4) {
 			//avoids bouncing due to electric noise
 			return;
 		}
