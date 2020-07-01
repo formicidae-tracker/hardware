@@ -1,14 +1,16 @@
-# Compilation of the master board
+# Master board
+## Compilation
 The master board is compiled normally like described [here](https://github.com/formicidae-tracker/documentation/wiki/Technical-Guide%3A-Uploading-a-new-firmware).
 
-# Programming the module board
+## Programming
 Programmer configured to Target power: OFF
 
 ```sh
-make set_fuses upload_helios_module upload_eeprom
+make set_fuses upload_helios_master upload_eeprom
 ```
 
-# Compilation of the module code
+# Module board
+# Compilation
 First, the Atmel definition pack must be downloaded for the *ATMega328PB* of the helios module from the [Microchip Packs Repository
 ](http://packs.download.atmel.com/). Search for the chip and save and unpack it somewhere on the compiling machine. Then go to the build folder and run `ccmake` (`sudo apt install cmake-curses-gui`):
 ```sh
@@ -23,9 +25,9 @@ make
 ```
 Proceed equivalently for the `master` code.
 
-# Programming the module board
+# Programming
 Programmer configured to Target power: OFF
 
 ```sh
-make set_fuses upload_helios_master upload_eeprom
+make set_fuses upload_helios_module upload_eeprom
 ```
