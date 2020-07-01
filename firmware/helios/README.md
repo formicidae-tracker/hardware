@@ -9,7 +9,7 @@ cd build
 cmake ..
 make
 ```
-and equivalently for `module` code.
+and equivalently for the `module` code.
 
 # Programming the master board
 Programmer configured to Target power: OFF
