@@ -19,7 +19,7 @@ mkdir build
 cd build
 ccmkae ..
 ```
-A terminal based text editor will open in which the `ATMEL_DEFINITION_PACK` build variable needs to be set to the path of the previously unpacked definition pack. After generating, the project can be built:
+A terminal based text editor will open in which the `ATMEL_DEFINITION_PACK` build variable needs to be set to the path of the previously unpacked definition pack. Then configure `c` and generate `g`. This will close the editor and the project can now be built:
 ```sh
 make
 ```
