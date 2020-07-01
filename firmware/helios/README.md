@@ -3,10 +3,11 @@
 The master board is compiled normally like described [here](https://github.com/formicidae-tracker/documentation/wiki/Technical-Guide%3A-Uploading-a-new-firmware).
 
 ### Programming
-Programmer configured to Target power: OFF
+Programmer configured to 5V and Target power ON
+
 
 ```sh
-make set_fuses upload_helios_master upload_eeprom
+make set_fuses upload_helios-master upload_eeprom
 ```
 
 # Module board
@@ -26,8 +27,8 @@ make
 Proceed equivalently for the `master` code.
 
 ### Programming
-Programmer configured to Target power: OFF
+Programmer configured to 5V Target power ON
 
 ```sh
-make set_fuses upload_helios_module upload_eeprom
+make set_fuses upload_helios-module upload_eeprom
 ```
