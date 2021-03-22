@@ -99,6 +99,7 @@ struct Celaeno_t {
 	enum CelaenoState_t state;
 	bool lockOn;
 	bool lockOff;
+	uint16_t lastOnState;
 };
 
 struct Celaeno_t C;
@@ -114,8 +115,9 @@ int main() {
 
 
 	InitCelaeno();
-
+	wdt_enable(WDTO_15MS);
 	while(true) {
+		wdt_reset();
 		yaail_start_pending_txn();
 		ProcessLEDs();
 		ProcessCelaeno();
@@ -157,7 +159,7 @@ void InitCelaeno() {
 }
 
 
-void ProcessIncoming() {
+void ProcessIncoming(ArkeSystime_t now) {
 	uint8_t length = 0;
 	yaacl_idt_t res = ArkeProcess(&length);
 	if ( res == ARKE_NO_MESSAGE ) {
@@ -173,6 +175,7 @@ void ProcessIncoming() {
 
 		if (!rtr && length == 1) {
 			C.targetSetPoint.Power = C.inBuffer.setPoint.Power;
+			C.lastOnState = now;
 			return;
 		}
 		return;
@@ -265,7 +268,13 @@ void ProcessCelaeno() {
 	}
 	SetLED();
 
-	ProcessIncoming();
+	ProcessIncoming(now);
+
+	if ( C.targetSetPoint.Power > 0 && ( now - C.lastOnState ) > 10000 ) {
+		// Resets power if no order received for more than 10 seconds.
+		C.targetSetPoint.Power = 0;
+	}
+
 
 	//now process the state machine
 	if (C.state < NB_CELAENO_STATES ) {
