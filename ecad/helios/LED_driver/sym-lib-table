@@ -1,4 +1,5 @@
 (sym_lib_table
-  (lib (name LED_driver-rescue)(type Legacy)(uri ${KIPRJMOD}/LED_driver-rescue.lib)(options "")(descr ""))
-  (lib (name fort)(type Legacy)(uri ${KIPRJMOD}/../../lib/fort.lib)(options "")(descr ""))
+  (version 7)
+  (lib (name "LED_driver-rescue")(type "KiCad")(uri "${KIPRJMOD}/LED_driver-rescue.kicad_sym")(options "")(descr ""))
+  (lib (name "fort")(type "Legacy")(uri "${KIPRJMOD}/../../lib/fort.lib")(options "")(descr ""))
 )
