@@ -1,0 +1,2022 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "e19806fd-d3bc-419f-a10d-2dcc9f391c0d")
+	(paper "A4")
+	(lib_symbols
+		(symbol "Helios_LED_panel-rescue:Conn_01x02"
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x02"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_??x*mm* Connector*:*1x??x*mm* Pin?Header?Straight?1X* Pin?Header?Angled?1X* Socket?Strip?Straight?1X* Socket?Strip?Angled?1X*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x02_1_1"
+				(rectangle
+					(start -1.27 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 1.27)
+					(end 1.27 -3.81)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "Helios_LED_panel-rescue:LED_PAD"
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "D"
+				(at 0 5.715 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "LED_PAD"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "LED*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "LED_PAD_0_1"
+				(polyline
+					(pts
+						(xy -1.27 -1.27) (xy -1.27 1.27)
+					)
+					(stroke
+						(width 0.2032)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 0) (xy 1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.54) (xy 0 -2.032)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.032 -0.508) (xy -2.032 -2.032) (xy 2.032 -2.032) (xy 2.032 -0.508)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27)
+					)
+					(stroke
+						(width 0.2032)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.889 1.397) (xy 0.635 2.921) (xy -0.127 2.921) (xy 0.635 2.921) (xy 0.635 2.159)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.381 1.397) (xy 1.905 2.921) (xy 1.143 2.921) (xy 1.905 2.921) (xy 1.905 2.159)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "LED_PAD_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -5.08 90)
+					(length 2.54)
+					(name "PAD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+	(no_connect
+		(at 166.37 80.01)
+		(uuid "022c2b09-de31-4c63-813c-162878e40ecd")
+	)
+	(no_connect
+		(at 133.35 55.88)
+		(uuid "0e6439b7-27fa-4276-935a-ca73d9b0e1f6")
+	)
+	(no_connect
+		(at 193.04 105.41)
+		(uuid "1656e661-93bf-4d30-8ded-c781a6af63db")
+	)
+	(no_connect
+		(at 182.88 55.88)
+		(uuid "219c0134-9e76-42fc-9b52-72d73e1f530f")
+	)
+	(no_connect
+		(at 100.33 55.88)
+		(uuid "36a4fe1d-aca3-44e2-bbba-348bae3c3672")
+	)
+	(no_connect
+		(at 149.86 55.88)
+		(uuid "6c385aad-5f47-4194-92e0-19506965a5c2")
+	)
+	(no_connect
+		(at 182.88 80.01)
+		(uuid "6e6e8550-4481-45c6-b1c5-780505e8688a")
+	)
+	(no_connect
+		(at 100.33 80.01)
+		(uuid "7062096e-62ab-483c-aacd-9e0175c46ba1")
+	)
+	(no_connect
+		(at 166.37 55.88)
+		(uuid "74a9e6b2-8748-4d66-9621-4c7336379a9f")
+	)
+	(no_connect
+		(at 149.86 80.01)
+		(uuid "9c7f06ac-106a-4673-8bf6-43b4681df0f4")
+	)
+	(no_connect
+		(at 116.84 55.88)
+		(uuid "cc9f6023-7118-4402-a3df-105e3a3032e1")
+	)
+	(no_connect
+		(at 163.83 105.41)
+		(uuid "ccf54498-fc1b-4465-bd87-e89a61e590ca")
+	)
+	(no_connect
+		(at 134.62 105.41)
+		(uuid "d3f86392-8e8f-4468-95c7-4931dac477f6")
+	)
+	(no_connect
+		(at 116.84 80.01)
+		(uuid "e561780a-d1a5-4cd1-97c8-36895d4a6bfe")
+	)
+	(no_connect
+		(at 105.41 105.41)
+		(uuid "f701baf1-0006-432b-8680-b0295d27fdfc")
+	)
+	(no_connect
+		(at 133.35 80.01)
+		(uuid "f830eb60-7f07-4b52-bcf2-ab682d337bd3")
+	)
+	(wire
+		(pts
+			(xy 109.22 100.33) (xy 130.81 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "093e5e5f-8fe8-4dd8-a7ef-6504972e8897")
+	)
+	(wire
+		(pts
+			(xy 213.36 50.8) (xy 213.36 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0cb97028-23cd-4634-9e44-defcad8b7393")
+	)
+	(wire
+		(pts
+			(xy 167.64 100.33) (xy 189.23 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0d96a3d4-dac0-45e6-9e9b-4fb15730be36")
+	)
+	(wire
+		(pts
+			(xy 137.16 50.8) (xy 146.05 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1109d1b5-5cda-4616-b93c-c661e69a44f3")
+	)
+	(wire
+		(pts
+			(xy 137.16 74.93) (xy 146.05 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3349e389-e115-4c0e-95c3-5c0f8c6bc6ef")
+	)
+	(wire
+		(pts
+			(xy 87.63 80.01) (xy 87.63 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "377a2899-d17c-4bbe-afb1-b45b15c4dfa3")
+	)
+	(wire
+		(pts
+			(xy 196.85 100.33) (xy 213.36 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4469fdd9-b2a3-440f-80ae-c91c830e0b12")
+	)
+	(wire
+		(pts
+			(xy 170.18 74.93) (xy 179.07 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4edfe5c7-9448-4f7c-8900-171a3742e611")
+	)
+	(wire
+		(pts
+			(xy 120.65 50.8) (xy 129.54 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6271583e-90a4-4322-abf1-7b9af638956e")
+	)
+	(wire
+		(pts
+			(xy 86.36 50.8) (xy 96.52 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "63140279-2027-466e-af50-ccd338b94350")
+	)
+	(wire
+		(pts
+			(xy 104.14 74.93) (xy 113.03 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6d045b18-5838-4c65-ae2d-82daea0af1dc")
+	)
+	(wire
+		(pts
+			(xy 213.36 113.03) (xy 87.63 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6df3fdd1-4350-416e-8f0e-dd1437da51d9")
+	)
+	(wire
+		(pts
+			(xy 86.36 55.88) (xy 86.36 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "717847d8-ae31-4201-b73b-11710878a509")
+	)
+	(wire
+		(pts
+			(xy 213.36 74.93) (xy 213.36 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "72202e90-f16c-4d01-879a-35f4cbf603cb")
+	)
+	(wire
+		(pts
+			(xy 186.69 74.93) (xy 213.36 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7ddd5594-2b18-41f3-b183-a74bf56b15bb")
+	)
+	(wire
+		(pts
+			(xy 87.63 74.93) (xy 96.52 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "83d375cd-34b7-4bf4-8ccb-06b729c5b2a7")
+	)
+	(wire
+		(pts
+			(xy 186.69 50.8) (xy 213.36 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "86382b40-9262-4759-ad6f-0206d3fb399d")
+	)
+	(wire
+		(pts
+			(xy 153.67 74.93) (xy 162.56 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8c54ba3d-db07-4dce-a128-b75323d0effe")
+	)
+	(wire
+		(pts
+			(xy 138.43 100.33) (xy 160.02 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9763f7d7-ed23-45c5-878b-eaf50fe68957")
+	)
+	(wire
+		(pts
+			(xy 153.67 50.8) (xy 162.56 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "98ce673d-39dd-4bcb-a1af-a05d4742b589")
+	)
+	(wire
+		(pts
+			(xy 87.63 87.63) (xy 87.63 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a2ac7664-76da-40a2-962c-ccc90e4949af")
+	)
+	(wire
+		(pts
+			(xy 213.36 63.5) (xy 86.36 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a438d7ef-3531-4618-81c0-639c01b47c27")
+	)
+	(wire
+		(pts
+			(xy 213.36 100.33) (xy 213.36 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a9f6ce01-9848-48c3-83f0-34ef20ede3e7")
+	)
+	(wire
+		(pts
+			(xy 87.63 105.41) (xy 87.63 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ae8a8b0f-60b4-4e63-a837-498d82cbcbc4")
+	)
+	(wire
+		(pts
+			(xy 86.36 63.5) (xy 86.36 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b12b11b8-97d5-47b0-b09b-25fd414a9942")
+	)
+	(wire
+		(pts
+			(xy 104.14 50.8) (xy 113.03 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b1cf10e4-1b0b-48d6-9b73-53c6146f99f2")
+	)
+	(wire
+		(pts
+			(xy 87.63 100.33) (xy 101.6 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c1577924-031e-474f-a1a5-247b9f510558")
+	)
+	(wire
+		(pts
+			(xy 120.65 74.93) (xy 129.54 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c409cc22-6560-4456-8ed9-186bc7c62044")
+	)
+	(wire
+		(pts
+			(xy 170.18 50.8) (xy 179.07 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "faa8cb86-310b-42c6-801d-54ebc4d384ad")
+	)
+	(wire
+		(pts
+			(xy 213.36 87.63) (xy 87.63 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fecffdf6-ed64-4d4d-b949-0a6cc934fdbe")
+	)
+	(wire
+		(pts
+			(xy 87.63 113.03) (xy 87.63 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fede0dd0-9613-46ff-bdd4-96d12854cc23")
+	)
+	(symbol
+		(lib_id "Helios_LED_panel-rescue:LED_PAD")
+		(at 149.86 50.8 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005a997385")
+		(property "Reference" "D4"
+			(at 149.86 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SFH 4235-Z"
+			(at 149.86 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "FORT:OSRAM_Platinium_Dragon"
+			(at 149.86 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 149.86 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "SFH 4235-Z"
+			(at 149.86 59.69 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f57811c4-3a69-43d0-a7a1-12a1cfd099e3")
+		)
+		(pin "2"
+			(uuid "10a9f21b-066f-4283-bd60-3329800f77d2")
+		)
+		(pin "3"
+			(uuid "2c725540-2556-4a21-ab28-732037b0a453")
+		)
+		(instances
+			(project "Helios_LED_panel"
+				(path "/e19806fd-d3bc-419f-a10d-2dcc9f391c0d"
+					(reference "D4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Helios_LED_panel-rescue:LED_PAD")
+		(at 166.37 50.8 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005a9974f5")
+		(property "Reference" "D5"
+			(at 166.37 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SFH 4235-Z"
+			(at 166.37 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "FORT:OSRAM_Platinium_Dragon"
+			(at 166.37 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 166.37 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "SFH 4235-Z"
+			(at 166.37 59.69 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "182cfd57-e0ae-4e5d-8f62-e98d27d6d159")
+		)
+		(pin "2"
+			(uuid "a0d58091-1f43-4d77-b593-d1de536cf19a")
+		)
+		(pin "3"
+			(uuid "c65d45ac-ef22-46c5-85c3-b0cc2b84a4e8")
+		)
+		(instances
+			(project "Helios_LED_panel"
+				(path "/e19806fd-d3bc-419f-a10d-2dcc9f391c0d"
+					(reference "D5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Helios_LED_panel-rescue:LED_PAD")
+		(at 182.88 50.8 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005a997579")
+		(property "Reference" "D6"
+			(at 182.88 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SFH 4235-Z"
+			(at 182.88 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "FORT:OSRAM_Platinium_Dragon"
+			(at 182.88 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 182.88 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "SFH 4235-Z"
+			(at 182.88 59.69 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c9c1685b-4515-4a41-a42f-7aad3749ada5")
+		)
+		(pin "2"
+			(uuid "d0b4fbcc-6eec-4f91-b4f4-1b587736b15d")
+		)
+		(pin "3"
+			(uuid "04dd5bcb-137a-430b-84f1-0fcfdac186a3")
+		)
+		(instances
+			(project "Helios_LED_panel"
+				(path "/e19806fd-d3bc-419f-a10d-2dcc9f391c0d"
+					(reference "D6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Helios_LED_panel-rescue:LED_PAD")
+		(at 100.33 50.8 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005a997629")
+		(property "Reference" "D1"
+			(at 100.33 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SFH 4235-Z"
+			(at 100.33 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "FORT:OSRAM_Platinium_Dragon"
+			(at 100.33 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 100.33 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "SFH 4235-Z"
+			(at 100.33 59.69 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "851b4531-24ad-44af-a136-22014c246614")
+		)
+		(pin "2"
+			(uuid "550769ed-9782-4688-9047-568772eb6725")
+		)
+		(pin "3"
+			(uuid "ba7252ec-a14f-4820-ba7a-d251499daa78")
+		)
+		(instances
+			(project "Helios_LED_panel"
+				(path "/e19806fd-d3bc-419f-a10d-2dcc9f391c0d"
+					(reference "D1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Helios_LED_panel-rescue:LED_PAD")
+		(at 116.84 50.8 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005a997631")
+		(property "Reference" "D2"
+			(at 116.84 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SFH 4235-Z"
+			(at 116.84 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "FORT:OSRAM_Platinium_Dragon"
+			(at 116.84 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 116.84 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "SFH 4235-Z"
+			(at 116.84 59.69 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "24ab3bb8-c07c-492b-8922-428fcbe0f93f")
+		)
+		(pin "2"
+			(uuid "9a6ae548-44ac-46ef-810e-5baca8758aad")
+		)
+		(pin "3"
+			(uuid "70b1f874-2f5c-4d7d-992e-31a470075b93")
+		)
+		(instances
+			(project "Helios_LED_panel"
+				(path "/e19806fd-d3bc-419f-a10d-2dcc9f391c0d"
+					(reference "D2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Helios_LED_panel-rescue:LED_PAD")
+		(at 133.35 50.8 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005a997639")
+		(property "Reference" "D3"
+			(at 133.35 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SFH 4235-Z"
+			(at 133.35 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "FORT:OSRAM_Platinium_Dragon"
+			(at 133.35 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 133.35 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "SFH 4235-Z"
+			(at 133.35 59.69 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "4a992c27-804e-4b31-ae48-a0856794ef16")
+		)
+		(pin "2"
+			(uuid "7be46cbf-780c-4b04-b687-3a1dadb89412")
+		)
+		(pin "3"
+			(uuid "c59477b6-5f8f-49f4-b8a6-4227b49f5757")
+		)
+		(instances
+			(project "Helios_LED_panel"
+				(path "/e19806fd-d3bc-419f-a10d-2dcc9f391c0d"
+					(reference "D3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Helios_LED_panel-rescue:LED_PAD")
+		(at 149.86 74.93 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005a997a5a")
+		(property "Reference" "D10"
+			(at 149.86 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SFH 4235-Z"
+			(at 149.86 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "FORT:OSRAM_Platinium_Dragon"
+			(at 149.86 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 149.86 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "SFH 4235-Z"
+			(at 149.86 83.82 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "74c62a0e-fda6-4a71-8b6c-652f3750dba2")
+		)
+		(pin "2"
+			(uuid "699288e8-ddf2-441d-9849-6d382657c597")
+		)
+		(pin "3"
+			(uuid "2b501f6f-3594-4070-a72f-345b443bb21a")
+		)
+		(instances
+			(project "Helios_LED_panel"
+				(path "/e19806fd-d3bc-419f-a10d-2dcc9f391c0d"
+					(reference "D10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Helios_LED_panel-rescue:LED_PAD")
+		(at 166.37 74.93 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005a997a62")
+		(property "Reference" "D11"
+			(at 166.37 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SFH 4235-Z"
+			(at 166.37 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "FORT:OSRAM_Platinium_Dragon"
+			(at 166.37 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 166.37 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "SFH 4235-Z"
+			(at 166.37 83.82 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d202c610-cf0c-4b2b-a919-a72e27c4812a")
+		)
+		(pin "2"
+			(uuid "1c1fa06b-6dc8-4ad1-900b-6b76522b47d1")
+		)
+		(pin "3"
+			(uuid "01efa2bc-993c-4682-bb7a-b186f42a5727")
+		)
+		(instances
+			(project "Helios_LED_panel"
+				(path "/e19806fd-d3bc-419f-a10d-2dcc9f391c0d"
+					(reference "D11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Helios_LED_panel-rescue:LED_PAD")
+		(at 182.88 74.93 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005a997a6a")
+		(property "Reference" "D12"
+			(at 182.88 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SFH 4235-Z"
+			(at 182.88 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "FORT:OSRAM_Platinium_Dragon"
+			(at 182.88 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 182.88 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "SFH 4235-Z"
+			(at 182.88 83.82 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b793d0b3-e05b-4baf-809b-86b7af29862a")
+		)
+		(pin "2"
+			(uuid "d46e0bc8-af54-4ab1-8d4b-89dbcb8cceb8")
+		)
+		(pin "3"
+			(uuid "872749e6-86b7-460b-b83e-ea573fc0b694")
+		)
+		(instances
+			(project "Helios_LED_panel"
+				(path "/e19806fd-d3bc-419f-a10d-2dcc9f391c0d"
+					(reference "D12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Helios_LED_panel-rescue:LED_PAD")
+		(at 100.33 74.93 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005a997a7a")
+		(property "Reference" "D7"
+			(at 100.33 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SFH 4235-Z"
+			(at 100.33 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "FORT:OSRAM_Platinium_Dragon"
+			(at 100.33 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 100.33 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "SFH 4235-Z"
+			(at 100.33 83.82 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1c747559-350e-4189-bc39-896bdeeaf837")
+		)
+		(pin "2"
+			(uuid "af6658e8-0da5-4a64-a415-630f17ff8676")
+		)
+		(pin "3"
+			(uuid "c279529e-df3c-4e62-a991-d22fe7d84ce2")
+		)
+		(instances
+			(project "Helios_LED_panel"
+				(path "/e19806fd-d3bc-419f-a10d-2dcc9f391c0d"
+					(reference "D7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Helios_LED_panel-rescue:LED_PAD")
+		(at 116.84 74.93 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005a997a82")
+		(property "Reference" "D8"
+			(at 116.84 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SFH 4235-Z"
+			(at 116.84 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "FORT:OSRAM_Platinium_Dragon"
+			(at 116.84 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 116.84 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "SFH 4235-Z"
+			(at 116.84 83.82 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "468538cb-ac82-4e4f-bf3b-ff4b1fa71300")
+		)
+		(pin "2"
+			(uuid "3c4e7ba9-354c-4584-bee8-782f73267850")
+		)
+		(pin "3"
+			(uuid "7ec88c8f-00d8-4860-9258-ffd0d1c173cd")
+		)
+		(instances
+			(project "Helios_LED_panel"
+				(path "/e19806fd-d3bc-419f-a10d-2dcc9f391c0d"
+					(reference "D8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Helios_LED_panel-rescue:LED_PAD")
+		(at 133.35 74.93 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005a997a8a")
+		(property "Reference" "D9"
+			(at 133.35 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SFH 4235-Z"
+			(at 133.35 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "FORT:OSRAM_Platinium_Dragon"
+			(at 133.35 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 133.35 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "SFH 4235-Z"
+			(at 133.35 83.82 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "4da51cee-89ad-4941-9e4b-64e1bed248ee")
+		)
+		(pin "2"
+			(uuid "d64e2155-6e74-4ead-a3a3-e3f54fc25cb4")
+		)
+		(pin "3"
+			(uuid "04874b57-1149-4c3b-a32f-cfafe18ba83a")
+		)
+		(instances
+			(project "Helios_LED_panel"
+				(path "/e19806fd-d3bc-419f-a10d-2dcc9f391c0d"
+					(reference "D9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Helios_LED_panel-rescue:LED_PAD")
+		(at 105.41 100.33 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005a997ad1")
+		(property "Reference" "D13"
+			(at 105.41 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LSW W5SM"
+			(at 105.41 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "FORT:OSRAM_Platinium_Dragon"
+			(at 105.41 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 105.41 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "LCW W5SM-JYKZ-4J8K"
+			(at 105.41 107.95 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "4a959f1f-df6d-47d9-895f-35d86714f055")
+		)
+		(pin "2"
+			(uuid "6691bd54-853f-43b5-afe7-0159391b9bf6")
+		)
+		(pin "3"
+			(uuid "143f8315-94c9-43af-a5ca-37880398d28a")
+		)
+		(instances
+			(project "Helios_LED_panel"
+				(path "/e19806fd-d3bc-419f-a10d-2dcc9f391c0d"
+					(reference "D13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Helios_LED_panel-rescue:LED_PAD")
+		(at 134.62 100.33 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005a997ffd")
+		(property "Reference" "D14"
+			(at 134.62 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LSW W5SM"
+			(at 134.62 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "FORT:OSRAM_Platinium_Dragon"
+			(at 134.62 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 134.62 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "LCW W5SM-JYKZ-4J8K"
+			(at 134.62 107.95 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1677e2cb-a124-4c7c-aff7-0bcb9d82b212")
+		)
+		(pin "2"
+			(uuid "4bb110a0-9255-4f11-917f-3288686022ee")
+		)
+		(pin "3"
+			(uuid "bfb73254-6553-4b9a-b977-ebf6aa0256ef")
+		)
+		(instances
+			(project "Helios_LED_panel"
+				(path "/e19806fd-d3bc-419f-a10d-2dcc9f391c0d"
+					(reference "D14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Helios_LED_panel-rescue:LED_PAD")
+		(at 163.83 100.33 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005a998181")
+		(property "Reference" "D15"
+			(at 163.83 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LSW W5SM"
+			(at 163.83 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "FORT:OSRAM_Platinium_Dragon"
+			(at 163.83 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 163.83 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "LCW W5SM-JYKZ-4J8K"
+			(at 163.83 107.95 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "481386fb-59a9-4642-97c7-cb5556d8970c")
+		)
+		(pin "2"
+			(uuid "4f06c7a9-dbf3-4031-a4e8-d18415575f11")
+		)
+		(pin "3"
+			(uuid "05d70248-4632-4688-9d10-11217b71f799")
+		)
+		(instances
+			(project "Helios_LED_panel"
+				(path "/e19806fd-d3bc-419f-a10d-2dcc9f391c0d"
+					(reference "D15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Helios_LED_panel-rescue:LED_PAD")
+		(at 193.04 100.33 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005a998189")
+		(property "Reference" "D16"
+			(at 193.04 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LSW W5SM"
+			(at 193.04 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "FORT:OSRAM_Platinium_Dragon"
+			(at 193.04 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "LCW W5SM-JYKZ-4J8K"
+			(at 193.04 107.95 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f587a89f-6191-4fba-a5d5-0a283dd6ec87")
+		)
+		(pin "2"
+			(uuid "a538bb48-4f5f-4b65-8a98-4898f26e1743")
+		)
+		(pin "3"
+			(uuid "ef8461af-84c9-4a6d-aaf1-b097a4949c43")
+		)
+		(instances
+			(project "Helios_LED_panel"
+				(path "/e19806fd-d3bc-419f-a10d-2dcc9f391c0d"
+					(reference "D16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Helios_LED_panel-rescue:Conn_01x02")
+		(at 81.28 58.42 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005b741cf2")
+		(property "Reference" "J1"
+			(at 81.28 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "009176002001006"
+			(at 76.2 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "FORT:009176002701106"
+			(at 81.28 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 81.28 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "009176002001006"
+			(at 81.28 58.42 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ce4f2664-4ef5-477c-9aad-6876f5e6ab04")
+		)
+		(pin "2"
+			(uuid "133928ed-3ce4-4c9a-a04a-9d631654a48f")
+		)
+		(instances
+			(project "Helios_LED_panel"
+				(path "/e19806fd-d3bc-419f-a10d-2dcc9f391c0d"
+					(reference "J1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Helios_LED_panel-rescue:Conn_01x02")
+		(at 82.55 82.55 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005cf53eb9")
+		(property "Reference" "J2"
+			(at 82.55 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "009176002001006"
+			(at 77.47 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "FORT:009176002701106"
+			(at 82.55 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 82.55 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "009176002001006"
+			(at 82.55 82.55 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3d143f45-f47f-4182-97d0-ae26d8d35f69")
+		)
+		(pin "2"
+			(uuid "5593c717-0b26-4321-ac9c-202795302f19")
+		)
+		(instances
+			(project "Helios_LED_panel"
+				(path "/e19806fd-d3bc-419f-a10d-2dcc9f391c0d"
+					(reference "J2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Helios_LED_panel-rescue:Conn_01x02")
+		(at 82.55 107.95 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005cf53f37")
+		(property "Reference" "J3"
+			(at 82.55 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "009176002001006"
+			(at 77.47 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "FORT:009176002701106"
+			(at 82.55 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 82.55 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "009176002001006"
+			(at 82.55 107.95 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2cdd6077-53d3-4ebd-942e-4417b23a6ec5")
+		)
+		(pin "2"
+			(uuid "72d5ac48-5166-4d0b-84dc-731bfc4c1f57")
+		)
+		(instances
+			(project "Helios_LED_panel"
+				(path "/e19806fd-d3bc-419f-a10d-2dcc9f391c0d"
+					(reference "J3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+)
