@@ -1412,6 +1412,249 @@
 			)
 		)
 	)
+	(symbol "LMR36500P3RPE"
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "U"
+			(at 0 11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LMR36500P3RPE"
+			(at 0 8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 -20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lmr36500.pdf"
+			(at 0 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Synchronous Buck Regulator, Vin=3-65V, Iout=50mA, F=0.2-2.2MHz, Adjustable output voltage, PFM at light load, VQFN-HR RPE"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ki_keywords" "synchronous buck step-down"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ki_fp_filters" "Texas*VQFN*HR*2.1x2.1mm*P0.5mm"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(symbol "LMR36500P3RPE_0_1"
+			(rectangle
+				(start -7.62 7.62)
+				(end 7.62 -7.62)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+		)
+		(symbol "LMR36500P3RPE_1_1"
+			(pin input line
+				(at -10.16 -2.54 0)
+				(length 2.54)
+				(name "RT"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin open_collector line
+				(at 10.16 -5.08 180)
+				(length 2.54)
+				(name "PG"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin input line
+				(at -10.16 2.54 0)
+				(length 2.54)
+				(name "EN"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at -10.16 5.08 0)
+				(length 2.54)
+				(name "VIN"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "4"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_out line
+				(at 10.16 2.54 180)
+				(length 2.54)
+				(name "SW"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "5"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin input line
+				(at 10.16 5.08 180)
+				(length 2.54)
+				(name "BOOT"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "6"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_out line
+				(at -10.16 -5.08 0)
+				(length 2.54)
+				(name "VCC"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "7"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin input line
+				(at 10.16 -2.54 180)
+				(length 2.54)
+				(name "FB"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "8"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at 0 -10.16 90)
+				(length 2.54)
+				(name "GND"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "9"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
 	(symbol "LP3985IM5-2.5"
 		(pin_names
 			(offset 1.016)
@@ -3974,7 +4217,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_RJ:RJ45_Bel_V895-1001-AW_Vertical"
+		(property "Footprint" "fort:RJ45_Taoglas_TMJUTHQ0021192425"
 			(at 0 18.415 0)
 			(effects
 				(font
@@ -3983,7 +4226,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.belfuse.com/resources/drawings/magneticsolutions/dr-mag-v895-1001-aw.pdf"
+		(property "Datasheet" "https://www.taoglas.com/datasheets/TMJUTHQ0021192425.pdf"
 			(at 0 18.415 0)
 			(effects
 				(font
@@ -4010,7 +4253,7 @@
 				(hide yes)
 			)
 		)
-		(property "ki_fp_filters" "RJ45*Bel*V895*1001*AW*"
+		(property "ki_fp_filters" "RJ45*Taoglas"
 			(at 0 0 0)
 			(effects
 				(font
@@ -5816,7 +6059,7 @@
 						)
 					)
 				)
-				(number "SHD"
+				(number "SH"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -7353,7 +7596,16 @@
 				)
 			)
 		)
-		(property "Footprint" "FORT:PDSO-10-1EP-3x3mm-Pitch0.5mm"
+		(property "Footprint" "fort:Texas_HVSSOP-10-1EP_3x3mm_P0.5mm_EP1.57x1.88mm_ThermalVias"
+			(at -5.08 3.81 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps92512.pdf"
 			(at -5.08 0 0)
 			(effects
 				(font
@@ -7362,16 +7614,16 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at -5.08 0 0)
+		(property "Description" "2.5A Buck LED Driver with Integrated Analog Current Adjust, Vin=4.5-42V, Iout=2.5A"
+			(at -0.508 -3.556 0)
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
 		)
-		(property "Description" "2.5A Buck LED Driver with Integrated Analog Current Adjust"
+		(property "ki_fp_filters" "Texas*HVSSOP*1EP*P0.5*"
 			(at 0 0 0)
 			(effects
 				(font
@@ -7824,6 +8076,70 @@
 			)
 		)
 	)
+	(symbol "LMR36500F3RPE"
+		(extends "LMR36500P3RPE")
+		(property "Reference" "U"
+			(at 0 11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LMR36500P3RPE"
+			(at 0 8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 -20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "LMR36500P3RPE"
+			(at 0 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Synchronous Buck Regulator, Vin=3-65V, Iout=50mA, F=0.2-2.2MHz, Adjustable output voltage, PFM at light load, VQFN-HR RPE"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ki_keywords" "synchronous buck step-down"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ki_fp_filters" "Texas*VQFN*HR*2.1x2.1mm*P0.5mm"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
 	(symbol "LP3985IM5-2.5_NOPB"
 		(extends "LP3985IM5-2.5")
 		(property "Reference" "U"
@@ -8248,7 +8564,7 @@
 				)
 			)
 		)
-		(property "Value" "TPS92512HV"
+		(property "Value" "TPS92512"
 			(at -2.54 -13.97 0)
 			(effects
 				(font
@@ -8256,8 +8572,8 @@
 				)
 			)
 		)
-		(property "Footprint" "FORT:PDSO-10-1EP-3x3mm-Pitch0.5mm"
-			(at -5.08 0 0)
+		(property "Footprint" "fort:Texas_HVSSOP-10-1EP_3x3mm_P0.5mm_EP2.2x3.1mm_ThermalVias"
+			(at -4.572 -4.064 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -8265,8 +8581,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at -5.08 0 0)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps92512.pdf"
+			(at -5.08 5.08 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -8274,7 +8590,16 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "2.5A Buck LED Driver with Integrated Analog Current Adjust, Vin=4.5-60V, Iout=2.5A"
+			(at 0.254 0.508 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ki_fp_filters" "Texas*HVSSOP*1EP*P0.5*"
 			(at 0 0 0)
 			(effects
 				(font

@@ -21,6 +21,11 @@
       "showGrid": true,
       "traces": [
         {
+          "color": "rgb(77, 175, 74)",
+          "signal": "I(MQ3:d)",
+          "trace_type": 258
+        },
+        {
           "color": "rgb(255, 127, 0)",
           "signal": "I(V1)",
           "trace_type": 258
@@ -40,6 +45,16 @@
           "signal": "V(/Vload)",
           "trace_type": 257
         }
+      ]
+    },
+    {
+      "analysis": "OP",
+      "commands": [
+        ".op",
+        ".kicad adjustpaths",
+        ".save all",
+        ".probe alli",
+        ".probe allp"
       ]
     }
   ],
