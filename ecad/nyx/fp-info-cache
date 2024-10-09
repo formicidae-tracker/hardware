@@ -1,4 +1,4 @@
-937512823318256
+939241394978585
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -98175,12 +98175,12 @@ Through hole pin header THT 1x06 2.54mm single row
 6
 6
 fort
-RJ45_Taoglas_TMJUTHQ0021192425
-1 Port RJ45 Magjack Connector Through Hole 10/100 Base-T, AutoMDIX, https://belfuse.com/resources/drawings/magneticsolutions/dr-mag-si-60062-f.pdf
-RJ45 Magjack
+RJ45_Abracon_ARJM11C7-114_Horizontal
+Shielded RJ45 ethernet connector with transformer and POE, https://abracon.com/Magnetics/lan/ARJP11A.PDF
+ethernet 8p8c transformer poe rj45
 0
+15
 14
-13
 fort
 R_S-5
 
@@ -98209,6 +98209,13 @@ HVSSOP SO
 0
 18
 11
+fort
+Texas_VQFN-HR-9_2.1x2.1mm_P0.5mm
+
+
+0
+19
+9
 fort
 UNIL-LOGO_9.2x3
 
