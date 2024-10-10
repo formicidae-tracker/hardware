@@ -1,5 +1,6 @@
 (sym_lib_table
-  (lib (name pleiades-rescue)(type Legacy)(uri ${KIPRJMOD}/pleiades-rescue.lib)(options "")(descr ""))
-  (lib (name fort)(type Legacy)(uri ${KIPRJMOD}/../../lib/fort.lib)(options "")(descr ""))
-  (lib (name zeus-rescue)(type Legacy)(uri ${KIPRJMOD}/zeus-rescue.lib)(options "")(descr ""))
+  (version 7)
+  (lib (name "pleiades-rescue")(type "Legacy")(uri "${KIPRJMOD}/pleiades-rescue.lib")(options "")(descr ""))
+  (lib (name "fort")(type "Legacy")(uri "${KIPRJMOD}/../../lib/fort.lib")(options "")(descr ""))
+  (lib (name "zeus-rescue")(type "KiCad")(uri "${KIPRJMOD}/zeus-rescue.kicad_sym")(options "")(descr ""))
 )
