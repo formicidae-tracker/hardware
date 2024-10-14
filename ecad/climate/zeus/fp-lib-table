@@ -1,3 +1,4 @@
 (fp_lib_table
-  (lib (name FORT)(type KiCad)(uri ${KIPRJMOD}/../../lib/fort.pretty)(options "")(descr ""))
+  (version 7)
+  (lib (name "FORT")(type "KiCad")(uri "${KIPRJMOD}/lib/fort.pretty")(options "")(descr ""))
 )
