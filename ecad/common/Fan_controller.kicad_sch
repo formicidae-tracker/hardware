@@ -1569,6 +1569,7 @@
 	)
 	(label "TACH2_PR"
 		(at 124.46 92.71 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1579,6 +1580,7 @@
 	)
 	(label "TACH1_PR"
 		(at 124.46 85.09 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1589,6 +1591,7 @@
 	)
 	(label "PWM2_PR"
 		(at 124.46 90.17 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1599,6 +1602,7 @@
 	)
 	(label "PWM1_PR"
 		(at 124.46 82.55 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1610,6 +1614,7 @@
 	(hierarchical_label "SCL"
 		(shape input)
 		(at 81.28 88.9 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -1621,6 +1626,7 @@
 	(hierarchical_label "~{ALERT}"
 		(shape output)
 		(at 81.28 81.28 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1632,6 +1638,7 @@
 	(hierarchical_label "PWM1"
 		(shape output)
 		(at 212.09 82.55 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -1643,6 +1650,7 @@
 	(hierarchical_label "PWM2"
 		(shape output)
 		(at 212.09 90.17 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -1654,6 +1662,7 @@
 	(hierarchical_label "SDA"
 		(shape bidirectional)
 		(at 81.28 86.36 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -1665,6 +1674,7 @@
 	(hierarchical_label "TACH2"
 		(shape input)
 		(at 212.09 92.71 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -1676,6 +1686,7 @@
 	(hierarchical_label "TACH1"
 		(shape input)
 		(at 212.09 85.09 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -1693,7 +1704,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005ba5ad00")
-		(property "Reference" "U?"
+		(property "Reference" "U6"
 			(at 92.71 73.66 0)
 			(effects
 				(font
@@ -1793,7 +1804,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005ba5ad44")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR010"
 			(at 102.87 58.42 0)
 			(effects
 				(font
@@ -1842,10 +1853,6 @@
 		)
 		(instances
 			(project "celaeno"
-				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c"
-					(reference "#PWR?")
-					(unit 1)
-				)
 				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c/00000000-0000-0000-0000-00005ba5ac9b"
 					(reference "#PWR010")
 					(unit 1)
@@ -1862,7 +1869,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005ba5ae71")
-		(property "Reference" "C?"
+		(property "Reference" "C5"
 			(at 95.885 58.42 0)
 			(effects
 				(font
@@ -1940,7 +1947,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005ba5aea9")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR012"
 			(at 95.25 73.66 0)
 			(effects
 				(font
@@ -2005,7 +2012,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005ba5b0f5")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR014"
 			(at 102.87 130.81 0)
 			(effects
 				(font
@@ -2070,7 +2077,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005be6376d")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR013"
 			(at 147.32 71.12 0)
 			(effects
 				(font
@@ -2119,10 +2126,6 @@
 		)
 		(instances
 			(project "celaeno"
-				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c"
-					(reference "#PWR?")
-					(unit 1)
-				)
 				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c/00000000-0000-0000-0000-00005ba5ac9b"
 					(reference "#PWR013")
 					(unit 1)
@@ -2205,10 +2208,6 @@
 					(reference "R16")
 					(unit 1)
 				)
-				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c/00000000-0000-0000-0000-00005bb3963a"
-					(reference "R?")
-					(unit 1)
-				)
 			)
 		)
 	)
@@ -2287,10 +2286,6 @@
 					(reference "R17")
 					(unit 1)
 				)
-				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c/00000000-0000-0000-0000-00005bb3963a"
-					(reference "R?")
-					(unit 1)
-				)
 			)
 		)
 	)
@@ -2367,10 +2362,6 @@
 			(project "celaeno"
 				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c/00000000-0000-0000-0000-00005ba5ac9b"
 					(reference "R18")
-					(unit 1)
-				)
-				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c/00000000-0000-0000-0000-00005bb3963a"
-					(reference "R?")
 					(unit 1)
 				)
 			)
@@ -2674,10 +2665,6 @@
 					(reference "R19")
 					(unit 1)
 				)
-				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c/00000000-0000-0000-0000-00005bb3963a"
-					(reference "R?")
-					(unit 1)
-				)
 			)
 		)
 	)
@@ -2756,10 +2743,6 @@
 					(reference "R20")
 					(unit 1)
 				)
-				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c/00000000-0000-0000-0000-00005bb3963a"
-					(reference "R?")
-					(unit 1)
-				)
 			)
 		)
 	)
@@ -2836,10 +2819,6 @@
 			(project "celaeno"
 				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c/00000000-0000-0000-0000-00005ba5ac9b"
 					(reference "R21")
-					(unit 1)
-				)
-				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c/00000000-0000-0000-0000-00005bb3963a"
-					(reference "R?")
 					(unit 1)
 				)
 			)

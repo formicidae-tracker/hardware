@@ -1,6 +1,4 @@
 (sym_lib_table
   (version 7)
-  (lib (name "fort")(type "Legacy")(uri "${KIPRJMOD}/../../lib/fort.lib")(options "")(descr ""))
-  (lib (name "AAA")(type "Legacy")(uri "/tmp/temp2.lib")(options "")(descr ""))
-  (lib (name "celaeno-rescue")(type "KiCad")(uri "${KIPRJMOD}/celaeno-rescue.kicad_sym")(options "")(descr ""))
+  (lib (name "fort")(type "KiCad")(uri "${KIPRJMOD}/lib/fort.kicad_sym")(options "")(descr ""))
 )

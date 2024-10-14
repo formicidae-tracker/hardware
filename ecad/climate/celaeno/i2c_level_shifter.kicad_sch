@@ -1108,6 +1108,7 @@
 	(hierarchical_label "~{INT_3V3}"
 		(shape bidirectional)
 		(at 204.47 80.01 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1119,6 +1120,7 @@
 	(hierarchical_label "SDA_5V"
 		(shape bidirectional)
 		(at 116.84 88.9 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1130,6 +1132,7 @@
 	(hierarchical_label "~{INT_5V}"
 		(shape bidirectional)
 		(at 116.84 80.01 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1141,6 +1144,7 @@
 	(hierarchical_label "SDA_3V3"
 		(shape bidirectional)
 		(at 204.47 88.9 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1152,6 +1156,7 @@
 	(hierarchical_label "SCL_3V3"
 		(shape bidirectional)
 		(at 204.47 97.79 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1163,6 +1168,7 @@
 	(hierarchical_label "SCL_5V"
 		(shape bidirectional)
 		(at 116.84 97.79 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)

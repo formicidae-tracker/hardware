@@ -749,6 +749,12 @@
 					(unit 1)
 				)
 			)
+			(project "celaeno"
+				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c/00000000-0000-0000-0000-00005ba4efd7"
+					(reference "U1")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -814,6 +820,12 @@
 		(instances
 			(project "zeus"
 				(path "/67b47d30-ec53-4da6-ab1b-07d3781be510/00000000-0000-0000-0000-00005ba4efd7"
+					(reference "C2")
+					(unit 1)
+				)
+			)
+			(project "celaeno"
+				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c/00000000-0000-0000-0000-00005ba4efd7"
 					(reference "C2")
 					(unit 1)
 				)
@@ -887,6 +899,12 @@
 					(unit 1)
 				)
 			)
+			(project "celaeno"
+				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c/00000000-0000-0000-0000-00005ba4efd7"
+					(reference "C3")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -956,6 +974,12 @@
 					(unit 1)
 				)
 			)
+			(project "celaeno"
+				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c/00000000-0000-0000-0000-00005ba4efd7"
+					(reference "C1")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -1017,6 +1041,12 @@
 		(instances
 			(project "zeus"
 				(path "/67b47d30-ec53-4da6-ab1b-07d3781be510/00000000-0000-0000-0000-00005ba4efd7"
+					(reference "#PWR015")
+					(unit 1)
+				)
+			)
+			(project "celaeno"
+				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c/00000000-0000-0000-0000-00005ba4efd7"
 					(reference "#PWR015")
 					(unit 1)
 				)

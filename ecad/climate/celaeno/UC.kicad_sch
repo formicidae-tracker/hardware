@@ -2757,7 +2757,7 @@
 		(uuid "0a962264-0897-4ace-902c-edc6db1acb68")
 	)
 	(junction
-		(at 57.15 137.16)
+		(at 57.15 119.38)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "29b78fc8-2a3e-4318-aa23-5c3fbdd57556")
@@ -2955,7 +2955,7 @@
 		(uuid "943c9795-16f1-4dd9-a7d5-c4a1bb0db72f")
 	)
 	(no_connect
-		(at 132.08 118.11)
+		(at 132.08 135.89)
 		(uuid "9985a035-cd8f-47c4-94d2-c3cac1578b42")
 	)
 	(no_connect
@@ -2963,7 +2963,7 @@
 		(uuid "9a5e72a7-a1cd-4371-8cad-c9ca44e1d310")
 	)
 	(no_connect
-		(at 132.08 110.49)
+		(at 162.56 85.09)
 		(uuid "9ce2c718-eac5-4a24-a181-dd00ffa70e88")
 	)
 	(no_connect
@@ -2991,7 +2991,7 @@
 		(uuid "e6332b5f-10c4-4d3c-881a-9fdb3c138a11")
 	)
 	(no_connect
-		(at 132.08 115.57)
+		(at 132.08 133.35)
 		(uuid "f5a0e450-3dc3-4c30-8c01-92e3fc64fe27")
 	)
 	(no_connect
@@ -3000,7 +3000,7 @@
 	)
 	(wire
 		(pts
-			(xy 57.15 137.16) (xy 57.15 129.54)
+			(xy 57.15 119.38) (xy 57.15 111.76)
 		)
 		(stroke
 			(width 0)
@@ -3060,7 +3060,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 137.16) (xy 81.28 137.16)
+			(xy 85.09 119.38) (xy 81.28 119.38)
 		)
 		(stroke
 			(width 0)
@@ -3100,7 +3100,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 129.54) (xy 81.28 129.54)
+			(xy 85.09 111.76) (xy 81.28 111.76)
 		)
 		(stroke
 			(width 0)
@@ -3150,7 +3150,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 133.35) (xy 132.08 133.35)
+			(xy 85.09 115.57) (xy 132.08 115.57)
 		)
 		(stroke
 			(width 0)
@@ -3220,7 +3220,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 135.89) (xy 85.09 137.16)
+			(xy 85.09 118.11) (xy 85.09 119.38)
 		)
 		(stroke
 			(width 0)
@@ -3230,7 +3230,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 135.89) (xy 132.08 135.89)
+			(xy 85.09 118.11) (xy 132.08 118.11)
 		)
 		(stroke
 			(width 0)
@@ -3250,7 +3250,7 @@
 	)
 	(wire
 		(pts
-			(xy 57.15 129.54) (xy 63.5 129.54)
+			(xy 57.15 111.76) (xy 63.5 111.76)
 		)
 		(stroke
 			(width 0)
@@ -3370,7 +3370,7 @@
 	)
 	(wire
 		(pts
-			(xy 57.15 140.97) (xy 57.15 137.16)
+			(xy 57.15 123.19) (xy 57.15 119.38)
 		)
 		(stroke
 			(width 0)
@@ -3380,7 +3380,7 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 137.16) (xy 71.12 137.16)
+			(xy 73.66 119.38) (xy 71.12 119.38)
 		)
 		(stroke
 			(width 0)
@@ -3500,7 +3500,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 137.16) (xy 57.15 137.16)
+			(xy 63.5 119.38) (xy 57.15 119.38)
 		)
 		(stroke
 			(width 0)
@@ -3580,7 +3580,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 133.35) (xy 85.09 129.54)
+			(xy 85.09 115.57) (xy 85.09 111.76)
 		)
 		(stroke
 			(width 0)
@@ -3590,7 +3590,7 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 85.09) (xy 195.58 85.09)
+			(xy 132.08 110.49) (xy 99.06 110.49)
 		)
 		(stroke
 			(width 0)
@@ -3650,7 +3650,7 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 129.54) (xy 71.12 129.54)
+			(xy 73.66 111.76) (xy 71.12 111.76)
 		)
 		(stroke
 			(width 0)
@@ -3921,6 +3921,7 @@
 	)
 	(label "XTAL-"
 		(at 109.22 67.31 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -3931,6 +3932,7 @@
 	)
 	(label "ICSP_MOSI"
 		(at 269.24 26.67 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -3941,6 +3943,7 @@
 	)
 	(label "~{ICSP_RESET}"
 		(at 88.9 49.53 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -3951,6 +3954,7 @@
 	)
 	(label "~{ICSP_RESET}"
 		(at 234.95 29.21 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -3960,7 +3964,8 @@
 		(uuid "2e6bc4c5-65cd-4924-be49-26caf0c1982b")
 	)
 	(label "LED_GREEN"
-		(at 91.44 133.35 0)
+		(at 93.98 118.11 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -3971,6 +3976,7 @@
 	)
 	(label "ICSP_MISO"
 		(at 100.33 128.27 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -3981,6 +3987,7 @@
 	)
 	(label "ICSP_MOSI"
 		(at 100.33 125.73 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -3991,6 +3998,7 @@
 	)
 	(label "ICSP_SCK"
 		(at 234.95 26.67 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -4001,6 +4009,7 @@
 	)
 	(label "XTAL+"
 		(at 110.49 62.23 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -4010,7 +4019,8 @@
 		(uuid "cdc3c01a-cbfd-4322-87d8-62c395fe51f1")
 	)
 	(label "LED_YELLOW"
-		(at 91.44 135.89 0)
+		(at 93.98 115.57 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -4021,6 +4031,7 @@
 	)
 	(label "ICSP_SCK"
 		(at 195.58 82.55 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -4031,6 +4042,7 @@
 	)
 	(label "ICSP_MISO"
 		(at 234.95 24.13 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -4042,6 +4054,7 @@
 	(hierarchical_label "CAN_RX"
 		(shape input)
 		(at 189.23 140.97 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -4053,6 +4066,7 @@
 	(hierarchical_label "CAN_TX"
 		(shape output)
 		(at 189.23 138.43 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -4064,6 +4078,7 @@
 	(hierarchical_label "SCL_5V"
 		(shape output)
 		(at 198.12 125.73 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -4075,6 +4090,7 @@
 	(hierarchical_label "LVL_0"
 		(shape input)
 		(at 196.85 57.15 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4086,6 +4102,7 @@
 	(hierarchical_label "LVL_1"
 		(shape input)
 		(at 196.85 59.69 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4097,6 +4114,7 @@
 	(hierarchical_label "~{FAN_ALERT}"
 		(shape input)
 		(at 189.23 130.81 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -4107,18 +4125,20 @@
 	)
 	(hierarchical_label "RELAY"
 		(shape output)
-		(at 195.58 85.09 0)
+		(at 99.06 110.49 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "a313d530-8db8-46a7-ae54-87519104c1fd")
 	)
 	(hierarchical_label "SDA_5V"
 		(shape bidirectional)
 		(at 198.12 128.27 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -5781,7 +5801,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 67.31 137.16 0)
+		(at 67.31 111.76 0)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5790,7 +5810,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005ba58b9b")
 		(property "Reference" "D6"
-			(at 67.31 139.7 0)
+			(at 67.31 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5798,7 +5818,7 @@
 			)
 		)
 		(property "Value" "YELLOW"
-			(at 67.31 134.62 0)
+			(at 67.31 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5806,7 +5826,7 @@
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
-			(at 67.31 137.16 0)
+			(at 67.31 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5815,7 +5835,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 67.31 137.16 0)
+			(at 67.31 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5824,7 +5844,7 @@
 			)
 		)
 		(property "Description" "150060YS75000"
-			(at 67.31 137.16 0)
+			(at 67.31 111.76 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -5833,7 +5853,7 @@
 			)
 		)
 		(property "MPN" ""
-			(at 67.31 137.16 0)
+			(at 67.31 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5858,7 +5878,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 67.31 129.54 0)
+		(at 67.31 119.38 0)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5867,7 +5887,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005ba58c1b")
 		(property "Reference" "D3"
-			(at 67.31 132.08 0)
+			(at 67.31 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5875,7 +5895,7 @@
 			)
 		)
 		(property "Value" "GREEN"
-			(at 67.31 127 0)
+			(at 67.31 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5883,7 +5903,7 @@
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
-			(at 67.31 129.54 0)
+			(at 67.31 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5892,7 +5912,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 67.31 129.54 0)
+			(at 67.31 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5901,7 +5921,7 @@
 			)
 		)
 		(property "Description" "150060VS75000"
-			(at 67.31 129.54 0)
+			(at 67.31 119.38 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -5910,7 +5930,7 @@
 			)
 		)
 		(property "MPN" ""
-			(at 67.31 129.54 0)
+			(at 67.31 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5935,7 +5955,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 77.47 137.16 270)
+		(at 77.47 111.76 270)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5944,7 +5964,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005ba58f7d")
 		(property "Reference" "R9"
-			(at 77.47 135.128 90)
+			(at 77.47 109.728 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5952,7 +5972,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 77.47 137.16 90)
+			(at 77.47 111.76 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5960,7 +5980,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 77.47 138.938 90)
+			(at 77.47 113.538 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5969,7 +5989,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 77.47 137.16 0)
+			(at 77.47 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5978,7 +5998,7 @@
 			)
 		)
 		(property "Description" "GPR06031K"
-			(at 77.47 137.16 0)
+			(at 77.47 111.76 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -5987,7 +6007,7 @@
 			)
 		)
 		(property "MPN" ""
-			(at 77.47 137.16 0)
+			(at 77.47 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6012,7 +6032,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 77.47 129.54 270)
+		(at 77.47 119.38 270)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6021,7 +6041,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005ba590f2")
 		(property "Reference" "R8"
-			(at 77.47 127.508 90)
+			(at 77.47 117.348 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6029,7 +6049,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 77.47 129.54 90)
+			(at 77.47 119.38 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6037,7 +6057,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 77.47 131.318 90)
+			(at 77.47 121.158 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6046,7 +6066,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 77.47 129.54 0)
+			(at 77.47 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6055,7 +6075,7 @@
 			)
 		)
 		(property "Description" "GPR06031K"
-			(at 77.47 129.54 0)
+			(at 77.47 119.38 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -6064,7 +6084,7 @@
 			)
 		)
 		(property "MPN" ""
-			(at 77.47 129.54 0)
+			(at 77.47 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6089,7 +6109,7 @@
 	)
 	(symbol
 		(lib_id "celaeno-rescue:GND-power")
-		(at 57.15 140.97 0)
+		(at 57.15 123.19 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6098,7 +6118,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005ba592d4")
 		(property "Reference" "#PWR033"
-			(at 57.15 147.32 0)
+			(at 57.15 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6107,7 +6127,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 57.15 144.78 0)
+			(at 57.15 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6115,7 +6135,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 57.15 140.97 0)
+			(at 57.15 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6124,7 +6144,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 57.15 140.97 0)
+			(at 57.15 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6133,7 +6153,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 57.15 140.97 0)
+			(at 57.15 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
