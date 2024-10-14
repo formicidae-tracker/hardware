@@ -235,4 +235,15 @@
 		(thermal_bridge_angle 45)
 		(uuid "15cf282c-69f6-4918-9358-85f68f0b2760")
 	)
+	(model "${KIPRJMOD}/lib/fort.3dshapes/CPC1966YX6.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
 )
