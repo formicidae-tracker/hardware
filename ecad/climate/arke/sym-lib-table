@@ -1,5 +1,4 @@
 (sym_lib_table
   (version 7)
   (lib (name "fort")(type "Legacy")(uri "${KIPRJMOD}/../../lib/fort.lib")(options "")(descr ""))
-  (lib (name "arke-rescue")(type "KiCad")(uri "${KIPRJMOD}/arke-rescue.kicad_sym")(options "")(descr ""))
 )
