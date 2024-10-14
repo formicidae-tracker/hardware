@@ -489,7 +489,7 @@
 		(remove_unused_layers no)
 		(uuid "4999758c-1170-4947-8bee-697a99420d56")
 	)
-	(model "${KIPRJMOD}/../lib/fort.3dshapes/ARJM11C7-114-BA-EW2.STEP"
+	(model "${KIPRJMOD}/lib/fort.3dshapes/ARJM11C7-114-BA-EW2.STEP"
 		(offset
 			(xyz 0 0 0)
 		)

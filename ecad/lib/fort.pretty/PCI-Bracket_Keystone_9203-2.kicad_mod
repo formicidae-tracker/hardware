@@ -24,7 +24,7 @@
     (clearance 1.6))
   (pad "" np_thru_hole circle (at 42.6974 8.7122) (size 3.2 3.2) (drill 3.2) (layers *.Cu *.Mask)
     (clearance 1.6))
-  (model ${KIPRJMOD}/../../lib/fort.3dshapes/Keystone_9203-2.step
+  (model ${KIPRJMOD}/lib/fort.3dshapes/Keystone_9203-2.step
     (at (xyz 0 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 0))

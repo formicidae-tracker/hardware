@@ -28,7 +28,7 @@
   (pad 3 smd rect (at -5.1 3.225 180) (size 1.8 3.55) (layers F.Cu))
   (pad 3 smd rect (at 5.1 3.225 180) (size 1.8 3.55) (layers F.Cu))
   (pad 3 smd rect (at -5.1 -3.225 180) (size 1.8 3.55) (layers F.Cu))
-  (model ${KIPRJMOD}/../../lib/fort.3dshapes/Platinium_Dragon.step
+  (model ${KIPRJMOD}/lib/fort.3dshapes/Platinium_Dragon.step
     (at (xyz 0 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 0))

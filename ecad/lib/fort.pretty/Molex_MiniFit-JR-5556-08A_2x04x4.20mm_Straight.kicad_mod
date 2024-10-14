@@ -83,7 +83,7 @@
   (pad 6 thru_hole circle (at 4.2 5.5) (size 2.8 2.8) (drill 1.4) (layers *.Cu *.Mask))
   (pad 7 thru_hole circle (at 8.4 5.5) (size 2.8 2.8) (drill 1.4) (layers *.Cu *.Mask))
   (pad 8 thru_hole circle (at 12.6 5.5) (size 2.8 2.8) (drill 1.4) (layers *.Cu *.Mask))
-  (model ${KIPRJMOD}/../../lib/fort.3dshapes/MiniFit-JR-5556-08A_2.step
+  (model ${KIPRJMOD}/lib/fort.3dshapes/MiniFit-JR-5556-08A_2.step
     (at (xyz 0 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 0))

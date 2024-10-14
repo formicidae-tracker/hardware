@@ -2,7 +2,7 @@
 	(version 20231120)
 	(generator "eeschema")
 	(generator_version "8.0")
-	(uuid "72ed58e7-fd05-40a2-bc70-a270c4ab2b2d")
+	(uuid "fe2e16df-7a41-40ce-957f-acad68e0a4c9")
 	(paper "A4")
 	(title_block
 		(title "CAN Transceiver")
@@ -380,11 +380,11 @@
 				)
 			)
 		)
-		(symbol "power:+5V"
+		(symbol "zeus-rescue:+5V-power"
 			(power)
-			(pin_numbers hide)
 			(pin_names
-				(offset 0) hide)
+				(offset 0)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -397,7 +397,7 @@
 					(hide yes)
 				)
 			)
-			(property "Value" "+5V"
+			(property "Value" "power_+5V"
 				(at 0 3.556 0)
 				(effects
 					(font
@@ -423,7 +423,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(property "Description" ""
 				(at 0 0 0)
 				(effects
 					(font
@@ -432,23 +432,14 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "global power"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "+5V_0_1"
+			(symbol "+5V-power_0_1"
 				(polyline
 					(pts
 						(xy -0.762 1.27) (xy 0 2.54)
 					)
 					(stroke
 						(width 0)
-						(type default)
+						(type solid)
 					)
 					(fill
 						(type none)
@@ -460,7 +451,7 @@
 					)
 					(stroke
 						(width 0)
-						(type default)
+						(type solid)
 					)
 					(fill
 						(type none)
@@ -472,18 +463,18 @@
 					)
 					(stroke
 						(width 0)
-						(type default)
+						(type solid)
 					)
 					(fill
 						(type none)
 					)
 				)
 			)
-			(symbol "+5V_1_1"
+			(symbol "+5V-power_1_1"
 				(pin power_in line
 					(at 0 0 90)
-					(length 0)
-					(name "~"
+					(length 0) hide
+					(name "+5V"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -500,11 +491,11 @@
 				)
 			)
 		)
-		(symbol "power:GND"
+		(symbol "zeus-rescue:GND-power"
 			(power)
-			(pin_numbers hide)
 			(pin_names
-				(offset 0) hide)
+				(offset 0)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -517,7 +508,7 @@
 					(hide yes)
 				)
 			)
-			(property "Value" "GND"
+			(property "Value" "power_GND"
 				(at 0 -3.81 0)
 				(effects
 					(font
@@ -543,7 +534,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(property "Description" ""
 				(at 0 0 0)
 				(effects
 					(font
@@ -552,34 +543,25 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "global power"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "GND_0_1"
+			(symbol "GND-power_0_1"
 				(polyline
 					(pts
 						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
 					)
 					(stroke
 						(width 0)
-						(type default)
+						(type solid)
 					)
 					(fill
 						(type none)
 					)
 				)
 			)
-			(symbol "GND_1_1"
+			(symbol "GND-power_1_1"
 				(pin power_in line
 					(at 0 0 270)
-					(length 0)
-					(name "~"
+					(length 0) hide
+					(name "GND"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -601,57 +583,17 @@
 		(at 146.05 67.31)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "0c81b9e1-91d7-42a4-9c10-337735fc4ddf")
+		(uuid "42582dbf-a921-4e37-8b94-8af6feb15a6c")
 	)
 	(junction
 		(at 146.05 111.76)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "160e7b73-392f-42e3-bc0a-7caa316bafd3")
+		(uuid "6897399e-8451-4d57-8d9b-a4a697585cce")
 	)
 	(no_connect
 		(at 158.75 96.52)
-		(uuid "5087654f-5057-4b20-93dd-c56a574e4f8a")
-	)
-	(wire
-		(pts
-			(xy 128.27 101.6) (xy 128.27 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "173aada2-8b07-4786-9bef-b421fefec1e5")
-	)
-	(wire
-		(pts
-			(xy 133.35 101.6) (xy 128.27 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2acd8280-11cf-4428-b365-d79c1ff2dcaf")
-	)
-	(wire
-		(pts
-			(xy 146.05 106.68) (xy 146.05 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "38bd7ad4-46a8-4612-bae1-54d1030d0120")
-	)
-	(wire
-		(pts
-			(xy 158.75 93.98) (xy 166.37 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "542b595e-8899-427d-9b52-6ad9b555f197")
+		(uuid "d0710a6c-0675-4bf7-85c0-cf446a614d2c")
 	)
 	(wire
 		(pts
@@ -661,77 +603,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "603d3161-22aa-4fe7-a6ea-44feb89896e0")
-	)
-	(wire
-		(pts
-			(xy 146.05 111.76) (xy 146.05 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6ac2e012-9bd6-45eb-abef-42e496704d68")
-	)
-	(wire
-		(pts
-			(xy 128.27 111.76) (xy 146.05 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "787d1f53-1f00-4ebe-aa66-d9c04d7621c4")
-	)
-	(wire
-		(pts
-			(xy 127 93.98) (xy 133.35 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7b8a3c4a-16d1-4d67-a086-655420f647bb")
-	)
-	(wire
-		(pts
-			(xy 138.43 80.01) (xy 138.43 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "86b810b4-4b47-4dcf-9fe5-cd7bf6c3ff72")
-	)
-	(wire
-		(pts
-			(xy 138.43 69.85) (xy 138.43 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ab2e9c62-a0a0-4a1f-aae4-4844950300a7")
-	)
-	(wire
-		(pts
-			(xy 146.05 67.31) (xy 146.05 86.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b25473c1-cee5-4dfb-b635-f45256cb0afe")
-	)
-	(wire
-		(pts
-			(xy 127 91.44) (xy 133.35 91.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b3241688-09b3-4827-8b0f-e201b7942b7e")
+		(uuid "0c4855bd-f724-46b5-87e2-e2ea5e6e2d73")
 	)
 	(wire
 		(pts
@@ -741,7 +613,27 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c1f90ade-cc6a-4b39-b0fb-36423b7355f1")
+		(uuid "47ab0014-b1bf-43b2-91c9-441f6c35da30")
+	)
+	(wire
+		(pts
+			(xy 127 93.98) (xy 133.35 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "74a29f3a-5f33-4796-95cd-ba1192a84ecb")
+	)
+	(wire
+		(pts
+			(xy 146.05 111.76) (xy 146.05 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bb3ae8e9-6a10-4573-8606-a3537fdd144b")
 	)
 	(wire
 		(pts
@@ -751,7 +643,97 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "eaf789c8-893a-4261-b018-d7608e615a03")
+		(uuid "bd23579d-62e4-41c1-a1ed-d921fc99d588")
+	)
+	(wire
+		(pts
+			(xy 127 91.44) (xy 133.35 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c172ae88-724d-40e0-8c53-a4ecbe75888a")
+	)
+	(wire
+		(pts
+			(xy 133.35 101.6) (xy 128.27 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c5763553-7008-4b7e-a695-dd851bc3a691")
+	)
+	(wire
+		(pts
+			(xy 138.43 69.85) (xy 138.43 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ce2be14e-5b71-45c2-b40c-e00ec7ccc92f")
+	)
+	(wire
+		(pts
+			(xy 128.27 101.6) (xy 128.27 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d196feba-9c3a-44a4-a33c-b99bb2204247")
+	)
+	(wire
+		(pts
+			(xy 138.43 80.01) (xy 138.43 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d459b09e-88a9-43f3-8fd4-bcb2e6d0dd1d")
+	)
+	(wire
+		(pts
+			(xy 128.27 111.76) (xy 146.05 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e51675ea-dce8-4393-a846-c05e81b4235a")
+	)
+	(wire
+		(pts
+			(xy 146.05 106.68) (xy 146.05 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e6cb861e-f469-4153-b766-e78abb4e39ef")
+	)
+	(wire
+		(pts
+			(xy 158.75 93.98) (xy 166.37 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eb39de12-4dae-4a6c-98a0-3bbf9f7394ab")
+	)
+	(wire
+		(pts
+			(xy 146.05 67.31) (xy 146.05 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fa31adb0-92b1-44a0-be07-c46241318e8a")
 	)
 	(text "© 2018 Université de Lausanne\n\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.2.\n\nYou may redistribute and modify this documentation under the terms of\nthe CERN OHL v.1.2. (http://ohwr.org/cernohl). This documentation is\ndistributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,\nINCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND\nFITNESS FOR A PARTICULAR PURPOSE. Please see the CERN OHL v.1.2\nfor applicable conditions"
 		(exclude_from_sim no)
@@ -762,19 +744,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "31b880c3-414a-455f-91f4-8893f31fa82c")
-	)
-	(hierarchical_label "TXD"
-		(shape input)
-		(at 127 91.44 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.524 1.524)
-			)
-			(justify right)
-		)
-		(uuid "2e397652-c813-4f41-8e77-6eb29f591a69")
+		(uuid "9c24c7f5-e0fb-469f-b52e-651bff05c2b9")
 	)
 	(hierarchical_label "CAN+"
 		(shape bidirectional)
@@ -786,7 +756,7 @@
 			)
 			(justify left)
 		)
-		(uuid "468350d7-2509-4a2b-9d26-1a23ba72661a")
+		(uuid "865e6b8f-a203-4d0f-8a5d-1f5e00b6126f")
 	)
 	(hierarchical_label "CAN-"
 		(shape bidirectional)
@@ -798,7 +768,19 @@
 			)
 			(justify left)
 		)
-		(uuid "96254e24-2178-4680-900c-d51b2ccb71fd")
+		(uuid "90571a8f-dd15-4b7b-a234-853e7d52f39e")
+	)
+	(hierarchical_label "TXD"
+		(shape input)
+		(at 127 91.44 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.524 1.524)
+			)
+			(justify right)
+		)
+		(uuid "92263fb5-4337-4107-80d1-e017a3e2ad56")
 	)
 	(hierarchical_label "RXD"
 		(shape output)
@@ -810,7 +792,7 @@
 			)
 			(justify right)
 		)
-		(uuid "c2b7850d-6b0f-46d6-92dc-f8b2a617912e")
+		(uuid "c67de01d-be2b-466d-857d-9eb570ac3078")
 	)
 	(symbol
 		(lib_id "Interface_CAN_LIN:MCP2561-E-SN")
@@ -867,29 +849,29 @@
 				(hide yes)
 			)
 		)
-		(pin "7"
-			(uuid "518f3e7f-1e6d-446b-8975-d6cf7fa62125")
-		)
-		(pin "5"
-			(uuid "5957a668-0ae6-4e90-b272-849ad050abf2")
-		)
 		(pin "1"
-			(uuid "c7cd1e6a-f167-473c-9fe4-3b8a8547e42a")
+			(uuid "28b7a65e-0ed6-43da-a2a7-e249abdac6c1")
 		)
 		(pin "2"
-			(uuid "9eaea69e-f841-43de-9aac-738df6581780")
-		)
-		(pin "4"
-			(uuid "1fcc33e1-32de-43f1-901c-aa16e51e0261")
-		)
-		(pin "6"
-			(uuid "0699a3dc-86b7-44ed-9663-b102719ea92b")
-		)
-		(pin "8"
-			(uuid "ce53c6eb-221b-49b9-8ef9-5035d739e782")
+			(uuid "52d05908-7c7f-49a5-9eef-0e77e8af0726")
 		)
 		(pin "3"
-			(uuid "3848d1ea-20ab-488d-9352-7525b9c06836")
+			(uuid "ce40d8b6-823c-4773-8ec4-dbb4bdc2bdd1")
+		)
+		(pin "4"
+			(uuid "71d0ae54-3872-4c6a-9813-01b5cd29ad16")
+		)
+		(pin "5"
+			(uuid "c1458752-0148-4f69-b9e5-1f18fef7d53c")
+		)
+		(pin "6"
+			(uuid "edf80f1e-e2d0-4f27-a868-0125672b4ac8")
+		)
+		(pin "7"
+			(uuid "48375489-b39c-40c5-af92-5c328375629d")
+		)
+		(pin "8"
+			(uuid "d67fe261-afbd-42d0-a183-e45e0ee432a9")
 		)
 		(instances
 			(project "arke"
@@ -898,10 +880,16 @@
 					(unit 1)
 				)
 			)
+			(project "zeus"
+				(path "/67b47d30-ec53-4da6-ab1b-07d3781be510/00000000-0000-0000-0000-00005ba4c5e7"
+					(reference "U3")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
+		(lib_id "zeus-rescue:GND-power")
 		(at 146.05 116.84 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -944,7 +932,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" ""
 			(at 146.05 116.84 0)
 			(effects
 				(font
@@ -954,11 +942,17 @@
 			)
 		)
 		(pin "1"
-			(uuid "d9f8f513-db4e-49d8-bd9d-1838a3ef43e9")
+			(uuid "b48155c3-6e31-4bb4-8f30-2ae78ce709ed")
 		)
 		(instances
 			(project "arke"
 				(path "/1ad6b037-c554-4b78-8579-dc1604bc2861/00000000-0000-0000-0000-00005ba1079e"
+					(reference "#PWR0105")
+					(unit 1)
+				)
+			)
+			(project "zeus"
+				(path "/67b47d30-ec53-4da6-ab1b-07d3781be510/00000000-0000-0000-0000-00005ba4c5e7"
 					(reference "#PWR0105")
 					(unit 1)
 				)
@@ -1020,10 +1014,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "18e9d608-4753-4b31-9d9a-59e18705be83")
+			(uuid "0656e1c2-7a0f-417e-b2f4-c48dd5fb0b34")
 		)
 		(pin "2"
-			(uuid "8515e21d-0fae-4066-b6d4-dfe74a1cab1a")
+			(uuid "beaeda1d-6fa1-4eec-84ea-c84977618957")
 		)
 		(instances
 			(project "arke"
@@ -1032,10 +1026,16 @@
 					(unit 1)
 				)
 			)
+			(project "zeus"
+				(path "/67b47d30-ec53-4da6-ab1b-07d3781be510/00000000-0000-0000-0000-00005ba4c5e7"
+					(reference "C12")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
+		(lib_id "zeus-rescue:GND-power")
 		(at 138.43 80.01 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -1078,7 +1078,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" ""
 			(at 138.43 80.01 0)
 			(effects
 				(font
@@ -1088,7 +1088,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "a4588c8d-bc1a-450e-9fd0-81fdbec835b8")
+			(uuid "52577b8c-23bc-44d9-99ab-50160fa1fad6")
 		)
 		(instances
 			(project "arke"
@@ -1097,10 +1097,16 @@
 					(unit 1)
 				)
 			)
+			(project "zeus"
+				(path "/67b47d30-ec53-4da6-ab1b-07d3781be510/00000000-0000-0000-0000-00005ba4c5e7"
+					(reference "#PWR0103")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
+		(lib_id "zeus-rescue:+5V-power")
 		(at 146.05 63.5 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -1153,11 +1159,17 @@
 			)
 		)
 		(pin "1"
-			(uuid "8de82f74-3af9-4cbf-bfca-eac86d374021")
+			(uuid "89dc6735-aa2f-4ef1-ba0d-55e7cc2b71df")
 		)
 		(instances
 			(project "arke"
 				(path "/1ad6b037-c554-4b78-8579-dc1604bc2861/00000000-0000-0000-0000-00005ba1079e"
+					(reference "#PWR0104")
+					(unit 1)
+				)
+			)
+			(project "zeus"
+				(path "/67b47d30-ec53-4da6-ab1b-07d3781be510/00000000-0000-0000-0000-00005ba4c5e7"
 					(reference "#PWR0104")
 					(unit 1)
 				)

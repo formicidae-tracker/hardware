@@ -30,7 +30,7 @@ version=1
 LibDir=
 [schematic_editor]
 version=1
-PageLayoutDescrFile=${KIPRJMOD}/../../lib/unil.kicad_wks
+PageLayoutDescrFile=${KIPRJMOD}/lib/unil.kicad_wks
 PlotDirectoryName=
 SubpartIdSeparator=0
 SubpartFirstId=65

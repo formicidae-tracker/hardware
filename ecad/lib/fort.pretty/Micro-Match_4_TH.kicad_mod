@@ -15,7 +15,7 @@
   (pad 3 thru_hole circle (at -1.27 -1.27) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask))
   (pad 4 thru_hole circle (at -2.54 1.27) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask))
   (pad "" np_thru_hole circle (at 2.67 0.53) (size 1.8 1.8) (drill 1.8) (layers *.Cu *.Mask))
-  (model ${KIPRJMOD}/../../lib/fort.3dshapes/215079-4.step
+  (model ${KIPRJMOD}/lib/fort.3dshapes/215079-4.step
     (at (xyz 0 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 0))

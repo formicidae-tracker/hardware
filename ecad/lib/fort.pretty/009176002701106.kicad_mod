@@ -1,23 +1,168 @@
-(module 009176002701106 (layer F.Cu) (tedit 5CF52886)
-  (fp_text reference J3 (at 0 3.5) (layer F.SilkS)
-    (effects (font (size 1 1) (thickness 0.15)))
-  )
-  (fp_text value VIS (at 0 -4) (layer F.Fab)
-    (effects (font (size 1 1) (thickness 0.15)))
-  )
-  (fp_line (start -4 2.5) (end -4 -2.5) (layer F.Fab) (width 0.25))
-  (fp_line (start 4 2.5) (end -4 2.5) (layer F.Fab) (width 0.25))
-  (fp_line (start 4 -2.5) (end 4 2.5) (layer F.Fab) (width 0.25))
-  (fp_line (start -4 -2.5) (end 4 -2.5) (layer F.Fab) (width 0.25))
-  (fp_line (start -5 -4.5) (end 5 -4.5) (layer Cmts.User) (width 0.25))
-  (fp_line (start 5 -4.5) (end 5 4.5) (layer Cmts.User) (width 0.25))
-  (fp_line (start 5 4.5) (end -5 4.5) (layer Cmts.User) (width 0.25))
-  (fp_line (start -5 4.5) (end -5 -4.5) (layer Cmts.User) (width 0.25))
-  (pad 1 smd rect (at -2 0) (size 3 5.4) (layers F.Cu F.Paste F.Mask))
-  (pad 2 smd rect (at 2 0) (size 3 5.4) (layers F.Cu F.Paste F.Mask))
-  (model ${KIPRJMOD}/../../lib/fort.3dshapes/009176002701106.wrl
-    (at (xyz 0 0 0))
-    (scale (xyz 1 1 1))
-    (rotate (xyz 0 0 0))
-  )
+(footprint "009176002701106"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "J3"
+		(at 0 3.5 0)
+		(layer "F.SilkS")
+		(uuid "1e1d2c92-22d2-4c15-a55f-be10b728e135")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "VIS"
+		(at 0 -4 0)
+		(layer "F.Fab")
+		(uuid "21265cb3-9816-4516-be26-55effe799ff2")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "912a6cd3-a8bc-467b-b0d3-c8b10c651651")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "8ac329ef-9303-404b-8620-13be102c5d07")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "29278b21-e746-49fb-b2a3-5b7a4aa032c0")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_line
+		(start -5 -4.5)
+		(end 5 -4.5)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(layer "Cmts.User")
+		(uuid "b29c3188-dbc9-4cc3-8730-08f8da88e1a2")
+	)
+	(fp_line
+		(start -5 4.5)
+		(end -5 -4.5)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(layer "Cmts.User")
+		(uuid "6bb3d4d5-7c53-419a-b45f-6aa50a77feca")
+	)
+	(fp_line
+		(start 5 -4.5)
+		(end 5 4.5)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(layer "Cmts.User")
+		(uuid "bce4040c-e370-43c6-ab4e-d710149176f6")
+	)
+	(fp_line
+		(start 5 4.5)
+		(end -5 4.5)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(layer "Cmts.User")
+		(uuid "45152ad4-c3a6-4713-86d0-925b7d3f3ed6")
+	)
+	(fp_line
+		(start -4 -2.5)
+		(end 4 -2.5)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "6b13de1d-b4d7-4902-b4c5-8d96f4e905db")
+	)
+	(fp_line
+		(start -4 2.5)
+		(end -4 -2.5)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "60777e7b-c70f-4c10-9cfe-b61a1c557284")
+	)
+	(fp_line
+		(start 4 -2.5)
+		(end 4 2.5)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "cc317c73-9eb4-45c1-920e-16479db8eeec")
+	)
+	(fp_line
+		(start 4 2.5)
+		(end -4 2.5)
+		(stroke
+			(width 0.25)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "750c9950-fec5-4421-9173-23faec9dd46a")
+	)
+	(pad "1" smd rect
+		(at -2 0)
+		(size 3 5.4)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "c789deae-1639-4f66-bcae-92c95ea1ecc3")
+	)
+	(pad "2" smd rect
+		(at 2 0)
+		(size 3 5.4)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "27f5b56b-d7f7-479d-b305-915bea171851")
+	)
+	(model "${KIPRJMOD}/lib/fort.3dshapes/009176002701106.wrl"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
 )

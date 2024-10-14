@@ -432,7 +432,7 @@
 		(thermal_bridge_angle 45)
 		(uuid "cd01a7ce-3c7f-4d7e-a4c0-15c8a9bde43b")
 	)
-	(model "${KIPRJMOD}/../../lib/fort.3dshapes/AdamTech_IEC-A-4.step"
+	(model "${KIPRJMOD}/lib/fort.3dshapes/AdamTech_IEC-A-4.step"
 		(offset
 			(xyz 0 -19.35 9.3)
 		)

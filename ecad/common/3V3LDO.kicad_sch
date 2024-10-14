@@ -2,7 +2,7 @@
 	(version 20231120)
 	(generator "eeschema")
 	(generator_version "8.0")
-	(uuid "68c0e28f-dbe1-47c3-b5af-2d9239cb86c0")
+	(uuid "9e26af24-6d67-4c44-b8db-4ae6b4c4c586")
 	(paper "A4")
 	(title_block
 		(title "3V3 LDO")
@@ -140,93 +140,6 @@
 						)
 					)
 					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "celaeno-rescue:GND-power"
-			(power)
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "#PWR"
-				(at 0 -6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Value" "power_GND"
-				(at 0 -3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "GND-power_0_1"
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "GND-power_1_1"
-				(pin power_in line
-					(at 0 0 270)
-					(length 0) hide
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -392,142 +305,129 @@
 				)
 			)
 		)
-	)
-	(junction
-		(at 149.86 114.3)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "283f0920-b839-4e89-881d-e9bed08c9d4e")
-	)
-	(junction
-		(at 181.61 92.71)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4aacd696-87c6-4cf0-910e-9df7c7fb8dbf")
-	)
-	(junction
-		(at 133.35 92.71)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "70fabe12-c451-4c41-b202-80834ad19115")
+		(symbol "zeus-rescue:GND-power"
+			(power)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "power_GND"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "GND-power_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "GND-power_1_1"
+				(pin power_in line
+					(at 0 0 270)
+					(length 0) hide
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 	)
 	(junction
 		(at 142.24 114.3)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "9863af0d-11ee-43de-ad8c-c7798cb42cf0")
-	)
-	(junction
-		(at 123.19 92.71)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "bc58a2de-dd7b-46cb-97c2-b071bb84514a")
+		(uuid "3456cce6-7deb-4358-9ef0-145e3029df39")
 	)
 	(junction
 		(at 170.18 114.3)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "efe4e757-8893-46fe-abd0-51cd59ec8de1")
+		(uuid "3adbaa16-3fa7-43ea-ad88-655a4260038d")
 	)
-	(wire
-		(pts
-			(xy 104.14 92.71) (xy 123.19 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0371d3b1-a77d-40ff-846c-80198e83d1e0")
+	(junction
+		(at 123.19 92.71)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7b22b50d-8bd2-488f-ba05-7165b33aedc4")
 	)
-	(wire
-		(pts
-			(xy 162.56 97.79) (xy 170.18 97.79)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "05b8f3fc-6d5c-408f-bb1a-a1b48a4089e3")
+	(junction
+		(at 181.61 92.71)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7dc8bacb-decf-4ad5-ac2f-148e3c91f832")
 	)
-	(wire
-		(pts
-			(xy 142.24 118.11) (xy 142.24 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "10810180-762e-405a-a4af-e9cd9d090e95")
+	(junction
+		(at 133.35 92.71)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "90ba2f03-eefe-4da7-b95c-4e1b6c16c1f3")
 	)
-	(wire
-		(pts
-			(xy 181.61 114.3) (xy 181.61 102.87)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "121e42ab-4cf5-4eea-ae9c-05227dfb422d")
-	)
-	(wire
-		(pts
-			(xy 123.19 96.52) (xy 123.19 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1cde92b2-2b70-4968-9f0c-11e5034bcbe8")
-	)
-	(wire
-		(pts
-			(xy 142.24 114.3) (xy 149.86 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1ce2fa10-89f1-4290-951e-19ee02c5a8fb")
-	)
-	(wire
-		(pts
-			(xy 170.18 97.79) (xy 170.18 100.33)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1dd27d1b-5f5f-481a-a29e-b4a41875dfa3")
-	)
-	(wire
-		(pts
-			(xy 170.18 114.3) (xy 181.61 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2e9a3c71-cea1-4449-a8f3-85d1a66eed8d")
-	)
-	(wire
-		(pts
-			(xy 123.19 92.71) (xy 133.35 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7c87b00f-88f7-4613-82c4-a9877aeeaab5")
-	)
-	(wire
-		(pts
-			(xy 181.61 92.71) (xy 181.61 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "83e5f492-e2a5-4c41-8796-7c6ab7db87a2")
+	(junction
+		(at 149.86 114.3)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fbe0aef1-7b95-4d17-81b6-2afdc8a31003")
 	)
 	(wire
 		(pts
@@ -537,37 +437,17 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "85aba2d6-0954-4293-9ffd-1d2c59e2e396")
+		(uuid "0926aa2d-c6e1-4642-911d-058fd6e2eee0")
 	)
 	(wire
 		(pts
-			(xy 123.19 114.3) (xy 142.24 114.3)
+			(xy 170.18 114.3) (xy 181.61 114.3)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "98f63426-b9ff-45aa-b49a-032f2b1f6a49")
-	)
-	(wire
-		(pts
-			(xy 123.19 104.14) (xy 123.19 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a8ca0586-aaeb-4cb4-8f46-670677eca4ca")
-	)
-	(wire
-		(pts
-			(xy 137.16 97.79) (xy 133.35 97.79)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bd86fd40-92c1-4845-896e-8a269d663eaf")
+		(uuid "0daf4565-4a70-4fcc-9a7b-e55f10fa02d1")
 	)
 	(wire
 		(pts
@@ -577,27 +457,17 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "bec036d6-d487-4439-83d6-31303a9a9cab")
+		(uuid "19386be9-4f2f-43f0-914d-272dddbf2240")
 	)
 	(wire
 		(pts
-			(xy 133.35 92.71) (xy 137.16 92.71)
+			(xy 170.18 97.79) (xy 170.18 100.33)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "bf899967-8963-4596-8ec4-7c733da84257")
-	)
-	(wire
-		(pts
-			(xy 181.61 92.71) (xy 191.77 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cba4cbf7-0884-4e5e-8648-56a5b5e01850")
+		(uuid "1a5aac35-114a-429e-b0ff-d451da200bfe")
 	)
 	(wire
 		(pts
@@ -607,7 +477,67 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ddc0d1d6-cca7-450a-8351-dde808382d9a")
+		(uuid "285b8770-82c4-4d28-b38f-a1df0cbcdb33")
+	)
+	(wire
+		(pts
+			(xy 142.24 114.3) (xy 149.86 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "32e88554-5e46-41d2-8278-28e4a07b97c0")
+	)
+	(wire
+		(pts
+			(xy 181.61 92.71) (xy 181.61 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3d40edbe-e12b-4454-b510-6f632673496c")
+	)
+	(wire
+		(pts
+			(xy 142.24 118.11) (xy 142.24 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4e13df77-f881-428a-a1bf-c62db5399471")
+	)
+	(wire
+		(pts
+			(xy 181.61 92.71) (xy 191.77 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "52141617-dc48-4132-b671-149834ba1b59")
+	)
+	(wire
+		(pts
+			(xy 162.56 97.79) (xy 170.18 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "59f5c087-dc19-4861-b7aa-88cb16a771a9")
+	)
+	(wire
+		(pts
+			(xy 123.19 92.71) (xy 133.35 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "641ec39d-acab-4951-a0db-465202304378")
 	)
 	(wire
 		(pts
@@ -617,7 +547,57 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fbb5a98c-15c1-40e0-a481-a6f4f7a7f5c9")
+		(uuid "8bde054d-3036-4b0f-bce3-b9a2dcf4c80c")
+	)
+	(wire
+		(pts
+			(xy 133.35 92.71) (xy 137.16 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b0d14ff5-2590-4972-a5cd-be8e2e2fee84")
+	)
+	(wire
+		(pts
+			(xy 123.19 104.14) (xy 123.19 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bb2e2353-c180-46eb-b3d0-1f4000c7e638")
+	)
+	(wire
+		(pts
+			(xy 181.61 114.3) (xy 181.61 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ca992b5d-1537-415c-8614-aead7cba3324")
+	)
+	(wire
+		(pts
+			(xy 123.19 114.3) (xy 142.24 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cc6d6e5b-f861-40fb-9cec-d1824dda08ca")
+	)
+	(wire
+		(pts
+			(xy 104.14 92.71) (xy 123.19 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e9133c9b-f456-4558-876b-ad460816beb4")
 	)
 	(wire
 		(pts
@@ -627,7 +607,27 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fca21f10-8f93-4e0d-ab1b-42d5555d1683")
+		(uuid "ef888f0d-4f9a-4de5-9060-db41bd22cd39")
+	)
+	(wire
+		(pts
+			(xy 137.16 97.79) (xy 133.35 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f3833233-c80c-4b09-9c30-01885f25c7ec")
+	)
+	(wire
+		(pts
+			(xy 123.19 96.52) (xy 123.19 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f6bd1a10-c2cd-47f5-a36b-401ff9c73b21")
 	)
 	(text "© 2018 Université de Lausanne\n\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.2.\n\nYou may redistribute and modify this documentation under the terms of\nthe CERN OHL v.1.2. (http://ohwr.org/cernohl). This documentation is\ndistributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,\nINCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND\nFITNESS FOR A PARTICULAR PURPOSE. Please see the CERN OHL v.1.2\nfor applicable conditions"
 		(exclude_from_sim no)
@@ -638,39 +638,42 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "6f986adc-869e-4088-83e8-38d060a4faac")
+		(uuid "420a79b1-c056-4514-a10f-44b48ffe9a31")
 	)
 	(label "BYPASS"
 		(at 170.18 97.79 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
 			)
 			(justify right bottom)
 		)
-		(uuid "7c105993-9d06-420b-a29c-6e5d464c0199")
-	)
-	(hierarchical_label "5V"
-		(shape input)
-		(at 104.14 92.71 180)
-		(effects
-			(font
-				(size 1.524 1.524)
-			)
-			(justify right)
-		)
-		(uuid "d330069d-ed85-4d39-8933-a3a2bd2701cb")
+		(uuid "f716178a-0e26-495b-b6a8-efe693ce2092")
 	)
 	(hierarchical_label "3V3"
 		(shape output)
 		(at 191.77 92.71 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.524 1.524)
 			)
 			(justify left)
 		)
-		(uuid "f35d22b3-629e-4f30-8c88-ed06aa138248")
+		(uuid "1bd86712-7cab-4721-99da-aff1fdd4804a")
+	)
+	(hierarchical_label "5V"
+		(shape input)
+		(at 104.14 92.71 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.524 1.524)
+			)
+			(justify right)
+		)
+		(uuid "a244dd35-a86c-46d9-98b9-d45bd767df8b")
 	)
 	(symbol
 		(lib_id "fort:LP3985IM5-3.3_NOPB")
@@ -724,33 +727,24 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
-			(at 149.86 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
-			(uuid "792baca4-ccd0-40f0-9393-2ee2a77f241f")
-		)
-		(pin "2"
-			(uuid "1c650ea9-896f-4f7f-97fe-756c9f7fbad8")
+			(uuid "eab92bae-343f-40c1-86f8-f46b09c88d6e")
 		)
 		(pin "3"
-			(uuid "d0ee3150-919b-42d5-bd89-08cfe973b27c")
+			(uuid "6a143c25-0bf1-48d7-8c66-6971bcebeca6")
 		)
 		(pin "4"
-			(uuid "9e34dea2-db4f-4e55-9127-86da0315ce0c")
+			(uuid "9a8e39c4-c886-4269-9235-7a66637fdcb8")
 		)
 		(pin "5"
-			(uuid "8bb180ac-91a3-4f01-96b4-54be0bcbe54b")
+			(uuid "4db89009-90dc-444e-9045-0acdd1af062e")
+		)
+		(pin "2"
+			(uuid "bfa2139e-139b-4a21-b481-aa10d112ff2f")
 		)
 		(instances
-			(project "celaeno"
-				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c/00000000-0000-0000-0000-00005ba4efd7"
+			(project "zeus"
+				(path "/67b47d30-ec53-4da6-ab1b-07d3781be510/00000000-0000-0000-0000-00005ba4efd7"
 					(reference "U1")
 					(unit 1)
 				)
@@ -775,7 +769,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10n"
+		(property "Value" "10nF"
 			(at 170.815 106.68 0)
 			(effects
 				(font
@@ -811,24 +805,15 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GPC0603103"
-			(at 170.18 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
-			(uuid "4a08c7c8-5a78-49ef-8d86-0c023f3344d6")
+			(uuid "6498d593-8684-4a1b-af00-380ff036bcaa")
 		)
 		(pin "2"
-			(uuid "4a8b99ad-e997-40e9-87c7-7507e1036c22")
+			(uuid "b1bf969b-c672-490c-a069-9c5d981af305")
 		)
 		(instances
-			(project "celaeno"
-				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c/00000000-0000-0000-0000-00005ba4efd7"
+			(project "zeus"
+				(path "/67b47d30-ec53-4da6-ab1b-07d3781be510/00000000-0000-0000-0000-00005ba4efd7"
 					(reference "C2")
 					(unit 1)
 				)
@@ -853,7 +838,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "1uF"
 			(at 182.245 101.6 0)
 			(effects
 				(font
@@ -889,24 +874,15 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GPC0603105"
-			(at 181.61 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
-			(uuid "6915eb63-2ca6-48cf-acbd-9510da0036ba")
+			(uuid "4d17bda1-7802-4399-891e-ac0c5c40948a")
 		)
 		(pin "2"
-			(uuid "033b5e2c-d456-4244-987d-83315d2b5d75")
+			(uuid "ad60b9b5-09b6-4565-a5b6-a5045e8163f4")
 		)
 		(instances
-			(project "celaeno"
-				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c/00000000-0000-0000-0000-00005ba4efd7"
+			(project "zeus"
+				(path "/67b47d30-ec53-4da6-ab1b-07d3781be510/00000000-0000-0000-0000-00005ba4efd7"
 					(reference "C3")
 					(unit 1)
 				)
@@ -931,7 +907,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "1uF"
 			(at 123.825 102.87 0)
 			(effects
 				(font
@@ -967,24 +943,15 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GPC0603105"
-			(at 123.19 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
-			(uuid "d0ee538d-696a-4757-8c77-ae47e2ee5cca")
+			(uuid "272dbc41-bcc3-407c-ba9a-e05d299b1a95")
 		)
 		(pin "2"
-			(uuid "574c9388-828d-41fa-8db0-a41efabad45e")
+			(uuid "55135cec-32e5-4ca2-9441-fdd7b96dd3cb")
 		)
 		(instances
-			(project "celaeno"
-				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c/00000000-0000-0000-0000-00005ba4efd7"
+			(project "zeus"
+				(path "/67b47d30-ec53-4da6-ab1b-07d3781be510/00000000-0000-0000-0000-00005ba4efd7"
 					(reference "C1")
 					(unit 1)
 				)
@@ -992,7 +959,7 @@
 		)
 	)
 	(symbol
-		(lib_id "celaeno-rescue:GND-power")
+		(lib_id "zeus-rescue:GND-power")
 		(at 142.24 118.11 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -1045,11 +1012,11 @@
 			)
 		)
 		(pin "1"
-			(uuid "0403bbf9-551b-4f81-a489-96927bdbec2a")
+			(uuid "a78a3236-6d1c-4e75-a243-2d99f28b7856")
 		)
 		(instances
-			(project "celaeno"
-				(path "/9282bf36-ea0f-4057-a6cf-bb9f8a92341c/00000000-0000-0000-0000-00005ba4efd7"
+			(project "zeus"
+				(path "/67b47d30-ec53-4da6-ab1b-07d3781be510/00000000-0000-0000-0000-00005ba4efd7"
 					(reference "#PWR015")
 					(unit 1)
 				)
