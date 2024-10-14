@@ -10431,7 +10431,7 @@
 			(uuid "e2e3dba1-023c-4c53-a51d-6511a71cc639")
 		)
 		(instances
-			(project ""
+			(project "nyx"
 				(path "/0434c878-2318-4d13-889f-e64dc188fc73"
 					(reference "J2")
 					(unit 1)
@@ -12226,7 +12226,7 @@
 			(uuid "08e45a36-3d5f-4357-aa41-143f457237eb")
 		)
 		(instances
-			(project ""
+			(project "nyx"
 				(path "/0434c878-2318-4d13-889f-e64dc188fc73"
 					(reference "J3")
 					(unit 1)
@@ -12819,7 +12819,7 @@
 			(uuid "df2ed6c4-5638-4ad1-ac54-9f73d3987ba3")
 		)
 		(instances
-			(project ""
+			(project "nyx"
 				(path "/0434c878-2318-4d13-889f-e64dc188fc73"
 					(reference "#PWR028")
 					(unit 1)
