@@ -21244,7 +21244,7 @@
 		(descr "SOT, 3 Pin (https://www.jedec.org/system/files/docs/to-236h.pdf variant AB), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags "SOT TO_SOT_SMD")
 		(property "Reference" "D12"
-			(at -3.05 -1.375 360)
+			(at -3.05 -1.375 0)
 			(layer "F.SilkS")
 			(uuid "6bd4d84f-adba-428b-b984-d020814297aa")
 			(effects
@@ -21255,7 +21255,7 @@
 			)
 		)
 		(property "Value" "ESD752DBZR"
-			(at 0 2.4 360)
+			(at 0 2.4 0)
 			(layer "F.Fab")
 			(uuid "5743c2f2-cdf6-405d-8b0e-13b3d0305a24")
 			(effects
@@ -21448,7 +21448,7 @@
 			(uuid "56bf2ce9-6a5c-4b09-a044-1393ce8984e1")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "22eb3c44-1d85-48b9-ad43-129a364062ab")
 			(effects
