@@ -1,4 +1,4 @@
-944427325344586
+949711980604005
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -55748,6 +55748,20 @@ HTSSOP 0.65
 22
 15
 FORT
+JST_PH_B2B-PH-SM4-TB_1x02-1MP_P2.00mm_Vertical
+JST PH series connector, B2B-PH-SM4-TB (http://www.jst-mfg.com/product/pdf/eng/ePH.pdf), generated with kicad-footprint-generator
+connector JST PH vertical
+0
+4
+3
+FORT
+JST_PH_B4B-PH-SM4-TB_1x04-1MP_P2.00mm_Vertical
+JST PH series connector, B4B-PH-SM4-TB (http://www.jst-mfg.com/product/pdf/eng/ePH.pdf), generated with kicad-footprint-generator
+connector JST PH vertical
+0
+6
+5
+FORT
 LD09S13A4GX00LF
 
 
@@ -71058,6 +71072,13 @@ Kailh KH CPG1425 Keyboard Low Profile Notebook Keyswitch Switch Cutout Keycap IS
 2
 PCM_kikit
 Board
+Mark board for extraction
+
+0
+0
+0
+PCM_kikit
+Error
 Mark board for extraction
 
 0
