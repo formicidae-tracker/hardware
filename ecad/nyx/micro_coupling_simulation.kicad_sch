@@ -419,7 +419,7 @@
 				)
 			)
 		)
-		(symbol "Simulation_SPICE:VPULSE"
+		(symbol "Simulation_SPICE:VSIN"
 			(pin_numbers hide)
 			(pin_names
 				(offset 0.0254)
@@ -436,7 +436,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "VPULSE"
+			(property "Value" "VSIN"
 				(at 2.54 0 0)
 				(effects
 					(font
@@ -463,7 +463,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Voltage source, pulse"
+			(property "Description" "Voltage source, sinusoidal"
 				(at 0 0 0)
 				(effects
 					(font
@@ -481,7 +481,16 @@
 					(hide yes)
 				)
 			)
-			(property "Sim.Type" "PULSE"
+			(property "Sim.Params" "dc=0 ampl=1 f=1k ac=1"
+				(at 2.54 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Sim.Type" "SIN"
 				(at 0 0 0)
 				(effects
 					(font
@@ -500,16 +509,7 @@
 					(hide yes)
 				)
 			)
-			(property "Sim.Params" "y1=0 y2=1 td=2n tr=2n tf=2n tw=50n per=100n"
-				(at 2.54 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "ki_keywords" "simulation"
+			(property "ki_keywords" "simulation ac vac"
 				(at 0 0 0)
 				(effects
 					(font
@@ -518,12 +518,23 @@
 					(hide yes)
 				)
 			)
-			(symbol "VPULSE_0_0"
-				(polyline
-					(pts
-						(xy -2.032 -0.762) (xy -1.397 -0.762) (xy -1.143 0.762) (xy -0.127 0.762) (xy 0.127 -0.762) (xy 1.143 -0.762)
-						(xy 1.397 0.762) (xy 2.032 0.762)
+			(symbol "VSIN_0_0"
+				(arc
+					(start 0 0)
+					(mid -0.635 0.6323)
+					(end -1.27 0)
+					(stroke
+						(width 0)
+						(type default)
 					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 0)
+					(mid 0.635 -0.6323)
+					(end 1.27 0)
 					(stroke
 						(width 0)
 						(type default)
@@ -541,7 +552,7 @@
 					)
 				)
 			)
-			(symbol "VPULSE_0_1"
+			(symbol "VSIN_0_1"
 				(circle
 					(center 0 0)
 					(radius 2.54)
@@ -554,7 +565,7 @@
 					)
 				)
 			)
-			(symbol "VPULSE_1_1"
+			(symbol "VSIN_1_1"
 				(pin passive line
 					(at 0 5.08 270)
 					(length 2.54)
@@ -709,24 +720,14 @@
 		(uuid "b5f40ee0-feb1-4f56-af09-b00f16178b24")
 	)
 	(junction
-		(at 109.22 99.06)
+		(at 115.57 99.06)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "d4e7c028-6de1-4576-a489-441e40db0e55")
+		(uuid "f36e0247-de15-4996-b89e-d723d43c81ff")
 	)
 	(wire
 		(pts
-			(xy 109.22 99.06) (xy 115.57 99.06)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "09a6f7d7-25cb-433f-a878-a49140d97c67")
-	)
-	(wire
-		(pts
-			(xy 101.6 99.06) (xy 109.22 99.06)
+			(xy 101.6 99.06) (xy 104.14 99.06)
 		)
 		(stroke
 			(width 0)
@@ -736,13 +737,23 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 62.23) (xy 91.44 62.23)
+			(xy 64.77 62.23) (xy 76.2 62.23)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "0bf27263-0f16-4003-9a1c-02e8bb9ea9ab")
+	)
+	(wire
+		(pts
+			(xy 111.76 99.06) (xy 115.57 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0cc26e9c-5e58-46d6-8372-3a373a006868")
 	)
 	(wire
 		(pts
@@ -766,7 +777,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 99.06) (xy 109.22 104.14)
+			(xy 115.57 99.06) (xy 115.57 104.14)
 		)
 		(stroke
 			(width 0)
@@ -836,6 +847,16 @@
 	)
 	(wire
 		(pts
+			(xy 111.76 62.23) (xy 115.57 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9dc881dd-f290-4f3c-b2bd-8dd3bd137ab2")
+	)
+	(wire
+		(pts
 			(xy 101.6 82.55) (xy 101.6 99.06)
 		)
 		(stroke
@@ -876,7 +897,7 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 99.06) (xy 64.77 99.06)
+			(xy 91.44 99.06) (xy 83.82 99.06)
 		)
 		(stroke
 			(width 0)
@@ -936,6 +957,26 @@
 	)
 	(wire
 		(pts
+			(xy 115.57 104.14) (xy 109.22 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dd072acc-3941-49ab-aaf2-3ecf2292815a")
+	)
+	(wire
+		(pts
+			(xy 83.82 62.23) (xy 91.44 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ddbae184-99f5-4527-8bfe-36c45d835e7f")
+	)
+	(wire
+		(pts
 			(xy 64.77 99.06) (xy 64.77 83.82)
 		)
 		(stroke
@@ -946,13 +987,23 @@
 	)
 	(wire
 		(pts
-			(xy 101.6 62.23) (xy 115.57 62.23)
+			(xy 101.6 62.23) (xy 104.14 62.23)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "e508b71a-3f11-49c0-8cb8-61fcf93a8125")
+	)
+	(wire
+		(pts
+			(xy 76.2 99.06) (xy 64.77 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e82d12dc-9159-4986-a6d2-482bd841bc12")
 	)
 	(wire
 		(pts
@@ -1005,6 +1056,75 @@
 			(justify left bottom)
 		)
 		(uuid "7e73c961-de90-42b5-a9f3-187fc01cd40e")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 107.95 99.06 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1adfdb9b-f79c-4aec-a3cf-166cd777498e")
+		(property "Reference" "R7"
+			(at 107.95 92.71 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0.150"
+			(at 107.95 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 107.95 100.838 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 107.95 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 107.95 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "e01a8dc0-0ffb-4be5-8935-e038e2726cf6")
+		)
+		(pin "1"
+			(uuid "e282699a-977b-45ee-8bb0-23a6ceac37c5")
+		)
+		(instances
+			(project "micro_coupling_simulation"
+				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
+					(reference "R7")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -1069,7 +1189,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "l1=L1 l2=L2 k=0.1"
+		(property "Sim.Params" "l1=L1 l2=L2 k=0.99"
 			(at 96.52 78.74 0)
 			(effects
 				(font
@@ -1085,116 +1205,9 @@
 			(uuid "3e2ff598-70f2-4d5a-b0bc-dbc9b32503df")
 		)
 		(instances
-			(project ""
+			(project "micro_coupling_simulation"
 				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
 					(reference "R4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Simulation_SPICE:VPULSE")
-		(at 64.77 78.74 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "453ea258-b9f9-47a8-8209-1e2730f96431")
-		(property "Reference" "V1"
-			(at 60.96 76.0701 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "VPULSE"
-			(at 60.96 78.6101 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 64.77 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for"
-			(at 64.77 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Voltage source, pulse"
-			(at 64.77 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" "1=+ 2=-"
-			(at 64.77 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" "PULSE"
-			(at 64.77 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" "V"
-			(at 64.77 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" "y1=0 y2=2.5 td=10n tr=10n tf=10n tw=5us per=10us"
-			(at 60.96 81.1501 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "2"
-			(uuid "1e6fb6be-a468-4b9a-8a14-582d5b93004e")
-		)
-		(pin "1"
-			(uuid "2e6c80a7-b894-4af4-b8a2-ea8623a88bba")
-		)
-		(instances
-			(project ""
-				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
-					(reference "V1")
 					(unit 1)
 				)
 			)
@@ -1261,7 +1274,7 @@
 			(uuid "391a3a7e-14e7-4e5f-95ba-0e196aea8b05")
 		)
 		(instances
-			(project ""
+			(project "micro_coupling_simulation"
 				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
 					(reference "L3")
 					(unit 1)
@@ -1331,7 +1344,7 @@
 			(uuid "c8998866-a9a1-4f36-9e5c-0daf8b5c54c5")
 		)
 		(instances
-			(project ""
+			(project "micro_coupling_simulation"
 				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
 					(reference "R1")
 					(unit 1)
@@ -1402,7 +1415,7 @@
 			(uuid "1aa05c85-846b-42c3-9317-eea9da371400")
 		)
 		(instances
-			(project ""
+			(project "micro_coupling_simulation"
 				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
 					(reference "R2")
 					(unit 1)
@@ -1473,7 +1486,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "l1=L3 l2=L4 k=0.1"
+		(property "Sim.Params" "l1=L3 l2=L4 k=0.99"
 			(at 137.16 78.74 0)
 			(effects
 				(font
@@ -1489,7 +1502,7 @@
 			(uuid "4f80b43f-dfd0-47db-af9e-3703eefcdfec")
 		)
 		(instances
-			(project ""
+			(project "micro_coupling_simulation"
 				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
 					(reference "R5")
 					(unit 1)
@@ -1555,9 +1568,147 @@
 			(uuid "959866a1-d812-4249-a6dc-e93fef9a96c0")
 		)
 		(instances
-			(project ""
+			(project "micro_coupling_simulation"
 				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
 					(reference "#PWR03")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 80.01 62.23 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6abe5f2a-5df3-4d51-99ec-fe69a52ce318")
+		(property "Reference" "R8"
+			(at 80.01 55.88 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0.150"
+			(at 80.01 58.42 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 80.01 64.008 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 80.01 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 80.01 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "0def3c86-1c32-4a86-affe-0cbd7f955f3f")
+		)
+		(pin "1"
+			(uuid "bc3c039b-2b83-45cf-9a2c-d7c9039f9739")
+		)
+		(instances
+			(project "micro_coupling_simulation"
+				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
+					(reference "R8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 107.95 62.23 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8fd2f62a-6620-4dc8-a94d-673e86922ef7")
+		(property "Reference" "R6"
+			(at 107.95 55.88 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0.150"
+			(at 107.95 58.42 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 107.95 64.008 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 107.95 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 107.95 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "3eb4fd7c-91a3-4e47-aac3-6f683c0b4cba")
+		)
+		(pin "1"
+			(uuid "8c1d5922-d770-481d-b0c7-3eee9e1a90de")
+		)
+		(instances
+			(project "micro_coupling_simulation"
+				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
+					(reference "R6")
 					(unit 1)
 				)
 			)
@@ -1625,7 +1776,7 @@
 			(uuid "752b5f76-8cb0-4840-8f56-ffcfe08822e2")
 		)
 		(instances
-			(project ""
+			(project "micro_coupling_simulation"
 				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
 					(reference "L4")
 					(unit 1)
@@ -1691,7 +1842,7 @@
 			(uuid "781bcab0-26a2-4c0d-ae25-681706053e6e")
 		)
 		(instances
-			(project ""
+			(project "micro_coupling_simulation"
 				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
 					(reference "#PWR01")
 					(unit 1)
@@ -1760,7 +1911,7 @@
 			(uuid "c95c6b1f-fa94-4bfd-8de5-c411c8b03fee")
 		)
 		(instances
-			(project ""
+			(project "micro_coupling_simulation"
 				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
 					(reference "L1")
 					(unit 1)
@@ -1826,9 +1977,78 @@
 			(uuid "d690c242-6f63-4b5a-98e1-4ceb42513d7c")
 		)
 		(instances
-			(project ""
+			(project "micro_coupling_simulation"
 				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
 					(reference "#PWR04")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 80.01 99.06 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bf97b294-b970-46bc-be67-24a06547e000")
+		(property "Reference" "R9"
+			(at 80.01 92.71 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0.150"
+			(at 80.01 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 80.01 100.838 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 80.01 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 80.01 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "93de349f-4bc0-409f-88bc-d771648ea644")
+		)
+		(pin "1"
+			(uuid "905fef6e-ee7a-484b-b1b9-f03228724a2c")
+		)
+		(instances
+			(project "micro_coupling_simulation"
+				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
+					(reference "R9")
 					(unit 1)
 				)
 			)
@@ -1896,7 +2116,7 @@
 			(uuid "a843f972-dcd6-4214-8b82-6b385a36d3e8")
 		)
 		(instances
-			(project ""
+			(project "micro_coupling_simulation"
 				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
 					(reference "L2")
 					(unit 1)
@@ -1967,7 +2187,7 @@
 			(uuid "23b213f4-14bb-49ae-ada5-d8a2622758f8")
 		)
 		(instances
-			(project ""
+			(project "micro_coupling_simulation"
 				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
 					(reference "C2")
 					(unit 1)
@@ -2037,7 +2257,7 @@
 			(uuid "aa84463a-71a4-4223-a625-4a2eb607a691")
 		)
 		(instances
-			(project ""
+			(project "micro_coupling_simulation"
 				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
 					(reference "R3")
 					(unit 1)
@@ -2107,9 +2327,116 @@
 			(uuid "1bf7aa0e-2123-4719-83f0-0e53d4103838")
 		)
 		(instances
-			(project ""
+			(project "micro_coupling_simulation"
 				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
 					(reference "C1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Simulation_SPICE:VSIN")
+		(at 64.77 78.74 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f2b1fc64-983b-4972-aa5c-abe18d4be5e8")
+		(property "Reference" "V1"
+			(at 68.58 76.0701 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "VSIN"
+			(at 68.58 78.6101 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 64.77 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for"
+			(at 64.77 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Voltage source, sinusoidal"
+			(at 64.77 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=+ 2=-"
+			(at 64.77 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Params" "dc=0 ampl=2.5 f=10M ac=2.5"
+			(at 68.58 81.1501 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Sim.Type" "SIN"
+			(at 64.77 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "V"
+			(at 64.77 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "37260b98-deb6-49a1-aa50-b8fa3e1bf509")
+		)
+		(pin "2"
+			(uuid "3e16eff6-18bd-4df7-b12c-0f3df3f2b0e7")
+		)
+		(instances
+			(project "micro_coupling_simulation"
+				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
+					(reference "V1")
 					(unit 1)
 				)
 			)
@@ -2174,7 +2501,7 @@
 			(uuid "13822753-ca4a-4bc2-9fd3-c6c7474bcba6")
 		)
 		(instances
-			(project ""
+			(project "micro_coupling_simulation"
 				(path "/ab32b88e-2186-4dff-b82b-df41156f8759"
 					(reference "#PWR02")
 					(unit 1)
