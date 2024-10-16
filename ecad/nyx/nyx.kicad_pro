@@ -481,11 +481,11 @@
         "clearance": 0.15,
         "diff_pair_gap": 0.15,
         "diff_pair_via_gap": 0.25,
-        "diff_pair_width": 0.45,
+        "diff_pair_width": 0.2,
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
-        "name": "100_IMP",
+        "name": "120_IMP",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.2,
@@ -518,8 +518,8 @@
     "netclass_assignments": null,
     "netclass_patterns": [
       {
-        "netclass": "100_IMP",
-        "pattern": "/[TR]D[+-]"
+        "netclass": "120_IMP",
+        "pattern": "/RX.*[+-]"
       },
       {
         "netclass": "Power",

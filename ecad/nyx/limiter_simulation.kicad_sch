@@ -1836,21 +1836,21 @@
 		(fields_autoplaced yes)
 		(uuid "154c51b0-8c2b-43dd-ac24-83addf03a131")
 		(property "Reference" "R5"
-			(at 73.66 88.9001 0)
+			(at 68.58 86.3599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Value" "68k"
-			(at 73.66 86.3601 0)
+			(at 68.58 88.8999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -2497,7 +2497,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "15k"
+		(property "Value" "5k"
 			(at 73.66 99.0599 0)
 			(effects
 				(font

@@ -1,0 +1,72 @@
+****
+* Bourns Inc Pspice model for CDSOT23-SM712 Version 1.0
+* March 2015
+* All rights reserved
+*SPICE MODEL LICENSE AGREEMENT
+*
+*IMPORTANT NOTICE:
+*YOUR access to SPICE MODELS created by Bourns, Inc., a California corporation (â€œBournsâ€�), is conditioned on YOUR acceptance of and agreement to comply with the terms of this SPICE Model License Agreement (this â€œAgreementâ€�).  YOU confirm your acceptance of and agreement to comply with this Agreement by clicking on the â€œAGREEâ€� button below and downloading a SPICE MODEL from the Bourns website.
+*AGREEMENT
+*1.	As used herein, â€œYOUâ€� and â€œYOURâ€� refer both to you as an individual and any entity on whose behalf you are downloading a SPICE MODEL.
+*2.		The information in each SPICE MODEL is protected under United States copyright laws.  Bourns grants YOU a non-exclusive, non-transferable, revocable license to use the downloaded SPICE MODEL and to modify the downloaded SPICE MODEL to enable use with YOUR specific application, subject to the condition that YOU fulfil the terms of this Agreement.
+*3.			YOU agree:
+*A.				That although YOU are permitted to modify the downloaded SPICE MODEL created by Bourns for YOUR specific applications, all rights to the modified SPICE MODEL and any derivatives from such modified SPICE MODEL shall revert to Bourns;
+*B.					Not to sell, lend out, or redistribute or grant a license to any third party for a version of the downloaded SPICE MODEL that YOU have completely or partially modified;
+*C.						Not to create copies of a version of the downloaded SPICE MODEL that has been completely or partially modified by YOU.
+*D.							To use only SPICE MODELS that YOU have directly downloaded from this website; and
+*E.								To perform thorough testing using the actual device and not to rely on simulation results received using the downloaded SPICE MODEL.
+*4.									YOU further agree that the following DISCLAIIMERS are applicable to Bourns and its affiliates, agents and representatives, and YOUR use of the downloaded SPICE MODELS:
+*A.										While the downloaded SPICE MODEL is an effective tool for testing product performance by simulation, it does not simulate product performance in all test environments and is not intended to be a replacement for testing of the actual device by means of a test board or otherwise.
+*B.											Each SPICE MODEL is provided by Bourns AS IS, WHERE IS, AND WITH NO WARRANTY OF ANY KIND EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+*C.												No assurances are offered that the SPICE MODEL will operate normally on all computer systems.
+*D.													No responsibility is assumed by Bourns for any discrepancies that may occur between the results of simulation using SPICE MODEL and the results of testing using the actual device.
+*E.														No responsibility is assumed by Bourns for any damages that occur directly or indirectly from the use of the downloaded SPICE MODEL.  BOURNSâ€™ LIABILITY FOR DAMAGES TO YOU FOR ANY CAUSE WHATSOEVER, REGARDLESS OF THE FORM OF ANY CLAIM OR ACTION, SHALL IN NO EVENT EXCEED ONE HUNDRED US DOLLARS ($100.00 US).  IN NO EVENT SHALL BOURNS BE LIABLE FOR ANY LOSS OF DATA, PROFITS OR USE OF ANY DOWNLOADED SPICE MODEL, OR FOR ANY SPECIAL, INCIDENTAL, CONSEQUENTIAL OR OTHER INDIRECT DAMAGES ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DOWNLOADED SPICE MODEL.
+*F.															Bourns does not provide maintenance (including updates) or support services for the downloaded SPICE MODEL.
+*G.																Each downloaded SPICE MODEL is protected by copyright laws, and Bourns does not consent to the licensing of patent rights or other intellectual property rights (including those of third parties).
+*5.																	This Agreement shall be governed by and construed in accordance with the laws of the State of California, without regard to its choice of law provisions.  The sole jurisdiction and venue for all actions related to the subject matter of this Agreement shall be the state and federal courts located in Riverside County, California.
+*6.																		The United Nations Convention on Contracts for the International Sale of Goods is excluded in its entirety from this Agreement.
+*7.																			The term of this Agreement shall commence when YOU download a SPICE MODEL and shall terminate when YOU stop using the downloaded SPICE MODEL, except that the provisions of Sections 3, 4 and 5 shall survive the termination of this Agreement.
+*
+*
+*   This Spice model models the nominal behaviour of the CDSOT23-SM712 within the
+* limitations of Pspice standard models.
+*
+*   While the model strives to match actual device performance, not all aspects
+* of the performance of this model may correspond to actual device behaviour due
+* to Pspice limitations
+*
+*   Simulations using this model should not be used to prove validity of circuit design
+* or any aspects of performance, due to inherent inaccuracies of Pspice models.
+*
+*   All simulations should be checked and correlated with actual bench measurements
+* of typical devices.
+*
+*   This model may be updated or changed without notice.
+****
+
+
+********** CDSOT23-SM712 **********
+
+* Typ. Breakdown Voltage (Pin 3-1 and Pin 3-2) = 8.2V
+* Typ. Breakdown Voltage (Pin 1-3 and Pin 2-3) = 15.4V
+* Typ. Cap. (Pin 3-1 and Pin 3-2) & (Pin 1-3 and Pin 2-3) @ 0 V, 1 MHz = 75pF
+
+.SUBCKT CDSOT23-SM712 1 2 3
+DTVS11 4 1 DTVS1
+DTVS12 6 2 DTVS1
+DTVS21 5 3 DTVS2
+DTVS22 7 3 DTVS2
+DID11 4 1 DID1
+DID12 6 2 DID1
+DID21 5 3 DID2
+DID22 7 3 DID2
+L1 4 5 0.8n
+L2 6 7 0.8n
+
+.MODEL DTVS1 D(BV=14.7 IBV=0.001 RS=0.25 VJ=0.446 CJO=108p M=0.309 N=1.39 IS=2.7E-13)
+.MODEL DID1 D(RS=0.08)
+
+.MODEL DTVS2 D(BV=7.5 IBV=0.001 RS=0.15 VJ=0.388 CJO=248p M=0.28 N=1.54 IS=4.4E-12)
+.MODEL DID2 D(RS=0.38)
+
+.ENDS

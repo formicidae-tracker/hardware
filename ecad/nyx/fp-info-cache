@@ -1,4 +1,4 @@
-939241466673000
+954899211969298
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -70798,6 +70798,13 @@ Mark board for extraction
 0
 0
 PCM_kikit
+Error
+Mark board for extraction
+
+0
+0
+0
+PCM_kikit
 Fiducial
 Circular Fiducial
 fiducial
@@ -98007,6 +98014,13 @@ fort
 2
 2
 fort
+AdamTech_IEC-A-4
+
+
+0
+3
+3
+fort
 BarrelJack_CUI_PJ-037B_Horizontal
 DC Barrel Jack
 Power Jack
@@ -98076,6 +98090,20 @@ HTSSOP 0.65
 0
 22
 15
+fort
+JST_PH_B2B-PH-SM4-TB_1x02-1MP_P2.00mm_Vertical
+JST PH series connector, B2B-PH-SM4-TB (http://www.jst-mfg.com/product/pdf/eng/ePH.pdf), generated with kicad-footprint-generator
+connector JST PH vertical
+0
+4
+3
+fort
+JST_PH_B4B-PH-SM4-TB_1x04-1MP_P2.00mm_Vertical
+JST PH series connector, B4B-PH-SM4-TB (http://www.jst-mfg.com/product/pdf/eng/ePH.pdf), generated with kicad-footprint-generator
+connector JST PH vertical
+0
+6
+5
 fort
 LD09S13A4GX00LF
 
@@ -98182,6 +98210,20 @@ ethernet 8p8c transformer poe rj45
 16
 15
 fort
+RJ45_Taoglas_TMJUTHQ0021192425_Horizontal
+Shielded RJ45 ethernet connector with transformer and POE, https://abracon.com/Magnetics/lan/ARJP11A.PDF
+ethernet 8p8c transformer poe rj45
+0
+16
+15
+fort
+RPi_Pico_SMD_TH
+Through hole straight pin header, 2x20, 2.54mm pitch, double rows
+Through hole pin header THT 2x20 2.54mm double row
+0
+86
+43
+fort
 R_S-5
 
 
@@ -98196,6 +98238,13 @@ S1621-46R
 2
 2
 fort
+SIP4_LittleFuse_CPC19X6yX6
+
+
+0
+4
+4
+fort
 SRN1060-XXXM
 
 
@@ -98209,6 +98258,13 @@ HVSSOP SO
 0
 18
 11
+fort
+Texas_SOT-23-8-THIN_1.6x2.9m
+TSOT, 8 Pin (https://www.jedec.org/sites/default/files/docs/MO-193D.pdf variant BA), generated with kicad-footprint-generator ipc_gullwing_generator.py
+TSOT TO_SOT_SMD
+0
+8
+8
 fort
 Texas_VQFN-HR-9_2.1x2.1mm_P0.5mm
 
@@ -98230,3 +98286,10 @@ UNIL-LOGO_13.8x5.1mm
 0
 0
 0
+fort
+Winbond_USON-8-1EP_UX_2x3mm_P0.5mm_EP0.2x1.5mm
+
+W25Q16JVUXIQ TR 
+0
+9
+9

@@ -9839,6 +9839,70 @@
 			)
 		)
 	)
+	(symbol "THVD8010"
+		(extends "THVD8000")
+		(property "Reference" "U"
+			(at -6.985 13.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "THVD8010"
+			(at 7.62 13.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "fort:Texas_SOT-23-8-THIN_1.6x2.9m"
+			(at 0 -22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/thvd8010.pdf"
+			(at -6.858 -16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RS-485 Half-duplex 30kbps transceiver with OOK Modulation for Power Line Communication, SOT-23"
+			(at 2.54 -18.796 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ki_keywords" "RS485 transceiver half duplex OOK Modulation Power Line Communication"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ki_fp_filters" "Texas*SOT-23*1.6x2.9mm*P0.65mm*"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
 	(symbol "TPS92512HV"
 		(extends "TPS92512")
 		(property "Reference" "U"
