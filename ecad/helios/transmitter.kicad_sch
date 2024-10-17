@@ -1575,7 +1575,7 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 59.69) (xy 41.91 55.88)
+			(xy 41.91 58.42) (xy 41.91 54.61)
 		)
 		(stroke
 			(width 0)
@@ -1585,7 +1585,7 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 63.5) (xy 41.91 68.58)
+			(xy 41.91 62.23) (xy 41.91 67.31)
 		)
 		(stroke
 			(width 0)
@@ -1705,7 +1705,7 @@
 	)
 	(wire
 		(pts
-			(xy 29.21 63.5) (xy 25.4 63.5)
+			(xy 29.21 62.23) (xy 25.4 62.23)
 		)
 		(stroke
 			(width 0)
@@ -1715,7 +1715,7 @@
 	)
 	(wire
 		(pts
-			(xy 36.83 59.69) (xy 41.91 59.69)
+			(xy 36.83 58.42) (xy 41.91 58.42)
 		)
 		(stroke
 			(width 0)
@@ -1915,7 +1915,7 @@
 	)
 	(wire
 		(pts
-			(xy 25.4 59.69) (xy 29.21 59.69)
+			(xy 25.4 58.42) (xy 29.21 58.42)
 		)
 		(stroke
 			(width 0)
@@ -1935,7 +1935,7 @@
 	)
 	(wire
 		(pts
-			(xy 36.83 63.5) (xy 41.91 63.5)
+			(xy 36.83 62.23) (xy 41.91 62.23)
 		)
 		(stroke
 			(width 0)
@@ -1985,7 +1985,7 @@
 		(uuid "201f1324-c512-4631-9ce6-4e2a3b2a2fca")
 	)
 	(label "RX+"
-		(at 25.4 59.69 180)
+		(at 25.4 58.42 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2007,7 +2007,7 @@
 		(uuid "5f2104dd-47c6-4a0e-a3ec-6360da80e382")
 	)
 	(label "RX-"
-		(at 25.4 63.5 180)
+		(at 25.4 62.23 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2147,12 +2147,12 @@
 					(reference "C22")
 					(unit 1)
 				)
-				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
-					(reference "C19")
-					(unit 1)
-				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/3fb69f66-2ea8-4784-86b2-0777666900b8"
 					(reference "C25")
+					(unit 1)
+				)
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
+					(reference "C19")
 					(unit 1)
 				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5"
@@ -2164,7 +2164,7 @@
 	)
 	(symbol
 		(lib_id "power:+48V")
-		(at 41.91 55.88 0)
+		(at 41.91 54.61 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2173,7 +2173,7 @@
 		(fields_autoplaced yes)
 		(uuid "1e8e1c8e-6fe6-4c8d-b6a7-43780694d172")
 		(property "Reference" "#PWR027"
-			(at 41.91 59.69 0)
+			(at 41.91 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2182,7 +2182,7 @@
 			)
 		)
 		(property "Value" "+48V"
-			(at 41.91 50.8 0)
+			(at 41.91 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2190,7 +2190,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 41.91 55.88 0)
+			(at 41.91 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2199,7 +2199,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 41.91 55.88 0)
+			(at 41.91 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2208,7 +2208,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+48V\""
-			(at 41.91 55.88 0)
+			(at 41.91 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2225,12 +2225,12 @@
 					(reference "#PWR027")
 					(unit 1)
 				)
-				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
-					(reference "#PWR021")
-					(unit 1)
-				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/3fb69f66-2ea8-4784-86b2-0777666900b8"
 					(reference "#PWR033")
+					(unit 1)
+				)
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
+					(reference "#PWR021")
 					(unit 1)
 				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5"
@@ -2304,12 +2304,12 @@
 					(reference "#PWR030")
 					(unit 1)
 				)
-				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
-					(reference "#PWR024")
-					(unit 1)
-				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/3fb69f66-2ea8-4784-86b2-0777666900b8"
 					(reference "#PWR036")
+					(unit 1)
+				)
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
+					(reference "#PWR024")
 					(unit 1)
 				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5"
@@ -2383,12 +2383,12 @@
 					(reference "#PWR031")
 					(unit 1)
 				)
-				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
-					(reference "#PWR025")
-					(unit 1)
-				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/3fb69f66-2ea8-4784-86b2-0777666900b8"
 					(reference "#PWR037")
+					(unit 1)
+				)
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
+					(reference "#PWR025")
 					(unit 1)
 				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5"
@@ -2465,12 +2465,12 @@
 					(reference "R8")
 					(unit 1)
 				)
-				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
-					(reference "R6")
-					(unit 1)
-				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/3fb69f66-2ea8-4784-86b2-0777666900b8"
 					(reference "R10")
+					(unit 1)
+				)
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
+					(reference "R6")
 					(unit 1)
 				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5"
@@ -2482,7 +2482,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 41.91 68.58 0)
+		(at 41.91 67.31 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2491,7 +2491,7 @@
 		(fields_autoplaced yes)
 		(uuid "6354d212-ceba-448b-ba7b-f82dd649c256")
 		(property "Reference" "#PWR028"
-			(at 41.91 74.93 0)
+			(at 41.91 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2500,7 +2500,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 41.91 73.66 0)
+			(at 41.91 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2508,7 +2508,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 41.91 68.58 0)
+			(at 41.91 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2517,7 +2517,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 41.91 68.58 0)
+			(at 41.91 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2526,7 +2526,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 41.91 68.58 0)
+			(at 41.91 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2543,12 +2543,12 @@
 					(reference "#PWR028")
 					(unit 1)
 				)
-				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
-					(reference "#PWR022")
-					(unit 1)
-				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/3fb69f66-2ea8-4784-86b2-0777666900b8"
 					(reference "#PWR034")
+					(unit 1)
+				)
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
+					(reference "#PWR022")
 					(unit 1)
 				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5"
@@ -2622,12 +2622,12 @@
 					(reference "#PWR029")
 					(unit 1)
 				)
-				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
-					(reference "#PWR023")
-					(unit 1)
-				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/3fb69f66-2ea8-4784-86b2-0777666900b8"
 					(reference "#PWR035")
+					(unit 1)
+				)
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
+					(reference "#PWR023")
 					(unit 1)
 				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5"
@@ -2639,7 +2639,7 @@
 	)
 	(symbol
 		(lib_id "Device:L")
-		(at 33.02 63.5 270)
+		(at 33.02 62.23 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2647,15 +2647,15 @@
 		(dnp no)
 		(uuid "7b80cc73-6152-41b9-a917-ea17be4f12aa")
 		(property "Reference" "L5"
-			(at 33.02 68.58 90)
+			(at 33.02 67.31 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "350u"
-			(at 33.02 66.04 90)
+		(property "Value" "330u"
+			(at 33.02 64.77 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2663,7 +2663,7 @@
 			)
 		)
 		(property "Footprint" "fort:L_Bourns-SRN8040_8x8.15mm"
-			(at 33.02 63.5 0)
+			(at 33.02 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2672,7 +2672,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.bourns.com/docs/Product-Datasheets/SRN8040TA.pdf"
-			(at 33.02 63.5 0)
+			(at 33.02 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2681,7 +2681,7 @@
 			)
 		)
 		(property "Description" "Inductor"
-			(at 33.02 63.5 0)
+			(at 33.02 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2690,7 +2690,7 @@
 			)
 		)
 		(property "MPN" "SRN8040TA-331M"
-			(at 33.02 63.5 90)
+			(at 33.02 62.23 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2710,12 +2710,12 @@
 					(reference "L5")
 					(unit 1)
 				)
-				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
-					(reference "L3")
-					(unit 1)
-				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/3fb69f66-2ea8-4784-86b2-0777666900b8"
 					(reference "L7")
+					(unit 1)
+				)
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
+					(reference "L3")
 					(unit 1)
 				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5"
@@ -2809,12 +2809,12 @@
 					(reference "C23")
 					(unit 1)
 				)
-				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
-					(reference "C20")
-					(unit 1)
-				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/3fb69f66-2ea8-4784-86b2-0777666900b8"
 					(reference "C26")
+					(unit 1)
+				)
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
+					(reference "C20")
 					(unit 1)
 				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5"
@@ -2826,7 +2826,7 @@
 	)
 	(symbol
 		(lib_id "Device:L")
-		(at 33.02 59.69 90)
+		(at 33.02 58.42 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2835,15 +2835,15 @@
 		(fields_autoplaced yes)
 		(uuid "9807885b-b4b5-499e-9053-56814e74d907")
 		(property "Reference" "L4"
-			(at 33.02 54.61 90)
+			(at 33.02 53.34 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "350u"
-			(at 33.02 57.15 90)
+		(property "Value" "330u"
+			(at 33.02 55.88 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2851,7 +2851,7 @@
 			)
 		)
 		(property "Footprint" "fort:L_Bourns-SRN8040_8x8.15mm"
-			(at 33.02 59.69 0)
+			(at 33.02 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2860,7 +2860,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.bourns.com/docs/Product-Datasheets/SRN8040TA.pdf"
-			(at 33.02 59.69 0)
+			(at 33.02 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2869,7 +2869,7 @@
 			)
 		)
 		(property "Description" "Inductor"
-			(at 33.02 59.69 0)
+			(at 33.02 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2878,7 +2878,7 @@
 			)
 		)
 		(property "MPN" "SRN8040TA-331M"
-			(at 33.02 59.69 90)
+			(at 33.02 58.42 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2898,12 +2898,12 @@
 					(reference "L4")
 					(unit 1)
 				)
-				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
-					(reference "L2")
-					(unit 1)
-				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/3fb69f66-2ea8-4784-86b2-0777666900b8"
 					(reference "L6")
+					(unit 1)
+				)
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
+					(reference "L2")
 					(unit 1)
 				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5"
@@ -2998,12 +2998,12 @@
 					(reference "U5")
 					(unit 1)
 				)
-				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
-					(reference "U4")
-					(unit 1)
-				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/3fb69f66-2ea8-4784-86b2-0777666900b8"
 					(reference "U6")
+					(unit 1)
+				)
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
+					(reference "U4")
 					(unit 1)
 				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5"
@@ -3087,12 +3087,12 @@
 					(reference "J5")
 					(unit 1)
 				)
-				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
-					(reference "J4")
-					(unit 1)
-				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/3fb69f66-2ea8-4784-86b2-0777666900b8"
 					(reference "J6")
+					(unit 1)
+				)
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
+					(reference "J4")
 					(unit 1)
 				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5"
@@ -3167,12 +3167,12 @@
 					(reference "#PWR032")
 					(unit 1)
 				)
-				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
-					(reference "#PWR026")
-					(unit 1)
-				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/3fb69f66-2ea8-4784-86b2-0777666900b8"
 					(reference "#PWR038")
+					(unit 1)
+				)
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
+					(reference "#PWR026")
 					(unit 1)
 				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5"
@@ -3249,12 +3249,12 @@
 					(reference "R7")
 					(unit 1)
 				)
-				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
-					(reference "R5")
-					(unit 1)
-				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/3fb69f66-2ea8-4784-86b2-0777666900b8"
 					(reference "R9")
+					(unit 1)
+				)
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
+					(reference "R5")
 					(unit 1)
 				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5"
@@ -3347,12 +3347,12 @@
 					(reference "C24")
 					(unit 1)
 				)
-				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
-					(reference "C21")
-					(unit 1)
-				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/3fb69f66-2ea8-4784-86b2-0777666900b8"
 					(reference "C27")
+					(unit 1)
+				)
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
+					(reference "C21")
 					(unit 1)
 				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5"
@@ -3441,12 +3441,12 @@
 					(reference "D2")
 					(unit 1)
 				)
-				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
-					(reference "D1")
-					(unit 1)
-				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/3fb69f66-2ea8-4784-86b2-0777666900b8"
 					(reference "D3")
+					(unit 1)
+				)
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
+					(reference "D1")
 					(unit 1)
 				)
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5"
