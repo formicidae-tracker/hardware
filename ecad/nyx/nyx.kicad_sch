@@ -8128,7 +8128,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_Bourns-SRN8040_8x8.15mm"
+		(property "Footprint" "fort:L_Bourns-SRN8040_8x8.15mm"
 			(at 104.14 60.96 0)
 			(effects
 				(font
@@ -8740,7 +8740,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_Bourns-SRN8040_8x8.15mm"
+		(property "Footprint" "fort:L_Bourns-SRN8040_8x8.15mm"
 			(at 102.87 36.83 0)
 			(effects
 				(font
