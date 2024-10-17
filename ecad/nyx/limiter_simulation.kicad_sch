@@ -1554,7 +1554,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 78.74) (xy 63.5 107.95)
+			(xy 44.45 80.01) (xy 44.45 107.95)
 		)
 		(stroke
 			(width 0)
@@ -1674,7 +1674,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 68.58) (xy 63.5 63.5)
+			(xy 44.45 69.85) (xy 44.45 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1734,7 +1734,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 107.95) (xy 71.12 107.95)
+			(xy 44.45 107.95) (xy 71.12 107.95)
 		)
 		(stroke
 			(width 0)
@@ -1764,7 +1764,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 63.5) (xy 71.12 63.5)
+			(xy 44.45 63.5) (xy 71.12 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1814,7 +1814,7 @@
 		(uuid "4ff92391-3af1-4fc5-9974-87dab336fd25")
 	)
 	(label "Vin"
-		(at 63.5 63.5 0)
+		(at 44.45 63.5 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2322,7 +2322,7 @@
 				)
 			)
 		)
-		(property "Value" "2.2"
+		(property "Value" "2.05"
 			(at 78.74 59.69 90)
 			(effects
 				(font
@@ -2374,7 +2374,7 @@
 	)
 	(symbol
 		(lib_id "Simulation_SPICE:VDC")
-		(at 63.5 73.66 0)
+		(at 44.45 74.93 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2383,7 +2383,7 @@
 		(fields_autoplaced yes)
 		(uuid "9cdf64b8-0926-42d2-a1c7-358aac05040f")
 		(property "Reference" "V1"
-			(at 67.31 72.2601 0)
+			(at 48.26 73.5301 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2392,7 +2392,7 @@
 			)
 		)
 		(property "Value" "${SIM.PARAMS}"
-			(at 67.31 74.8001 0)
+			(at 48.26 76.0701 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2401,7 +2401,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 63.5 73.66 0)
+			(at 44.45 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2410,7 +2410,7 @@
 			)
 		)
 		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for"
-			(at 63.5 73.66 0)
+			(at 44.45 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2419,7 +2419,7 @@
 			)
 		)
 		(property "Description" "Voltage source, DC"
-			(at 63.5 73.66 0)
+			(at 44.45 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2428,7 +2428,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=+ 2=-"
-			(at 63.5 73.66 0)
+			(at 44.45 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2436,8 +2436,8 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Type" "DC"
-			(at 63.5 73.66 0)
+		(property "Sim.Type" "PULSE"
+			(at 44.45 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2446,7 +2446,7 @@
 			)
 		)
 		(property "Sim.Device" "V"
-			(at 63.5 73.66 0)
+			(at 44.45 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2455,8 +2455,8 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "dc=55"
-			(at 63.5 73.66 0)
+		(property "Sim.Params" "y1=0 y2=48 td=100n tr=1u"
+			(at 44.45 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2549,7 +2549,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "Device:C")
 		(at 156.21 83.82 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2557,9 +2557,9 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "b7e408dc-ca60-4333-8fb5-0e7d7e3cc853")
-		(property "Reference" "R6"
-			(at 158.75 82.5499 0)
+		(uuid "c15942dd-3071-4487-aabf-0d21fc67bb54")
+		(property "Reference" "C2"
+			(at 160.02 82.5499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2567,8 +2567,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1"
-			(at 158.75 85.0899 0)
+		(property "Value" "3m"
+			(at 160.02 85.0899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2577,7 +2577,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 154.432 83.82 90)
+			(at 157.1752 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2594,7 +2594,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
+		(property "Description" "Unpolarized capacitor"
 			(at 156.21 83.82 0)
 			(effects
 				(font
@@ -2603,16 +2603,16 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "984c85c9-6d30-49f1-984c-526ae9df59a4")
-		)
 		(pin "1"
-			(uuid "766d70b5-c08c-40f5-9411-80b5bb25be71")
+			(uuid "e580d71e-5075-43a6-8811-3bde5b4779e3")
+		)
+		(pin "2"
+			(uuid "181166cd-d666-47a5-a284-1a02276d63df")
 		)
 		(instances
 			(project "limiter_simulation"
 				(path "/2f730959-4e9b-4d39-82b6-06bb2796907d"
-					(reference "R6")
+					(reference "C2")
 					(unit 1)
 				)
 			)

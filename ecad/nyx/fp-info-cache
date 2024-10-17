@@ -1,4 +1,4 @@
-954899211969298
+956628382166856
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -98251,6 +98251,13 @@ SRN1060-XXXM
 0
 2
 2
+fort
+TestPoint_Keystone_5019_Minature
+SMT Test Point- Micro Miniature 5019, http://www.keyelco.com/product-pdf.cfm?p=1357
+Test Point
+0
+1
+1
 fort
 Texas_HVSSOP-10-1EP_3x3mm_P0.5mm_EP2.2x3.1mm_ThermalVias
 HVSSOP, 10 Pin (https://www.ti.com/lit/ds/symlink/bq24090.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py

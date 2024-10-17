@@ -48,7 +48,7 @@
         "silk_text_thickness": 0.09999999999999999,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.19999999999999998
+          "min_clearance": 0.0
         }
       },
       "diff_pair_dimensions": [
@@ -179,6 +179,7 @@
       ],
       "track_widths": [
         0.0,
+        0.15,
         0.2,
         0.3,
         0.4,
@@ -654,6 +655,12 @@
           "group_by": false,
           "label": "Rated Current",
           "name": "Rated Current",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Power Rated",
+          "name": "Power Rated",
           "show": false
         }
       ],
