@@ -9371,7 +9371,7 @@
 				)
 			)
 		)
-		(property "Value" "LMR36500P3RPE"
+		(property "Value" "LMR36501P3RPE"
 			(at 0 8.89 0)
 			(effects
 				(font
@@ -9398,6 +9398,70 @@
 			)
 		)
 		(property "Description" "Synchronous Buck Regulator, Vin=3-65V, Iout=100mA, F=0.2-2.2MHz, Adjustable output voltage, PFM at light load, VQFN-HR RPE"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ki_keywords" "synchronous buck step-down"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ki_fp_filters" "Texas*VQFN*HR*2.1x2.1mm*P0.5mm"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol "LMR36502P3RPE"
+		(extends "LMR36500P3RPE")
+		(property "Reference" "U"
+			(at 0 11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LMR36502P3RPE"
+			(at 0 8.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "fort:Texas_VQFN-HR-9_2.1x2.1mm_P0.5mm"
+			(at 0 -20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lmr36502.pdf"
+			(at 0 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Synchronous Buck Regulator, Vin=3-65V, Iout=150mA, F=0.2-2.2MHz, Adjustable output voltage, PFM at light load, VQFN-HR RPE"
 			(at 0 0 0)
 			(effects
 				(font
