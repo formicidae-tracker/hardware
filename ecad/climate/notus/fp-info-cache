@@ -1,4 +1,4 @@
-949711980604005
+960086899902244
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -55649,286 +55649,6 @@ One digit LED 7 segment SA39-11 SC39-11 SA39-12 SC39-12
 0
 10
 10
-FORT
-7447709101
-Choke, Drossel, WE-PD Typ LS, Wuerth, SMD,
-Choke Drossel WE-PDTypLS Wuerth SMD 
-0
-2
-2
-FORT
-640454-2
-
-
-0
-2
-2
-FORT
-009176002701106
-
-
-0
-2
-2
-FORT
-AdamTech_IEC-A-4
-
-
-0
-3
-3
-FORT
-BarrelJack_CUI_PJ-037B_Horizontal
-DC Barrel Jack
-Power Jack
-0
-2
-2
-FORT
-CP_Radial_D22.0mm_P10.00mm_SnapIn
-CP, Radial series, Radial, pin pitch=10.00mm, , diameter=22mm, Electrolytic Capacitor, , http://www.vishay.com/docs/28342/058059pll-si.pdf
-CP Radial series Radial pin pitch 10.00mm  diameter 22mm Electrolytic Capacitor
-0
-2
-2
-FORT
-CP_Radial_D25.0mm_P10.00mm_H32mm_SnapIn
-CP, Radial series, Radial, pin pitch=10.00mm, , diameter=25mm, Electrolytic Capacitor, , http://www.vishay.com/docs/28342/058059pll-si.pdf
-CP Radial series Radial pin pitch 10.00mm  diameter 25mm Electrolytic Capacitor
-0
-2
-2
-FORT
-CP_Radial_D25.0mm_P10.00mm_SnapIn
-CP, Radial series, Radial, pin pitch=10.00mm, , diameter=25mm, Electrolytic Capacitor, , http://www.vishay.com/docs/28342/058059pll-si.pdf
-CP Radial series Radial pin pitch 10.00mm  diameter 25mm Electrolytic Capacitor
-0
-2
-2
-FORT
-Carclo_10148
-
-
-0
-0
-0
-FORT
-Carclo_10740
-
-
-0
-0
-0
-FORT
-D_0201
-
-
-0
-2
-2
-FORT
-D_SOT-23_KAN
-SOT-23, Single Diode
-SOT-23
-0
-3
-2
-FORT
-Freescale_98ASA00063D_3x3mm_Pitch_0.5mm
-
-
-0
-16
-16
-FORT
-HTSSOP-14-1EP_4.4x6.5mm_Pitch0.65mm_ThermalPad
-20-Lead Plastic Thin Shrink Small Outline (ST)-4.4 mm Body [HTSSOP], with thermal pad with vias
-HTSSOP 0.65
-0
-22
-15
-FORT
-JST_PH_B2B-PH-SM4-TB_1x02-1MP_P2.00mm_Vertical
-JST PH series connector, B2B-PH-SM4-TB (http://www.jst-mfg.com/product/pdf/eng/ePH.pdf), generated with kicad-footprint-generator
-connector JST PH vertical
-0
-4
-3
-FORT
-JST_PH_B4B-PH-SM4-TB_1x04-1MP_P2.00mm_Vertical
-JST PH series connector, B4B-PH-SM4-TB (http://www.jst-mfg.com/product/pdf/eng/ePH.pdf), generated with kicad-footprint-generator
-connector JST PH vertical
-0
-6
-5
-FORT
-LD09S13A4GX00LF
-
-
-0
-9
-9
-FORT
-Micro-Match_4_TH
-
-
-0
-4
-4
-FORT
-Micro-Match_6_TH
-
-
-0
-6
-6
-FORT
-Molex_KK-47053-04_04x2.54mm_Straight
-Connector Headers with Friction Lock, 22-27-2041, http://www.molex.com/pdm_docs/sd/022272021_sd.pdf
-connector molex kk_6410 22-27-2041
-0
-4
-4
-FORT
-Molex_Mini-Fit_Jr_5566-02A_2x01_P4.20mm_Vertical
-Molex Mini-Fit Jr. Power Connectors, old mpn/engineering number: 5566-02A, example for new mpn: 39-28-x02x, 1 Pins per row, Mounting:  (http://www.molex.com/pdm_docs/sd/039281043_sd.pdf), generated with kicad-footprint-generator
-connector Molex Mini-Fit_Jr side entry
-0
-2
-2
-FORT
-Molex_MiniFit-JR-5556-06A_2x03x4.20mm_Straight
-Molex Mini-Fit JR, PN:5556-06A, dual row, top entry type, through hole
-connector molex mini-fit 5556
-0
-6
-6
-FORT
-Molex_MiniFit-JR-5556-08A_2x04x4.20mm_Straight
-Molex Mini-Fit JR, PN:5556-08A, dual row, top entry type, through hole
-connector molex mini-fit 5556
-0
-8
-8
-FORT
-Molex_MiniFit-JR-5569-06A2_2x03x4.20mm_Angled
-Molex Mini-Fit JR, PN:5569-06A2, dual row, side entry type, through hole, with plastic peg mount
-connector molex mini-fit 5569
-0
-6
-6
-FORT
-Molex_MiniFit-JR-5569-08A2_2x04x4.20mm_Angled
-Molex Mini-Fit JR, PN:5569-08A2, dual row, side entry type, through hole, with plastic peg mount
-connector molex mini-fit 5569
-0
-8
-8
-FORT
-OSRAM_Platinium_Dragon
-
-
-0
-8
-3
-FORT
-PCI-Bracket_Keystone_9203-2
-
-
-0
-0
-0
-FORT
-PDSO-10-1EP-3x3mm-Pitch0.5mm
-
-
-0
-24
-11
-FORT
-PJ-032A
-
-
-0
-3
-3
-FORT
-Pin_Header_Straight_1x06_Pitch2.54mm_Centered
-Through hole straight pin header, 1x06, 2.54mm pitch, single row
-Through hole pin header THT 1x06 2.54mm single row
-0
-6
-6
-FORT
-RJ45_Abracon_ARJM11C7-114_Horizontal
-Shielded RJ45 ethernet connector with transformer and POE, https://abracon.com/Magnetics/lan/ARJP11A.PDF
-ethernet 8p8c transformer poe rj45
-0
-16
-15
-FORT
-R_S-5
-
-
-0
-2
-2
-FORT
-S1621-46R
-
-
-0
-2
-2
-FORT
-SIP4_LittleFuse_CPC19X6yX6
-
-
-0
-4
-4
-FORT
-SRN1060-XXXM
-
-
-0
-2
-2
-FORT
-Texas_HVSSOP-10-1EP_3x3mm_P0.5mm_EP2.2x3.1mm_ThermalVias
-HVSSOP, 10 Pin (https://www.ti.com/lit/ds/symlink/bq24090.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
-HVSSOP SO
-0
-18
-11
-FORT
-Texas_VQFN-HR-9_2.1x2.1mm_P0.5mm
-
-
-0
-19
-9
-FORT
-UNIL-LOGO_9.2x3
-
-
-0
-0
-0
-FORT
-UNIL-LOGO_13.8x5.1mm
-
-
-0
-0
-0
-FORT
-Winbond_USON-8-1EP_UX_2x3mm_P0.5mm_EP0.2x1.5mm
-
-W25Q16JVUXIQ TR 
-0
-9
-9
 Ferrite_THT
 LairdTech_28C0236-0JW-10
 Ferrite, vertical, LairdTech 28C0236-0JW-10, https://assets.lairdtech.com/home/brandworld/files/28C0236-0JW-10.pdf, JW Miller core https://www.bourns.com/products/magnetic-products/j.w.-miller-through-hole-ferrite-beads-emi-filters
@@ -98272,3 +97992,325 @@ Varistor VF
 0
 2
 2
+fort
+7447709101
+Choke, Drossel, WE-PD Typ LS, Wuerth, SMD,
+Choke Drossel WE-PDTypLS Wuerth SMD 
+0
+2
+2
+fort
+640454-2
+
+
+0
+2
+2
+fort
+009176002701106
+
+
+0
+2
+2
+fort
+AdamTech_IEC-A-4
+
+
+0
+3
+3
+fort
+BarrelJack_CUI_PJ-037B_Horizontal
+DC Barrel Jack
+Power Jack
+0
+2
+2
+fort
+CP_Radial_D22.0mm_P10.00mm_SnapIn
+CP, Radial series, Radial, pin pitch=10.00mm, , diameter=22mm, Electrolytic Capacitor, , http://www.vishay.com/docs/28342/058059pll-si.pdf
+CP Radial series Radial pin pitch 10.00mm  diameter 22mm Electrolytic Capacitor
+0
+2
+2
+fort
+CP_Radial_D25.0mm_P10.00mm_H32mm_SnapIn
+CP, Radial series, Radial, pin pitch=10.00mm, , diameter=25mm, Electrolytic Capacitor, , http://www.vishay.com/docs/28342/058059pll-si.pdf
+CP Radial series Radial pin pitch 10.00mm  diameter 25mm Electrolytic Capacitor
+0
+2
+2
+fort
+CP_Radial_D25.0mm_P10.00mm_SnapIn
+CP, Radial series, Radial, pin pitch=10.00mm, , diameter=25mm, Electrolytic Capacitor, , http://www.vishay.com/docs/28342/058059pll-si.pdf
+CP Radial series Radial pin pitch 10.00mm  diameter 25mm Electrolytic Capacitor
+0
+2
+2
+fort
+Carclo_10148
+
+
+0
+0
+0
+fort
+Carclo_10740
+
+
+0
+0
+0
+fort
+D_0201
+
+
+0
+2
+2
+fort
+D_SOT-23_KAN
+SOT-23, Single Diode
+SOT-23
+0
+3
+2
+fort
+Freescale_98ASA00063D_3x3mm_Pitch_0.5mm
+
+
+0
+16
+16
+fort
+HTSSOP-14-1EP_4.4x6.5mm_Pitch0.65mm_ThermalPad
+20-Lead Plastic Thin Shrink Small Outline (ST)-4.4 mm Body [HTSSOP], with thermal pad with vias
+HTSSOP 0.65
+0
+22
+15
+fort
+JST_PH_B2B-PH-SM4-TB_1x02-1MP_P2.00mm_Vertical
+JST PH series connector, B2B-PH-SM4-TB (http://www.jst-mfg.com/product/pdf/eng/ePH.pdf), generated with kicad-footprint-generator
+connector JST PH vertical
+0
+4
+3
+fort
+JST_PH_B4B-PH-SM4-TB_1x04-1MP_P2.00mm_Vertical
+JST PH series connector, B4B-PH-SM4-TB (http://www.jst-mfg.com/product/pdf/eng/ePH.pdf), generated with kicad-footprint-generator
+connector JST PH vertical
+0
+6
+5
+fort
+LD09S13A4GX00LF
+
+
+0
+9
+9
+fort
+L_Bourns-SRN8040_8x8.15mm
+Bourns SRN8040 series SMD inductor 8x8.15mm, https://www.bourns.com/docs/Product-Datasheets/SRN8040.pdf
+Bourns SRN8040 SMD inductor
+0
+2
+2
+fort
+L_Wuerth_WE-LQS_4025
+Power Inductor, Wuerth Elektronik, WE-PD2, SMD, Typ MS, https://katalog.we-online.com/pbs/datasheet/744774022.pdf
+Choke Power Inductor WE-PD2 TypMS Wuerth
+0
+2
+2
+fort
+Micro-Match_4_TH
+
+
+0
+4
+4
+fort
+Micro-Match_6_TH
+
+
+0
+6
+6
+fort
+Molex_KK-47053-04_04x2.54mm_Straight
+Connector Headers with Friction Lock, 22-27-2041, http://www.molex.com/pdm_docs/sd/022272021_sd.pdf
+connector molex kk_6410 22-27-2041
+0
+4
+4
+fort
+Molex_Mini-Fit_Jr_5566-02A_2x01_P4.20mm_Vertical
+Molex Mini-Fit Jr. Power Connectors, old mpn/engineering number: 5566-02A, example for new mpn: 39-28-x02x, 1 Pins per row, Mounting:  (http://www.molex.com/pdm_docs/sd/039281043_sd.pdf), generated with kicad-footprint-generator
+connector Molex Mini-Fit_Jr side entry
+0
+2
+2
+fort
+Molex_MiniFit-JR-5556-06A_2x03x4.20mm_Straight
+Molex Mini-Fit JR, PN:5556-06A, dual row, top entry type, through hole
+connector molex mini-fit 5556
+0
+6
+6
+fort
+Molex_MiniFit-JR-5556-08A_2x04x4.20mm_Straight
+Molex Mini-Fit JR, PN:5556-08A, dual row, top entry type, through hole
+connector molex mini-fit 5556
+0
+8
+8
+fort
+Molex_MiniFit-JR-5569-06A2_2x03x4.20mm_Angled
+Molex Mini-Fit JR, PN:5569-06A2, dual row, side entry type, through hole, with plastic peg mount
+connector molex mini-fit 5569
+0
+6
+6
+fort
+Molex_MiniFit-JR-5569-08A2_2x04x4.20mm_Angled
+Molex Mini-Fit JR, PN:5569-08A2, dual row, side entry type, through hole, with plastic peg mount
+connector molex mini-fit 5569
+0
+8
+8
+fort
+OSRAM_Platinium_Dragon
+
+
+0
+8
+3
+fort
+PCI-Bracket_Keystone_9203-2
+
+
+0
+0
+0
+fort
+PDSO-10-1EP-3x3mm-Pitch0.5mm
+
+
+0
+24
+11
+fort
+PJ-032A
+
+
+0
+3
+3
+fort
+Pin_Header_Straight_1x06_Pitch2.54mm_Centered
+Through hole straight pin header, 1x06, 2.54mm pitch, single row
+Through hole pin header THT 1x06 2.54mm single row
+0
+6
+6
+fort
+RJ45_Abracon_ARJM11C7-114_Horizontal
+Shielded RJ45 ethernet connector with transformer and POE, https://abracon.com/Magnetics/lan/ARJP11A.PDF
+ethernet 8p8c transformer poe rj45
+0
+16
+15
+fort
+RJ45_Taoglas_TMJUTHQ0021192425_Horizontal
+Shielded RJ45 ethernet connector with transformer and POE, https://abracon.com/Magnetics/lan/ARJP11A.PDF
+ethernet 8p8c transformer poe rj45
+0
+16
+15
+fort
+RPi_Pico_SMD_TH
+Through hole straight pin header, 2x20, 2.54mm pitch, double rows
+Through hole pin header THT 2x20 2.54mm double row
+0
+86
+43
+fort
+R_S-5
+
+
+0
+2
+2
+fort
+S1621-46R
+
+
+0
+2
+2
+fort
+SIP4_LittleFuse_CPC19X6yX6
+
+
+0
+4
+4
+fort
+SRN1060-XXXM
+
+
+0
+2
+2
+fort
+TestPoint_Keystone_5019_Minature
+SMT Test Point- Micro Miniature 5019, http://www.keyelco.com/product-pdf.cfm?p=1357
+Test Point
+0
+1
+1
+fort
+Texas_HVSSOP-10-1EP_3x3mm_P0.5mm_EP2.2x3.1mm_ThermalVias
+HVSSOP, 10 Pin (https://www.ti.com/lit/ds/symlink/bq24090.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
+HVSSOP SO
+0
+18
+11
+fort
+Texas_SOT-23-8-THIN_1.6x2.9m
+TSOT, 8 Pin (https://www.jedec.org/sites/default/files/docs/MO-193D.pdf variant BA), generated with kicad-footprint-generator ipc_gullwing_generator.py
+TSOT TO_SOT_SMD
+0
+8
+8
+fort
+Texas_VQFN-HR-9_2.1x2.1mm_P0.5mm
+
+
+0
+19
+9
+fort
+UNIL-LOGO_9.2x3
+
+
+0
+0
+0
+fort
+UNIL-LOGO_13.8x5.1mm
+
+
+0
+0
+0
+fort
+Winbond_USON-8-1EP_UX_2x3mm_P0.5mm_EP0.2x1.5mm
+
+W25Q16JVUXIQ TR 
+0
+9
+9

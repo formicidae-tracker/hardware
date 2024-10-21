@@ -4189,7 +4189,7 @@
 				)
 			)
 		)
-		(symbol "fort:LMR36501P3RPE"
+		(symbol "fort:LMR36502P3RPE"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -4201,7 +4201,7 @@
 					)
 				)
 			)
-			(property "Value" "LMR36500P3RPE"
+			(property "Value" "LMR36502P3RPE"
 				(at 0 8.89 0)
 				(effects
 					(font
@@ -4209,7 +4209,7 @@
 					)
 				)
 			)
-			(property "Footprint" "FORT:Texas_VQFN-HR-9_2.1x2.1mm_P0.5mm"
+			(property "Footprint" "fort:Texas_VQFN-HR-9_2.1x2.1mm_P0.5mm"
 				(at 0 -20.32 0)
 				(effects
 					(font
@@ -4218,7 +4218,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lmr36501.pdf"
+			(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lmr36502.pdf"
 				(at 0 -1.27 0)
 				(effects
 					(font
@@ -4227,7 +4227,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Synchronous Buck Regulator, Vin=3-65V, Iout=100mA, F=0.2-2.2MHz, Adjustable output voltage, PFM at light load, VQFN-HR RPE"
+			(property "Description" "Synchronous Buck Regulator, Vin=3-65V, Iout=150mA, F=0.2-2.2MHz, Adjustable output voltage, PFM at light load, VQFN-HR RPE"
 				(at 0 0 0)
 				(effects
 					(font
@@ -4254,7 +4254,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "LMR36501P3RPE_0_1"
+			(symbol "LMR36502P3RPE_0_1"
 				(rectangle
 					(start -7.62 7.62)
 					(end 7.62 -7.62)
@@ -4267,7 +4267,7 @@
 					)
 				)
 			)
-			(symbol "LMR36501P3RPE_1_1"
+			(symbol "LMR36502P3RPE_1_1"
 				(pin input line
 					(at -10.16 -2.54 0)
 					(length 2.54)
@@ -4914,13 +4914,7 @@
 		(uuid "270c15da-7241-4632-b18a-21ad9f1ac5d3")
 	)
 	(junction
-		(at 127 232.41)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "27d80c8e-81ab-4e48-8265-e1fb2bb61929")
-	)
-	(junction
-		(at 102.87 220.98)
+		(at 114.3 220.98)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2a10c4bc-69bd-4386-bbdb-1645946d041f")
@@ -4932,13 +4926,13 @@
 		(uuid "2dc1bc9d-2af9-484f-9e29-21013d0c926b")
 	)
 	(junction
-		(at 114.3 242.57)
+		(at 125.73 242.57)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2e71f342-9cd1-463a-b867-608b0d71ffd6")
 	)
 	(junction
-		(at 114.3 220.98)
+		(at 125.73 220.98)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3029d4ea-a72a-439e-a168-9b9ef80d5a52")
@@ -5034,22 +5028,16 @@
 		(uuid "77d6c6b7-e7ab-46cb-8478-31b4aa4102e9")
 	)
 	(junction
-		(at 127 220.98)
+		(at 138.43 220.98)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "88ca6b5e-6bab-4c29-bb6a-b48a830ced50")
+		(uuid "78c49efa-8018-4913-9a60-fcc38995f0ec")
 	)
 	(junction
 		(at 149.86 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9abad758-5d0a-4ff2-8e9a-fe0a1039ffa3")
-	)
-	(junction
-		(at 127 242.57)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "aee47056-90fb-4302-a8fc-6d2eaf7b671a")
 	)
 	(junction
 		(at 193.04 223.52)
@@ -5070,7 +5058,7 @@
 		(uuid "b894804d-5e81-43bd-8aca-998b0df147d7")
 	)
 	(junction
-		(at 102.87 242.57)
+		(at 114.3 242.57)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ba8b21ad-d31a-4ea0-b55b-08a50b14b24d")
@@ -5247,7 +5235,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 220.98) (xy 127 223.52)
+			(xy 138.43 220.98) (xy 138.43 223.52)
 		)
 		(stroke
 			(width 0)
@@ -5337,7 +5325,7 @@
 	)
 	(wire
 		(pts
-			(xy 102.87 220.98) (xy 114.3 220.98)
+			(xy 114.3 220.98) (xy 125.73 220.98)
 		)
 		(stroke
 			(width 0)
@@ -5527,16 +5515,6 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 232.41) (xy 134.62 223.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "24119764-f787-4c6a-adf7-2beed9444768")
-	)
-	(wire
-		(pts
 			(xy 176.53 168.91) (xy 176.53 172.72)
 		)
 		(stroke
@@ -5584,16 +5562,6 @@
 			(type default)
 		)
 		(uuid "287fe000-d8aa-404d-95b1-f3999457cd1d")
-	)
-	(wire
-		(pts
-			(xy 127 231.14) (xy 127 232.41)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "289cd2aa-5d63-41b3-8ae2-a8ab336ae48f")
 	)
 	(wire
 		(pts
@@ -5817,16 +5785,6 @@
 	)
 	(wire
 		(pts
-			(xy 127 220.98) (xy 148.59 220.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4310cff6-aced-4657-97db-aff917f7bc9b")
-	)
-	(wire
-		(pts
 			(xy 293.37 58.42) (xy 289.56 58.42)
 		)
 		(stroke
@@ -5854,16 +5812,6 @@
 			(type default)
 		)
 		(uuid "4841d57c-0cde-4309-86a6-798ab6ec4816")
-	)
-	(wire
-		(pts
-			(xy 127 232.41) (xy 127 233.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "48a0929c-9b1f-4795-8d3a-1348adbc7a3b")
 	)
 	(wire
 		(pts
@@ -6037,6 +5985,16 @@
 	)
 	(wire
 		(pts
+			(xy 138.43 220.98) (xy 148.59 220.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5eb29d73-d42b-4556-86a5-f4205d90207f")
+	)
+	(wire
+		(pts
 			(xy 100.33 30.48) (xy 105.41 30.48)
 		)
 		(stroke
@@ -6157,26 +6115,6 @@
 	)
 	(wire
 		(pts
-			(xy 127 232.41) (xy 134.62 232.41)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "691b48bf-40bd-4c08-b7d7-ab250daf8e91")
-	)
-	(wire
-		(pts
-			(xy 127 242.57) (xy 137.16 242.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6957025f-551a-4dd9-a2b5-6f37b1b00dd9")
-	)
-	(wire
-		(pts
 			(xy 325.12 36.83) (xy 339.09 36.83)
 		)
 		(stroke
@@ -6227,7 +6165,7 @@
 	)
 	(wire
 		(pts
-			(xy 102.87 242.57) (xy 114.3 242.57)
+			(xy 114.3 242.57) (xy 125.73 242.57)
 		)
 		(stroke
 			(width 0)
@@ -6367,7 +6305,7 @@
 	)
 	(wire
 		(pts
-			(xy 102.87 231.14) (xy 102.87 242.57)
+			(xy 114.3 231.14) (xy 114.3 242.57)
 		)
 		(stroke
 			(width 0)
@@ -6387,7 +6325,7 @@
 	)
 	(wire
 		(pts
-			(xy 102.87 213.36) (xy 102.87 220.98)
+			(xy 114.3 213.36) (xy 114.3 220.98)
 		)
 		(stroke
 			(width 0)
@@ -6447,7 +6385,7 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 223.52) (xy 148.59 223.52)
+			(xy 138.43 223.52) (xy 148.59 223.52)
 		)
 		(stroke
 			(width 0)
@@ -6737,7 +6675,7 @@
 	)
 	(wire
 		(pts
-			(xy 102.87 223.52) (xy 102.87 220.98)
+			(xy 114.3 223.52) (xy 114.3 220.98)
 		)
 		(stroke
 			(width 0)
@@ -6767,7 +6705,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 231.14) (xy 114.3 242.57)
+			(xy 125.73 231.14) (xy 125.73 242.57)
 		)
 		(stroke
 			(width 0)
@@ -6827,16 +6765,6 @@
 	)
 	(wire
 		(pts
-			(xy 127 241.3) (xy 127 242.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c22bbdf5-7ebb-4b7c-a17b-8a56db141c65")
-	)
-	(wire
-		(pts
 			(xy 168.91 228.6) (xy 189.23 228.6)
 		)
 		(stroke
@@ -6877,7 +6805,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 242.57) (xy 127 242.57)
+			(xy 125.73 242.57) (xy 137.16 242.57)
 		)
 		(stroke
 			(width 0)
@@ -6987,7 +6915,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 220.98) (xy 127 220.98)
+			(xy 125.73 220.98) (xy 138.43 220.98)
 		)
 		(stroke
 			(width 0)
@@ -7007,7 +6935,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 220.98) (xy 114.3 223.52)
+			(xy 125.73 220.98) (xy 125.73 223.52)
 		)
 		(stroke
 			(width 0)
@@ -7187,7 +7115,7 @@
 	)
 	(wire
 		(pts
-			(xy 102.87 242.57) (xy 102.87 245.11)
+			(xy 114.3 242.57) (xy 114.3 245.11)
 		)
 		(stroke
 			(width 0)
@@ -8083,17 +8011,6 @@
 		)
 		(uuid "fc5f6144-fa07-408e-b993-37a102ac320f")
 	)
-	(label "RG_EN"
-		(at 134.62 223.52 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "fd99c1af-6bb5-4a78-a977-55d4199689dc")
-	)
 	(label "CAN_STDBY"
 		(at 130.81 96.52 0)
 		(fields_autoplaced yes)
@@ -8184,6 +8101,90 @@
 			(project "notus"
 				(path "/c9100219-62f3-4805-9124-9423747b9d35"
 					(reference "Y1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:L")
+		(at 184.15 223.52 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "01215fd4-0de6-454d-bcbc-f012058ef202")
+		(property "Reference" "L1"
+			(at 184.15 218.44 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22u"
+			(at 184.15 220.98 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "fort:L_Wuerth_WE-LQS_4025"
+			(at 184.15 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.yuden.co.jp/productdata/catalog/wound04_e.pdf"
+			(at 184.15 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Inductor"
+			(at 184.15 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "74404043220A"
+			(at 184.15 223.52 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rated Current" "300mA"
+			(at 184.15 225.552 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "8a25aa03-7352-4bc9-85f5-f30fc16fccc6")
+		)
+		(pin "1"
+			(uuid "6b359e25-314c-41cb-878c-7242947d0345")
+		)
+		(instances
+			(project "notus"
+				(path "/c9100219-62f3-4805-9124-9423747b9d35"
+					(reference "L1")
 					(unit 1)
 				)
 			)
@@ -8322,7 +8323,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 114.3 227.33 0)
+		(at 125.73 227.33 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8330,7 +8331,7 @@
 		(dnp no)
 		(uuid "1aaf7827-588b-48fd-a525-4132975d4bd2")
 		(property "Reference" "C2"
-			(at 118.11 226.0599 0)
+			(at 129.54 226.0599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8339,7 +8340,7 @@
 			)
 		)
 		(property "Value" "100n"
-			(at 118.11 228.5999 0)
+			(at 129.54 228.5999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8348,7 +8349,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 115.2652 231.14 0)
+			(at 126.6952 231.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8357,7 +8358,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 114.3 227.33 0)
+			(at 125.73 227.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8366,7 +8367,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 114.3 227.33 0)
+			(at 125.73 227.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8375,7 +8376,7 @@
 			)
 		)
 		(property "Rated Voltage" "50V"
-			(at 120.904 230.886 0)
+			(at 132.334 230.886 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8383,7 +8384,7 @@
 			)
 		)
 		(property "Dielectric" "X7R"
-			(at 114.3 227.33 0)
+			(at 125.73 227.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9158,76 +9159,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 127 227.33 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3610ac02-f104-4a76-9f91-b297987feff8")
-		(property "Reference" "R3"
-			(at 129.54 226.0599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "7.5k"
-			(at 129.54 228.5999 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 125.222 227.33 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 127 227.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 127 227.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6b38dba8-e06a-41e2-9829-0615e1fd05c8")
-		)
-		(pin "2"
-			(uuid "052c72f9-5f55-4c98-866c-dd09ac8a74ae")
-		)
-		(instances
-			(project "notus"
-				(path "/c9100219-62f3-4805-9124-9423747b9d35"
-					(reference "R3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+3V3")
 		(at 107.95 166.37 0)
 		(unit 1)
@@ -9606,90 +9537,6 @@
 			(project "notus"
 				(path "/c9100219-62f3-4805-9124-9423747b9d35"
 					(reference "P1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:L")
-		(at 184.15 223.52 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "42f336a1-90b5-4005-96bb-6e42bc61358e")
-		(property "Reference" "L1"
-			(at 184.15 218.44 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "47u"
-			(at 184.15 220.98 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Inductor_SMD:L_Taiyo-Yuden_NR-40xx"
-			(at 184.15 223.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.yuden.co.jp/productdata/catalog/wound04_e.pdf"
-			(at 184.15 223.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Inductor"
-			(at 184.15 223.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "NRS4018T470MDGJ"
-			(at 184.15 223.52 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Rated Current" "200mA"
-			(at 184.15 225.552 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "92958927-85b9-40d3-8b19-5a71a235f653")
-		)
-		(pin "1"
-			(uuid "19400983-d000-453f-a525-ff49e6693f6d")
-		)
-		(instances
-			(project "notus"
-				(path "/c9100219-62f3-4805-9124-9423747b9d35"
-					(reference "L1")
 					(unit 1)
 				)
 			)
@@ -10541,6 +10388,95 @@
 		)
 	)
 	(symbol
+		(lib_id "fort:LMR36502P3RPE")
+		(at 158.75 226.06 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "54d55b45-ae6a-42a8-b864-43c9564ba18f")
+		(property "Reference" "U3"
+			(at 158.75 213.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LMR36502P3RPE"
+			(at 158.75 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "fort:Texas_VQFN-HR-9_2.1x2.1mm_P0.5mm"
+			(at 158.75 246.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lmr36502.pdf"
+			(at 158.75 227.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Synchronous Buck Regulator, Vin=3-65V, Iout=150mA, F=0.2-2.2MHz, Adjustable output voltage, PFM at light load, VQFN-HR RPE"
+			(at 158.75 226.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "e3e45622-f38f-4069-9eda-e90b739076b0")
+		)
+		(pin "6"
+			(uuid "172c9677-d5cf-4b28-9f75-fa1139df4b15")
+		)
+		(pin "9"
+			(uuid "ff7aa80d-5c19-4aca-a9b3-ab03eebacb89")
+		)
+		(pin "4"
+			(uuid "39c9bcdc-be69-4ac5-afa4-7f71800cf372")
+		)
+		(pin "8"
+			(uuid "2e445e4d-8df8-4f39-b301-faee109fdaf6")
+		)
+		(pin "1"
+			(uuid "5f4700a6-997c-4a62-bfe2-e15a15c7ac55")
+		)
+		(pin "7"
+			(uuid "b6f4f640-4446-4b7c-b2aa-fd5e25b26d96")
+		)
+		(pin "2"
+			(uuid "d55bb9f0-0c0f-4efc-9779-a515793fb2a6")
+		)
+		(pin "3"
+			(uuid "ff48df69-a438-4953-a30f-50fd19f1a37b")
+		)
+		(instances
+			(project "notus"
+				(path "/c9100219-62f3-4805-9124-9423747b9d35"
+					(reference "U3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 57.15 171.45 0)
 		(unit 1)
@@ -11145,104 +11081,6 @@
 		)
 	)
 	(symbol
-		(lib_id "fort:LMR36501P3RPE")
-		(at 158.75 226.06 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "89aeabc0-d65b-4999-a72f-5c80e4966d42")
-		(property "Reference" "U3"
-			(at 158.75 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LMR36501P3RPE"
-			(at 158.75 215.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "FORT:Texas_VQFN-HR-9_2.1x2.1mm_P0.5mm"
-			(at 158.75 246.38 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lmr36501.pdf"
-			(at 158.75 227.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Synchronous Buck Regulator, Vin=3-65V, Iout=100mA, F=0.2-2.2MHz, Adjustable output voltage, PFM at light load, VQFN-HR RPE"
-			(at 158.75 226.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "LMR36501P3RPE"
-			(at 158.75 226.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "3"
-			(uuid "308d281b-aaba-4e29-ada8-47694b00945d")
-		)
-		(pin "2"
-			(uuid "fc7d09a8-ab3b-4184-85fa-060d7bf98596")
-		)
-		(pin "1"
-			(uuid "786e9540-ddb2-4789-bfaf-efdc0de4db6f")
-		)
-		(pin "8"
-			(uuid "a7540562-860d-4a44-883f-87b194d15932")
-		)
-		(pin "4"
-			(uuid "cb1878da-93ad-49bb-b9f8-78a4b752d15c")
-		)
-		(pin "6"
-			(uuid "783a72c6-5642-4aa7-a5b1-91f24f636601")
-		)
-		(pin "5"
-			(uuid "2364c1bd-fa33-4218-a9e7-e7b657583d03")
-		)
-		(pin "9"
-			(uuid "3d9c0586-b452-4f2c-8090-8c9ef11b12c0")
-		)
-		(pin "7"
-			(uuid "a8636a36-2bda-4d41-8a5a-66126cf829a0")
-		)
-		(instances
-			(project "notus"
-				(path "/c9100219-62f3-4805-9124-9423747b9d35"
-					(reference "U3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 82.55 209.55 0)
 		(unit 1)
@@ -11533,7 +11371,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 102.87 227.33 0)
+		(at 114.3 227.33 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11541,7 +11379,7 @@
 		(dnp no)
 		(uuid "92fac778-2de3-49da-aa76-56854b6d08d6")
 		(property "Reference" "C1"
-			(at 106.68 226.0599 0)
+			(at 118.11 226.0599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11550,7 +11388,7 @@
 			)
 		)
 		(property "Value" "2.2u"
-			(at 106.68 228.5999 0)
+			(at 118.11 228.5999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11559,7 +11397,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
-			(at 103.8352 231.14 0)
+			(at 115.2652 231.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11568,7 +11406,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 102.87 227.33 0)
+			(at 114.3 227.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11577,7 +11415,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 102.87 227.33 0)
+			(at 114.3 227.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11586,7 +11424,7 @@
 			)
 		)
 		(property "Rated Voltage" "100V"
-			(at 109.22 230.886 0)
+			(at 120.65 230.886 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11594,7 +11432,7 @@
 			)
 		)
 		(property "Dielectric" "X7R"
-			(at 102.87 227.33 0)
+			(at 114.3 227.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12118,7 +11956,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 102.87 245.11 0)
+		(at 114.3 245.11 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12127,7 +11965,7 @@
 		(fields_autoplaced yes)
 		(uuid "abbdb474-660d-447f-8a8d-197429fec6f8")
 		(property "Reference" "#PWR05"
-			(at 102.87 251.46 0)
+			(at 114.3 251.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12136,7 +11974,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 102.87 250.19 0)
+			(at 114.3 250.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12144,7 +11982,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 102.87 245.11 0)
+			(at 114.3 245.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12153,7 +11991,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 102.87 245.11 0)
+			(at 114.3 245.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12162,7 +12000,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 102.87 245.11 0)
+			(at 114.3 245.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12644,76 +12482,6 @@
 			(project "notus"
 				(path "/c9100219-62f3-4805-9124-9423747b9d35"
 					(reference "J5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 127 237.49 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d1a99ee9-3248-48bc-b12a-709c05b5d4a0")
-		(property "Reference" "R4"
-			(at 129.54 236.2199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10k"
-			(at 129.54 238.7599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 125.222 237.49 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 127 237.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 127 237.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a51c5aa3-5995-4e8a-a712-b3a68e34427d")
-		)
-		(pin "2"
-			(uuid "83a3be04-bec7-4e95-92b5-a6473e95cc86")
-		)
-		(instances
-			(project "notus"
-				(path "/c9100219-62f3-4805-9124-9423747b9d35"
-					(reference "R4")
 					(unit 1)
 				)
 			)
@@ -13654,7 +13422,7 @@
 	)
 	(symbol
 		(lib_id "power:+12V")
-		(at 102.87 213.36 0)
+		(at 114.3 213.36 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13663,7 +13431,7 @@
 		(fields_autoplaced yes)
 		(uuid "f717f882-79c0-4885-83c6-879dac7a5b56")
 		(property "Reference" "#PWR04"
-			(at 102.87 217.17 0)
+			(at 114.3 217.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13672,7 +13440,7 @@
 			)
 		)
 		(property "Value" "+12V"
-			(at 102.87 208.28 0)
+			(at 114.3 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13680,7 +13448,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 102.87 213.36 0)
+			(at 114.3 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13689,7 +13457,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 102.87 213.36 0)
+			(at 114.3 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13698,7 +13466,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+12V\""
-			(at 102.87 213.36 0)
+			(at 114.3 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)

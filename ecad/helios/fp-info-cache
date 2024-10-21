@@ -1,4 +1,4 @@
-958357638769978
+961816163944033
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -98112,7 +98112,21 @@ LD09S13A4GX00LF
 9
 9
 fort
+L_Bourns-SRN8040_8x8.15mm
+Bourns SRN8040 series SMD inductor 8x8.15mm, https://www.bourns.com/docs/Product-Datasheets/SRN8040.pdf
+Bourns SRN8040 SMD inductor
+0
+2
+2
+fort
 L_Wuerth_WE-LQS_4025
+Power Inductor, Wuerth Elektronik, WE-PD2, SMD, Typ MS, https://katalog.we-online.com/pbs/datasheet/744774022.pdf
+Choke Power Inductor WE-PD2 TypMS Wuerth
+0
+2
+2
+fort
+L_Wuerth_WE-SPC_4838
 Power Inductor, Wuerth Elektronik, WE-PD2, SMD, Typ MS, https://katalog.we-online.com/pbs/datasheet/744774022.pdf
 Choke Power Inductor WE-PD2 TypMS Wuerth
 0
