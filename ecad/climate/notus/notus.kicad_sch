@@ -8347,7 +8347,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 115.2652 231.14 0)
 			(effects
 				(font
@@ -8383,6 +8383,15 @@
 			)
 		)
 		(property "Dielectric" "X7R"
+			(at 114.3 227.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
 			(at 114.3 227.33 0)
 			(effects
 				(font
@@ -8528,6 +8537,15 @@
 			)
 		)
 		(property "Rated Voltage" "10V"
+			(at 111.76 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155Z71A225KE01D"
 			(at 111.76 36.83 0)
 			(effects
 				(font
@@ -8856,6 +8874,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GRM21BR71A106MA73L"
+			(at 193.04 229.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "df3752d4-9653-47fe-bf64-82e58becb62f")
 		)
@@ -9077,6 +9104,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "RC0402FR-0710KL"
+			(at 44.45 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ab3d3a1e-768a-41ff-8452-e9ac6b5ac6f7")
 		)
@@ -9204,6 +9240,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 127 227.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-077K5L"
 			(at 127 227.33 0)
 			(effects
 				(font
@@ -9445,6 +9490,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "EBA-03-D-BU-01"
+			(at 342.9 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "748a886d-2e13-473a-8c8d-a7154fa243cc")
 		)
@@ -9672,7 +9726,7 @@
 				(hide yes)
 			)
 		)
-		(property "Rated Current" "200mA"
+		(property "Rated Current" "300mA"
 			(at 184.15 225.552 90)
 			(effects
 				(font
@@ -9741,6 +9795,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 166.37 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "ERJ-2RKF1200X"
 			(at 166.37 175.26 0)
 			(effects
 				(font
@@ -10300,6 +10363,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "PH1-02-UA"
+			(at 166.37 186.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "d7b370cb-3ef3-4ef3-9619-d42296261c4b")
 		)
@@ -10370,7 +10442,16 @@
 				(hide yes)
 			)
 		)
-		(property "Rated Voltage" "16V"
+		(property "Rated Voltage" "50V"
+			(at 184.15 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
 			(at 184.15 36.83 0)
 			(effects
 				(font
@@ -10449,7 +10530,16 @@
 				(hide yes)
 			)
 		)
-		(property "Rated Voltage" "16V"
+		(property "Rated Voltage" "50V"
+			(at 138.43 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
 			(at 138.43 36.83 0)
 			(effects
 				(font
@@ -10517,6 +10607,15 @@
 			)
 		)
 		(property "Description" ""
+			(at 68.58 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-071KL"
 			(at 68.58 176.53 0)
 			(effects
 				(font
@@ -10660,7 +10759,7 @@
 				(hide yes)
 			)
 		)
-		(property "Rated Voltage" "16V"
+		(property "Rated Voltage" "50V"
 			(at 173.99 214.122 90)
 			(effects
 				(font
@@ -10669,6 +10768,15 @@
 			)
 		)
 		(property "Dielectric" "X7R"
+			(at 173.99 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
 			(at 173.99 218.44 0)
 			(effects
 				(font
@@ -10813,7 +10921,16 @@
 				(hide yes)
 			)
 		)
-		(property "Rated Voltage" "16V"
+		(property "Rated Voltage" "50V"
+			(at 172.72 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
 			(at 172.72 36.83 0)
 			(effects
 				(font
@@ -10974,7 +11091,16 @@
 				(hide yes)
 			)
 		)
-		(property "Rated Voltage" "16V"
+		(property "Rated Voltage" "50V"
+			(at 80.01 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
 			(at 80.01 36.83 0)
 			(effects
 				(font
@@ -11053,7 +11179,16 @@
 				(hide yes)
 			)
 		)
-		(property "Rated Voltage" "16V"
+		(property "Rated Voltage" "50V"
+			(at 125.73 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
 			(at 125.73 36.83 0)
 			(effects
 				(font
@@ -11296,7 +11431,16 @@
 				(hide yes)
 			)
 		)
-		(property "Rated Voltage" "16V"
+		(property "Rated Voltage" "50V"
+			(at 82.55 209.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
 			(at 82.55 209.55 0)
 			(effects
 				(font
@@ -11507,7 +11651,16 @@
 				(hide yes)
 			)
 		)
-		(property "Rated Voltage" "16V"
+		(property "Rated Voltage" "50V"
+			(at 161.29 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
 			(at 161.29 36.83 0)
 			(effects
 				(font
@@ -11558,7 +11711,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 103.8352 231.14 0)
 			(effects
 				(font
@@ -11585,7 +11738,7 @@
 				(hide yes)
 			)
 		)
-		(property "Rated Voltage" "100V"
+		(property "Rated Voltage" "50V"
 			(at 109.22 230.886 0)
 			(effects
 				(font
@@ -11594,6 +11747,15 @@
 			)
 		)
 		(property "Dielectric" "X7R"
+			(at 102.87 227.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CL31B225KBHNNNE"
 			(at 102.87 227.33 0)
 			(effects
 				(font
@@ -11804,6 +11966,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "RC0402FR-13220RL"
+			(at 229.87 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e4a67456-a7d7-45ed-be6f-a01a1348d846")
 		)
@@ -11874,7 +12045,16 @@
 				(hide yes)
 			)
 		)
-		(property "Rated Voltage" "16V"
+		(property "Rated Voltage" "50V"
+			(at 107.95 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
 			(at 107.95 172.72 0)
 			(effects
 				(font
@@ -12027,6 +12207,15 @@
 			)
 		)
 		(property "Dielectric" "X7R"
+			(at 146.05 237.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CL10B105MO8NNWC"
 			(at 146.05 237.49 0)
 			(effects
 				(font
@@ -12245,6 +12434,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0402JRNPO8BN150"
+			(at 35.56 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "35a34801-e313-462e-8fa3-d4d41a64689b")
 		)
@@ -12315,6 +12513,15 @@
 			)
 		)
 		(property "Rated Voltage" "10V"
+			(at 35.56 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CC0402JRNPO8BN150"
 			(at 35.56 166.37 0)
 			(effects
 				(font
@@ -12704,6 +12911,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "RC0402FR-0710KL"
+			(at 127 237.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "a51c5aa3-5995-4e8a-a712-b3a68e34427d")
 		)
@@ -13079,6 +13295,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GRM155Z71A225KE01D"
+			(at 53.34 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "a0cc9b38-f0a9-43e9-aad3-9f707b5f0c13")
 		)
@@ -13281,7 +13506,16 @@
 				(hide yes)
 			)
 		)
-		(property "Rated Voltage" "16V"
+		(property "Rated Voltage" "50V"
+			(at 149.86 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
 			(at 149.86 36.83 0)
 			(effects
 				(font
@@ -13426,6 +13660,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "RC0402FR-13220RL"
+			(at 265.43 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "7b2e0598-2b88-41b5-8df0-d0ee3116b7c5")
 		)
@@ -13562,7 +13805,16 @@
 				(hide yes)
 			)
 		)
-		(property "Rated Voltage" "16V"
+		(property "Rated Voltage" "50V"
+			(at 67.31 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
 			(at 67.31 36.83 0)
 			(effects
 				(font
