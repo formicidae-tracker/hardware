@@ -419,6 +419,163 @@
 				)
 			)
 		)
+		(symbol "Diode:SMAJ51CA"
+			(pin_numbers hide)
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "D"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "SMAJ51CA"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Diode_SMD:D_SMA"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.littelfuse.com/media?resourcetype=datasheets&itemid=75e32973-b177-4ee3-a0ff-cedaf1abdb93&filename=smaj-datasheet"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "400W bidirectional Transient Voltage Suppressor, 51.0Vr, SMA(DO-214AC)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "bidirectional diode TVS voltage suppressor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "D*SMA*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SMAJ51CA_0_1"
+				(polyline
+					(pts
+						(xy 1.27 0) (xy -1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -1.27) (xy 0 0) (xy -2.54 1.27) (xy -2.54 -1.27)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.508 1.27) (xy 0 1.27) (xy 0 -1.27) (xy -0.508 -1.27)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 1.27) (xy 2.54 -1.27) (xy 0 0) (xy 2.54 1.27)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SMAJ51CA_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "A1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "A2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Simulation_SPICE:D"
 			(pin_names
 				(offset 1.016) hide)
@@ -1310,6 +1467,281 @@
 				)
 			)
 		)
+		(symbol "Simulation_SPICE:SWITCH"
+			(pin_numbers hide)
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "S"
+				(at 2.54 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "SWITCH"
+				(at 2.54 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#subsec_Switches"
+				(at 0 16.51 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Voltage controlled switch symbol for simulation only"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Device" "SW"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Type" "V"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Params" "thr=0 ron=1"
+				(at 2.54 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Sim.Pins" "1=no+ 2=no- 3=ctrl+ 4=ctrl-"
+				(at 0 13.97 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "simulation"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SWITCH_0_1"
+				(circle
+					(center 0 -2.032)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.254 1.524) (xy 1.778 -1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 2.032)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SWITCH_1_1"
+				(circle
+					(center -5.08 0)
+					(radius 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy -4.826 -3.81) (xy -4.318 -3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -4.826 3.81) (xy -4.318 3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -4.572 4.064) (xy -4.572 3.556)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 0) (xy 0.889 0)
+					)
+					(stroke
+						(width 0)
+						(type dash)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(text "V"
+					(at -5.08 0 0)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 5.08 270)
+					(length 2.54)
+					(name "N+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -5.08 90)
+					(length 2.54)
+					(name "N-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -5.08 5.08 270)
+					(length 2.54)
+					(name "C+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -5.08 -5.08 90)
+					(length 2.54)
+					(name "C-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Simulation_SPICE:VDC"
 			(pin_numbers hide)
 			(pin_names
@@ -1472,6 +1904,180 @@
 				)
 			)
 			(symbol "VDC_1_1"
+				(pin passive line
+					(at 0 5.08 270)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -5.08 90)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "Simulation_SPICE:VPULSE"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0.0254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "V"
+				(at 2.54 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "VPULSE"
+				(at 2.54 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Voltage source, pulse"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Pins" "1=+ 2=-"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Type" "PULSE"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Device" "V"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Sim.Params" "y1=0 y2=1 td=2n tr=2n tf=2n tw=50n per=100n"
+				(at 2.54 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "ki_keywords" "simulation"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "VPULSE_0_0"
+				(polyline
+					(pts
+						(xy -2.032 -0.762) (xy -1.397 -0.762) (xy -1.143 0.762) (xy -0.127 0.762) (xy 0.127 -0.762) (xy 1.143 -0.762)
+						(xy 1.397 0.762) (xy 2.032 0.762)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(text "+"
+					(at 0 1.905 0)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(symbol "VPULSE_0_1"
+				(circle
+					(center 0 0)
+					(radius 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "VPULSE_1_1"
 				(pin passive line
 					(at 0 5.08 270)
 					(length 2.54)
@@ -1740,6 +2346,24 @@
 		)
 	)
 	(junction
+		(at 52.07 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "04717282-8c0b-4950-af66-d2e9aea147e4")
+	)
+	(junction
+		(at 39.37 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0906947f-1453-4f77-bf03-4dc3ba13328b")
+	)
+	(junction
+		(at 93.98 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0dfbc063-96de-4a99-bc1f-025ab428f1ca")
+	)
+	(junction
 		(at 180.34 71.12)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1758,10 +2382,28 @@
 		(uuid "3d0164c3-bb35-48df-ae5a-3c1360c8b9c3")
 	)
 	(junction
+		(at 52.07 78.74)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4d016b9f-c789-4c59-9c83-6703afc23b87")
+	)
+	(junction
+		(at 80.01 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7150fed6-51a4-46c9-9c32-1eaa57f94d2d")
+	)
+	(junction
 		(at 210.82 71.12)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "72eacf2a-dc0a-4713-bc51-576acff2125b")
+	)
+	(junction
+		(at 38.1 115.57)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "77ca8f4f-d8c3-4b19-a55d-05417ec501e6")
 	)
 	(junction
 		(at 24.13 115.57)
@@ -1794,16 +2436,46 @@
 		(uuid "9ab949e6-719a-4485-aedb-a72c166ba1e0")
 	)
 	(junction
+		(at 83.82 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ac8691db-0a0e-43f2-8463-f44ea8b6a7cd")
+	)
+	(junction
+		(at 95.25 115.57)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ba0da6b0-2c28-442d-978e-3209c6701436")
+	)
+	(junction
 		(at 165.1 71.12)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bd9424f3-34b1-45bb-82e0-c154dfae32e7")
 	)
 	(junction
+		(at 52.07 115.57)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c08c2efc-0f0f-470b-95c9-c2be63a3f63f")
+	)
+	(junction
+		(at 80.01 115.57)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d0e831f1-77c7-4085-a716-cea371ff6bf6")
+	)
+	(junction
 		(at 227.33 115.57)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "dd868244-1432-48f0-855c-276e3cab6d59")
+	)
+	(junction
+		(at 82.55 115.57)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e504af4c-865c-45ea-964b-b63cb22ba62d")
 	)
 	(junction
 		(at 210.82 115.57)
@@ -1816,6 +2488,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ed544665-4a4f-40fa-b955-f5605a21b9c8")
+	)
+	(junction
+		(at 52.07 106.68)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f35c12b0-b5f6-4e83-b6e8-8aa6d67035b7")
 	)
 	(junction
 		(at 180.34 115.57)
@@ -1831,6 +2509,56 @@
 	)
 	(wire
 		(pts
+			(xy 92.71 107.95) (xy 95.25 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "053bd2c6-668b-404c-9fcf-833682c52bf9")
+	)
+	(wire
+		(pts
+			(xy 64.77 115.57) (xy 80.01 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0635dbdc-17fe-4102-bd87-7ea0a00c013c")
+	)
+	(wire
+		(pts
+			(xy 49.53 78.74) (xy 52.07 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "14b920c6-2d68-4bff-a511-390e60a44599")
+	)
+	(wire
+		(pts
+			(xy 38.1 106.68) (xy 38.1 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "196ef99e-709e-454e-b4a8-7807353ff67b")
+	)
+	(wire
+		(pts
+			(xy 52.07 66.04) (xy 57.15 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1e261d41-1b48-4b38-86ae-a190ca8aa01c")
+	)
+	(wire
+		(pts
 			(xy 227.33 115.57) (xy 243.84 115.57)
 		)
 		(stroke
@@ -1841,6 +2569,16 @@
 	)
 	(wire
 		(pts
+			(xy 41.91 106.68) (xy 38.1 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "264d98ff-aedb-4aa1-91d0-f2a1f9a29324")
+	)
+	(wire
+		(pts
 			(xy 146.05 82.55) (xy 160.02 82.55)
 		)
 		(stroke
@@ -1848,6 +2586,16 @@
 			(type default)
 		)
 		(uuid "26a639b0-e604-4e71-932c-39dcaaaa47d0")
+	)
+	(wire
+		(pts
+			(xy 39.37 71.12) (xy 39.37 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2829e370-ae1d-4fe1-8bbc-657ce4fdaff9")
 	)
 	(wire
 		(pts
@@ -1881,6 +2629,16 @@
 	)
 	(wire
 		(pts
+			(xy 38.1 115.57) (xy 41.91 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2cb604cb-b99a-4d84-8615-6fb94571c057")
+	)
+	(wire
+		(pts
 			(xy 180.34 71.12) (xy 189.23 71.12)
 		)
 		(stroke
@@ -1901,13 +2659,23 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 115.57) (xy 57.15 115.57)
+			(xy 49.53 115.57) (xy 52.07 115.57)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "2f379ad4-8c53-4a67-81b4-e53a3996627c")
+	)
+	(wire
+		(pts
+			(xy 83.82 76.2) (xy 85.09 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2fa290f6-d763-460a-81e4-38a25252a509")
 	)
 	(wire
 		(pts
@@ -1931,13 +2699,23 @@
 	)
 	(wire
 		(pts
-			(xy 24.13 115.57) (xy 41.91 115.57)
+			(xy 24.13 115.57) (xy 38.1 115.57)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "37beede4-a961-4512-ba7c-df176cad36a5")
+	)
+	(wire
+		(pts
+			(xy 52.07 48.26) (xy 52.07 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "393bf949-185f-4a6b-8bc5-dd5a7b592d17")
 	)
 	(wire
 		(pts
@@ -1958,6 +2736,26 @@
 			(type default)
 		)
 		(uuid "3fde7bbe-7d7f-46c1-98b3-47cfa7e34c68")
+	)
+	(wire
+		(pts
+			(xy 93.98 76.2) (xy 93.98 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "414e7509-9766-4ef0-84f4-594a23fc8853")
+	)
+	(wire
+		(pts
+			(xy 49.53 106.68) (xy 52.07 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4390fd50-065a-4b62-ad78-27504f1bb651")
 	)
 	(wire
 		(pts
@@ -1991,6 +2789,16 @@
 	)
 	(wire
 		(pts
+			(xy 95.25 115.57) (xy 99.06 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4562aba3-dd52-4182-8c7c-d87e4312b752")
+	)
+	(wire
+		(pts
 			(xy 99.06 115.57) (xy 130.81 115.57)
 		)
 		(stroke
@@ -1998,6 +2806,16 @@
 			(type default)
 		)
 		(uuid "46707747-c4a6-48cb-ae73-e64f8575e432")
+	)
+	(wire
+		(pts
+			(xy 39.37 71.12) (xy 41.91 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4afa13f1-8d87-4802-82fc-b5f859a1665b")
 	)
 	(wire
 		(pts
@@ -2021,13 +2839,33 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 71.12) (xy 114.3 71.12)
+			(xy 80.01 71.12) (xy 83.82 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "523360bb-9b0d-4e8c-89ec-2df6a29b9891")
+	)
+	(wire
+		(pts
+			(xy 92.71 71.12) (xy 93.98 71.12)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "52430126-538f-4510-94d4-1c4f892e9478")
+	)
+	(wire
+		(pts
+			(xy 52.07 106.68) (xy 52.07 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5b2d9d99-5d3d-4cdc-9ed0-2d9e5b3ad1f1")
 	)
 	(wire
 		(pts
@@ -2061,6 +2899,36 @@
 	)
 	(wire
 		(pts
+			(xy 73.66 66.04) (xy 67.31 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "60fccf50-731d-4b73-b4a9-3f3d9d446368")
+	)
+	(wire
+		(pts
+			(xy 57.15 48.26) (xy 52.07 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "619e902c-0f57-469e-8bcc-7892cafd985b")
+	)
+	(wire
+		(pts
+			(xy 82.55 115.57) (xy 85.09 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "62936e14-c060-4e15-9ae4-0b1b730c43ae")
+	)
+	(wire
+		(pts
 			(xy 165.1 71.12) (xy 165.1 74.93)
 		)
 		(stroke
@@ -2081,6 +2949,16 @@
 	)
 	(wire
 		(pts
+			(xy 52.07 71.12) (xy 57.15 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6bfa2c4b-aa0d-4071-9943-f02b373b6348")
+	)
+	(wire
+		(pts
 			(xy 210.82 118.11) (xy 210.82 115.57)
 		)
 		(stroke
@@ -2091,13 +2969,33 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 71.12) (xy 73.66 71.12)
+			(xy 80.01 71.12) (xy 80.01 90.17)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7d5ceab3-195d-42d8-b20c-8367fc5bee61")
+		(uuid "71ac3d6d-786b-4334-a10d-1c0ab399517f")
+	)
+	(wire
+		(pts
+			(xy 92.71 76.2) (xy 93.98 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "74bc34a2-3555-486b-a7f6-3bd43816cbd6")
+	)
+	(wire
+		(pts
+			(xy 52.07 78.74) (xy 52.07 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "80c788b5-f75e-49e7-95d4-4f849608bc03")
 	)
 	(wire
 		(pts
@@ -2111,13 +3009,13 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 115.57) (xy 73.66 115.57)
+			(xy 67.31 71.12) (xy 80.01 71.12)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "8c83b284-1e4f-4dd4-82b2-2aeb4380e23e")
+		(uuid "91064dbc-cf5b-4eb3-86c7-1c24adc834aa")
 	)
 	(wire
 		(pts
@@ -2151,13 +3049,33 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 115.57) (xy 99.06 115.57)
+			(xy 83.82 71.12) (xy 85.09 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a435a99f-9f63-42a7-9c3e-83fda1b862db")
+	)
+	(wire
+		(pts
+			(xy 92.71 115.57) (xy 95.25 115.57)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "a7a27477-632c-4ff0-92f1-7a1185b0826e")
+	)
+	(wire
+		(pts
+			(xy 80.01 115.57) (xy 82.55 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ade5b9cd-1453-465f-bada-677d661890ff")
 	)
 	(wire
 		(pts
@@ -2168,6 +3086,16 @@
 			(type default)
 		)
 		(uuid "ae8788dd-1de3-4960-850f-907377b4ac76")
+	)
+	(wire
+		(pts
+			(xy 82.55 107.95) (xy 82.55 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "afbb261e-15e8-41c0-ac18-d33d4b59cb5e")
 	)
 	(wire
 		(pts
@@ -2188,6 +3116,16 @@
 			(type default)
 		)
 		(uuid "b1bc0f86-b501-425f-96af-4d54a0239548")
+	)
+	(wire
+		(pts
+			(xy 52.07 97.79) (xy 52.07 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b75cb95e-4cbc-4187-bca5-114adc4c06d6")
 	)
 	(wire
 		(pts
@@ -2231,6 +3169,16 @@
 	)
 	(wire
 		(pts
+			(xy 83.82 71.12) (xy 83.82 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "beb953e5-bc12-4153-82da-02701c46fe27")
+	)
+	(wire
+		(pts
 			(xy 259.08 71.12) (xy 259.08 87.63)
 		)
 		(stroke
@@ -2251,13 +3199,43 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 71.12) (xy 57.15 71.12)
+			(xy 49.53 71.12) (xy 52.07 71.12)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "c3071694-a67b-4414-a0ff-0816ea4a049b")
+	)
+	(wire
+		(pts
+			(xy 52.07 71.12) (xy 52.07 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c34686b8-245a-46e8-9f87-2032370d06a8")
+	)
+	(wire
+		(pts
+			(xy 39.37 78.74) (xy 41.91 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c41ec2d9-3084-4858-a544-1cddafd71332")
+	)
+	(wire
+		(pts
+			(xy 80.01 97.79) (xy 80.01 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c6e7539e-6276-4683-87db-46ed4b2ab761")
 	)
 	(wire
 		(pts
@@ -2311,6 +3289,16 @@
 	)
 	(wire
 		(pts
+			(xy 67.31 48.26) (xy 73.66 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e19e3205-a37f-4253-9496-db7436139dab")
+	)
+	(wire
+		(pts
 			(xy 243.84 71.12) (xy 259.08 71.12)
 		)
 		(stroke
@@ -2318,6 +3306,16 @@
 			(type default)
 		)
 		(uuid "e1e3413a-ca00-4021-abf8-667c5983ea01")
+	)
+	(wire
+		(pts
+			(xy 85.09 107.95) (xy 82.55 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e3c4ee5c-98aa-4fe1-9b02-1bb69a330614")
 	)
 	(wire
 		(pts
@@ -2331,7 +3329,7 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 71.12) (xy 41.91 71.12)
+			(xy 33.02 71.12) (xy 39.37 71.12)
 		)
 		(stroke
 			(width 0)
@@ -2361,6 +3359,46 @@
 	)
 	(wire
 		(pts
+			(xy 93.98 71.12) (xy 114.3 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f59dd01c-27b3-4823-bf2a-e5e885d414c4")
+	)
+	(wire
+		(pts
+			(xy 73.66 48.26) (xy 73.66 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f765cce3-ddaf-4197-88f2-30a11e556814")
+	)
+	(wire
+		(pts
+			(xy 52.07 115.57) (xy 57.15 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f8f47a9d-6a0c-4744-b0a9-b677a0a0bae5")
+	)
+	(wire
+		(pts
+			(xy 95.25 107.95) (xy 95.25 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f9d316e2-3abc-417b-bd6a-ca858501a8f2")
+	)
+	(wire
+		(pts
 			(xy 227.33 91.44) (xy 227.33 93.98)
 		)
 		(stroke
@@ -2368,6 +3406,38 @@
 			(type default)
 		)
 		(uuid "fb7bdb37-1903-4ce7-9c9f-6140a6adab00")
+	)
+	(text ".options gmin=1e-10\n.options abstol=1e-11\n.options reltol=0.001\n.options cshunt=1e-14\n"
+		(exclude_from_sim no)
+		(at 202.184 51.308 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "4d7ec41f-6386-418b-9f43-8e9f872d665a")
+	)
+	(label "Vhelios"
+		(at 54.61 71.12 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2f7b243e-9af0-4c78-bd12-74af3de8cf1e")
+	)
+	(label "Vnyx"
+		(at 74.93 71.12 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "32ee1955-bcfc-4ef0-b759-af6e3f52ca32")
 	)
 	(label "Vload"
 		(at 227.33 71.12 0)
@@ -2381,7 +3451,7 @@
 		(uuid "4ff92391-3af1-4fc5-9974-87dab336fd25")
 	)
 	(label "Vin"
-		(at 36.83 71.12 0)
+		(at 35.56 71.12 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2393,7 +3463,7 @@
 	)
 	(symbol
 		(lib_id "Device:L")
-		(at 77.47 71.12 90)
+		(at 88.9 71.12 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2402,7 +3472,7 @@
 		(fields_autoplaced yes)
 		(uuid "078e1775-2309-413a-92bc-d1432a695c2d")
 		(property "Reference" "L2"
-			(at 77.47 66.04 90)
+			(at 88.9 66.04 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2410,7 +3480,7 @@
 			)
 		)
 		(property "Value" "330u"
-			(at 77.47 68.58 90)
+			(at 88.9 68.58 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2418,7 +3488,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 77.47 71.12 0)
+			(at 88.9 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2427,7 +3497,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 77.47 71.12 0)
+			(at 88.9 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2436,7 +3506,7 @@
 			)
 		)
 		(property "Description" "Inductor"
-			(at 77.47 71.12 0)
+			(at 88.9 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2793,7 +3863,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "c=100n ic=47"
+		(property "Sim.Params" "c=100n ic=47.5"
 			(at 130.81 90.17 0)
 			(effects
 				(font
@@ -2959,6 +4029,112 @@
 		)
 	)
 	(symbol
+		(lib_id "Diode:SMAJ51CA")
+		(at 52.07 93.98 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "50072507-9128-48bc-92df-681dc4cc7b0d")
+		(property "Reference" "D3"
+			(at 54.61 92.7099 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "SMAJ51CA"
+			(at 54.61 95.2499 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SMA"
+			(at 57.15 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.littelfuse.com/media?resourcetype=datasheets&itemid=75e32973-b177-4ee3-a0ff-cedaf1abdb93&filename=smaj-datasheet"
+			(at 52.07 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "400W bidirectional Transient Voltage Suppressor, 51.0Vr, SMA(DO-214AC)"
+			(at 52.07 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Library" "lib/smaj_spice.lib"
+			(at 52.07 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Name" "SMAJ51CA"
+			(at 52.07 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "SUBCKT"
+			(at 52.07 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=1 2=2"
+			(at 52.07 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e85a4f09-84db-449d-b1ec-b5ff4e133231")
+		)
+		(pin "2"
+			(uuid "0baadf86-61ae-4d16-9d78-32bd410e573c")
+		)
+		(instances
+			(project "limiter_simulation"
+				(path "/2f730959-4e9b-4d39-82b6-06bb2796907d"
+					(reference "D3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Simulation_SPICE:IPULSE")
 		(at 259.08 92.71 0)
 		(unit 1)
@@ -3041,7 +4217,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "y1=0 y2=2 td=10m tr=50u tf=50u tw=3m per=60m"
+		(property "Sim.Params" "y1=0 y2=2 td=10m tr=50u tf=50u tw=5m per=60m"
 			(at 262.89 95.2499 0)
 			(effects
 				(font
@@ -3060,74 +4236,6 @@
 			(project ""
 				(path "/2f730959-4e9b-4d39-82b6-06bb2796907d"
 					(reference "I1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 60.96 71.12 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6d3a368d-227d-4309-801e-4044fb1d6b75")
-		(property "Reference" "R3"
-			(at 60.96 64.77 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "14m"
-			(at 60.96 67.31 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 60.96 72.898 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 60.96 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 60.96 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "1270d600-0b42-42a7-ae6f-da2707722cac")
-		)
-		(pin "1"
-			(uuid "7af7fedd-0b41-4885-96d6-e867f4efcf2b")
-		)
-		(instances
-			(project "limiter_simulation"
-				(path "/2f730959-4e9b-4d39-82b6-06bb2796907d"
-					(reference "R3")
 					(unit 1)
 				)
 			)
@@ -3337,7 +4445,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "c=5u ic=47"
+		(property "Sim.Params" "c=5u ic=47.5"
 			(at 243.84 86.36 0)
 			(effects
 				(font
@@ -3503,6 +4611,110 @@
 			(project "limiter_simulation"
 				(path "/2f730959-4e9b-4d39-82b6-06bb2796907d"
 					(reference "R7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Simulation_SPICE:D")
+		(at 88.9 107.95 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8bd246c5-0744-4da2-8458-d655df415afa")
+		(property "Reference" "D2"
+			(at 88.9 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "D"
+			(at 88.9 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 88.9 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#cha_DIODEs"
+			(at 88.9 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Diode for simulation or PCB"
+			(at 88.9 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "SUBCKT"
+			(at 88.9 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=2 2=1"
+			(at 88.9 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Library" "lib/PMEG6030EVP.lib"
+			(at 88.9 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Name" "PMEG6030EVP"
+			(at 88.9 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "43c3da4c-326c-4696-a527-4c13ec3669d9")
+		)
+		(pin "2"
+			(uuid "d3de9a52-7dc3-4084-950d-374b18a5ae50")
+		)
+		(instances
+			(project "limiter_simulation"
+				(path "/2f730959-4e9b-4d39-82b6-06bb2796907d"
+					(reference "D2")
 					(unit 1)
 				)
 			)
@@ -3961,7 +5173,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "c=10u ic=47"
+		(property "Sim.Params" "c=10u ic=47.5"
 			(at 227.33 97.79 0)
 			(effects
 				(font
@@ -4065,8 +5277,114 @@
 		)
 	)
 	(symbol
+		(lib_id "Diode:SMAJ51CA")
+		(at 80.01 93.98 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ab26bb33-d7cd-4a8e-943f-de4168d0ca65")
+		(property "Reference" "D7"
+			(at 82.55 92.7099 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "SMAJ51CA"
+			(at 82.55 95.2499 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SMA"
+			(at 85.09 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.littelfuse.com/media?resourcetype=datasheets&itemid=75e32973-b177-4ee3-a0ff-cedaf1abdb93&filename=smaj-datasheet"
+			(at 80.01 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "400W bidirectional Transient Voltage Suppressor, 51.0Vr, SMA(DO-214AC)"
+			(at 80.01 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Library" "lib/smaj_spice.lib"
+			(at 80.01 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Name" "SMAJ51CA"
+			(at 80.01 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "SUBCKT"
+			(at 80.01 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=1 2=2"
+			(at 80.01 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0f4ca3b9-16e0-4543-9648-41d42d8de65b")
+		)
+		(pin "2"
+			(uuid "13a53cce-ecbc-46b6-ac88-14f2659099d3")
+		)
+		(instances
+			(project "limiter_simulation"
+				(path "/2f730959-4e9b-4d39-82b6-06bb2796907d"
+					(reference "D7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:L")
-		(at 77.47 115.57 90)
+		(at 88.9 115.57 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4075,7 +5393,7 @@
 		(fields_autoplaced yes)
 		(uuid "baaa7ec7-f941-4d91-a000-1ba57d5bf6e4")
 		(property "Reference" "L4"
-			(at 77.47 110.49 90)
+			(at 88.9 110.49 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4083,7 +5401,7 @@
 			)
 		)
 		(property "Value" "330u"
-			(at 77.47 113.03 90)
+			(at 88.9 113.03 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4091,7 +5409,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 77.47 115.57 0)
+			(at 88.9 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4100,7 +5418,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 77.47 115.57 0)
+			(at 88.9 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4109,7 +5427,7 @@
 			)
 		)
 		(property "Description" "Inductor"
-			(at 77.47 115.57 0)
+			(at 88.9 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4127,6 +5445,115 @@
 			(project "limiter_simulation"
 				(path "/2f730959-4e9b-4d39-82b6-06bb2796907d"
 					(reference "L4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Simulation_SPICE:SWITCH")
+		(at 62.23 71.12 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bababdf4-de1f-4e06-982a-5c6c48536436")
+		(property "Reference" "S1"
+			(at 62.357 55.88 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SWITCH"
+			(at 62.357 58.42 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 62.23 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#subsec_Switches"
+			(at 78.74 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Voltage controlled switch symbol for simulation only"
+			(at 62.23 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "SW"
+			(at 62.23 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Type" "V"
+			(at 62.23 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Params" "thr=0.5 ron=14m ic=on"
+			(at 62.357 60.96 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=no+ 2=no- 3=ctrl+ 4=ctrl-"
+			(at 76.2 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bd44d66d-44cf-42e6-a46d-f2fb53824fc0")
+		)
+		(pin "4"
+			(uuid "5e25c37e-7a01-4a20-a8b5-4013cf5e05f8")
+		)
+		(pin "2"
+			(uuid "f588d4ec-202d-4b5c-8ac2-f1acab833989")
+		)
+		(pin "3"
+			(uuid "0cd6a782-cf1f-4d16-9fdc-80ad8b64b6bf")
+		)
+		(instances
+			(project ""
+				(path "/2f730959-4e9b-4d39-82b6-06bb2796907d"
+					(reference "S1")
 					(unit 1)
 				)
 			)
@@ -4195,7 +5622,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "c=3.3m ic=47"
+		(property "Sim.Params" "c=3.3m ic=47.5"
 			(at 210.82 91.44 0)
 			(effects
 				(font
@@ -4223,6 +5650,110 @@
 			(project "limiter_simulation"
 				(path "/2f730959-4e9b-4d39-82b6-06bb2796907d"
 					(reference "C2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Simulation_SPICE:VPULSE")
+		(at 62.23 48.26 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c90ba792-0996-4567-82c2-c4467a8383f8")
+		(property "Reference" "V2"
+			(at 62.3598 38.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "VPULSE"
+			(at 62.3598 40.64 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 62.23 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for"
+			(at 62.23 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Voltage source, pulse"
+			(at 62.23 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=+ 2=-"
+			(at 62.23 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Type" "PULSE"
+			(at 62.23 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "V"
+			(at 62.23 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Sim.Params" "y1=1 y2=0 td=12m tr=2n tf=2n tw=5m"
+			(at 62.3598 43.18 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "2cefd5ba-458b-4373-8025-07b5273665f0")
+		)
+		(pin "1"
+			(uuid "613c7d85-0a14-42a3-8844-162ce21bb389")
+		)
+		(instances
+			(project ""
+				(path "/2f730959-4e9b-4d39-82b6-06bb2796907d"
+					(reference "V2")
 					(unit 1)
 				)
 			)
@@ -4401,6 +5932,110 @@
 			(project "limiter_simulation"
 				(path "/2f730959-4e9b-4d39-82b6-06bb2796907d"
 					(reference "R8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Simulation_SPICE:D")
+		(at 88.9 76.2 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "fe66af35-90f3-474f-a554-bed1f1c52c26")
+		(property "Reference" "D6"
+			(at 88.9 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "D"
+			(at 88.9 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 88.9 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#cha_DIODEs"
+			(at 88.9 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Diode for simulation or PCB"
+			(at 88.9 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "SUBCKT"
+			(at 88.9 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=2 2=1"
+			(at 88.9 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Library" "lib/PMEG6030EVP.lib"
+			(at 88.9 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Name" "PMEG6030EVP"
+			(at 88.9 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b66b6d4a-75f2-4cee-93db-6aa1e8cae205")
+		)
+		(pin "2"
+			(uuid "c2780c56-6ca1-4236-af2b-378fd11de930")
+		)
+		(instances
+			(project "limiter_simulation"
+				(path "/2f730959-4e9b-4d39-82b6-06bb2796907d"
+					(reference "D6")
 					(unit 1)
 				)
 			)

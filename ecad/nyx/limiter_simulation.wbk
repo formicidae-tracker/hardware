@@ -21,6 +21,16 @@
       "showGrid": true,
       "traces": [
         {
+          "color": "rgb(77, 175, 74)",
+          "signal": "I(I1)",
+          "trace_type": 258
+        },
+        {
+          "color": "rgb(55, 126, 184)",
+          "signal": "I(L2)",
+          "trace_type": 258
+        },
+        {
           "color": "rgb(255, 255, 51)",
           "signal": "I(R4)",
           "trace_type": 258
@@ -28,6 +38,11 @@
         {
           "color": "rgb(228, 26, 28)",
           "signal": "V(/Vload)",
+          "trace_type": 257
+        },
+        {
+          "color": "rgb(152, 78, 163)",
+          "signal": "V(/Vnyx)",
           "trace_type": 257
         },
         {
