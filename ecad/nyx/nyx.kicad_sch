@@ -7171,6 +7171,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CL32Y475MCIVPNE"
+			(at 175.26 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "c2296a4d-056f-427a-a2ac-69056261897b")
 		)
@@ -7232,6 +7241,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 218.44 208.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-0715KL"
 			(at 218.44 208.28 0)
 			(effects
 				(font
@@ -7393,6 +7411,15 @@
 				)
 			)
 		)
+		(property "MPN" "CL10B104KC8NNNC"
+			(at 161.29 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "49db3baf-2eea-4f42-bdbf-c20fafd59f35")
 		)
@@ -7455,6 +7482,15 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 378.46 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "B4B-PH-SM4-TB"
 			(at 378.46 116.84 0)
 			(effects
 				(font
@@ -7700,6 +7736,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "C1206F184K1RACAUTO"
+			(at 46.99 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "2128f695-f159-498c-bc0e-6a5a9b0fdf7f")
 		)
@@ -7734,7 +7779,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "VIN"
+		(property "Value" "5019"
 			(at 222.25 29.7179 0)
 			(effects
 				(font
@@ -7837,6 +7882,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 300.99 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-07560KL"
 			(at 300.99 41.91 0)
 			(effects
 				(font
@@ -7991,6 +8045,15 @@
 			)
 		)
 		(property "Dielectric" "X7R"
+			(at 107.95 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
 			(at 107.95 121.92 0)
 			(effects
 				(font
@@ -8212,6 +8275,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "RC0402FR-0747KL"
+			(at 113.03 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9abc5e9d-d22a-42c0-985d-7c7c8881a96d")
 		)
@@ -8281,6 +8353,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "RC0402FR-07270KL"
+			(at 252.73 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1ee888af-51bf-4036-81f5-cd116b471097")
 		)
@@ -8342,6 +8423,15 @@
 			)
 		)
 		(property "Description" "P-MOSFET transistor, gate/drain/source"
+			(at 201.93 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RD3P01BAT"
 			(at 201.93 39.37 0)
 			(effects
 				(font
@@ -8439,6 +8529,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CL32Y475MCIVPNE"
+			(at 185.42 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "85615f24-dace-4d30-a2a9-3e966e1320f2")
 		)
@@ -8500,6 +8599,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 191.77 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-0733KL"
 			(at 191.77 43.18 0)
 			(effects
 				(font
@@ -8583,6 +8691,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "MPN" "RC1206FR-072R05L"
+			(at 175.26 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8685,7 +8802,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "RX"
+		(property "Value" "5019"
 			(at 226.06 192.2779 0)
 			(effects
 				(font
@@ -8906,7 +9023,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "5019"
 			(at 58.42 29.7179 0)
 			(effects
 				(font
@@ -9034,6 +9151,15 @@
 				)
 			)
 		)
+		(property "MPN" "CL10B104KC8NNNC"
+			(at 335.28 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "9be111ec-7a56-4028-89e7-78733700b3dc")
 		)
@@ -9094,6 +9220,15 @@
 			)
 		)
 		(property "Description" "Synchronous Buck Regulator, Vin=3-65V, Iout=50mA, F=0.2-2.2MHz, Adjustable output voltage, PFM at light load, VQFN-HR RPE"
+			(at 336.55 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "LMR36500P3RPE"
 			(at 336.55 41.91 0)
 			(effects
 				(font
@@ -9201,6 +9336,15 @@
 			)
 		)
 		(property "Dielectric" "X7R"
+			(at 226.06 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
 			(at 226.06 129.54 0)
 			(effects
 				(font
@@ -9362,6 +9506,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GRM155R71H104KE14J"
+			(at 289.56 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "5e7ceffc-a70d-48dd-adec-373446e09261")
 		)
@@ -9497,6 +9650,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "RC0402FR-0715KL"
+			(at 300.99 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b378bd31-a24b-4686-8fd5-1050454b87e2")
 		)
@@ -9559,6 +9721,15 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 280.67 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "BM03B-SRSS-TB"
 			(at 280.67 187.96 0)
 			(effects
 				(font
@@ -9648,6 +9819,15 @@
 				)
 			)
 		)
+		(property "MPN" "KDV12DR300ET"
+			(at 345.44 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "4b8ead89-3553-499b-99d1-150956db0f78")
 		)
@@ -9707,6 +9887,15 @@
 			)
 		)
 		(property "Description" "PNP transistor, base/emitter/collector"
+			(at 182.88 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "NMBTA56"
 			(at 182.88 45.72 0)
 			(effects
 				(font
@@ -9779,6 +9968,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 191.77 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-0768KL"
 			(at 191.77 54.61 0)
 			(effects
 				(font
@@ -9952,6 +10150,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GRM155R71H104KE14J"
+			(at 177.8 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "75a56398-519f-4b3c-8ac4-6d61010c647d")
 		)
@@ -9986,7 +10193,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "RX-"
+		(property "Value" "5019"
 			(at 40.64 46.4819 0)
 			(effects
 				(font
@@ -10061,7 +10268,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "3.3u"
+		(property "Value" "10u"
 			(at 377.19 46.9899 0)
 			(effects
 				(font
@@ -10106,6 +10313,15 @@
 			)
 		)
 		(property "Dielectric" "X7R"
+			(at 373.38 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM21BR71A106MA73L"
 			(at 373.38 45.72 0)
 			(effects
 				(font
@@ -10267,6 +10483,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GRM155R71H104KE14J"
+			(at 247.65 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "d47fb93d-b1d1-42e4-9693-9080030ae040")
 		)
@@ -10328,6 +10553,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 237.49 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-078K2L"
 			(at 237.49 128.27 0)
 			(effects
 				(font
@@ -10454,7 +10688,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "+48V"
+		(property "Value" "5019"
 			(at 146.05 27.1779 0)
 			(effects
 				(font
@@ -10573,6 +10807,15 @@
 				)
 			)
 		)
+		(property "MPN" "RK73B2ATTD333J"
+			(at 165.1 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "36fdc1c4-d01a-4feb-8567-e0f9cbf73388")
 		)
@@ -10659,6 +10902,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CL10B105MO8NNWC"
+			(at 323.85 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "41008b36-94e1-4868-972e-b9fcc6b7673f")
 		)
@@ -10693,7 +10945,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "RX"
+		(property "Value" "5019"
 			(at 201.93 217.9319 0)
 			(effects
 				(font
@@ -10887,6 +11139,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CL10B104KC8NNNC"
+			(at 287.02 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "ceaff8b2-832c-48c7-b029-21c10b1d1eba")
 		)
@@ -10965,6 +11226,15 @@
 			)
 		)
 		(property "Dielectric" "X7R"
+			(at 312.42 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CL32Y475MCIVPNE"
 			(at 312.42 118.11 0)
 			(effects
 				(font
@@ -11238,7 +11508,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "RX+"
+		(property "Value" "5019"
 			(at 40.64 29.7179 0)
 			(effects
 				(font
@@ -11358,6 +11628,15 @@
 			)
 		)
 		(property "Dielectric" "X7R"
+			(at 195.58 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CL32Y475MCIVPNE"
 			(at 195.58 121.92 0)
 			(effects
 				(font
@@ -11519,6 +11798,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "RC0402FR-0715KL"
+			(at 120.65 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "4de08b2b-5397-48ed-8a54-3a45b7a1630f")
 		)
@@ -11580,6 +11868,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 73.66 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "ERJ-2RKF1200X"
 			(at 73.66 144.78 0)
 			(effects
 				(font
@@ -11672,6 +11969,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "MPN" "CL10B104KC8NNNC"
+			(at 215.9 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -11818,6 +12124,15 @@
 			)
 		)
 		(property "Dielectric" "X7R"
+			(at 323.85 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CL32Y475MCIVPNE"
 			(at 323.85 118.11 0)
 			(effects
 				(font
@@ -11989,6 +12304,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CL32B225KCJSNNE"
+			(at 275.59 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "dad4b8e7-ef1f-46cb-858e-1afaf6bd847e")
 		)
@@ -12058,6 +12382,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "RC0402FR-07300KL"
+			(at 237.49 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "035f6733-108b-43b0-91a8-20e873b05d0e")
 		)
@@ -12119,6 +12452,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 226.06 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-0710ML"
 			(at 226.06 111.76 0)
 			(effects
 				(font
@@ -12262,6 +12604,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "RC0402FR-0715KL"
+			(at 198.12 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "4ab8ff29-6811-45ad-a997-487e4fc02bf6")
 		)
@@ -12348,6 +12699,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CL32Y475MCIVPNE"
+			(at 205.74 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "395aa9d0-4b24-485f-bc1f-674056f27542")
 		)
@@ -12419,6 +12779,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "THVD8010"
+			(at 97.79 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "8"
 			(uuid "71197ca4-b674-4d86-9b30-2b4be64379bc")
 		)
@@ -12470,7 +12839,7 @@
 				)
 			)
 		)
-		(property "Value" "TPS92512"
+		(property "Value" "TPS92512HV"
 			(at 267.97 102.87 0)
 			(effects
 				(font
@@ -12498,6 +12867,15 @@
 		)
 		(property "Description" "2.5A Buck LED Driver with Integrated Analog Current Adjust, Vin=4.5-60V, Iout=2.5A"
 			(at 268.224 118.872 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "TPS92512HV"
+			(at 267.97 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12611,6 +12989,15 @@
 			)
 		)
 		(property "Dielectric" "X7R"
+			(at 351.79 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
 			(at 351.79 34.29 0)
 			(effects
 				(font
@@ -12746,6 +13133,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 290.83 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-071KL"
 			(at 290.83 127 0)
 			(effects
 				(font
@@ -12988,6 +13384,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "C1206F184K1RACAUTO"
+			(at 46.99 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "03a97371-f466-4c72-ba9d-746248e280ad")
 		)
@@ -13197,6 +13602,15 @@
 				)
 			)
 		)
+		(property "MPN" "KDV12DR300ET"
+			(at 349.25 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1934f765-4f47-417e-b360-7a3092ffde3b")
 		)
@@ -13326,6 +13740,15 @@
 			)
 		)
 		(property "Description" "20MHz, 2kB Flash, 128B SRAM, 64B EEPROM, SOIC-8"
+			(at 170.18 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "ATtiny202-SS"
 			(at 170.18 204.47 0)
 			(effects
 				(font

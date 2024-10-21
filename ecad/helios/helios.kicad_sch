@@ -10007,7 +10007,7 @@
 				)
 			)
 		)
-		(property "Value" "60"
+		(property "Value" "62"
 			(at 143.51 80.01 90)
 			(effects
 				(font
@@ -10034,6 +10034,24 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 143.51 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 143.51 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-0762RL"
 			(at 143.51 83.82 0)
 			(effects
 				(font
@@ -10121,6 +10139,24 @@
 			)
 		)
 		(property "Dielectric" "X7R"
+			(at 172.72 234.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
+			(at 172.72 234.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
 			(at 172.72 234.95 0)
 			(effects
 				(font
@@ -10274,6 +10310,15 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 193.04 186.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "bf3d0d7a-fd0d-4f4d-ac22-3627628a0cfa")
 		)
@@ -10355,6 +10400,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0402JRNPO8BN150"
+			(at 35.56 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 35.56 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "24af95cb-481b-4a4e-9139-ee828225a292")
 		)
@@ -10425,6 +10488,24 @@
 			)
 		)
 		(property "Rated Voltage" "16V"
+			(at 81.28 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
+			(at 81.28 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
 			(at 81.28 203.2 0)
 			(effects
 				(font
@@ -10512,6 +10593,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GRM155R71H104KE14J"
+			(at 350.52 228.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 350.52 228.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "a64d8857-c3b4-43bf-8849-09859bf0d573")
 		)
@@ -10546,7 +10645,7 @@
 				)
 			)
 		)
-		(property "Value" ".100 Header"
+		(property "Value" ".100 Header stackable"
 			(at 228.6 25.4 0)
 			(effects
 				(font
@@ -10582,6 +10681,15 @@
 			)
 		)
 		(property "MPN" "ESQ-108-13-T-S "
+			(at 228.6 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
 			(at 228.6 36.83 0)
 			(effects
 				(font
@@ -10668,6 +10776,24 @@
 			)
 		)
 		(property "Description" "Single Schmitt Buffer Gate, Low-Voltage CMOS"
+			(at 368.3 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 368.3 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "74LVC1G17"
 			(at 368.3 176.53 0)
 			(effects
 				(font
@@ -10819,6 +10945,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 364.49 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-07180RL"
+			(at 364.49 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "96d3cac7-31f0-49af-9bd5-2531557d2fe1")
 		)
@@ -10898,6 +11042,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GRM155R71H104KE14J"
+			(at 149.86 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 149.86 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "53dd0c8b-9af3-460b-b1ff-0a3ab0ea008f")
 		)
@@ -10969,6 +11131,24 @@
 			)
 		)
 		(property "Rated Voltage" "16V"
+			(at 184.15 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
+			(at 184.15 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
 			(at 184.15 36.83 0)
 			(effects
 				(font
@@ -11113,6 +11293,15 @@
 			)
 		)
 		(property "MPN" "54-00131"
+			(at 238.76 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
 			(at 238.76 93.98 0)
 			(effects
 				(font
@@ -11320,6 +11509,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 388.62 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "1843606"
+			(at 388.62 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9226c2ff-92ed-4a8c-ba3f-5a9d48739be9")
 		)
@@ -11404,6 +11611,15 @@
 				)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 182.88 240.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "b11248f4-df69-4630-b6cf-93d7112cc344")
 		)
@@ -11464,6 +11680,24 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 306.07 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 306.07 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-07180RL"
 			(at 306.07 36.83 0)
 			(effects
 				(font
@@ -11550,6 +11784,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0402JRNPO8BN150"
+			(at 35.56 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 35.56 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b0c15400-0508-4d25-a92c-26f2aacebc86")
 		)
@@ -11621,6 +11873,24 @@
 			)
 		)
 		(property "Rated Voltage" "16V"
+			(at 125.73 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
+			(at 125.73 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
 			(at 125.73 36.83 0)
 			(effects
 				(font
@@ -11837,6 +12107,15 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 154.94 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "84927b4f-3bd4-4ca7-81b0-9ebd04de39ff")
 		)
@@ -11965,6 +12244,24 @@
 			)
 		)
 		(property "Description" "400W bidirectional Transient Voltage Suppressor, 51.0Vr, SMA(DO-214AC)"
+			(at 257.81 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 257.81 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "SMAJ48CA"
 			(at 257.81 93.98 0)
 			(effects
 				(font
@@ -12118,6 +12415,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 313.69 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "KGM05AR71H102KN"
+			(at 313.69 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "e94b7a5a-f9c8-4316-b521-52a701f716f5")
 		)
@@ -12178,6 +12493,24 @@
 			)
 		)
 		(property "Description" "30V 200mA Schottky diode, SOD-323F"
+			(at 306.07 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 306.07 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "BAT54J,115"
 			(at 306.07 73.66 0)
 			(effects
 				(font
@@ -12520,6 +12853,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 328.93 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-071KL"
+			(at 328.93 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "06a33c3c-71d6-4d3f-b45b-2b0d3042aea8")
 		)
@@ -12797,6 +13148,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GRM155Z71A225KE01D"
+			(at 53.34 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 53.34 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "74dd1d83-74d0-4992-9cea-5b34ad4169a5")
 		)
@@ -12859,6 +13228,24 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 293.37 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 293.37 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-0715KL"
 			(at 293.37 68.58 0)
 			(effects
 				(font
@@ -12946,6 +13333,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GRM155R71H104KE14J"
+			(at 67.31 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 67.31 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "0b1214b9-f6bd-4b42-ba69-72990de337c0")
 		)
@@ -13018,6 +13423,15 @@
 			)
 		)
 		(property "MPN" "TCAN3414DDFR"
+			(at 148.59 186.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
 			(at 148.59 186.69 0)
 			(effects
 				(font
@@ -13187,6 +13601,15 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 154.94 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "abd43890-8fb0-467f-8ca3-d919cc9829fb")
 		)
@@ -13246,6 +13669,24 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 143.51 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 143.51 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-07240RL"
 			(at 143.51 91.44 0)
 			(effects
 				(font
@@ -13406,6 +13847,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 144.78 254 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CL10B105MO8NNWC"
+			(at 144.78 254 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "4f5e7d8f-84f4-419d-a0cd-c94bc6c14111")
 		)
@@ -13540,6 +13999,15 @@
 			)
 		)
 		(property "MPN" "BM03B-SRSS-TB"
+			(at 21.59 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
 			(at 21.59 134.62 0)
 			(effects
 				(font
@@ -13952,6 +14420,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 387.35 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-071KL"
+			(at 387.35 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "554160fd-b67d-4c31-8116-f42183f1b234")
 		)
@@ -14021,6 +14507,15 @@
 			)
 		)
 		(property "MPN" "BM03B-SRSS-TB"
+			(at 21.59 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
 			(at 21.59 99.06 0)
 			(effects
 				(font
@@ -14111,6 +14606,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GRM155R71H104KE14J"
+			(at 161.29 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 161.29 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "19e5d178-7900-4b04-9c98-1e4f5701b33a")
 		)
@@ -14171,6 +14684,24 @@
 			)
 		)
 		(property "Description" "DC Optocoupler, Vce 35V, CTR 50%, SMDIP-8"
+			(at 318.77 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 318.77 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "LTV-827S"
 			(at 318.77 39.37 0)
 			(effects
 				(font
@@ -14332,7 +14863,7 @@
 				(hide yes)
 			)
 		)
-		(property "Rated Voltage" "100V"
+		(property "Rated Voltage" "50V"
 			(at 116.84 247.396 0)
 			(effects
 				(font
@@ -14341,6 +14872,24 @@
 			)
 		)
 		(property "Dielectric" "X7R"
+			(at 110.49 243.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CL31B225KBHNNNE"
+			(at 110.49 243.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
 			(at 110.49 243.84 0)
 			(effects
 				(font
@@ -14420,6 +14969,24 @@
 			)
 		)
 		(property "Rated Voltage" "16V"
+			(at 172.72 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
+			(at 172.72 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
 			(at 172.72 36.83 0)
 			(effects
 				(font
@@ -14562,6 +15129,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 368.3 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "74LVC1G17"
+			(at 368.3 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "bae6bf60-ce06-4078-bf8b-e055321674b3")
 		)
@@ -14633,6 +15218,24 @@
 			)
 		)
 		(property "Description" "Jumper, 2-pole, open"
+			(at 168.91 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 168.91 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PH1-02-UA"
 			(at 168.91 181.61 0)
 			(effects
 				(font
@@ -14767,6 +15370,24 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 292.1 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 292.1 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "1843606"
 			(at 292.1 38.1 0)
 			(effects
 				(font
@@ -14951,7 +15572,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 122.8852 247.65 0)
 			(effects
 				(font
@@ -14987,6 +15608,24 @@
 			)
 		)
 		(property "Dielectric" "X7R"
+			(at 121.92 243.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
+			(at 121.92 243.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
 			(at 121.92 243.84 0)
 			(effects
 				(font
@@ -15055,6 +15694,24 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 306.07 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 306.07 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-0715KL"
 			(at 306.07 77.47 0)
 			(effects
 				(font
@@ -15134,6 +15791,15 @@
 			)
 		)
 		(property "MPN" "RP2040"
+			(at 95.25 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
 			(at 95.25 96.52 0)
 			(effects
 				(font
@@ -15386,6 +16052,15 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 76.2 254 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "cf7e0222-e169-4457-b846-8517704d96f5")
 		)
@@ -15452,6 +16127,24 @@
 			)
 		)
 		(property "Description" "Synchronous Buck Regulator, Vin=3-65V, Iout=150mA, F=0.2-2.2MHz, Adjustable output voltage, PFM at light load, VQFN-HR RPE"
+			(at 157.48 242.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 157.48 242.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "LMR36502P3RPE"
 			(at 157.48 242.57 0)
 			(effects
 				(font
@@ -15617,6 +16310,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 168.91 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "ERJ-2RKF1200X"
+			(at 168.91 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "d844f14d-82e0-4307-bb71-8127d373f087")
 		)
@@ -15651,7 +16362,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "15k"
 			(at 46.99 53.3399 0)
 			(effects
 				(font
@@ -15679,6 +16390,24 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 44.45 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 44.45 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-0715KL"
 			(at 44.45 52.07 0)
 			(effects
 				(font
@@ -15825,6 +16554,15 @@
 			)
 		)
 		(property "MPN" "W25Q16JVUXIQ"
+			(at 53.34 212.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
 			(at 53.34 212.09 0)
 			(effects
 				(font
@@ -16134,6 +16872,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 194.31 246.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM21BR71A106MA73L"
+			(at 194.31 246.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "18806d39-1325-4976-b2b5-7e85f7b40517")
 		)
@@ -16344,6 +17100,15 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 50.8 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8198e386-1f81-4a45-9a77-645c70d2f515")
 		)
@@ -16411,6 +17176,24 @@
 			)
 		)
 		(property "Description" "Jumper, 3-pole, pins 1+2 closed/bridged"
+			(at 342.9 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 342.9 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PH1-03-UA"
 			(at 342.9 81.28 0)
 			(effects
 				(font
@@ -16501,6 +17284,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GRM155R71H104KE14J"
+			(at 365.76 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 365.76 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "c429c9ca-93e5-480d-a72b-c79cfcfe2249")
 		)
@@ -16572,6 +17373,15 @@
 			)
 		)
 		(property "MPN" "B4B-PH-SM4-TB"
+			(at 45.72 254 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
 			(at 45.72 254 0)
 			(effects
 				(font
@@ -16928,6 +17738,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GRM155R71H104KE14J"
+			(at 80.01 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 80.01 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "57b8c4e0-24de-4db9-a314-0e41b1a90e30")
 		)
@@ -16999,6 +17827,24 @@
 			)
 		)
 		(property "Rated Voltage" "16V"
+			(at 350.52 189.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71H104KE14J"
+			(at 350.52 189.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
 			(at 350.52 189.23 0)
 			(effects
 				(font
@@ -17142,6 +17988,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 328.93 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "74LVC1G17"
+			(at 328.93 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "e3bf1b34-0866-4a95-83c1-468b58ac81a5")
 		)
@@ -17230,6 +18094,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GRM155R71H104KE14J"
+			(at 110.49 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 110.49 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "b3c08643-a29e-4a99-bb83-d3682b5736ab")
 		)
@@ -17309,6 +18191,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GRM155R71H104KE14J"
+			(at 138.43 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 138.43 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "f0435721-6686-4751-b020-9f92dd7152fc")
 		)
@@ -17368,6 +18268,24 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 388.62 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 388.62 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "1843606"
 			(at 388.62 215.9 0)
 			(effects
 				(font
@@ -17643,6 +18561,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 350.52 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "1843606"
+			(at 350.52 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "bd10fe4d-0b87-4948-b70a-77e033b5a44a")
 		)
@@ -17722,6 +18658,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GRM155Z71A225KE01D"
+			(at 111.76 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 111.76 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "47070471-6c1e-406d-aada-b54fa1ab18ab")
 		)
@@ -17791,6 +18745,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 285.75 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "1843606"
+			(at 285.75 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "c911b4b6-cac8-4fdc-b199-da4caf949fd3")
 		)
@@ -17851,6 +18823,24 @@
 			)
 		)
 		(property "Description" "DC Optocoupler, Vce 35V, CTR 50%, SMDIP-8"
+			(at 377.19 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 377.19 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "LTV-827S"
 			(at 377.19 39.37 0)
 			(effects
 				(font
@@ -18068,6 +19058,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 68.58 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 68.58 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-071KL"
 			(at 68.58 175.26 0)
 			(effects
 				(font

@@ -2344,6 +2344,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GRM155R71H104KE14J"
+			(at 82.55 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 82.55 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "145e2f8b-c1e4-450e-9671-d24303b29d83")
 		)
@@ -2662,6 +2680,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 116.84 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "ERJ-2RKF1200X"
+			(at 116.84 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "32894fae-acc1-4dc8-8769-214085841aaa")
 		)
@@ -2736,6 +2772,24 @@
 			)
 		)
 		(property "Description" "400W bidirectional Transient Voltage Suppressor, 51.0Vr, SMA(DO-214AC)"
+			(at 29.21 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 29.21 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "SMAJ51CA"
 			(at 29.21 57.15 0)
 			(effects
 				(font
@@ -2989,6 +3043,15 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 39.37 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "aaca8583-1abc-4812-a187-36f07e723222")
 		)
@@ -3088,6 +3151,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 143.51 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "C1206F184K1RACAUTO"
+			(at 143.51 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "07de78da-135b-4d2d-8f8e-3ba34a8c060d")
 		)
@@ -3177,6 +3258,15 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 39.37 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "70ac1f0b-e394-4f7d-8510-0c3dbb6d9c3e")
 		)
@@ -3252,6 +3342,24 @@
 		)
 		(property "Description" "RS-485 Half-duplex 30kbps transceiver with OOK Modulation for Power Line Communication, SOT-23"
 			(at 95.25 78.486 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 92.71 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "THVD8010"
+			(at 92.71 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3358,6 +3466,15 @@
 			)
 		)
 		(property "MPN" "S2B-XH-A"
+			(at 180.34 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
 			(at 180.34 53.34 0)
 			(effects
 				(font
@@ -3528,6 +3645,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 77.47 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-0747KL"
+			(at 77.47 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1d4be21c-fa5e-4596-a255-cbb1db60b521")
 		)
@@ -3626,6 +3761,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" ""
+			(at 143.51 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "C1206F184K1RACAUTO"
+			(at 143.51 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "e9021e0d-ccbf-466f-9f82-7a42654466e4")
 		)
@@ -3710,6 +3863,15 @@
 		)
 		(property "MPN" "CDSOT23-SM712"
 			(at 134.62 54.61 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 134.62 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)

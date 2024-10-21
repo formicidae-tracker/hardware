@@ -36,6 +36,11 @@
           "trace_type": 258
         },
         {
+          "color": "rgb(255, 217, 47)",
+          "signal": "V(/Vin)",
+          "trace_type": 257
+        },
+        {
           "color": "rgb(228, 26, 28)",
           "signal": "V(/Vload)",
           "trace_type": 257
@@ -47,6 +52,15 @@
         },
         {
           "color": "rgb(166, 86, 40)",
+          "cursor1": {
+            "position": 0.021179039301310043,
+            "x_format": "3~s",
+            "y_format": "3~V"
+          },
+          "cursorD": {
+            "x_format": "3~s",
+            "y_format": "3~V"
+          },
           "signal": "V(/Vin) - V(GNDREF)",
           "trace_type": 257
         }
