@@ -11,3 +11,4 @@ output/
 *.csv
 *.ps
 *.pdf
+~*.kicad_*.lck

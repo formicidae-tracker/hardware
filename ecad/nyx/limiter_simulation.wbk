@@ -4,7 +4,7 @@
     {
       "analysis": "TRAN",
       "commands": [
-        ".tran 10n 200m 0 10n uic",
+        ".tran 10u 100m 0 10u uic",
         ".kicad adjustpaths",
         ".save all",
         ".probe alli",
@@ -21,28 +21,18 @@
       "showGrid": true,
       "traces": [
         {
-          "color": "rgb(77, 175, 74)",
-          "signal": "I(MQ3:d)",
+          "color": "rgb(255, 255, 51)",
+          "signal": "I(R4)",
           "trace_type": 258
-        },
-        {
-          "color": "rgb(255, 127, 0)",
-          "signal": "I(V1)",
-          "trace_type": 258
-        },
-        {
-          "color": "rgb(152, 78, 163)",
-          "signal": "P(XQ1)",
-          "trace_type": 272
-        },
-        {
-          "color": "rgb(55, 126, 184)",
-          "signal": "V(/Vin)",
-          "trace_type": 257
         },
         {
           "color": "rgb(228, 26, 28)",
           "signal": "V(/Vload)",
+          "trace_type": 257
+        },
+        {
+          "color": "rgb(166, 86, 40)",
+          "signal": "V(/Vin) - V(GNDREF)",
           "trace_type": 257
         }
       ]
@@ -58,6 +48,8 @@
       ]
     }
   ],
-  "user_defined_signals": [],
+  "user_defined_signals": [
+    "V(/Vin) - V(GNDREF)"
+  ],
   "version": 6
 }

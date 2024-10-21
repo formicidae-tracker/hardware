@@ -1050,6 +1050,151 @@
 				)
 			)
 		)
+		(symbol "Device:D_TVS"
+			(pin_numbers hide)
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "D"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "D_TVS"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Bidirectional transient-voltage-suppression diode"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "diode TVS thyrector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "TO-???* *_Diode_* *SingleDiode* D_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "D_TVS_0_1"
+				(polyline
+					(pts
+						(xy 1.27 0) (xy -1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.508 1.27) (xy 0 1.27) (xy 0 -1.27) (xy -0.508 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 1.27) (xy -2.54 -1.27) (xy 2.54 1.27) (xy 2.54 -1.27) (xy -2.54 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "D_TVS_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "A1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "A2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Device:D_TVS_Dual_AAC"
 			(pin_names
 				(offset 1.016) hide)
@@ -1236,171 +1381,6 @@
 					(at 0 -3.81 90)
 					(length 2.54)
 					(name "common"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "Device:D_Zener_Dual_CommonAnode_AKK_Split"
-			(pin_names
-				(offset 0.762) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "D"
-				(at 0 2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "D_Zener_Dual_CommonAnode_AKK_Split"
-				(at 0 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at -2.54 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at -2.54 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Dual Zener diode, common anode on pin 1"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "D_Zener_Dual_CommonAnode_AKK_Split_0_0"
-				(polyline
-					(pts
-						(xy 1.27 1.27) (xy 1.27 -1.27) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "D_Zener_Dual_CommonAnode_AKK_Split_0_1"
-				(polyline
-					(pts
-						(xy 1.27 0) (xy -1.27 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 1.27) (xy 1.27 0) (xy -1.27 -1.27) (xy -1.27 1.27) (xy -1.27 1.27) (xy -1.27 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -3.81 0 0)
-					(length 2.54)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "D_Zener_Dual_CommonAnode_AKK_Split_1_1"
-				(pin passive line
-					(at 3.81 0 180)
-					(length 2.54)
-					(name "K"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "D_Zener_Dual_CommonAnode_AKK_Split_2_1"
-				(pin passive line
-					(at 3.81 0 180)
-					(length 2.54)
-					(name "K"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1858,290 +1838,6 @@
 				)
 			)
 		)
-		(symbol "Device:Q_PMOS_GSD"
-			(pin_names
-				(offset 0) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "Q"
-				(at 5.08 1.27 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "Q_PMOS_GSD"
-				(at 5.08 -1.27 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" ""
-				(at 5.08 2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "P-MOSFET transistor, gate/source/drain"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "transistor PMOS P-MOS P-MOSFET"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Q_PMOS_GSD_0_1"
-				(polyline
-					(pts
-						(xy 0.254 0) (xy -2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.254 1.905) (xy 0.254 -1.905)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -1.27) (xy 0.762 -2.286)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 0.508) (xy 0.762 -0.508)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 2.286) (xy 0.762 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 2.54) (xy 2.54 1.778)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 -2.54) (xy 2.54 0) (xy 0.762 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 1.778) (xy 3.302 1.778) (xy 3.302 -1.778) (xy 0.762 -1.778)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 0) (xy 1.27 0.381) (xy 1.27 -0.381) (xy 2.286 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.794 -0.508) (xy 2.921 -0.381) (xy 3.683 -0.381) (xy 3.81 -0.254)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.302 -0.381) (xy 2.921 0.254) (xy 3.683 0.254) (xy 3.302 -0.381)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 1.651 0)
-					(radius 2.794)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.54 -1.778)
-					(radius 0.254)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(circle
-					(center 2.54 1.778)
-					(radius 0.254)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-			)
-			(symbol "Q_PMOS_GSD_1_1"
-				(pin input line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "G"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -5.08 90)
-					(length 2.54)
-					(name "S"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 5.08 270)
-					(length 2.54)
-					(name "D"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "Device:Q_PNP_BEC"
 			(pin_names
 				(offset 0) hide)
@@ -2425,139 +2121,6 @@
 					(at 0 -3.81 90)
 					(length 1.27)
 					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "Diode:SMAJ58A"
-			(pin_numbers hide)
-			(pin_names
-				(offset 1.016) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "D"
-				(at 0 2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "SMAJ58A"
-				(at 0 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Diode_SMD:D_SMA"
-				(at 0 -5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://www.littelfuse.com/media?resourcetype=datasheets&itemid=75e32973-b177-4ee3-a0ff-cedaf1abdb93&filename=smaj-datasheet"
-				(at -1.27 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "400W unidirectional Transient Voltage Suppressor, 58.0Vr, SMA(DO-214AC)"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "unidirectional diode TVS voltage suppressor"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "D*SMA*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "SMAJ58A_0_1"
-				(polyline
-					(pts
-						(xy -0.762 1.27) (xy -1.27 1.27) (xy -1.27 -1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0) (xy 1.27 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "SMAJ58A_1_1"
-				(pin passive line
-					(at -3.81 0 0)
-					(length 2.54)
-					(name "A1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 3.81 0 180)
-					(length 2.54)
-					(name "A2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4236,6 +3799,12 @@
 		(uuid "46756ea7-de4b-4104-b043-7f42944c16c9")
 	)
 	(junction
+		(at 95.25 36.83)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4805aed6-4735-4d6a-9b7b-f3fc0433a1c2")
+	)
+	(junction
 		(at 199.39 209.55)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4264,12 +3833,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "58f97fd3-9af2-4893-b423-1692f81ddbff")
-	)
-	(junction
-		(at 127 36.83)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "595b10b2-af5f-4650-b71c-a2cc541303b7")
 	)
 	(junction
 		(at 335.28 127)
@@ -4308,12 +3871,6 @@
 		(uuid "66634002-691c-4e9e-85b0-02f788c02124")
 	)
 	(junction
-		(at 148.59 36.83)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "67bc08b9-34dc-482c-889b-e02fa81b1357")
-	)
-	(junction
 		(at 97.79 172.72)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4324,6 +3881,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7730cbf7-2b86-4ba1-b09c-96ace1631b7b")
+	)
+	(junction
+		(at 95.25 60.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7797ebe8-1338-4e64-b50d-9d16f802b459")
 	)
 	(junction
 		(at 287.02 58.42)
@@ -4348,12 +3911,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8919e7c8-76d4-44dd-b9ee-bc915f769408")
-	)
-	(junction
-		(at 116.84 60.96)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8b3131d6-f68a-421c-ae2d-109c3cb5aefa")
 	)
 	(junction
 		(at 356.87 39.37)
@@ -4390,12 +3947,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a06d38d1-8fee-4761-ab89-46335fed6454")
-	)
-	(junction
-		(at 121.92 36.83)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a2a770e6-a075-4da6-8f8f-9fa9c62ed74d")
 	)
 	(junction
 		(at 198.12 196.85)
@@ -4458,12 +4009,6 @@
 		(uuid "b6fb773c-ebf0-4b45-94f9-2e4c952acd3d")
 	)
 	(junction
-		(at 116.84 48.26)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b895a4e4-9f0d-478d-b279-09ad079bcbe3")
-	)
-	(junction
 		(at 170.18 171.45)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4516,12 +4061,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d9d6102c-b65a-4742-8afb-5e4b01ca0230")
-	)
-	(junction
-		(at 148.59 60.96)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "dc5811a6-bfd5-4b6f-b410-3979ca27ec80")
 	)
 	(junction
 		(at 165.1 106.68)
@@ -4591,16 +4130,6 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 48.26) (xy 127 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "00257473-8633-47c8-bea9-597c850ad7ef")
-	)
-	(wire
-		(pts
 			(xy 80.01 133.35) (xy 80.01 142.24)
 		)
 		(stroke
@@ -4661,16 +4190,6 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 36.83) (xy 127 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0ab095c0-ab0e-442a-a4f3-64403f6bfda2")
-	)
-	(wire
-		(pts
 			(xy 285.75 127) (xy 287.02 127)
 		)
 		(stroke
@@ -4711,6 +4230,16 @@
 	)
 	(wire
 		(pts
+			(xy 95.25 36.83) (xy 99.06 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0d744ca9-a697-4518-9621-e232a56181b2")
+	)
+	(wire
+		(pts
 			(xy 373.38 39.37) (xy 373.38 41.91)
 		)
 		(stroke
@@ -4721,7 +4250,7 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 60.96) (xy 100.33 60.96)
+			(xy 83.82 60.96) (xy 95.25 60.96)
 		)
 		(stroke
 			(width 0)
@@ -4781,7 +4310,7 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 36.83) (xy 111.76 36.83)
+			(xy 106.68 36.83) (xy 119.38 36.83)
 		)
 		(stroke
 			(width 0)
@@ -4791,13 +4320,13 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 55.88) (xy 148.59 60.96)
+			(xy 95.25 52.07) (xy 95.25 60.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "16cd6156-c543-443f-bcde-d82fedb0e49b")
+		(uuid "1736839f-3a9c-41f1-be80-2c0b52f061a3")
 	)
 	(wire
 		(pts
@@ -4838,16 +4367,6 @@
 			(type default)
 		)
 		(uuid "1b716664-4f2a-40e8-8c67-52d23f9e4f58")
-	)
-	(wire
-		(pts
-			(xy 148.59 36.83) (xy 148.59 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1b9def0b-9663-45bb-b6b6-1e6097615d45")
 	)
 	(wire
 		(pts
@@ -4901,16 +4420,6 @@
 	)
 	(wire
 		(pts
-			(xy 127 36.83) (xy 127 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1ffc45a2-196f-4c55-be5b-474b75140652")
-	)
-	(wire
-		(pts
 			(xy 212.09 36.83) (xy 219.71 36.83)
 		)
 		(stroke
@@ -4948,6 +4457,16 @@
 			(type default)
 		)
 		(uuid "26f82641-9673-4d17-a923-32d4de7a247a")
+	)
+	(wire
+		(pts
+			(xy 95.25 36.83) (xy 95.25 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "279c1f4b-17d6-4513-b5f1-d22e58e4ede1")
 	)
 	(wire
 		(pts
@@ -5061,7 +4580,7 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 60.96) (xy 116.84 60.96)
+			(xy 107.95 60.96) (xy 134.62 60.96)
 		)
 		(stroke
 			(width 0)
@@ -5191,7 +4710,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 36.83) (xy 161.29 36.83)
+			(xy 143.51 36.83) (xy 161.29 36.83)
 		)
 		(stroke
 			(width 0)
@@ -5248,6 +4767,16 @@
 			(type default)
 		)
 		(uuid "473e7816-2e0b-47a7-ac56-b349629d1495")
+	)
+	(wire
+		(pts
+			(xy 95.25 60.96) (xy 100.33 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "47a9b8ef-bef8-469d-a9ee-14a906e56b45")
 	)
 	(wire
 		(pts
@@ -5338,16 +4867,6 @@
 			(type default)
 		)
 		(uuid "51259e71-a1c5-4971-80a0-0596dacb45af")
-	)
-	(wire
-		(pts
-			(xy 143.51 36.83) (xy 148.59 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "530f967e-875b-4560-a9e7-1d82d6f154b6")
 	)
 	(wire
 		(pts
@@ -6031,16 +5550,6 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 60.96) (xy 134.62 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "99a63f02-8c93-4dbe-9bf0-efb541ecba0c")
-	)
-	(wire
-		(pts
 			(xy 191.77 48.26) (xy 191.77 46.99)
 		)
 		(stroke
@@ -6161,7 +5670,7 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 60.96) (xy 148.59 60.96)
+			(xy 134.62 60.96) (xy 161.29 60.96)
 		)
 		(stroke
 			(width 0)
@@ -6248,16 +5757,6 @@
 			(type default)
 		)
 		(uuid "b3c4ef6f-7b90-4f7f-8ee9-b8eb6c0255d5")
-	)
-	(wire
-		(pts
-			(xy 116.84 44.45) (xy 116.84 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b4272624-0b6b-4188-b065-fcd62c9a0f5b")
 	)
 	(wire
 		(pts
@@ -6358,16 +5857,6 @@
 			(type default)
 		)
 		(uuid "be50cf74-5eb7-4243-b1fc-5cf7d0c70768")
-	)
-	(wire
-		(pts
-			(xy 127 48.26) (xy 127 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bef65bfb-fa2e-408e-979e-8681949ff78a")
 	)
 	(wire
 		(pts
@@ -6751,16 +6240,6 @@
 	)
 	(wire
 		(pts
-			(xy 127 36.83) (xy 134.62 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dad4e30a-73f5-47da-90d2-9ca4602d1a28")
-	)
-	(wire
-		(pts
 			(xy 134.62 36.83) (xy 143.51 36.83)
 		)
 		(stroke
@@ -6808,16 +6287,6 @@
 			(type default)
 		)
 		(uuid "ddc0e8d7-95d3-44d0-b287-7a8d27a5b482")
-	)
-	(wire
-		(pts
-			(xy 119.38 36.83) (xy 121.92 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "def25bf7-af89-4184-9665-7d74054c2301")
 	)
 	(wire
 		(pts
@@ -6871,13 +6340,13 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 48.26) (xy 116.84 49.53)
+			(xy 127 36.83) (xy 134.62 36.83)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e3e584c2-89ff-42a2-940d-a27da9ae68da")
+		(uuid "e4c1c2c2-9b0e-419d-a4ee-73bbaf3f983b")
 	)
 	(wire
 		(pts
@@ -6888,16 +6357,6 @@
 			(type default)
 		)
 		(uuid "e713e262-245a-4c3a-a1ca-c416e0256bd6")
-	)
-	(wire
-		(pts
-			(xy 116.84 57.15) (xy 116.84 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e7992c36-e693-4fe4-b931-f75a16677bf7")
 	)
 	(wire
 		(pts
@@ -6988,16 +6447,6 @@
 			(type default)
 		)
 		(uuid "ed7bc813-5d11-49f8-9927-5287f8c40563")
-	)
-	(wire
-		(pts
-			(xy 148.59 60.96) (xy 161.29 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ee65eff1-6a02-4fa4-88b8-afd49ba74f5f")
 	)
 	(wire
 		(pts
@@ -7121,7 +6570,7 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 36.83) (xy 95.25 36.83)
+			(xy 83.82 36.83) (xy 95.25 36.83)
 		)
 		(stroke
 			(width 0)
@@ -7410,7 +6859,7 @@
 		(uuid "92b43198-db65-49d5-bd6a-5304c1b5a868")
 	)
 	(label "RX-"
-		(at 96.52 60.96 180)
+		(at 83.82 60.96 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7509,7 +6958,7 @@
 		(uuid "fb58f513-576d-4436-92e4-8b317daf633e")
 	)
 	(label "RX+"
-		(at 95.25 36.83 180)
+		(at 83.82 36.83 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8632,88 +8081,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:D_Zener_Dual_CommonAnode_AKK_Split")
-		(at 127 43.18 90)
-		(unit 2)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3ad6c081-3961-4905-a57b-40e8b3adee77")
-		(property "Reference" "D1"
-			(at 129.54 41.9099 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "BZX84-C12"
-			(at 129.54 44.4499 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 129.54 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/BZX84_SER.pdf"
-			(at 129.54 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Vr=12V"
-			(at 127 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "BZX84-C12"
-			(at 127 43.18 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "bd714d47-6116-46d7-8350-a28dd62ef498")
-		)
-		(pin "3"
-			(uuid "684fb37b-4d11-45a3-b5b9-afff7eecc7d8")
-		)
-		(pin "2"
-			(uuid "0fa12ed1-5bdd-4fe5-8285-0d2e9f2473d6")
-		)
-		(instances
-			(project "nyx"
-				(path "/0434c878-2318-4d13-889f-e64dc188fc73"
-					(reference "D1")
-					(unit 2)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:L")
 		(at 102.87 36.83 270)
 		(mirror x)
@@ -9370,86 +8737,6 @@
 			(project "nyx"
 				(path "/0434c878-2318-4d13-889f-e64dc188fc73"
 					(reference "TP7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:Q_PMOS_GSD")
-		(at 116.84 39.37 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5e345e5e-9a12-42c6-baf8-beb2e4a9bda3")
-		(property "Reference" "Q3"
-			(at 116.84 30.48 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "DMPH6250S"
-			(at 116.84 33.02 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 114.3 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/DMPH6250S.pdf"
-			(at 116.84 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "P-MOSFET transistor, gate/source/drain"
-			(at 116.84 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "DMPH6250S"
-			(at 116.84 39.37 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "dbfe827e-4ca7-4d2c-8351-1e96576ac98c")
-		)
-		(pin "2"
-			(uuid "f1d5f8ef-a657-4a5c-95ac-f296f4a98474")
-		)
-		(pin "3"
-			(uuid "e91dd168-9a3b-41ea-b6d4-f71a39e382f2")
-		)
-		(instances
-			(project "nyx"
-				(path "/0434c878-2318-4d13-889f-e64dc188fc73"
-					(reference "Q3")
 					(unit 1)
 				)
 			)
@@ -10300,75 +9587,6 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 116.84 53.34 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "7ccb34fb-a734-4038-be67-19ba2468f1a8")
-		(property "Reference" "R9"
-			(at 119.38 52.0699 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "15k"
-			(at 119.38 54.6099 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 115.062 53.34 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 116.84 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 116.84 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ff17dbd4-9191-4e00-959b-2dc0e552ebb3")
-		)
-		(pin "2"
-			(uuid "e11edc6b-1099-47d5-9a42-8de6e5beec52")
-		)
-		(instances
-			(project "nyx"
-				(path "/0434c878-2318-4d13-889f-e64dc188fc73"
-					(reference "R9")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
 		(at 345.44 133.35 0)
 		(mirror y)
 		(unit 1)
@@ -10579,6 +9797,85 @@
 			(project "nyx"
 				(path "/0434c878-2318-4d13-889f-e64dc188fc73"
 					(reference "R7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:D_TVS")
+		(at 95.25 48.26 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "83e0c771-cfa9-4c0b-b924-18565ad93a04")
+		(property "Reference" "D1"
+			(at 97.79 46.9899 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "SMAJ51CA"
+			(at 97.79 49.5299 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SMA"
+			(at 95.25 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 95.25 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Bidirectional transient-voltage-suppression diode"
+			(at 95.25 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "SMAJ51CA"
+			(at 95.25 48.26 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "f936cf3c-397b-4ffe-a1b7-d0c2fe0f0d58")
+		)
+		(pin "1"
+			(uuid "5af428e1-3183-4856-8710-d9de6cb72f68")
+		)
+		(instances
+			(project ""
+				(path "/0434c878-2318-4d13-889f-e64dc188fc73"
+					(reference "D1")
 					(unit 1)
 				)
 			)
@@ -11514,85 +10811,6 @@
 			(project "nyx"
 				(path "/0434c878-2318-4d13-889f-e64dc188fc73"
 					(reference "#PWR014")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Diode:SMAJ58A")
-		(at 148.59 52.07 90)
-		(mirror x)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "b14ba241-e487-4b55-b160-924aae705ac7")
-		(property "Reference" "D4"
-			(at 146.05 50.546 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "SMAJ51A"
-			(at 146.05 53.086 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Diode_SMD:D_SMA"
-			(at 153.67 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.littelfuse.com/media?resourcetype=datasheets&itemid=75e32973-b177-4ee3-a0ff-cedaf1abdb93&filename=smaj-datasheet"
-			(at 148.59 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "400W unidirectional Transient Voltage Suppressor, 58.0Vr, SMA(DO-214AC)"
-			(at 148.59 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "SMAJ51A"
-			(at 148.59 52.07 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f0963579-4622-4be1-be36-a0118b50fa36")
-		)
-		(pin "2"
-			(uuid "799d351b-f56a-4703-a79b-1f234a78726f")
-		)
-		(instances
-			(project "nyx"
-				(path "/0434c878-2318-4d13-889f-e64dc188fc73"
-					(reference "D4")
 					(unit 1)
 				)
 			)
@@ -12618,6 +11836,83 @@
 			(project "nyx"
 				(path "/0434c878-2318-4d13-889f-e64dc188fc73"
 					(reference "C19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:D_Schottky")
+		(at 123.19 36.83 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d51b66bd-81a4-4d95-acee-ce3d441d901c")
+		(property "Reference" "D3"
+			(at 123.5075 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PMEG6010EXE"
+			(at 123.5075 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "fort:Nexperia_CFP3-HP_SOD-123HP"
+			(at 123.19 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/PMEG6010EXE.pdf"
+			(at 123.19 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Schottky diode"
+			(at 123.19 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PMEG6010EXE"
+			(at 123.19 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0cb253c2-4c38-4845-bc07-dab92f03dac9")
+		)
+		(pin "2"
+			(uuid "6ac9d072-ba43-49c3-a063-610dbdfd316c")
+		)
+		(instances
+			(project ""
+				(path "/0434c878-2318-4d13-889f-e64dc188fc73"
+					(reference "D3")
 					(unit 1)
 				)
 			)

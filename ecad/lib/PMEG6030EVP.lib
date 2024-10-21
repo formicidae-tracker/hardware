@@ -1,0 +1,61 @@
+*
+*******************************************
+*
+*PMEG6030EVP
+*
+*NXP Semiconductors
+*
+*High-temperature 60V, 5A Schottky barrier rectifier
+*
+*
+*VRmax     = 60V
+*
+*IFmax(AV) = 3A
+*VF        = 0,42V @ IF = 3A
+*IR        = 115�A @ VR = 60V
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*Package pinning does not match Spice model pinning.
+*Package: SOD128
+*
+*Package Pin 1: Anode
+*Package Pin 2: Cathode
+*
+*
+*
+*Extraction date (week/year): 01/2016
+*Simulator: SPICE2
+*
+*******************************************
+*#
+.SUBCKT PMEG6030EVP 1 2
+ R1 1 2 1.3E+006
+ D1 1 2 DIODE
+*
+*The resistor R1 does not  reflect
+*a physical device but improves
+*only modeling in the reverse
+*mode of operation.
+*
+.MODEL DIODE D
+ + IS = 3E-006
+ + N = 1
+ + BV = 72
+ + IBV = 0.003
+ + RS = 0.03
+ + CJO = 1.052E-009
+ + VJ = 0.3866
+ + M = 0.4916
+ + FC = 0
+ + TT = 0
+ + EG = 0.69
+ + XTI = 2
+ .ENDS
+*
