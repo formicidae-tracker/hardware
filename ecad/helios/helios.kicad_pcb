@@ -1064,6 +1064,19 @@
 				)
 			)
 		)
+		(property "MPN" "5019"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6718a845-2724-48db-b7bd-57d311b52619")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/7866bf9c-ce8b-4a57-af4c-bf9936cffb70")
 		(sheetname "Root")
@@ -1357,7 +1370,7 @@
 				)
 			)
 		)
-		(property "Value" "LMR36502P3RPE"
+		(property "Value" "LMR36506R3RPER"
 			(at -0.05 2.45 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1382,7 +1395,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lmr36502.pdf"
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lmr36506.pdf"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1395,7 +1408,7 @@
 				)
 			)
 		)
-		(property "Description" "Synchronous Buck Regulator, Vin=3-65V, Iout=150mA, F=0.2-2.2MHz, Adjustable output voltage, PFM at light load, VQFN-HR RPE"
+		(property "Description" "Synchronous Buck Regulator, Vin=3-65V, Iout=600mA, F=0.2-2.2MHz, Adjustable output voltage, PFM at light load, VQFN-HR RPE"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1408,20 +1421,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
-			(at 0 0 -90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "cc7f3017-6a0c-45e0-b2d7-a95b5f52ab6c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "MPN" "LMR36502P3RPE"
+		(property "MPN" "LMR36506R3RPER"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1435,7 +1435,7 @@
 			)
 		)
 		(property ki_fp_filters "Texas*VQFN*HR*2.1x2.1mm*P0.5mm")
-		(path "/b3d9629d-2e30-42d9-95af-aa4c172c0a45")
+		(path "/f5a49176-e9ef-4bc2-ab86-1c531dd2e4d7")
 		(sheetname "Root")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
@@ -1857,6 +1857,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MPN" "5019"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cf2efb9f-cb1d-4e4c-ab3a-af852fb2706b")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -9009,6 +9022,19 @@
 				)
 			)
 		)
+		(property "MPN" "5019"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a6def300-8f84-4105-91d6-9a3c4fcf6c4b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/e7b3bb3e-e5e2-4dec-9faa-edf4972d37c5")
 		(sheetname "Root")
@@ -9588,6 +9614,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MPN" "5019"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "62c8cd25-2e1b-49e6-bc83-75b432a3fe3f")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -14624,6 +14663,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MPN" "5019"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c84d338d-2025-4c83-b444-665745c717a9")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -33988,6 +34040,20 @@
 				(justify mirror)
 			)
 		)
+		(property "MPN" "5019"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "810c635b-5b30-4262-a717-a22807f34f01")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/3bfcbecd-b815-4d36-a67d-f4c216ee6cb6/b1ebffbb-2d61-4e69-988b-0ee6eaeec737")
 		(sheetname "Transmitter0")
@@ -34926,6 +34992,20 @@
 				(justify mirror)
 			)
 		)
+		(property "MPN" "5019"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "80dbe66f-75be-4b58-8fab-bd16b5b0ec96")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5/07699b3c-6fbb-4bd7-af17-089337a536cf")
 		(sheetname "Transmitter3")
@@ -35271,6 +35351,20 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "5019"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "a78dbd92-616b-47f8-9095-2e138c29f788")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 				(justify mirror)
@@ -35626,6 +35720,20 @@
 				(justify mirror)
 			)
 		)
+		(property "MPN" "5019"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "abdf77fb-bfcf-4523-8829-38fc0763fc66")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/5e9fa167-98db-470e-8edf-dc2ec14227de/07699b3c-6fbb-4bd7-af17-089337a536cf")
 		(sheetname "Transmitter1")
@@ -35971,6 +36079,20 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "5019"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "35b81a2e-efc7-4503-9e97-957ab6467dd8")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 				(justify mirror)
@@ -37661,6 +37783,20 @@
 				(justify mirror)
 			)
 		)
+		(property "MPN" "5019"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "94140de8-4a0f-447f-9590-b0de3e34bec8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/5e9fa167-98db-470e-8edf-dc2ec14227de/b1ebffbb-2d61-4e69-988b-0ee6eaeec737")
 		(sheetname "Transmitter1")
@@ -38330,6 +38466,20 @@
 				(justify mirror)
 			)
 		)
+		(property "MPN" "5019"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "7e2ce805-2cd5-427f-a595-2969c08f246f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/3bfcbecd-b815-4d36-a67d-f4c216ee6cb6/07699b3c-6fbb-4bd7-af17-089337a536cf")
 		(sheetname "Transmitter0")
@@ -38675,6 +38825,20 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MPN" "5019"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "f90fdbfa-5a7b-4473-ae8d-214854d88ad5")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 				(justify mirror)

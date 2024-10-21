@@ -1,0 +1,236 @@
+(footprint "L_Bourns_SRR4018"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(descr "L_Wuerth_WE-TPC-3816 StepUp generated footprint, http://katalog.we-online.de/pbs/datasheet/7440310047.pdf")
+	(tags "wurth wuerth smd inductor")
+	(property "Reference" "REF**"
+		(at 0 -3.6 0)
+		(layer "F.SilkS")
+		(uuid "9cfab945-ad10-448a-81af-ba4a7fe54d27")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "L_Bourns_SRR4018"
+		(at 0 3 0)
+		(layer "F.Fab")
+		(uuid "108229c1-500c-4c78-aaad-9d086a7f6743")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ef816d6c-c9e6-4855-82cf-9387a75569f2")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "17b6872b-91b5-403b-9e48-307224f2afcb")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "509b47c2-f4c4-4300-b347-b04d24af6856")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -2.6 0.37)
+		(end -2.6 -0.37)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "d0c87a45-c8f5-4617-9779-56b68a56713e")
+	)
+	(fp_line
+		(start 2.6 -0.37)
+		(end 2.6 0.37)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "d05c347a-7034-4b53-9edb-9df97965869c")
+	)
+	(fp_line
+		(start -2.9 -2.9)
+		(end 2.9 -2.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "af769407-87fa-4297-866b-775e75faf68d")
+	)
+	(fp_line
+		(start -2.9 2.9)
+		(end -2.9 -2.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "c1d13be4-a13f-4b8d-9a44-e6af84beb273")
+	)
+	(fp_line
+		(start 2.9 -2.9)
+		(end 2.9 2.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "987b2aab-5130-4287-91f3-ea4f9abe88a3")
+	)
+	(fp_line
+		(start 2.9 2.9)
+		(end -2.9 2.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "cb1bb745-bc98-41f9-af0d-fa4722485196")
+	)
+	(fp_line
+		(start -2.4 -2.4)
+		(end 2.4 -2.4)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "ea524957-7e40-4327-9617-10975f3a5bb7")
+	)
+	(fp_line
+		(start -2.4 2.4)
+		(end -2.4 -2.4)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "aaddfe29-a800-41fd-a7ba-e51673f4d56c")
+	)
+	(fp_line
+		(start 2.4 -2.4)
+		(end 2.4 2.4)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "1f5467dc-cd17-4ac5-a779-64c67c1f93d1")
+	)
+	(fp_line
+		(start 2.4 2.4)
+		(end -2.4 2.4)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "57051fbb-52d8-49cd-a8c6-7b0b6e199bd4")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "9670679c-1237-4939-868c-04b3e177d57d")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd custom
+		(at 0 -1.85)
+		(size 5 0.1)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(zone_connect 2)
+		(options
+			(clearance outline)
+			(anchor rect)
+		)
+		(primitives
+			(gr_poly
+				(pts
+					(xy 1.46 0.79) (xy 1.21 0.51) (xy 0.9 0.29) (xy 0.65 0.17) (xy 0.38 0.09) (xy 0.05 0.05) (xy -0.09 0.05)
+					(xy -0.46 0.11) (xy -0.7 0.19) (xy -0.9 0.29) (xy -1.2 0.51) (xy -1.45 0.78) (xy -1.64 1.1) (xy -2.650286 1.1)
+					(xy -2.650286 -0.9) (xy 2.649714 -0.9) (xy 2.649714 1.1) (xy 1.64 1.1)
+				)
+				(width 0)
+				(fill yes)
+			)
+		)
+		(uuid "46f60845-2c41-4959-84ed-23cae5aa81ad")
+	)
+	(pad "2" smd custom
+		(at 0 1.85 180)
+		(size 5 0.1)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(zone_connect 2)
+		(options
+			(clearance outline)
+			(anchor rect)
+		)
+		(primitives
+			(gr_poly
+				(pts
+					(xy 1.46 0.79) (xy 1.21 0.51) (xy 0.9 0.29) (xy 0.65 0.17) (xy 0.38 0.09) (xy 0.05 0.05) (xy -0.09 0.05)
+					(xy -0.46 0.11) (xy -0.7 0.19) (xy -0.9 0.29) (xy -1.2 0.51) (xy -1.45 0.78) (xy -1.64 1.1) (xy -2.650286 1.1)
+					(xy -2.650286 -0.9) (xy 2.649714 -0.9) (xy 2.649714 1.1) (xy 1.64 1.1)
+				)
+				(width 0)
+				(fill yes)
+			)
+		)
+		(uuid "129633ba-5072-4bc7-a938-65cbdc933aff")
+	)
+	(model "${KICAD8_3DMODEL_DIR}/Inductor_SMD.3dshapes/L_Wuerth_WE-TPC-3816.wrl"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

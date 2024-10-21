@@ -4905,7 +4905,7 @@
 				)
 			)
 		)
-		(symbol "fort:LMR36502P3RPE"
+		(symbol "fort:LMR36506R3RPER"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -4917,7 +4917,7 @@
 					)
 				)
 			)
-			(property "Value" "LMR36502P3RPE"
+			(property "Value" "LMR36506R3RPER"
 				(at 0 8.89 0)
 				(effects
 					(font
@@ -4934,7 +4934,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lmr36502.pdf"
+			(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lmr36506.pdf"
 				(at 0 -1.27 0)
 				(effects
 					(font
@@ -4943,7 +4943,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Synchronous Buck Regulator, Vin=3-65V, Iout=150mA, F=0.2-2.2MHz, Adjustable output voltage, PFM at light load, VQFN-HR RPE"
+			(property "Description" "Synchronous Buck Regulator, Vin=3-65V, Iout=600mA, F=0.2-2.2MHz, Adjustable output voltage, PFM at light load, VQFN-HR RPE"
 				(at 0 0 0)
 				(effects
 					(font
@@ -4970,7 +4970,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "LMR36502P3RPE_0_1"
+			(symbol "LMR36506R3RPER_0_1"
 				(rectangle
 					(start -7.62 7.62)
 					(end 7.62 -7.62)
@@ -4983,7 +4983,7 @@
 					)
 				)
 			)
-			(symbol "LMR36502P3RPE_1_1"
+			(symbol "LMR36506R3RPER_1_1"
 				(pin input line
 					(at -10.16 -2.54 0)
 					(length 2.54)
@@ -11475,6 +11475,90 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:L")
+		(at 182.88 240.03 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2287ae3d-b1f8-4954-b513-714079a03174")
+		(property "Reference" "L1"
+			(at 182.88 234.95 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "8.2u"
+			(at 182.88 237.49 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "fort:L_Wuerth_WE-SPC_4838"
+			(at 182.88 240.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.yuden.co.jp/productdata/catalog/wound04_e.pdf"
+			(at 182.88 240.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Inductor"
+			(at 182.88 240.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "74408943082"
+			(at 182.88 240.03 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Rated Current" "1A"
+			(at 182.88 242.062 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "fd3266f0-c848-48fc-a68e-656df3fe48f4")
+		)
+		(pin "1"
+			(uuid "b1bec90e-071d-43f6-b87d-3d7099817ca8")
+		)
+		(instances
+			(project "helios"
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f"
+					(reference "L1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 199.39 186.69 90)
 		(unit 1)
@@ -11839,99 +11923,6 @@
 			(project "helios"
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f"
 					(reference "J14")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:L")
-		(at 182.88 240.03 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "2e58602b-f753-4f74-a717-498d5ce3b0dc")
-		(property "Reference" "L1"
-			(at 182.88 234.95 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "22u"
-			(at 182.88 237.49 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "fort:L_Wuerth_WE-LQS_4025"
-			(at 182.88 240.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.yuden.co.jp/productdata/catalog/wound04_e.pdf"
-			(at 182.88 240.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Inductor"
-			(at 182.88 240.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "74404043220A"
-			(at 182.88 240.03 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Rated Current" "300mA"
-			(at 182.88 242.062 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 182.88 240.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "b11248f4-df69-4630-b6cf-93d7112cc344")
-		)
-		(pin "1"
-			(uuid "6aa64973-2ffd-4863-97aa-60b69eac530b")
-		)
-		(instances
-			(project "helios"
-				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f"
-					(reference "L1")
 					(unit 1)
 				)
 			)
@@ -16613,113 +16604,6 @@
 		)
 	)
 	(symbol
-		(lib_id "fort:LMR36502P3RPE")
-		(at 157.48 242.57 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b3d9629d-2e30-42d9-95af-aa4c172c0a45")
-		(property "Reference" "U3"
-			(at 157.48 229.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LMR36502P3RPE"
-			(at 157.48 232.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "fort:Texas_VQFN-HR-9_2.1x2.1mm_P0.5mm"
-			(at 157.48 262.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lmr36502.pdf"
-			(at 157.48 243.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Synchronous Buck Regulator, Vin=3-65V, Iout=150mA, F=0.2-2.2MHz, Adjustable output voltage, PFM at light load, VQFN-HR RPE"
-			(at 157.48 242.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 157.48 242.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "LMR36502P3RPE"
-			(at 157.48 242.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "7"
-			(uuid "3487e3ae-e3db-44e5-83f6-b900642a0037")
-		)
-		(pin "8"
-			(uuid "44dc425e-cd95-42a8-80c3-63a26fad524d")
-		)
-		(pin "3"
-			(uuid "7b02b882-72bd-4d27-bcf6-20a0b5233267")
-		)
-		(pin "2"
-			(uuid "ea80830b-d3e0-4ae5-9b29-2f8a1848bcc8")
-		)
-		(pin "1"
-			(uuid "d419459d-b462-48a5-b0ef-be64fcf8f3a5")
-		)
-		(pin "4"
-			(uuid "22a24941-101c-4e65-93a9-0c50117a99e1")
-		)
-		(pin "9"
-			(uuid "10c12145-149c-468c-beaf-9e96bc21aa6d")
-		)
-		(pin "5"
-			(uuid "7313a8ac-7812-41b9-a84b-5c5eee757b40")
-		)
-		(pin "6"
-			(uuid "723d64b3-21d7-4da5-8219-a126e0bc3620")
-		)
-		(instances
-			(project "helios"
-				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f"
-					(reference "U3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 363.22 189.23 0)
 		(unit 1)
@@ -18977,6 +18861,104 @@
 			(project "helios"
 				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f"
 					(reference "#PWR048")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "fort:LMR36506R3RPER")
+		(at 157.48 242.57 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f5a49176-e9ef-4bc2-ab86-1c531dd2e4d7")
+		(property "Reference" "U3"
+			(at 157.48 229.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LMR36506R3RPER"
+			(at 157.48 232.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "fort:Texas_VQFN-HR-9_2.1x2.1mm_P0.5mm"
+			(at 157.48 262.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lmr36506.pdf"
+			(at 157.48 243.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Synchronous Buck Regulator, Vin=3-65V, Iout=600mA, F=0.2-2.2MHz, Adjustable output voltage, PFM at light load, VQFN-HR RPE"
+			(at 157.48 242.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "LMR36506R3RPER"
+			(at 157.48 242.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "6"
+			(uuid "2b0d4f32-17bd-45f5-927e-03552685f78c")
+		)
+		(pin "9"
+			(uuid "6760d9ac-86e1-41ed-a6f5-b420a86acc63")
+		)
+		(pin "5"
+			(uuid "33c08bc1-e3e0-4b9f-8661-b7744f966421")
+		)
+		(pin "8"
+			(uuid "270323b7-56d1-4e73-a26e-e80662b0397e")
+		)
+		(pin "3"
+			(uuid "c9a29e31-2f80-45f8-bde9-02e007aa20f7")
+		)
+		(pin "4"
+			(uuid "83070209-2ce8-4937-8700-a7a84598f801")
+		)
+		(pin "1"
+			(uuid "d5bf02cd-4730-4523-818c-617575102198")
+		)
+		(pin "7"
+			(uuid "4d570787-68c9-40c1-b5bf-5db853727470")
+		)
+		(pin "2"
+			(uuid "26682172-18d0-460f-be3a-ca9069ff35e5")
+		)
+		(instances
+			(project "helios"
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f"
+					(reference "U3")
 					(unit 1)
 				)
 			)

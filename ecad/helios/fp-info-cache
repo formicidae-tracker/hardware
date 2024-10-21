@@ -1,4 +1,4 @@
-962872537745004
+964602088626441
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -101188,6 +101188,13 @@ fort
 L_Bourns-SRN8040_8x8.15mm
 Bourns SRN8040 series SMD inductor 8x8.15mm, https://www.bourns.com/docs/Product-Datasheets/SRN8040.pdf
 Bourns SRN8040 SMD inductor
+0
+2
+2
+fort
+L_Bourns_SRR4018
+L_Wuerth_WE-TPC-3816 StepUp generated footprint, http://katalog.we-online.de/pbs/datasheet/7440310047.pdf
+wurth wuerth smd inductor
 0
 2
 2
