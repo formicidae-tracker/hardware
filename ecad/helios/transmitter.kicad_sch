@@ -760,6 +760,163 @@
 				)
 			)
 		)
+		(symbol "Diode:SMAJ51CA"
+			(pin_numbers hide)
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "D"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "SMAJ51CA"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Diode_SMD:D_SMA"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.littelfuse.com/media?resourcetype=datasheets&itemid=75e32973-b177-4ee3-a0ff-cedaf1abdb93&filename=smaj-datasheet"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "400W bidirectional Transient Voltage Suppressor, 51.0Vr, SMA(DO-214AC)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "bidirectional diode TVS voltage suppressor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "D*SMA*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SMAJ51CA_0_1"
+				(polyline
+					(pts
+						(xy 1.27 0) (xy -1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -1.27) (xy 0 0) (xy -2.54 1.27) (xy -2.54 -1.27)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.508 1.27) (xy 0 1.27) (xy 0 -1.27) (xy -0.508 -1.27)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 1.27) (xy 2.54 -1.27) (xy 0 0) (xy 2.54 1.27)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SMAJ51CA_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "A1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "A2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "fort:THVD8010"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1540,10 +1697,22 @@
 		(uuid "0f5e2812-c6d6-4e79-88e1-b671b1487cfc")
 	)
 	(junction
+		(at 29.21 52.07)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "55bcc820-ed72-4423-8a86-c58830228b74")
+	)
+	(junction
 		(at 92.71 82.55)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9ce5fa6d-3479-4164-9d3f-a40f9701de40")
+	)
+	(junction
+		(at 29.21 62.23)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a5b0a2d7-c69c-4ff4-8445-b1650a7c764a")
 	)
 	(junction
 		(at 134.62 66.04)
@@ -1575,7 +1744,7 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 58.42) (xy 41.91 54.61)
+			(xy 48.26 52.07) (xy 48.26 48.26)
 		)
 		(stroke
 			(width 0)
@@ -1585,7 +1754,7 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 62.23) (xy 41.91 67.31)
+			(xy 48.26 62.23) (xy 48.26 67.31)
 		)
 		(stroke
 			(width 0)
@@ -1655,6 +1824,16 @@
 	)
 	(wire
 		(pts
+			(xy 29.21 52.07) (xy 29.21 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3526689b-d7c2-4692-88ac-1445dc3aa6d9")
+	)
+	(wire
+		(pts
 			(xy 92.71 82.55) (xy 77.47 82.55)
 		)
 		(stroke
@@ -1705,7 +1884,7 @@
 	)
 	(wire
 		(pts
-			(xy 29.21 62.23) (xy 25.4 62.23)
+			(xy 35.56 62.23) (xy 29.21 62.23)
 		)
 		(stroke
 			(width 0)
@@ -1715,7 +1894,7 @@
 	)
 	(wire
 		(pts
-			(xy 36.83 58.42) (xy 41.91 58.42)
+			(xy 43.18 52.07) (xy 48.26 52.07)
 		)
 		(stroke
 			(width 0)
@@ -1772,6 +1951,16 @@
 			(type default)
 		)
 		(uuid "6fa98876-f54b-4786-a865-16749640ebeb")
+	)
+	(wire
+		(pts
+			(xy 29.21 60.96) (xy 29.21 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "70ceb2f6-89e4-4011-b9e7-09c2fc715126")
 	)
 	(wire
 		(pts
@@ -1845,6 +2034,16 @@
 	)
 	(wire
 		(pts
+			(xy 29.21 62.23) (xy 25.4 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8fb2229a-eca0-47d7-bc1e-28b9eb104744")
+	)
+	(wire
+		(pts
 			(xy 160.02 43.18) (xy 160.02 53.34)
 		)
 		(stroke
@@ -1915,7 +2114,7 @@
 	)
 	(wire
 		(pts
-			(xy 25.4 58.42) (xy 29.21 58.42)
+			(xy 25.4 52.07) (xy 29.21 52.07)
 		)
 		(stroke
 			(width 0)
@@ -1935,7 +2134,7 @@
 	)
 	(wire
 		(pts
-			(xy 36.83 62.23) (xy 41.91 62.23)
+			(xy 43.18 62.23) (xy 48.26 62.23)
 		)
 		(stroke
 			(width 0)
@@ -1965,6 +2164,16 @@
 	)
 	(wire
 		(pts
+			(xy 29.21 52.07) (xy 35.56 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc48a1ed-61c9-46c0-96b7-bcc75280fac0")
+	)
+	(wire
+		(pts
 			(xy 147.32 66.04) (xy 160.02 66.04)
 		)
 		(stroke
@@ -1985,7 +2194,7 @@
 		(uuid "201f1324-c512-4631-9ce6-4e2a3b2a2fca")
 	)
 	(label "RX+"
-		(at 25.4 58.42 180)
+		(at 25.4 52.07 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2164,7 +2373,7 @@
 	)
 	(symbol
 		(lib_id "power:+48V")
-		(at 41.91 54.61 0)
+		(at 48.26 48.26 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2173,7 +2382,7 @@
 		(fields_autoplaced yes)
 		(uuid "1e8e1c8e-6fe6-4c8d-b6a7-43780694d172")
 		(property "Reference" "#PWR027"
-			(at 41.91 58.42 0)
+			(at 48.26 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2182,7 +2391,7 @@
 			)
 		)
 		(property "Value" "+48V"
-			(at 41.91 49.53 0)
+			(at 48.26 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2190,7 +2399,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 41.91 54.61 0)
+			(at 48.26 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2199,7 +2408,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 41.91 54.61 0)
+			(at 48.26 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2208,7 +2417,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+48V\""
-			(at 41.91 54.61 0)
+			(at 48.26 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2481,8 +2690,90 @@
 		)
 	)
 	(symbol
+		(lib_id "Diode:SMAJ51CA")
+		(at 29.21 57.15 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "49f6537f-5ee4-4f5d-a7d6-4ecf01891fc9")
+		(property "Reference" "D10"
+			(at 31.75 55.8799 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "SMAJ51CA"
+			(at 31.75 58.4199 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SMA"
+			(at 34.29 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.littelfuse.com/media?resourcetype=datasheets&itemid=75e32973-b177-4ee3-a0ff-cedaf1abdb93&filename=smaj-datasheet"
+			(at 29.21 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "400W bidirectional Transient Voltage Suppressor, 51.0Vr, SMA(DO-214AC)"
+			(at 29.21 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d036b481-47c2-4f09-8201-7799adaff936")
+		)
+		(pin "2"
+			(uuid "31f2d9d6-e1a6-4161-8991-ff860476dc03")
+		)
+		(instances
+			(project ""
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/3bfcbecd-b815-4d36-a67d-f4c216ee6cb6"
+					(reference "D10")
+					(unit 1)
+				)
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/3fb69f66-2ea8-4784-86b2-0777666900b8"
+					(reference "D11")
+					(unit 1)
+				)
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/5e9fa167-98db-470e-8edf-dc2ec14227de"
+					(reference "D9")
+					(unit 1)
+				)
+				(path "/88ba62e7-b236-4d17-8cb4-a54bf2e0280f/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5"
+					(reference "D12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
-		(at 41.91 67.31 0)
+		(at 48.26 67.31 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2491,7 +2782,7 @@
 		(fields_autoplaced yes)
 		(uuid "6354d212-ceba-448b-ba7b-f82dd649c256")
 		(property "Reference" "#PWR028"
-			(at 41.91 73.66 0)
+			(at 48.26 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2500,7 +2791,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 41.91 72.39 0)
+			(at 48.26 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2508,7 +2799,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 41.91 67.31 0)
+			(at 48.26 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2517,7 +2808,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 41.91 67.31 0)
+			(at 48.26 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2526,7 +2817,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 41.91 67.31 0)
+			(at 48.26 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2639,7 +2930,7 @@
 	)
 	(symbol
 		(lib_id "Device:L")
-		(at 33.02 62.23 270)
+		(at 39.37 62.23 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2647,7 +2938,7 @@
 		(dnp no)
 		(uuid "7b80cc73-6152-41b9-a917-ea17be4f12aa")
 		(property "Reference" "L5"
-			(at 33.02 67.31 90)
+			(at 39.37 67.31 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2655,7 +2946,7 @@
 			)
 		)
 		(property "Value" "330u"
-			(at 33.02 64.77 90)
+			(at 39.37 64.77 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2663,7 +2954,7 @@
 			)
 		)
 		(property "Footprint" "fort:L_Bourns-SRN8040_8x8.15mm"
-			(at 33.02 62.23 0)
+			(at 39.37 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2672,7 +2963,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.bourns.com/docs/Product-Datasheets/SRN8040TA.pdf"
-			(at 33.02 62.23 0)
+			(at 39.37 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2681,7 +2972,7 @@
 			)
 		)
 		(property "Description" "Inductor"
-			(at 33.02 62.23 0)
+			(at 39.37 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2690,7 +2981,7 @@
 			)
 		)
 		(property "MPN" "SRN8040TA-331M"
-			(at 33.02 62.23 90)
+			(at 39.37 62.23 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2826,7 +3117,7 @@
 	)
 	(symbol
 		(lib_id "Device:L")
-		(at 33.02 58.42 90)
+		(at 39.37 52.07 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2835,7 +3126,7 @@
 		(fields_autoplaced yes)
 		(uuid "9807885b-b4b5-499e-9053-56814e74d907")
 		(property "Reference" "L4"
-			(at 33.02 53.34 90)
+			(at 39.37 46.99 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2843,7 +3134,7 @@
 			)
 		)
 		(property "Value" "330u"
-			(at 33.02 55.88 90)
+			(at 39.37 49.53 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2851,7 +3142,7 @@
 			)
 		)
 		(property "Footprint" "fort:L_Bourns-SRN8040_8x8.15mm"
-			(at 33.02 58.42 0)
+			(at 39.37 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2860,7 +3151,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.bourns.com/docs/Product-Datasheets/SRN8040TA.pdf"
-			(at 33.02 58.42 0)
+			(at 39.37 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2869,7 +3160,7 @@
 			)
 		)
 		(property "Description" "Inductor"
-			(at 33.02 58.42 0)
+			(at 39.37 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2878,7 +3169,7 @@
 			)
 		)
 		(property "MPN" "SRN8040TA-331M"
-			(at 33.02 58.42 90)
+			(at 39.37 52.07 90)
 			(effects
 				(font
 					(size 1.27 1.27)
