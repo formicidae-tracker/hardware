@@ -17233,7 +17233,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10u"
+		(property "Value" "22u"
 			(at 198.12 247.6499 0)
 			(effects
 				(font
