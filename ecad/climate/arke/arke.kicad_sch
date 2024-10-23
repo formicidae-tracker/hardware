@@ -4517,7 +4517,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" " ~"
+		(property "Datasheet" "~"
 			(at 44.45 102.87 0)
 			(effects
 				(font
@@ -4994,6 +4994,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPR0603120R"
+			(at 237.49 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "2bd2a7aa-a4fa-41b6-bc5e-40ed3987ed43")
 		)
@@ -5065,6 +5074,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPHA-1X02"
+			(at 237.49 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "2e84f1f3-e9f4-4292-8c60-87734c7288c9")
 		)
@@ -5099,7 +5117,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "ESD752DBZR"
+		(property "Value" "CDSOT23-T24CAN"
 			(at 259.08 105.4101 90)
 			(effects
 				(font
@@ -5127,6 +5145,15 @@
 			)
 		)
 		(property "Description" "Bidirectional dual transient-voltage-suppression diode, center on pin 3"
+			(at 261.62 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CDSOT23-T24CAN"
 			(at 261.62 106.68 0)
 			(effects
 				(font

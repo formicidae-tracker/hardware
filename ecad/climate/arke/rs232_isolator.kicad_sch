@@ -1304,6 +1304,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "ADM3251E"
+			(at 134.62 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "11"
 			(uuid "03141ef2-c6b8-4f3e-bc9c-c1ffbaece63f")
 		)
@@ -1492,6 +1501,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPC0603104"
+			(at 111.76 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "21ef8f6a-5501-4a8d-8fd5-a0bb36a74ab8")
 		)
@@ -1626,6 +1644,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPC0603104"
+			(at 162.56 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "de1024e5-0cc1-496c-9848-7d85e8b1bd0f")
 		)
@@ -1691,6 +1718,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GPC0603104"
+			(at 162.56 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -1764,6 +1800,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPC0603104"
+			(at 179.07 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "761618c0-262f-44ac-a72f-41b35f33502b")
 		)
@@ -1833,6 +1878,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPC0603104"
+			(at 187.96 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "0e469eab-b0d3-4b35-86e9-c273286b4bfe")
 		)
@@ -1898,6 +1952,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GPC0603104"
+			(at 179.07 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)

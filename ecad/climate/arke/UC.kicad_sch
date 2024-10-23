@@ -3522,6 +3522,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "150060RS75000"
+			(at 234.95 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "59069034-664a-473e-9fa8-4aa501876afa")
 		)
@@ -3585,6 +3594,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "150060VS75000"
+			(at 234.95 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -3656,6 +3674,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "150060YS75000"
+			(at 234.95 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ad2c858e-bbf0-4341-9123-b78397ffc9f1")
 		)
@@ -3718,6 +3745,15 @@
 			)
 		)
 		(property "Description" "16MHz, 16kB Flash, 1kB SRAM, 512B EEPROM, CAN, TQFP-32"
+			(at 144.78 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "ATMEGA16M1-AU"
 			(at 144.78 99.06 0)
 			(effects
 				(font
@@ -3883,6 +3919,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPR06031K"
+			(at 222.25 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "f154e06d-d621-431c-89eb-b3a362cec441")
 		)
@@ -3946,6 +3991,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GPR06031K"
+			(at 222.25 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -4017,6 +4071,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPR06031K"
+			(at 222.25 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "22b38b2b-fd78-46ce-9d0d-1d8b8bed7a25")
 		)
@@ -4082,6 +4145,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GPC0603104"
+			(at 104.14 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -4220,6 +4292,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPC0603104"
+			(at 111.76 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "595ac841-d042-4323-bd23-8b996d4e29c5")
 		)
@@ -4289,6 +4370,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPC0603104"
+			(at 118.11 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "3ff0765c-6817-43d7-8bbf-eab39aef21ac")
 		)
@@ -4354,6 +4444,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "  FA-238 16.0000MB-C3"
+			(at 207.01 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -4433,6 +4532,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPC0603180"
+			(at 213.36 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "14c2f579-f805-4754-ac55-6266e089b386")
 		)
@@ -4498,6 +4606,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GPC0603180"
+			(at 213.36 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -4695,6 +4812,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GPR06030R"
+			(at 135.89 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -5221,6 +5347,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "M20-8760342"
+			(at 83.82 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "aff22125-64fb-4f9a-b457-c4acba6ff959")
 		)
@@ -5301,6 +5436,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "1825910-6"
+			(at 242.57 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "950f533f-1751-48c7-9b2e-326d13fe12f2")
 		)
@@ -5368,6 +5512,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "BAT54-7-F"
+			(at 262.89 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "f46d306f-a756-475f-9758-4134b9503890")
 		)
@@ -5431,6 +5584,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GPR0603100K"
+			(at 255.27 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
