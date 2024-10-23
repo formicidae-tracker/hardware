@@ -1747,7 +1747,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "EMC2302-1-AIZL-TR"
 			(at 102.87 87.63 0)
 			(effects
 				(font
@@ -2187,7 +2187,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPR060347K"
 			(at 143.51 76.2 0)
 			(effects
 				(font
@@ -2265,7 +2265,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPR060347K"
 			(at 151.13 76.2 0)
 			(effects
 				(font
@@ -2343,7 +2343,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPR06032K2"
 			(at 166.37 80.01 0)
 			(effects
 				(font
@@ -2419,7 +2419,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "CPDT-5V0USP-HF"
 			(at 180.34 109.22 0)
 			(effects
 				(font
@@ -2498,7 +2498,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "CPDT-5V0USP-HF"
 			(at 204.47 109.22 0)
 			(effects
 				(font
@@ -2644,7 +2644,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPR06032K2"
 			(at 166.37 85.09 0)
 			(effects
 				(font
@@ -2722,7 +2722,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPR06032K2"
 			(at 166.37 90.17 0)
 			(effects
 				(font
@@ -2800,7 +2800,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPR06032K2"
 			(at 166.37 95.25 0)
 			(effects
 				(font
