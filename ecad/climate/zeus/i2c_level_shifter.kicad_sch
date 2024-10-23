@@ -1233,6 +1233,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "BSS138"
+			(at 147.32 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "f8cbd968-1cb0-4259-83db-bcdf724ce06b")
 		)
@@ -1437,6 +1446,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "BSS138"
+			(at 160.02 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "891bd0de-f6ea-4f84-8842-4e3835b4fc4f")
 		)
@@ -1503,6 +1521,15 @@
 			)
 		)
 		(property "Description" "BSS138"
+			(at 172.72 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "BSS138"
 			(at 172.72 77.47 0)
 			(effects
 				(font
@@ -1583,6 +1610,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPR060310K"
+			(at 121.92 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d34d678a-2c0d-48ca-bc88-61123013f290")
 		)
@@ -1644,6 +1680,15 @@
 			)
 		)
 		(property "Description" "GPR060310K"
+			(at 129.54 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GPR060310K"
 			(at 129.54 63.5 0)
 			(effects
 				(font
@@ -1721,6 +1766,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPR060310K"
+			(at 137.16 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8c25194a-abe6-421d-8cee-60aaf7fb3143")
 		)
@@ -1782,6 +1836,15 @@
 			)
 		)
 		(property "Description" "GPR06031K8"
+			(at 184.15 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GPR06031K8"
 			(at 184.15 63.5 0)
 			(effects
 				(font
@@ -1859,6 +1922,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPR06031K8"
+			(at 191.77 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "30cf3af9-254c-450e-ad0f-03d04b4de190")
 		)
@@ -1920,6 +1992,15 @@
 			)
 		)
 		(property "Description" "GPR06031K8"
+			(at 199.39 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GPR06031K8"
 			(at 199.39 63.5 0)
 			(effects
 				(font

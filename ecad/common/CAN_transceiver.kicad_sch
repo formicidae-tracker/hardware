@@ -849,6 +849,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "MCP2561-E/SN"
+			(at 146.05 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "28b7a65e-0ed6-43da-a2a7-e249abdac6c1")
 		)
@@ -1007,7 +1016,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 138.43 73.66 0)
 			(effects
 				(font
@@ -1021,6 +1030,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRPC0603104"
+			(at 138.43 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)

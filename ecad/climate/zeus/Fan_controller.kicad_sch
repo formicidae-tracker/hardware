@@ -2820,6 +2820,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "EMC2302-1-AIZL-TR"
+			(at 130.81 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "edbbe2a3-ab5d-4537-944d-4f6d0104ce59")
 		)
@@ -2960,7 +2969,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 123.19 34.29 0)
 			(effects
 				(font
@@ -2974,6 +2983,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRPC0603104"
+			(at 123.19 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -3177,6 +3195,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPR060347K"
+			(at 165.1 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "f28151c8-ea15-46d0-b2f7-705bec398f97")
 		)
@@ -3358,7 +3385,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 123.19 96.52 0)
 			(effects
 				(font
@@ -3372,6 +3399,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRPC0603104"
+			(at 123.19 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -3638,6 +3674,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "EMC2302-2-AIZL-TR"
+			(at 130.81 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b3a05a95-8b43-4970-abb5-55fb5ba148f9")
 		)
@@ -3731,6 +3776,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPR060347K"
+			(at 172.72 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "005cca96-75f4-4097-b448-9c6ed857d773")
 		)
@@ -3792,6 +3846,15 @@
 			)
 		)
 		(property "Description" "GPR060347K"
+			(at 165.1 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GPR060347K"
 			(at 165.1 111.76 0)
 			(effects
 				(font
@@ -3869,6 +3932,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPR060347K"
+			(at 172.72 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1fc63ee7-9bf8-45d7-9518-7e3fc1f2e472")
 		)
@@ -3930,6 +4002,15 @@
 			)
 		)
 		(property "Description" "GPR06032K2"
+			(at 185.42 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GPR06032K2"
 			(at 185.42 58.42 0)
 			(effects
 				(font
@@ -4007,6 +4088,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPR06032K2"
+			(at 185.42 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "3905ad5c-9d95-4db0-ba83-72aa9d1518ce")
 		)
@@ -4068,6 +4158,15 @@
 			)
 		)
 		(property "Description" "GPR06032K2"
+			(at 185.42 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GPR06032K2"
 			(at 185.42 63.5 0)
 			(effects
 				(font
@@ -4145,6 +4244,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPR06032K2"
+			(at 185.42 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "6c904d81-fe98-455f-aff2-5d89af41a059")
 		)
@@ -4206,6 +4314,15 @@
 			)
 		)
 		(property "Description" "GPR06032K2"
+			(at 185.42 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GPR06032K2"
 			(at 185.42 120.65 0)
 			(effects
 				(font
@@ -4283,6 +4400,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPR06032K2"
+			(at 185.42 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "04a21050-c466-4cdb-8b8b-ebfd3cd1d1af")
 		)
@@ -4344,6 +4470,15 @@
 			)
 		)
 		(property "Description" "GPR06032K2"
+			(at 185.42 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GPR06032K2"
 			(at 185.42 125.73 0)
 			(effects
 				(font
@@ -4421,6 +4556,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPR06032K2"
+			(at 185.42 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "92a8762a-fea1-4eb3-8aa1-854d3bc6ea13")
 		)
@@ -4480,6 +4624,15 @@
 			)
 		)
 		(property "Description" "Bidirectional dual transient-voltage-suppression diode, center on pin 3"
+			(at 215.9 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CPDT-5V0USP-HF"
 			(at 215.9 77.47 0)
 			(effects
 				(font
@@ -4550,6 +4703,15 @@
 			)
 		)
 		(property "Description" "Bidirectional dual transient-voltage-suppression diode, center on pin 3"
+			(at 237.49 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CPDT-5V0USP-HF"
 			(at 237.49 77.47 0)
 			(effects
 				(font
@@ -4693,6 +4855,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CPDT-5V0USP-HF"
+			(at 215.9 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b0788073-8f7b-48d8-9324-165b0fdf2736")
 		)
@@ -4755,6 +4926,15 @@
 			)
 		)
 		(property "Description" "Bidirectional dual transient-voltage-suppression diode, center on pin 3"
+			(at 237.49 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CPDT-5V0USP-HF"
 			(at 237.49 139.7 0)
 			(effects
 				(font

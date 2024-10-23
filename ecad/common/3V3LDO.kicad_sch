@@ -727,6 +727,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "LP3985IM5-3.3/NOPB"
+			(at 149.86 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "eab92bae-343f-40c1-86f8-f46b09c88d6e")
 		)
@@ -775,7 +784,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10nF"
+		(property "Value" "10n"
 			(at 170.815 106.68 0)
 			(effects
 				(font
@@ -793,7 +802,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 170.18 104.14 0)
 			(effects
 				(font
@@ -807,6 +816,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRPC0603103"
+			(at 170.18 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -850,7 +868,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1uF"
+		(property "Value" "1u"
 			(at 182.245 101.6 0)
 			(effects
 				(font
@@ -868,7 +886,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 181.61 99.06 0)
 			(effects
 				(font
@@ -882,6 +900,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRPC0603105"
+			(at 181.61 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -925,7 +952,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1uF"
+		(property "Value" "1u"
 			(at 123.825 102.87 0)
 			(effects
 				(font
@@ -943,7 +970,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 123.19 100.33 0)
 			(effects
 				(font
@@ -957,6 +984,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRPC0603105"
+			(at 123.19 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)

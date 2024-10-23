@@ -1820,6 +1820,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "MIC4680-5.0YM"
+			(at 130.81 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "8"
 			(uuid "fd52de08-9e20-475b-879d-f34947521388")
 		)
@@ -1917,6 +1926,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "B260-13-F"
+			(at 156.21 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "206cacbc-eda6-41f1-a7a8-35f57c82d3a8")
 		)
@@ -1992,6 +2010,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "744773168"
+			(at 170.18 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -2075,6 +2102,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPR060315K"
+			(at 184.15 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ec46eab6-4b7e-4a32-8f94-880dd3e026b0")
 		)
@@ -2150,6 +2186,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CRCW06034K87FKEA"
+			(at 184.15 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -2235,6 +2280,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "T491D477K006AT"
+			(at 196.85 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "4581d880-90e5-4023-9614-5d25acd1d2e4")
 		)
@@ -2298,7 +2352,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 210.82 96.52 0)
 			(effects
 				(font
@@ -2312,6 +2366,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GPC0603475-10"
+			(at 210.82 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -2379,7 +2442,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 224.79 96.52 0)
 			(effects
 				(font
@@ -2393,6 +2456,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRPC0603104"
+			(at 224.79 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -2460,7 +2532,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 97.79 95.25 0)
 			(effects
 				(font
@@ -2474,6 +2546,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CL31A226KAHNNNE"
+			(at 97.79 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -2557,6 +2638,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "BLM18AG471SN1D"
+			(at 240.03 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "0c9e6436-d40c-4a06-8bf9-7228acc23513")
 		)
@@ -2628,6 +2718,15 @@
 			)
 		)
 		(property "Description" "Ferrite bead"
+			(at 83.82 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "BLM18AG471SN1D"
 			(at 83.82 87.63 0)
 			(effects
 				(font

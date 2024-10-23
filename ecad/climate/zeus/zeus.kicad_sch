@@ -5083,6 +5083,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "6410-02A"
+			(at 267.97 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "2d0b1f55-f369-4742-9b03-659d87694fdb")
 		)
@@ -5146,6 +5155,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "47053-1000"
+			(at 269.24 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -5219,6 +5237,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "47053-1000"
+			(at 269.24 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -5426,6 +5453,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "215079-4"
+			(at 273.05 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "7751df45-bb14-4aaf-b9c5-147880b8b369")
 		)
@@ -5564,6 +5600,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "47053-1000"
+			(at 269.24 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9ecbd369-7d34-4396-ae13-55d3d42c7a01")
 		)
@@ -5633,6 +5678,15 @@
 			(effects
 				(font
 					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "47053-1000"
+			(at 269.24 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -5768,6 +5822,15 @@
 			)
 		)
 		(property "Description" "Bidirectional dual transient-voltage-suppression diode, center on pin 3"
+			(at 243.84 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CPDT-5V0USP-HF"
 			(at 243.84 85.09 0)
 			(effects
 				(font
@@ -5912,6 +5975,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "6410-02A"
+			(at 267.97 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "5346cab6-a414-42fd-b718-d4304370bfeb")
 		)
@@ -6012,7 +6084,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "ESD752DBZR"
+		(property "Value" "CDSOT23-T24CAN"
 			(at 33.02 105.4099 90)
 			(effects
 				(font
@@ -6040,6 +6112,15 @@
 			)
 		)
 		(property "Description" "Bidirectional dual transient-voltage-suppression diode, center on pin 3"
+			(at 30.48 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CDSOT23-T24CAN"
 			(at 30.48 104.14 0)
 			(effects
 				(font
@@ -6208,6 +6289,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPHA-1X02"
+			(at 53.34 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "c5ce9db0-7f79-4e3f-9dc6-674c7ed0c73d")
 		)
@@ -6271,6 +6361,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 53.34 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GPR0603120R"
 			(at 53.34 97.79 0)
 			(effects
 				(font
