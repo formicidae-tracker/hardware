@@ -1233,7 +1233,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "BSS138"
 			(at 147.32 95.25 0)
 			(effects
 				(font
@@ -1446,7 +1446,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "BSS138"
 			(at 160.02 86.36 0)
 			(effects
 				(font
@@ -1529,7 +1529,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "BSS138"
 			(at 172.72 77.47 0)
 			(effects
 				(font
@@ -1610,7 +1610,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPR060310K"
 			(at 121.92 63.5 0)
 			(effects
 				(font
@@ -1688,7 +1688,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPR060310K"
 			(at 129.54 63.5 0)
 			(effects
 				(font
@@ -1766,7 +1766,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPR060310K"
 			(at 135.89 63.5 0)
 			(effects
 				(font
@@ -1844,7 +1844,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPR060310K"
 			(at 184.15 63.5 0)
 			(effects
 				(font
@@ -1922,7 +1922,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPR060310K"
 			(at 191.77 63.5 0)
 			(effects
 				(font
@@ -2000,7 +2000,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPR060310K"
 			(at 198.12 63.5 0)
 			(effects
 				(font

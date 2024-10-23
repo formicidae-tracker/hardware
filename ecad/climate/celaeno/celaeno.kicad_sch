@@ -1810,6 +1810,16 @@
 		)
 		(uuid "305e9b90-5b17-4f59-9bb7-7e2d14d9c20e")
 	)
+	(polyline
+		(pts
+			(xy 234.9055 173.9481) (xy 234.9055 173.9481)
+		)
+		(stroke
+			(width -0.0001)
+			(type solid)
+		)
+		(uuid "31a2769f-3834-467c-8675-239178b8b722")
+	)
 	(wire
 		(pts
 			(xy 31.75 97.79) (xy 31.75 100.33)
@@ -2785,20 +2795,6 @@
 			(color 132 0 0 1)
 		)
 		(uuid 2f5fe2e9-45e6-4645-8867-044c9f093963)
-	)
-	(polyline
-		(pts
-			(xy 234.9055 173.9481) (xy 234.9055 173.9481)
-		)
-		(stroke
-			(width -0.0001)
-			(type solid)
-		)
-		(fill
-			(type color)
-			(color 132 0 0 1)
-		)
-		(uuid 31a2769f-3834-467c-8675-239178b8b722)
 	)
 	(polyline
 		(pts
@@ -4982,7 +4978,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "47053-1000"
 			(at 269.24 104.14 0)
 			(effects
 				(font
@@ -5064,7 +5060,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "47053-1000"
 			(at 269.24 119.38 0)
 			(effects
 				(font
@@ -5279,7 +5275,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "B2B-PH-SM4-TB"
 			(at 269.24 73.66 0)
 			(effects
 				(font
@@ -5423,7 +5419,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "CUI_PJ-037B"
 			(at 266.7 38.1 0)
 			(effects
 				(font
@@ -5502,7 +5498,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "CUI_PJ-037B"
 			(at 266.7 52.07 0)
 			(effects
 				(font
@@ -5581,7 +5577,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "B2B-PH-SM4-TB"
 			(at 269.24 81.28 0)
 			(effects
 				(font
@@ -5729,7 +5725,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "B4B-PH-SM4"
+		(property "MPN" "B4B-PH-SM4-TB"
 			(at 26.67 44.45 0)
 			(effects
 				(font
@@ -5947,6 +5943,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "GPHA-1X02"
+			(at 54.61 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "ccf4964d-6545-4b12-b119-836e6e1433f2")
 		)
@@ -6047,7 +6052,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "ESD752DBZR"
+		(property "Value" "CDSOT23-T24CAN"
 			(at 34.29 110.4899 90)
 			(effects
 				(font
@@ -6075,6 +6080,15 @@
 			)
 		)
 		(property "Description" "Bidirectional dual transient-voltage-suppression diode, center on pin 3"
+			(at 31.75 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CDSOT23-T24CAN"
 			(at 31.75 109.22 0)
 			(effects
 				(font
@@ -6223,7 +6237,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "B4B-PH-SM4"
+		(property "MPN" "B4B-PH-SM4-TB"
 			(at 26.67 72.39 0)
 			(effects
 				(font
@@ -6301,6 +6315,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 54.61 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GPR0603120R"
 			(at 54.61 102.87 0)
 			(effects
 				(font

@@ -4436,7 +4436,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "FA-238 16.0000MB-C3"
 			(at 85.09 66.04 0)
 			(effects
 				(font
@@ -4521,7 +4521,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPC0603180"
 			(at 78.74 55.88 0)
 			(effects
 				(font
@@ -4600,7 +4600,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPC0603180"
 			(at 78.74 76.2 0)
 			(effects
 				(font
@@ -4808,7 +4808,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPR06030R"
 			(at 156.21 157.48 0)
 			(effects
 				(font
@@ -5274,7 +5274,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "M20-8760342"
 			(at 254 26.67 0)
 			(effects
 				(font
@@ -5363,7 +5363,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "1825910-6"
 			(at 59.69 49.53 0)
 			(effects
 				(font
@@ -5439,7 +5439,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "BAT54-7-F"
 			(at 80.01 43.18 0)
 			(effects
 				(font
@@ -5515,7 +5515,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPR0603100K"
 			(at 72.39 43.18 0)
 			(effects
 				(font
@@ -5852,7 +5852,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "150060YS75000"
 			(at 67.31 111.76 0)
 			(effects
 				(font
@@ -5929,7 +5929,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "150060VS75000"
 			(at 67.31 119.38 0)
 			(effects
 				(font
@@ -6006,7 +6006,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPR06031K"
 			(at 77.47 111.76 0)
 			(effects
 				(font
@@ -6083,7 +6083,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPR06031K"
 			(at 77.47 119.38 0)
 			(effects
 				(font
@@ -6227,7 +6227,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "AT90CAN32-16AU"
 			(at 147.32 100.33 0)
 			(effects
 				(font
@@ -6619,7 +6619,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPR0603100K"
 			(at 184.15 50.8 0)
 			(effects
 				(font
@@ -6695,7 +6695,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPR0603100K"
 			(at 189.23 50.8 0)
 			(effects
 				(font

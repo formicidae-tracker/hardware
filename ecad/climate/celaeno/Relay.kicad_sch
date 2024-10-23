@@ -1204,7 +1204,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "BSS138"
 			(at 140.97 106.68 0)
 			(effects
 				(font
@@ -1348,7 +1348,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "GPR060347K"
 			(at 132.08 115.57 0)
 			(effects
 				(font
@@ -1484,6 +1484,15 @@
 			)
 		)
 		(property "Description" "Random Phase Opto-Triac, Vdrm 400V, Ift 12mA, IT 8A"
+			(at 154.94 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CPC1966YX6"
 			(at 154.94 87.63 0)
 			(effects
 				(font
