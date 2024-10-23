@@ -820,7 +820,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRPC0603103"
+		(property "MPN" "GPC0603103"
 			(at 170.18 104.14 0)
 			(effects
 				(font
@@ -904,7 +904,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRPC0603105"
+		(property "MPN" "GPC0603105"
 			(at 181.61 99.06 0)
 			(effects
 				(font
@@ -988,7 +988,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRPC0603105"
+		(property "MPN" "GPC0603105"
 			(at 123.19 100.33 0)
 			(effects
 				(font

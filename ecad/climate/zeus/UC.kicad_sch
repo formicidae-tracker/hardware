@@ -4075,7 +4075,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRPC0603104"
+		(property "MPN" "GPC0603104"
 			(at 130.81 38.1 0)
 			(effects
 				(font
@@ -4153,7 +4153,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRPC0603104"
+		(property "MPN" "GPC0603104"
 			(at 140.97 38.1 0)
 			(effects
 				(font
@@ -4231,7 +4231,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRPC0603104"
+		(property "MPN" "GPC0603104"
 			(at 157.48 38.1 0)
 			(effects
 				(font
@@ -4395,7 +4395,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRPC0603180"
+		(property "MPN" "GPC0603180"
 			(at 78.74 55.88 0)
 			(effects
 				(font
@@ -4474,7 +4474,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRPC0603180"
+		(property "MPN" "GPC0603180"
 			(at 78.74 76.2 0)
 			(effects
 				(font

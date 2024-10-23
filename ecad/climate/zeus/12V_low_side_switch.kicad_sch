@@ -1383,12 +1383,12 @@
 		)
 		(instances
 			(project "zeus"
-				(path "/67b47d30-ec53-4da6-ab1b-07d3781be510/00000000-0000-0000-0000-00005bba23f4"
-					(reference "R20")
-					(unit 1)
-				)
 				(path "/67b47d30-ec53-4da6-ab1b-07d3781be510/00000000-0000-0000-0000-00005bb2b93a"
 					(reference "R21")
+					(unit 1)
+				)
+				(path "/67b47d30-ec53-4da6-ab1b-07d3781be510/00000000-0000-0000-0000-00005bba23f4"
+					(reference "R20")
 					(unit 1)
 				)
 			)

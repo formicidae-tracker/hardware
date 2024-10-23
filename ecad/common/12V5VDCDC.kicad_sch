@@ -2460,7 +2460,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRPC0603104"
+		(property "MPN" "GPC0603104"
 			(at 224.79 96.52 0)
 			(effects
 				(font
