@@ -1987,7 +1987,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_Wuerth_WE-PD2-Typ-MS"
+		(property "Footprint" "FORT:L_Wuerth_WE-PD2"
 			(at 170.18 87.63 0)
 			(effects
 				(font
