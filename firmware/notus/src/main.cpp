@@ -9,7 +9,7 @@ extern "C" {
 #include "can2040.h"
 }
 
-#include "utils/Scheduler.hpp"
+#include "Scheduler.hpp"
 
 static struct can2040 cbus;
 

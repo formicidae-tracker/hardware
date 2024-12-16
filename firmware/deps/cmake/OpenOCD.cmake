@@ -21,6 +21,7 @@ if(NOT OPENOCD_EXECUTABLE OR OPENOCD_VERSION VERSION_LESS "0.12.0")
 		)
 	endif()
 
+	include(ExternalProject)
 	include(ProcessorCount)
 	ProcessorCount(N)
 	ExternalProject_Add(

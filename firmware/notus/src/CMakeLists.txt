@@ -1,9 +1,8 @@
-add_executable(notus main.cpp utils/Scheduler.cpp utils/Scheduler.hpp Arke.hpp
-                     Arke.cpp)
+add_executable(notus main.cpp Arke.hpp Arke.cpp)
 
 target_compile_definitions(notus PUBLIC BOARD=pico)
 
-target_link_libraries(notus pico_stdlib can2040::can2040)
+target_link_libraries(notus pico_stdlib rp2040-utils can2040::can2040)
 
 pico_add_extra_outputs(notus)
 

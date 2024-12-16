@@ -14,7 +14,7 @@ extern "C" {
 }
 
 #include "Arke.hpp"
-#include "utils/Scheduler.hpp"
+#include "Scheduler.hpp"
 
 static struct can2040 d_bus;
 static queue_t        d_queue;
