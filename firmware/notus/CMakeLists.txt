@@ -8,7 +8,7 @@ set(BOARD pico_sdk)
 
 include(pico_sdk_import.cmake)
 
-project(pellet-dispenser)
+project(notus)
 
 include(ExternalProject)
 
@@ -25,11 +25,11 @@ set(CMAKE_C_STANDARD_REQUIRED 1)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED 1)
 
-add_executable(noctus main.cpp)
-target_compile_definitions(noctus PUBLIC BOARD=pico)
+add_executable(notus main.cpp)
+target_compile_definitions(notus PUBLIC BOARD=pico)
 
-target_link_libraries(noctus pico_stdlib)
+target_link_libraries(notus pico_stdlib)
 
-pico_add_extra_outputs(noctus)
+pico_add_extra_outputs(notus)
 
-add_openocd_upload_target(TARGET noctus)
+add_openocd_upload_target(TARGET notus)
