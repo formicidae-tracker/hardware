@@ -7,3 +7,6 @@
 [submodule "ecad/lib/KiCad-Spice-Library"]
 	path = ecad/lib/KiCad-Spice-Library
 	url = https://github.com/kicad-spice-library/KiCad-Spice-Library.git
+[submodule "firmware/deps/pico-sdk"]
+	path = firmware/deps/pico-sdk
+	url = https://github.com/raspberrypi/pico-sdk
