@@ -1,4 +1,5 @@
-add_executable(notus main.cpp utils/Scheduler.cpp utils/Scheduler.hpp)
+add_executable(notus main.cpp utils/Scheduler.cpp utils/Scheduler.hpp Arke.hpp
+                     Arke.cpp)
 
 target_compile_definitions(notus PUBLIC BOARD=pico)
 
