@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.13...3.27)
 
-if(NOT PICO_SDK_PATH)
+if(NOT COMMAND pico_sdk_init)
 	set(DEPS_DIR ${CMAKE_CURRENT_LIST_DIR}/../../deps)
 	include(${DEPS_DIR}/pico-sdk/pico_sdk_init.cmake)
-endif(NOT PICO_SDK_PATH)
+endif(NOT COMMAND pico_sdk_init)
 
 project(
 	rp2040-utils
