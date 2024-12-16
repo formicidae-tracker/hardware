@@ -10,3 +10,6 @@
 [submodule "firmware/deps/pico-sdk"]
 	path = firmware/deps/pico-sdk
 	url = https://github.com/raspberrypi/pico-sdk
+[submodule "firmware/deps/openocd"]
+	path = firmware/deps/openocd
+	url = https://github.com/raspberrypi/openocd.git
