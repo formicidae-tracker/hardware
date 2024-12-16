@@ -27,7 +27,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED 1)
 include(FetchContent)
 FetchContent_Declare(rp2040-utils URL ${LIB_DIR}/rp2040-utils)
 FetchContent_Declare(rp2040-arke URL ${LIB_DIR}/rp2040-arke)
+FetchContent_Declare(
+	fort-arke
+	GIT_REPOSITORY https://github.com/formicidae-tracker/libarke
+	GIT_TAG origin/dev/rp2040
+)
 
-FetchContent_MakeAvailable(rp2040-utils rp2040-arke)
+FetchContent_MakeAvailable(rp2040-utils rp2040-arke fort-arke)
 
 add_subdirectory(src)
