@@ -1,4 +1,5 @@
-add_executable(notus main.cpp)
+add_executable(notus main.cpp utils/Scheduler.cpp utils/Scheduler.hpp)
+
 target_compile_definitions(notus PUBLIC BOARD=pico)
 
 target_link_libraries(notus pico_stdlib can2040::can2040)
