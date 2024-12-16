@@ -37,7 +37,7 @@ endif(IS_IMPORTED)
 add_library(rp2040-utils INTERFACE)
 target_sources(
 	rp2040-utils INTERFACE src/Defer.hpp src/Scheduler.hpp src/Scheduler.cpp
-						   src/Queue.hpp
+						   src/Queue.hpp src/Log.hpp src/Log.cpp
 )
 
 target_link_libraries(rp2040-utils INTERFACE pico_stdlib)
