@@ -1,5 +1,10 @@
 #include "Log.hpp"
+
+#include <pico/multicore.h>
+
+#include <algorithm>
 #include <cstdio>
+#include <cstring>
 #include <optional>
 #include <stdio.h>
 
@@ -37,15 +42,65 @@ void Logger::Logf(Level level, const char *fmt, va_list args) {
 	}
 }
 
-std::optional<Logger::Message> Logger::Pop() {
-	struct Message msg;
-	if (d_queue.TryRemove(msg) == false) {
-		return std::nullopt;
-	}
-
-	return msg;
-}
-
 Logger::Logger() {
 	d_buffer[BufferSize] = 0;
+}
+
+constexpr static size_t LineWidth = 80;
+
+void printTime(absolute_time_t time) {
+	uint us = to_us_since_boot(time);
+	uint s  = us / 1000000;
+	us -= s * 1000000;
+	printf("       %06d.%06ds: ", s, us);
+}
+
+void Logger::FormatsPendingLogsLoop() {
+	static uint8_t colors[6] = {
+	    1, // FATAL - RED
+	    1, // ERROR - RED
+	    3, // WARNING - YELLOW
+	    6, // INFO - CYAN
+	    7, // DEBUG - WHITE
+	    4, // TRACE - BLUE
+	};
+
+	struct Message msg;
+
+	while (true) {
+		Logger::Get().d_queue.RemoveBlocking(msg);
+
+		char  *msgStr = const_cast<char *>(msg.Value);
+		size_t n      = strlen(msgStr);
+		auto   c      = colors[size_t(msg.Level)];
+
+		for (size_t i = 0; i < n;) {
+			size_t written = LineWidth - 26;
+			char  *ch      = std::find(msgStr + i, msgStr + i + written, '\n');
+			written        = ch - msgStr - i;
+
+			auto willWrite = written;
+			if (written < LineWidth - 26) {
+				willWrite += 1;
+			}
+
+			written = std::min(written, n - i);
+
+			printf("\033[30;4%dm", c);
+			if (i == 0) {
+				printTime(msg.Time);
+			} else {
+				printf("                       ");
+			}
+
+			auto space = LineWidth - 26 - written;
+			printf("\033[m\033[3%dm %-.*s ", c, written, msgStr + i);
+			printf("%*s┃\n", space, "");
+			i += willWrite;
+		}
+	}
+}
+
+void Logger::InitLogsOnSecondCore() {
+	multicore_launch_core1(FormatsPendingLogsLoop);
 }

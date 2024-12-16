@@ -32,13 +32,15 @@ public:
 		enum Level      Level;
 	};
 
-	std::optional<Message> Pop();
-
 	void Logf(Level level, const char *fmt, va_list args);
 
 	inline void SetLevel(Level lvl) {
 		d_level = lvl;
 	}
+
+	static void FormatsPendingLogsLoop();
+
+	static void InitLogsOnSecondCore();
 
 private:
 	Logger();
