@@ -4,6 +4,7 @@ set(FAMILY rp2040)
 set(BOARD pico_sdk)
 
 set(DEPS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../deps)
+set(PICOTOOL_FETCH_FROM_GIT_PATH ${DEPS_DIR}/picotool)
 
 include(${DEPS_DIR}/pico-sdk/pico_sdk_init.cmake)
 

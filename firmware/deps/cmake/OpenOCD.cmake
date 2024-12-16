@@ -34,6 +34,7 @@ if(NOT OPENOCD_EXECUTABLE OR OPENOCD_VERSION VERSION_LESS "0.12.0")
 		UPDATE_DISCONNECTED 1
 		CONFIGURE_COMMAND ./bootstrap
 		COMMAND ./configure --prefix=${PROJECT_BINARY_DIR}/_deps/openocd-install
+				--enable-cmsis-dap
 		BUILD_COMMAND make -j ${N}
 		LOG_CONFIGURE 1
 		LOG_OUTPUT_ON_FAILURE 1
@@ -45,8 +46,9 @@ if(NOT OPENOCD_EXECUTABLE OR OPENOCD_VERSION VERSION_LESS "0.12.0")
 endif()
 
 add_custom_target(
-	openocd-server COMMAND ${OPENOCD_EXECUTABLE} -f interface/cmsis-dap.cfg -c
-						   "adapter speed 5000" -f target/rp2040.cfg
+	openocd-server
+	COMMAND ${OPENOCD_EXECUTABLE} -s tcl -f interface/cmsis-dap.cfg -c
+			"adapter speed 5000" -f target/rp2040.cfg
 )
 
 include(CMakeParseArguments)
@@ -66,7 +68,7 @@ function(add_openocd_upload_target)
 	add_custom_target(
 		${ARGS_TARGET}-upload
 		COMMAND
-			${OPENOCD_EXECUTABLE} -f interface/cmsis-dap.cfg -c
+			${OPENOCD_EXECUTABLE} -s tcl -f interface/cmsis-dap.cfg -c
 			"adapter speed 5000" -f target/rp2040.cfg -c
 			"program $<TARGET_FILE:${ARGS_TARGET}> verify reset exit"
 		DEPENDS ${ARGS_TARGET}
