@@ -449,7 +449,9 @@
     }
   },
   "libraries": {
-    "pinned_footprint_libs": [],
+    "pinned_footprint_libs": [
+      "FORT"
+    ],
     "pinned_symbol_libs": []
   },
   "meta": {
@@ -709,7 +711,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "zeus.step",
       "svg": "",
       "vrml": ""
     },

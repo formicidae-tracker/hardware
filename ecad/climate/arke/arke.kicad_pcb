@@ -437,7 +437,7 @@
 			(at 13.8 -4 90)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "8e8c3e82-1e7f-4406-951a-270a982157f1")
+			(uuid "6b3c8c52-e086-431d-b1bb-0524bc1da958")
 			(effects
 				(font
 					(size 1 1)
@@ -448,7 +448,7 @@
 		(property "Value" "DB9_Female"
 			(at 0 13.05 90)
 			(layer "F.Fab")
-			(uuid "e8acc7c6-621f-4cdc-8b88-e7fb0c44c2b6")
+			(uuid "cd5f2c63-2c14-4d72-95e6-3d713b63295e")
 			(effects
 				(font
 					(size 1 1)
@@ -461,7 +461,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "ebc368a8-2319-4c9e-ab4f-a367d9af2c46")
+			(uuid "a9f8edaa-bb18-414d-b54f-a637bb892fde")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -474,7 +474,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "2ec716db-3e0d-41b1-9ade-503eaacf0704")
+			(uuid "47769d9b-56e2-4755-8025-79711ddbc6e1")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -487,7 +487,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "46359b49-1618-45c9-8247-0319f5c0132d")
+			(uuid "9056b240-783d-4821-b411-49ed977e2240")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -502,23 +502,33 @@
 		(attr through_hole)
 		(fp_line
 			(start -15.7 -3)
-			(end -15.7 10)
+			(end -15.7 11.9)
 			(stroke
 				(width 0.25)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "0a5e00b5-1ac0-47f8-af40-c5eb34d4fd90")
+			(uuid "5a12df5a-aa06-4017-8d54-a01cc4ff41f6")
 		)
 		(fp_line
 			(start 15.7 -3)
-			(end 15.7 10)
+			(end 15.7 11.9)
 			(stroke
 				(width 0.25)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "325bf026-23ad-4fdf-92da-25a2f9079aed")
+			(uuid "1460af50-1af6-4cdf-aa8e-53acf11a124a")
+		)
+		(fp_line
+			(start 15.7 -3)
+			(end -15.7 -3)
+			(stroke
+				(width 0.25)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "d16bc164-a19c-41b4-a02f-8b2db6b4b2ad")
 		)
 		(fp_line
 			(start -8.395 17.85)
@@ -528,7 +538,7 @@
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "749622f1-1704-4f33-a2fc-39c9b54e42be")
+			(uuid "4a15a2e7-628e-4d74-9352-f3ea133a7029")
 		)
 		(fp_line
 			(start 8.395 17.85)
@@ -538,7 +548,7 @@
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "1463dabf-83b8-4d9a-a935-3bdd86aaf8c0")
+			(uuid "94e3634d-6510-48cc-b73e-af834abfb5a5")
 		)
 		(fp_line
 			(start 8.395 17.85)
@@ -548,7 +558,7 @@
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "7a79d994-68ab-4d1c-91cb-be5b2ab25d62")
+			(uuid "9ccc5203-a1f6-4cdd-903f-02e1dd973088")
 		)
 		(fp_line
 			(start -15.405 11.95)
@@ -558,7 +568,7 @@
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "9e016451-9121-43ed-9e58-d79a839e64db")
+			(uuid "89484996-4cb0-4bfc-9dd3-0a7db55e0165")
 		)
 		(fp_line
 			(start 15.405 11.95)
@@ -568,7 +578,7 @@
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "ba58b0bc-484e-4502-a57f-dde0776a9845")
+			(uuid "4ba6cb0e-5ed9-4734-89ed-47d2ff60d4e2")
 		)
 		(fp_line
 			(start -15.405 -2.7)
@@ -578,7 +588,7 @@
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "db669eca-4642-4448-9ebb-b6ccbc236c54")
+			(uuid "80f9ecc9-eb17-49ab-9d36-aff22a9cd83b")
 		)
 		(fp_line
 			(start 15.405 -2.7)
@@ -588,21 +598,21 @@
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "1c48a5c9-187f-41da-ace7-60e65669564a")
+			(uuid "12894eb3-237d-420d-9b21-bbb240463fa2")
 		)
 		(pad "" np_thru_hole circle
 			(at -12.48 0 90)
 			(size 3.1 3.1)
 			(drill 3.1)
 			(layers "*.Cu" "*.Mask")
-			(uuid "d5c8a3ab-f895-4347-a368-75887d72ccde")
+			(uuid "0936cbc0-af76-46a4-ba40-7298aece11ca")
 		)
 		(pad "" np_thru_hole circle
 			(at 12.48 0 90)
 			(size 3.1 3.1)
 			(drill 3.1)
 			(layers "*.Cu" "*.Mask")
-			(uuid "a1d65020-a4a4-4bfa-82ee-52374e912290")
+			(uuid "b905c134-4fc1-40c7-8209-df99fac96a04")
 		)
 		(pad "1" thru_hole circle
 			(at 5.48 -1.27 90)
@@ -613,7 +623,7 @@
 			(net 32 "Net-(J2-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
-			(uuid "029f485f-a70e-473a-a797-56bc330dd71f")
+			(uuid "84c06481-df61-4fda-b32f-678b8e1796bc")
 		)
 		(pad "2" thru_hole circle
 			(at 2.74 -1.27 90)
@@ -624,7 +634,7 @@
 			(net 23 "/RS232 Isolator/ISO_TX")
 			(pinfunction "2")
 			(pintype "passive")
-			(uuid "8afabff6-b70e-4c94-aae4-e9387fd4cf44")
+			(uuid "88113986-f389-47be-b5ad-a4b1b8f2e61a")
 		)
 		(pad "3" thru_hole circle
 			(at 0 -1.27 90)
@@ -635,7 +645,7 @@
 			(net 24 "/RS232 Isolator/ISO_RX")
 			(pinfunction "3")
 			(pintype "passive")
-			(uuid "20ff78ac-00e8-4f59-a53d-cf91027a513b")
+			(uuid "34fafb26-728f-4154-9f11-ccad43e54490")
 		)
 		(pad "4" thru_hole circle
 			(at -2.74 -1.27 90)
@@ -646,7 +656,7 @@
 			(net 32 "Net-(J2-Pad1)")
 			(pinfunction "4")
 			(pintype "passive")
-			(uuid "4382f2dd-5792-42dd-ad59-ac5b91ea307a")
+			(uuid "83219124-e956-477c-a7ed-46b39f49bb39")
 		)
 		(pad "5" thru_hole circle
 			(at -5.48 -1.27 90)
@@ -657,7 +667,7 @@
 			(net 7 "/RS232 Isolator/GND_ISO")
 			(pinfunction "5")
 			(pintype "passive")
-			(uuid "d707ef89-c3ac-4ddd-b41b-6e42d99379c6")
+			(uuid "6b16881e-7d97-4570-bac8-f441eb119837")
 		)
 		(pad "6" thru_hole circle
 			(at 4.11 1.27 90)
@@ -668,7 +678,7 @@
 			(net 32 "Net-(J2-Pad1)")
 			(pinfunction "6")
 			(pintype "passive")
-			(uuid "3a40c2eb-d8ee-4f46-9358-cd3e3199d00d")
+			(uuid "ff09e505-2051-4092-b7d6-de2638bf7edc")
 		)
 		(pad "7" thru_hole circle
 			(at 1.37 1.27 90)
@@ -679,7 +689,7 @@
 			(net 25 "Net-(J2-Pad7)")
 			(pinfunction "7")
 			(pintype "passive")
-			(uuid "7ed70ce0-3f53-4a32-9fae-6c21e88b278a")
+			(uuid "6090cf6f-3855-4bb3-ae68-d7ab1c515fd2")
 		)
 		(pad "8" thru_hole circle
 			(at -1.37 1.27 90)
@@ -690,7 +700,7 @@
 			(net 25 "Net-(J2-Pad7)")
 			(pinfunction "8")
 			(pintype "passive")
-			(uuid "b769871e-99ee-4424-bd6a-23e4379c4498")
+			(uuid "0c24dd95-09b5-41d1-a0c7-6e1f338ab20d")
 		)
 		(pad "9" thru_hole circle
 			(at -4.11 1.27 90)
@@ -701,9 +711,9 @@
 			(net 33 "unconnected-(J2-Pad9)")
 			(pinfunction "9")
 			(pintype "passive+no_connect")
-			(uuid "bb4c796a-6553-47c8-9e21-2c42eda58c5d")
+			(uuid "b0e4ac12-62d5-4b0f-8981-e8ee518e25bd")
 		)
-		(model "${KIPRJMOD}/lib/fort.3dshapes/LD09S13A4GX00LF.wrl"
+		(model "${KIPRJMOD}/lib/fort.3dshapes/LD09S13A4GX00LF.step"
 			(offset
 				(xyz 0 0 0)
 			)

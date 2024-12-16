@@ -649,7 +649,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "arke.step",
       "svg": "",
       "vrml": ""
     },

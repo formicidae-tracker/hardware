@@ -1,0 +1,339 @@
+(footprint "TE_Micro-MaTch_188275-4_2x02_P1.27mm_Vertical"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(descr "TE-Connectivity Micro-MaTch female-on-board top-entry thru-hole 4 pin connector, https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F215079%7FY1%7Fpdf%7FEnglish%7FENG_CD_215079_Y1.pdf%7F215079-4")
+	(tags "connector TE-Connectivity Micro-MaTch Vertical 215079-4 7-215079-4")
+	(property "Reference" "REF**"
+		(at 0.05 -4.35 0)
+		(layer "F.SilkS")
+		(uuid "35cea2f2-dba2-469b-985d-898e174460b0")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "TE_Micro-MaTch_188275-4_2x02_P1.27mm_Vertical"
+		(at 0.05 2.85 0)
+		(layer "F.Fab")
+		(uuid "da96f655-6e1a-4df2-a854-ba38b4e512ee")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "7955d6e6-21ff-4490-a7f7-fad4568f7c62")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3f470b74-6195-4973-9ea4-f2281512855c")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "b9057300-8d16-4bb0-9f41-47129a4002eb")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_line
+		(start -4 -3.57)
+		(end -4 3.75)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "06295697-0b83-4933-ac89-5fe284d5f198")
+	)
+	(fp_line
+		(start -4 3.75)
+		(end 4 3.75)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "0aa2a0ab-595b-45fe-bcfb-83df8cf0961b")
+	)
+	(fp_line
+		(start 2.8 -4.05)
+		(end 3.8 -4.05)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "f632281e-f769-4b78-9b8d-d81b80d7f8de")
+	)
+	(fp_line
+		(start 3.3 -3.05)
+		(end 2.8 -4.05)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "c3538080-6835-4e13-a82c-a3fd5a75f9ed")
+	)
+	(fp_line
+		(start 3.8 -4.05)
+		(end 3.3 -3.05)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "3c2106e1-e1c5-4c16-a50c-914fb7cab0de")
+	)
+	(fp_line
+		(start 4 3.75)
+		(end 4 -3.57)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "f311236f-d10d-4bce-9440-c1cb4834e1f0")
+	)
+	(fp_line
+		(start -4.2 -3.95)
+		(end -4.2 3.95)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "23a55333-b7a3-4e49-8ced-afe775993eee")
+	)
+	(fp_line
+		(start -4.2 3.95)
+		(end 4.2 3.95)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "b2660802-da8e-4f82-a545-48d99a8dec5a")
+	)
+	(fp_line
+		(start 4.2 -3.95)
+		(end -4.2 -3.95)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "a4b30485-9d44-4a69-8dd0-83a7dac84ea5")
+	)
+	(fp_line
+		(start 4.2 3.95)
+		(end 4.2 -3.95)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "8f917463-06f6-4081-9649-36f5f5674d4b")
+	)
+	(fp_line
+		(start -2.83 -0.5)
+		(end -1.83 0)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "528056f9-27ab-4f54-8019-408b558a5410")
+	)
+	(fp_line
+		(start -2.83 0.5)
+		(end -2.83 -0.5)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "d91750c7-24b5-4c57-a052-da09bf6030fc")
+	)
+	(fp_line
+		(start -2.6 3.55)
+		(end -2.6 -3.55)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "25ad9c5d-c997-4a90-9bfb-5b7447c3f2bb")
+	)
+	(fp_line
+		(start -2.6 3.55)
+		(end 2.6 3.55)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "78647f88-078b-49c4-a66e-c28e8a36f860")
+	)
+	(fp_line
+		(start -1.83 0)
+		(end -2.83 0.5)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "fd53f50f-2fe8-4bdc-84e6-4b76ec0b0d76")
+	)
+	(fp_line
+		(start -1.33 -1.645)
+		(end -1.33 1.905)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "1cf04bfa-dccb-477c-bc61-08e121c635f9")
+	)
+	(fp_line
+		(start -1.27 -3.55)
+		(end -2.6 -3.55)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "d28910d6-9bbf-4ebc-9052-69b61de4ff80")
+	)
+	(fp_line
+		(start -1.27 -2.65)
+		(end -1.27 -3.55)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "b4449f79-43d8-4f19-be44-1d8fbf0d6203")
+	)
+	(fp_line
+		(start 1.27 -3.55)
+		(end 2.6 -3.55)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "758eed15-aac1-4ca2-a129-f9345ba262de")
+	)
+	(fp_line
+		(start 1.27 -2.65)
+		(end -1.27 -2.65)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "97ad5c12-9433-43ab-bfe3-ba02f90c67f2")
+	)
+	(fp_line
+		(start 1.27 -2.65)
+		(end 1.27 -3.55)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "fc82442b-5bf2-4343-89b2-ec1afc3cdc80")
+	)
+	(fp_line
+		(start 2.6 -3.55)
+		(end 2.6 3.55)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "c59ace59-c6ec-4fe8-bc1f-1c231e0c827c")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 1.3 0)
+		(layer "F.Fab")
+		(uuid "6ae3f105-a9a0-4098-be44-8e3595674311")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at 2.25 -1.905)
+		(size 3 1.5)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "1f445f1f-16ca-4110-b949-34728046f701")
+	)
+	(pad "2" smd rect
+		(at -2.25 -0.635)
+		(size 3 1.5)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(thermal_bridge_angle 45)
+		(uuid "403a8ff2-a3ea-4c7a-9e89-aad328fea941")
+	)
+	(pad "3" smd rect
+		(at 2.25 0.635)
+		(size 3 1.5)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(thermal_bridge_angle 45)
+		(uuid "dcb4d013-c2b7-4d98-9caa-abc108d2c717")
+	)
+	(pad "4" smd rect
+		(at -2.25 1.905)
+		(size 3 1.5)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(thermal_bridge_angle 45)
+		(uuid "c98006e4-b77b-487f-a07c-33259bdb6294")
+	)
+	(model "${KIPRJMOD}/lib/fort.3dshapes/c-188275-4-u-3d.stp"
+		(offset
+			(xyz 0 0 5.15)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 90)
+		)
+	)
+)

@@ -14492,7 +14492,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_SH_BM03B-SRSS-TB_1x03-1MP_P1.00mm_Vertical"
+		(property "Footprint" "fort:JST_SH_BM03B-SRSS-TB_1x03-1MP_P1.00mm_Vertical"
 			(at 21.59 134.62 0)
 			(effects
 				(font
@@ -14982,7 +14982,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "8d7ed1d4-389a-45a4-bc43-eb3df3b91dc1")
 		(property "Reference" "J1"
 			(at 21.59 90.17 0)
@@ -15000,7 +15000,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_SH_BM03B-SRSS-TB_1x03-1MP_P1.00mm_Vertical"
+		(property "Footprint" "fort:JST_SH_BM03B-SRSS-TB_1x03-1MP_P1.00mm_Vertical"
 			(at 21.59 99.06 0)
 			(effects
 				(font

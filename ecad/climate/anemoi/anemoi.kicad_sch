@@ -1826,7 +1826,7 @@
 				)
 			)
 		)
-		(property "Footprint" "FORT:Micro-Match_4_TH"
+		(property "Footprint" "FORT:TE_Micro-MaTch_188275-4_2x02_P1.27mm_Vertical"
 			(at 43.18 91.44 0)
 			(effects
 				(font

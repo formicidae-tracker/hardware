@@ -1,4 +1,4 @@
-88214662703760
+93420772504286
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -56896,6 +56896,20 @@ connector JST PH vertical
 6
 5
 FORT
+JST_PH_S4B-PH-SM4-TB_1x04-1MP_P2.00mm_Horizontal
+JST PH series connector, S4B-PH-SM4-TB (http://www.jst-mfg.com/product/pdf/eng/ePH.pdf), generated with kicad-footprint-generator
+connector JST PH horizontal
+0
+6
+5
+FORT
+JST_SH_BM03B-SRSS-TB_1x03-1MP_P1.00mm_Vertical
+JST SH series connector, BM03B-SRSS-TB (http://www.jst-mfg.com/product/pdf/eng/eSH.pdf), generated with kicad-footprint-generator
+connector JST SH vertical
+0
+5
+4
+FORT
 LD09S13A4GX00LF
 
 
@@ -57091,6 +57105,13 @@ SRN1060-XXXM
 0
 2
 2
+FORT
+TE_Micro-MaTch_188275-4_2x02_P1.27mm_Vertical
+TE-Connectivity Micro-MaTch female-on-board top-entry thru-hole 4 pin connector, https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F215079%7FY1%7Fpdf%7FEnglish%7FENG_CD_215079_Y1.pdf%7F215079-4
+connector TE-Connectivity Micro-MaTch Vertical 215079-4 7-215079-4
+0
+4
+4
 FORT
 TestPoint_Keystone_5019_Minature
 SMT Test Point- Micro Miniature 5019, http://www.keyelco.com/product-pdf.cfm?p=1357
