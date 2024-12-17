@@ -32,6 +32,12 @@ protected:
 		++d_count;
 	}
 
+	template <typename... Args> void emplace(Args &&...args) {
+		d_data[d_writePtr] = T{std::forward<Args>(args)...};
+		increment(d_writePtr);
+		++d_count;
+	}
+
 	inline void pop(T &obj) {
 		obj = std::move(d_data[d_readPtr]);
 		increment(d_readPtr);
@@ -71,12 +77,20 @@ public:
 		return remove(obj, false);
 	}
 
+	template <typename... Args> inline bool TryEmplace(Args &&...args) {
+		return Queue::emplace(false, std::forward<Args>(args)...);
+	}
+
 	template <typename U> inline void AddBlocking(U &&obj) {
 		this->add(std::forward<U>(obj), true);
 	}
 
 	inline void RemoveBlocking(T &obj) {
 		this->remove(obj, true);
+	}
+
+	template <typename... Args> inline void EmplaceBlocking(Args &&...args) {
+		Queue::emplace(true, std::forward<Args>(args)...);
 	}
 
 protected:
@@ -132,7 +146,26 @@ protected:
 		} while (true);
 	}
 
-	inline void increment(uint16_t &value) {
+	template <typename... Args>
+	inline bool emplace(bool block, Args &&...args) {
+		do {
+			auto save = lock();
+			if (this->d_count != N) {
+				details::RingBuffer<T, N>::emplace(std::forward<Args>(args)...);
+				unlock_notify(save);
+				return true;
+			}
+			if (block) {
+				unlock_wait(save);
+			} else {
+				unlock(save);
+				return false;
+			}
+		} while (true);
+	}
+
+	    inline void
+	    increment(uint16_t &value) {
 		if (++value >= N) {
 			value = 0;
 		}
@@ -167,6 +200,14 @@ public:
 			return false;
 		}
 		this->pop(obj);
+		return true;
+	}
+
+	template <typename... Args> bool TryEmplace(Args &&...args) {
+		if (this->d_count >= N) {
+			return false;
+		}
+		this->emplace(std::forward<Args>(args)...);
 		return true;
 	}
 };

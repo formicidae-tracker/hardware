@@ -1,3 +1,11 @@
+#include "Defer.hpp"
+
+#include "Queue.hpp"
+
 int main() {
-	return 0;
+	Queue<int, 8, true> foo;
+	foo.EmplaceBlocking(0);
+	int res;
+	foo.RemoveBlocking(res);
+	return res;
 }
