@@ -40,7 +40,7 @@ target_sources(
 						   src/Queue.hpp src/Log.hpp src/Log.cpp
 )
 
-target_link_libraries(rp2040-utils INTERFACE pico_stdlib)
+target_link_libraries(rp2040-utils INTERFACE pico_stdlib pico_multicore)
 target_include_directories(rp2040-utils INTERFACE ${CMAKE_CURRENT_LIST_DIR}/src)
 
 if(NOT IS_IMPORTED)
