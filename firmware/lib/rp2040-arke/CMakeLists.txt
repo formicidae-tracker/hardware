@@ -62,7 +62,7 @@ FetchContent_MakeAvailable(can2040 rp2040-utils libarke)
 add_library(rp2040-arke INTERFACE)
 target_sources(rp2040-arke INTERFACE src/Arke.hpp src/Arke.cpp)
 
-target_link_libraries(rp2040-arke INTERFACE can2040::can2040 rp2040-utils arke)
+target_link_libraries(rp2040-arke INTERFACE can2040 rp2040-utils arke)
 target_include_directories(rp2040-arke INTERFACE ${CMAKE_CURRENT_LIST_DIR}/src)
 
 if(NOT IS_IMPORTED)

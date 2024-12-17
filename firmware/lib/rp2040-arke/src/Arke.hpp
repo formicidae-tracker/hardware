@@ -19,7 +19,7 @@ struct ArkeConfig {
 	ArkeNodeClass ClassMask;
 	uint8_t       ID = 1;
 
-	std::function<void(ArkeEvent)> Callback;
+	std::function<void(const ArkeEvent &)> Callback;
 };
 
 void ArkeInit(ArkeConfig &&config);
