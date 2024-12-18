@@ -2,16 +2,16 @@ set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/../deps/cmake-avr/generic-g
 
 
 set(AVR_UPLOADTOOL avrdude)
-set(AVR_PROGRAMMER avrispmkii)
+set(AVR_PROGRAMMER avrispmkii CACHE STRING "Programmer to use")
 #set(AVR_PROGRAMMER arduinoisp)
-set(AVR_UPLOADTOOL_PORT usb)
+set(AVR_UPLOADTOOL_PORT usb CACHE STRING "Device to use")
 set(AVR_UPLOADTOOL_OPTIONS -C ${CMAKE_CURRENT_SOURCE_DIR}/../avrdude.conf)
 
 set(AVR_MCU atmega16m1)
 # fuses needed to run the board
 set(AVR_L_FUSE 0xff)
 set(AVR_H_FUSE 0xd9)
-set(AVR_E_FUSE 0xf6)
+set(AVR_E_FUSE 0x3f)
 # Fuse needed to program the board
 #set(AVR_L_FUSE 0x62)
 #set(AVR_H_FUSE 0xdf)
