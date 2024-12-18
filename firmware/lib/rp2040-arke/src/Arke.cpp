@@ -1,12 +1,14 @@
 #include "Arke.hpp"
 
 #include "hardware/irq.h"
+#include "hardware/pio.h"
 
 #include <Log.hpp>
 #include <algorithm>
 #include <cstdint>
 #include <hardware/platform_defs.h>
 #include <hardware/regs/intctrl.h>
+#include <optional>
 
 #include "Log.hpp"
 #include "Queue.hpp"
@@ -83,6 +85,8 @@ void ArkeInit(ArkeConfig &&config) {
 }
 
 static void arke_can2040_irq_handler(void) {
+	Infof("coucou from IRQ");
+
 	can2040_pio_irq_handler(&arke.d_bus);
 }
 
@@ -96,6 +100,35 @@ std::optional<int64_t> arkeWork(absolute_time_t now) {
 	return std::nullopt;
 }
 
+std::optional<int64_t> arkePong(absolute_time_t now) {
+	static struct can2040_msg pong = {
+	    .id  = int32_t(ARKE_MESSAGE) << 8 | int32_t(0x2c) << 3 | 1,
+	    .dlc = 1,
+	};
+
+	static uint8_t i = 0xff;
+	pong.data[0]     = i++;
+
+	if (can2040_check_transmit(&arke.d_bus)) {
+		Infof("Pinging %d over CAN", i);
+		can2040_transmit(&arke.d_bus, &pong);
+	} else {
+
+		Warnf("Skipping %d pong", i);
+	}
+	static struct can2040_stats stats;
+	can2040_get_statistics(&arke.d_bus, &stats);
+	Infof(
+	    "CAN statistics: rx_total:%d tx_total:%d tx_attempt:%d parse_error:%d",
+	    stats.rx_total,
+	    stats.tx_total,
+	    stats.tx_attempt,
+	    stats.parse_error
+	);
+
+	return std::nullopt;
+}
+
 void Arke::Init(ArkeConfig &&config) {
 	can2040_setup(&d_bus, 0);
 
@@ -105,7 +138,12 @@ void Arke::Init(ArkeConfig &&config) {
 	irq_set_priority(PIO0_IRQ_0, 1);
 	irq_set_enabled(PIO0_IRQ_0, true);
 
+	irq_set_exclusive_handler(PIO0_IRQ_1, arke_can2040_irq_handler);
+	irq_set_priority(PIO0_IRQ_1, 1);
+	irq_set_enabled(PIO0_IRQ_1, true);
+
 	Scheduler::Schedule(0, 0, arkeWork);
+	Scheduler::Schedule(10, 1000000, arkePong);
 
 	can2040_start(&d_bus, SYS_CLK_HZ, 250000, config.CanRX, config.CanTX);
 }

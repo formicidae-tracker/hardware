@@ -25,9 +25,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED 1)
 
 include(FetchContent)
-FetchContent_Declare(rp2040-utils URL ${LIB_DIR}/rp2040-utils)
-FetchContent_Declare(rp2040-arke URL ${LIB_DIR}/rp2040-arke)
-
+FetchContent_Declare(rp2040-utils SOURCE_DIR ${LIB_DIR}/rp2040-utils)
+FetchContent_Declare(rp2040-arke SOURCE_DIR ${LIB_DIR}/rp2040-arke)
 FetchContent_MakeAvailable(rp2040-utils rp2040-arke)
-
 add_subdirectory(src)

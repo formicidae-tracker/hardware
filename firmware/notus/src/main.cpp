@@ -1,6 +1,7 @@
 #include "Arke.hpp"
 #include "Scheduler.hpp"
 #include "arke.h"
+#include <hardware/gpio.h>
 #include <pico/stdio.h>
 
 #include <Log.hpp>
@@ -15,6 +16,11 @@ int main() {
 	stdio_init_all();
 
 	Logger::InitLogsOnSecondCore();
+
+	gpio_set_dir(14, true);
+	gpio_set_dir(15, true);
+	gpio_put(14, 1);
+	gpio_put(15, 0);
 
 	ArkeInit(ArkeConfig{
 	    .CanRX     = 13,
