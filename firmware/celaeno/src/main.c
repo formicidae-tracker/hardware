@@ -44,13 +44,13 @@ struct Button_t {
 	}while(0)
 
 #define init_relay() do{ \
-		DDRB |= _BV(2); \
+		DDRF |= _BV(3); \
 	}while(0)
 #define relay_on() do{\
-		PORTB |= _BV(2); \
+		PORTF |= _BV(3); \
 	}while(0)
 #define relay_off() do{\
-		PORTB &= ~_BV(2); \
+		PORTF &= ~_BV(3); \
 	}while(0)
 
 #define relay_is_on() ( (PORTB & _BV(2)) != 0 )
