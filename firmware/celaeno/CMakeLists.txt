@@ -7,12 +7,14 @@ set(AVR_PROGRAMMER
     CACHE STRING "The programmer to use")
 set(AVR_UPLOADTOOL_PORT
     usb
-    CACHE FILEPATH "The device to use")
+    CACHE STRING "The device to use")
 set(AVR_UPLOADTOOL_OPTIONS -C ${CMAKE_CURRENT_SOURCE_DIR}/../avrdude.conf)
 
 set(AVR_MCU at90can32)
+#set(AVR_L_FUSE 0x62)
 set(AVR_L_FUSE 0xde)
-set(AVR_H_FUSE 0x99)
+set(AVR_H_FUSE 0xd9)
+#set(AVR_E_FUSE 0xff)
 set(AVR_E_FUSE 0xfd)
 set(MCU_SPEED "16000000L")
 
