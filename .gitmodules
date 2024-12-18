@@ -1,6 +1,3 @@
-[submodule "firmware/deps/cmake-avr"]
-	path = firmware/deps/cmake-avr
-	url = https://github.com/atuleu/cmake-avr.git
 [submodule "firmware/deps/fort-libarke"]
 	path = firmware/deps/fort-libarke
 	url = https://github.com/formicidae-tracker/libarke.git
