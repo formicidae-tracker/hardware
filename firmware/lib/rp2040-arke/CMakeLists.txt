@@ -43,13 +43,10 @@ else(IS_IMPORTED)
 endif(IS_IMPORTED)
 
 include(FetchContent)
-FetchContent_Declare(
-	can2040
-	GIT_REPOSITORY https://github.com/formicidae-tracker/can2040.git
-	GIT_TAG origin/dev/cmake
-)
+# FetchContent_Declare( can2040 GIT_REPOSITORY
+# https://github.com/formicidae-tracker/can2040.git GIT_TAG origin/dev/cmake )
 
-FetchContent_Declare(rp2040-utils URL ${LIB_DIR}/rp2040-utils)
+FetchContent_Declare(rp2040-utils SOURCE_DIR ${LIB_DIR}/rp2040-utils)
 
 FetchContent_Declare(
 	libarke
@@ -57,12 +54,16 @@ FetchContent_Declare(
 	GIT_TAG dev/rp2040
 )
 
-FetchContent_MakeAvailable(can2040 rp2040-utils libarke)
+FetchContent_MakeAvailable(rp2040-utils libarke)
 
 add_library(rp2040-arke INTERFACE)
 target_sources(rp2040-arke INTERFACE src/Arke.hpp src/Arke.cpp)
 
-target_link_libraries(rp2040-arke INTERFACE can2040 rp2040-utils arke)
+pico_generate_pio_header(rp2040-arke ${CMAKE_CURRENT_LIST_DIR}/src/canbus.pio)
+
+target_link_libraries(
+	rp2040-arke INTERFACE rp2040-utils arke hardware_pio pico_stdlib
+)
 target_include_directories(rp2040-arke INTERFACE ${CMAKE_CURRENT_LIST_DIR}/src)
 
 if(NOT IS_IMPORTED)

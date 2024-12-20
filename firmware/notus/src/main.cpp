@@ -23,8 +23,8 @@ int main() {
 	gpio_put(15, 0);
 
 	ArkeInit(ArkeConfig{
-	    .CanRX     = 13,
-	    .CanTX     = 12,
+	    .CanRX     = 12,
+	    .CanTX     = 13,
 	    .Class     = ARKE_CELAENO,
 	    .ClassMask = ARKE_CELAENO,
 	    .Callback  = [](ArkeEvent) {},
