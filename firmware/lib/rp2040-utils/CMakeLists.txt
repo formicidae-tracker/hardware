@@ -34,14 +34,7 @@ else(IS_IMPORTED)
 
 endif(IS_IMPORTED)
 
-add_library(rp2040-utils INTERFACE)
-target_sources(
-	rp2040-utils INTERFACE src/Defer.hpp src/Scheduler.hpp src/Scheduler.cpp
-						   src/Queue.hpp src/Log.hpp src/Log.cpp
-)
-
-target_link_libraries(rp2040-utils INTERFACE pico_stdlib pico_multicore)
-target_include_directories(rp2040-utils INTERFACE ${CMAKE_CURRENT_LIST_DIR}/src)
+add_subdirectory(src/utils)
 
 if(NOT IS_IMPORTED)
 	add_executable(test_compilation tests/main.cpp)

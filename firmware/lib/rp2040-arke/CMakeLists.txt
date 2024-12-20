@@ -56,19 +56,9 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(rp2040-utils libarke)
 
-add_library(rp2040-arke INTERFACE)
-target_sources(rp2040-arke INTERFACE src/Arke.hpp src/Arke.cpp)
-
-pico_generate_pio_header(rp2040-arke ${CMAKE_CURRENT_LIST_DIR}/src/canbus.pio)
-
-target_link_libraries(
-	rp2040-arke INTERFACE rp2040-utils arke hardware_pio pico_stdlib
-)
-target_include_directories(rp2040-arke INTERFACE ${CMAKE_CURRENT_LIST_DIR}/src)
+add_subdirectory(src)
 
 if(NOT IS_IMPORTED)
-	add_executable(test_compilation tests/main.cpp)
-
-	target_link_libraries(test_compilation rp2040-arke)
+	add_subdirectory(tests)
 
 endif(NOT IS_IMPORTED)

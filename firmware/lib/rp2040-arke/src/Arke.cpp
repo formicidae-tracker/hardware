@@ -3,16 +3,16 @@
 #include "hardware/irq.h"
 #include "hardware/pio.h"
 
-#include <Log.hpp>
 #include <algorithm>
 #include <cstdint>
 #include <hardware/platform_defs.h>
 #include <hardware/regs/intctrl.h>
 #include <optional>
 
-#include "Log.hpp"
-#include "Queue.hpp"
-#include "Scheduler.hpp"
+#include <utils/Log.hpp>
+
+#include <utils/Queue.hpp>
+#include <utils/Scheduler.hpp>
 
 class Arke {
 public:

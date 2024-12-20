@@ -1,6 +1,6 @@
-#include "Defer.hpp"
+#include <utils/Defer.hpp>
 
-#include "Queue.hpp"
+#include <utils/Queue.hpp>
 
 int main() {
 	Queue<int, 8, true> foo;

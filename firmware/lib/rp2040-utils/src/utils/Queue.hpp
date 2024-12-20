@@ -11,44 +11,10 @@ extern "C" {
 #include <cstdint>
 #include <type_traits>
 
-namespace details {
-template <typename T, size_t N, std::enable_if_t<N >= 1> * = nullptr>
-class RingBuffer {
-protected:
-	std::array<T, N> d_data;
-	uint16_t         d_writePtr = 0;
-	uint16_t         d_readPtr  = 0;
-	uint16_t         d_count    = 0;
-
-	void increment(uint16_t &value) {
-		if (++value >= N) {
-			value = 0;
-		}
-	}
-
-	template <typename U> inline void insert(U &&obj) {
-		d_data[d_writePtr] = std::forward<U>(obj);
-		increment(d_writePtr);
-		++d_count;
-	}
-
-	template <typename... Args> void emplace(Args &&...args) {
-		d_data[d_writePtr] = T{std::forward<Args>(args)...};
-		increment(d_writePtr);
-		++d_count;
-	}
-
-	inline void pop(T &obj) {
-		obj = std::move(d_data[d_readPtr]);
-		increment(d_readPtr);
-		--d_count;
-	}
-};
-
-} // namespace details
+#include "RingBuffer.hpp"
 
 template <typename T, size_t N, bool Threadsafe = true>
-class Queue : protected details::RingBuffer<T, N> {
+class Queue : protected RingBuffer<T, N> {
 public:
 	Queue() {
 		lock_init(&d_core, next_striped_spin_lock_num());
@@ -151,7 +117,7 @@ protected:
 		do {
 			auto save = lock();
 			if (this->d_count != N) {
-				details::RingBuffer<T, N>::emplace(std::forward<Args>(args)...);
+				RingBuffer<T, N>::emplace(std::forward<Args>(args)...);
 				unlock_notify(save);
 				return true;
 			}
@@ -164,8 +130,7 @@ protected:
 		} while (true);
 	}
 
-	    inline void
-	    increment(uint16_t &value) {
+	inline void increment(uint16_t &value) {
 		if (++value >= N) {
 			value = 0;
 		}
@@ -173,7 +138,7 @@ protected:
 };
 
 template <typename T, size_t N>
-class Queue<T, N, false> : protected details::RingBuffer<T, N> {
+class Queue<T, N, false> : protected RingBuffer<T, N> {
 public:
 	inline size_t Size() const {
 		return this->d_count;

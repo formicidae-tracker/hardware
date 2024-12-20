@@ -1,10 +1,11 @@
 .define public CYCLE 32         ; must be even
 .define public READOUT 24       ; must be <= CYCLE - 5
 .define SCAN_LENGTH (CYCLE - 6) / 2
-.define public IRQ_SAMPLE_SIGNAL 0
-.define public IRQ_TX_FAILURE_SIGNAL 1
-.define public IRQ_SIGNAL_SOF 2
-.define public IRQ_SIGNAL_EOF 3
+
+.define public IRQ_SIGNAL_TX_PENDING 0
+.define public IRQ_SIGNAL_SOF 1
+.define public IRQ_SIGNAL_EOF 2
+.define IRQ_SAMPLE_SIGNAL 4
 
 .define public CANBUS_CLOCK_SM   0
 .define public CANBUS_RX_SM      1
@@ -46,7 +47,7 @@ test_resynchronization:
 .program canbus_rx_and_ack
 .origin 13
 .in 32 left
-.out 32 right
+.out 1 right
 rx_wait_sample:
 	WAIT 1 irq IRQ_SAMPLE_SIGNAL               ; CP: READOUT - 1
 	IN pins, 1                                 ; CP: READOUT
@@ -110,7 +111,7 @@ static inline int canbus_clock_program_init(PIO pio, uint offset, uint rx_pin, f
 
 	sm_config_set_jmp_pin(&c,rx_pin);
 
-	sm_config_set_clkdiv(&c, CLK_SYS_HZ / ( freq * CYCLE ));
+	sm_config_set_clkdiv(&c, SYS_CLK_HZ / ( freq * CYCLE ));
 
 	return pio_sm_init(pio,CANBUS_CLOCK_SM,offset,&c);
 }
@@ -127,9 +128,9 @@ static inline int canbus_rx_program_init(PIO pio, uint offset,uint rx_pin, float
 
 
 	pio_sm_config config = pio_get_default_sm_config();
-	sm_config_set_wrap(&rx_config,
-	                   address + canbus_rx_and_ack_wrap_target,
-	                   address + canbus_rx_and_ack_offset_rx_only_end);
+	sm_config_set_wrap(&config,
+	                   offset + canbus_rx_and_ack_wrap_target,
+	                   offset + canbus_rx_and_ack_offset_rx_only_end);
 
 
 	sm_config_set_in_pins(&config,rx_pin);
@@ -138,7 +139,7 @@ static inline int canbus_rx_program_init(PIO pio, uint offset,uint rx_pin, float
     sm_config_set_in_shift(&config, false, true, 10);
 
 
-	sm_config_set_clkdiv(&config, CLK_SYS_HZ / ( freq * CYCLE ));
+	sm_config_set_clkdiv(&config, SYS_CLK_HZ / ( freq * CYCLE ));
 
 	return pio_sm_init(pio,
 	                   CANBUS_RX_SM,
@@ -176,18 +177,17 @@ static inline int canbus_ack_program_init(PIO pio, uint offset,uint rx_pin, uint
 
 	pio_sm_config config = canbus_rx_and_ack_program_get_default_config(offset);
 
-	sm_config_set_clkdiv(&config, CLK_SYS_HZ / ( freq * CYCLE ));
+	sm_config_set_clkdiv(&config, SYS_CLK_HZ / ( freq * CYCLE ));
 
 
 	sm_config_set_in_pins(&config,rx_pin);
-	sm_config_set_out_pins(&config,tx_pin);
 
 	err = pio_sm_init(pio,
 	                  CANBUS_ACK_SM,
 	                  offset,
 	                  &config);
 
-	canbus_ack_program_reset_counter(pio);
+	canbus_ack_program_reset_counters(pio);
 	return err;
 }
 
@@ -214,16 +214,14 @@ static inline int canbus_tx_program_init(PIO pio, uint offset, uint rx_pin, uint
 	}
 
 
-	pio_sm_config config = canbus_tx_program_get_default_sm_config();
+	pio_sm_config config = canbus_tx_program_get_default_config(offset);
 	sm_config_set_wrap(&config,
-	                   address + canbus_rx_and_ack_wrap_target,
-	                   address + canbus_rx_and_ack_offset_rx_only_end);
+	                   offset + canbus_rx_and_ack_wrap_target,
+	                   offset + canbus_rx_and_ack_offset_rx_only_end);
 
 	sm_config_set_jmp_pin(&config,rx_pin);
-	sm_config_set_out_pins(&config,tx_pin);
 
-
-	sm_config_set_clkdiv(&config, CLK_SYS_HZ / ( freq * CYCLE ));
+	sm_config_set_clkdiv(&config, SYS_CLK_HZ / ( freq * CYCLE ));
 
 	return pio_sm_init(pio,
 	                   CANBUS_TX_SM,
@@ -244,7 +242,7 @@ static inline int canbus_init(PIO pio, uint rx_pin, uint tx_pin, float freq) {
 	if ( address < 0 ) {
 		return address;
 	}
-	int err = canbus_clock_program_init(pio,&address,rx_pin,freq);
+	int err = canbus_clock_program_init(pio,address,rx_pin,freq);
 	if ( err != PICO_OK ) {
 		return err;
 	}
