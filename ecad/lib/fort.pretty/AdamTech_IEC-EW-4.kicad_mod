@@ -1,0 +1,460 @@
+(footprint "AdamTech_IEC-EW-4"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at -11.6 -20.1 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "82a90ca8-3bf2-4f6e-8819-28ad0b01638f")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "AdamTech_IEC-EW-4"
+		(at 0 -11.8 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "23c69d41-8efe-41e6-be8a-0e8a6b919d8e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 -15.8 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "0fc4033f-cec7-43ae-99f2-3ebc4b07d0ba")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" "https://app.adam-tech.com/products/download/data_sheet/203647/iec-a-4-data-sheet.pdf"
+		(at 0 -5.6 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3aa7af33-c0c4-492b-b098-9ef43809d26d")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "IEC-320 C14 Receptacle Through Hole"
+		(at 0 -10.2 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "821ad228-d31d-4805-bd67-c3d53536031b")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_line
+		(start -16.6 -19.2)
+		(end -25 -10.8)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "beb893c9-cffa-4616-8391-d630a40b68aa")
+	)
+	(fp_line
+		(start -16.6 -19.2)
+		(end 16.6 -19.2)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "9842cf74-d811-411f-bbb9-bbd570a7e72b")
+	)
+	(fp_line
+		(start 1.8 -17.2)
+		(end 3.1 -17.2)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "d65038de-beca-4614-967d-b5e624ff905a")
+	)
+	(fp_line
+		(start 1.9 -15.4)
+		(end 4.3 -15.4)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "818ddc04-c340-4924-bb99-8c885c962c20")
+	)
+	(fp_line
+		(start 2.3 -15)
+		(end 3.9 -15)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "e3c8b98d-6f56-4191-8a19-a3abd60fcd29")
+	)
+	(fp_line
+		(start 2.7 -14.6)
+		(end 3.5 -14.6)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "fd4453f2-3c2f-4cf9-bb49-c68b35962324")
+	)
+	(fp_line
+		(start 3 -14.2)
+		(end 3.2 -14.2)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "023c5469-4830-42cd-9018-df06ed060bcc")
+	)
+	(fp_line
+		(start 3.1 -17.2)
+		(end 3.1 -15.4)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "25630b3a-6b0a-4712-bb45-15a6a1aee18e")
+	)
+	(fp_line
+		(start 16.6 -19.2)
+		(end 25 -10.8)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "93026431-aa95-4139-96d8-e44ee80ca890")
+	)
+	(fp_line
+		(start -25.3 -19.5)
+		(end 25.2 -19.5)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "F.CrtYd")
+		(uuid "120f3ae6-efae-4fad-ba72-e382221236da")
+	)
+	(fp_line
+		(start -25.3 3.3)
+		(end -25.3 -19.5)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "F.CrtYd")
+		(uuid "931b87a2-d157-498d-8d30-b4cf2eb88cbf")
+	)
+	(fp_line
+		(start 25.2 -19.5)
+		(end 25.2 3.3)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "F.CrtYd")
+		(uuid "a29c5b50-a56c-4530-a9e4-4942bffa67d8")
+	)
+	(fp_line
+		(start 25.2 3.3)
+		(end -25.3 3.3)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "F.CrtYd")
+		(uuid "6d3744cf-7cd6-4ed7-b9ae-33fe3763d9af")
+	)
+	(fp_line
+		(start -25 -2.9)
+		(end -25 -10.4)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "7732eb66-2ccc-499f-94fc-e608199e9395")
+	)
+	(fp_line
+		(start -25 -2.9)
+		(end -25 0.1)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "377444ab-1067-41d9-8997-2c7d3beea0f5")
+	)
+	(fp_line
+		(start -25 0.1)
+		(end -12 0.1)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "b696b091-0dd5-402e-b281-add64d6e78b0")
+	)
+	(fp_line
+		(start -16.4 -19)
+		(end -25 -10.4)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "4f9d7fe2-d3ff-41bf-ae29-90224a2a440a")
+	)
+	(fp_line
+		(start -16.4 -19)
+		(end 16.4 -19)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "9d4cce0f-acab-44d3-95a2-3547fc1e0d70")
+	)
+	(fp_line
+		(start -15.3 0.1)
+		(end -15.3 3.1)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "df871dcc-fea8-449b-b1af-bf6e2ff39d38")
+	)
+	(fp_line
+		(start -15.3 3.1)
+		(end 15.3 3.1)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "7cff81fd-778b-466f-86c6-123a179029a7")
+	)
+	(fp_line
+		(start -13.35 -19)
+		(end -13.35 -2.9)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "f9e7a396-cb64-4142-8dfc-bc4e37701e5c")
+	)
+	(fp_line
+		(start -13.35 -2.9)
+		(end -25 -2.9)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "b97d65b8-eac0-44af-89c4-d60b8eee4a13")
+	)
+	(fp_line
+		(start -13.35 -2.9)
+		(end 13.35 -2.9)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "e291819a-e015-410a-a02b-745ff9578254")
+	)
+	(fp_line
+		(start 13.35 -2.9)
+		(end 13.35 -19)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "6e467df5-39a6-4c0d-aa87-5352c21ed973")
+	)
+	(fp_line
+		(start 13.35 -2.9)
+		(end 25 -2.9)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "affe20a8-d8f5-42a3-9c8f-08898662fdf9")
+	)
+	(fp_line
+		(start 15.3 3.1)
+		(end 15.3 0.15)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "2c8351c9-fe5a-4394-81fc-a9f6d71787bd")
+	)
+	(fp_line
+		(start 16.4 -19)
+		(end 25 -10.4)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "4d58a243-cbe0-4348-8b12-17650fae3be7")
+	)
+	(fp_line
+		(start 25 -2.9)
+		(end 25 -10.4)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "c205b6b0-0a18-4c21-9afd-6d5d2675d620")
+	)
+	(fp_line
+		(start 25 -2.9)
+		(end 25 0.1)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "b75718f1-e8c2-4c33-839a-55504a4278df")
+	)
+	(fp_line
+		(start 25 0.1)
+		(end 12 0.1)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "7c80d172-cda8-4cfc-b107-72f060d5e324")
+	)
+	(fp_text user "L"
+		(at -8.6 -15.8 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "1f3578e0-e2f7-475f-b258-57fd84169414")
+		(effects
+			(font
+				(size 2 2)
+				(thickness 0.4)
+				(bold yes)
+			)
+			(justify right)
+		)
+	)
+	(fp_text user "N"
+		(at 8.8 -15.8 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "e32a87ec-0073-4c00-a896-9b53536209c6")
+		(effects
+			(font
+				(size 2 2)
+				(thickness 0.4)
+				(bold yes)
+			)
+			(justify left)
+		)
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 -13.3 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "8413af88-f160-407e-b906-ce6cee50a1b5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "" np_thru_hole circle
+		(at -20 -8.5)
+		(size 4 4)
+		(drill 3.8)
+		(layers "*.Mask")
+		(uuid "4135873b-c9cd-4bd1-8ea2-776ac152c38b")
+	)
+	(pad "" np_thru_hole circle
+		(at 20 -8.5)
+		(size 4 4)
+		(drill 3.8)
+		(layers "*.Mask")
+		(uuid "aa68564d-13d8-41c9-927b-e1d5860a6cc6")
+	)
+	(pad "1" thru_hole circle
+		(at -7 -15.8)
+		(size 3.2 3.2)
+		(drill 1.8)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "c9f11615-414f-48bc-8742-c3840f02d5fe")
+	)
+	(pad "2" thru_hole circle
+		(at 7 -15.8)
+		(size 3.2 3.2)
+		(drill 1.8)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "7585ffa1-fbd4-4833-937d-d1292e271d4b")
+	)
+	(pad "3" thru_hole rect
+		(at 0 -15.8)
+		(size 3.2 3.2)
+		(drill 1.8)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(thermal_bridge_angle 45)
+		(uuid "cd01a7ce-3c7f-4d7e-a4c0-15c8a9bde43b")
+	)
+	(model "${KIPRJMOD}/lib/fort.3dshapes/AdamTech_IEC-EW-4.step"
+		(offset
+			(xyz 0 0 15.5)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)
