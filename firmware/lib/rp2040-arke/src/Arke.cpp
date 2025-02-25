@@ -64,10 +64,10 @@ static void
 arke_can2040_cb(struct can2040 *bus, uint32_t notify, struct can2040_msg *msg) {
 	switch (notify) {
 	case CAN2040_NOTIFY_TX:
-		Infof("[CAN] transmitted ID=%x Length=%d", msg->id, msg->dlc);
+		Debugf("[CAN] transmitted ID=%x Length=%d", msg->id, msg->dlc);
 		break;
 	case CAN2040_NOTIFY_ERROR:
-		Errorf("[CAN]: error");
+		Warnf("[CAN]: error");
 		break;
 	case CAN2040_NOTIFY_RX:
 		if (arke.Messages.TryEmplace(*msg) == false) {
@@ -151,10 +151,10 @@ void Arke::Init(ArkeConfig &&config) {
 	can2040_start(&CBus, SYS_CLK_HZ, 250000, config.PinRX, config.PinTX);
 }
 
-#define arke_isNetworkCommand(a)  (((a)&0x300) == 0x000)
-#define arke_isHeartBeat(a)       (((a)&0x300) == 0x300)
-#define arke_isStandardMessage(a) (((a)&0x300) == 0x200)
-#define arke_isPriorityMessage(a) (((a)&0x300) == 0x100)
+#define arke_isNetworkCommand(a)  (((a)&0x600) == 0x000)
+#define arke_isHeartBeat(a)       (((a)&0x600) == 0x600)
+#define arke_isStandardMessage(a) (((a)&0x600) == 0x400)
+#define arke_isPriorityMessage(a) (((a)&0x600) == 0x200)
 
 std::optional<int64_t> Arke::Work() {
 	struct can2040_msg msg;
@@ -167,12 +167,20 @@ std::optional<int64_t> Arke::Work() {
 		if (arke_isHeartBeat(msg.id)) {
 			continue;
 		}
-		const uint8_t messageClass = (msg.id & 0xf8) >> 3;
+
+		const uint8_t messageClass = (msg.id & 0x1ff) >> 3;
 		const uint8_t messageID    = msg.id & 0x7;
 
+		Debugf(
+		    "[ARKE]: Type:%x Class:0x%02x ID:%d",
+		    (msg.id & 0x600) >> 9,
+		    messageClass,
+		    messageID
+		);
+
 		if (arke_isNetworkCommand(msg.id) &&
-		    (messageClass == uint8_t(Class) || messageClass == 0) &&
-		    (messageID == Data.ID || messageID == 0)) {
+		    (messageClass == uint8_t(Class) || messageClass == 0)) {
+			Debugf("[ARKE] Network command for class:0x%02x", messageClass);
 			handleNetworkCommand(msg);
 		}
 
@@ -235,7 +243,7 @@ void Arke::handleChangeID(const struct can2040_msg &msg) {
 }
 
 struct can2040_msg Arke::buildHeartbeat() const {
-	uint32_t id = 0x300 | (uint32_t(Class) << 3) | Data.ID;
+	uint32_t id = 0x600 | (uint32_t(Class) << 3) | Data.ID;
 	if (NodeVersion.has_value() == false) {
 		return {.id = id, .dlc = 0};
 	}
@@ -283,7 +291,7 @@ struct can2040_msg Arke::buildHeartbeat() const {
 }
 
 void Arke::transmitHeartbeat() {
-	if (can2040_check_transmit(&CBus) != 0) {
+	if (can2040_check_transmit(&CBus) == 0) {
 		Errorf("[ARKE]: could not schedule heartbeat transmit");
 		return;
 	}
@@ -295,7 +303,7 @@ void Arke::transmitHeartbeat() {
 void Arke::handleHeartbeat(const struct can2040_msg &msg) {
 	int64_t period = 0;
 	if (msg.dlc == 2) {
-		period = msg.data[0] + (uint16_t(msg.data[1]) << 8);
+		period = msg.data[1] + (uint16_t(msg.data[0]) << 8);
 	} else if (msg.dlc != 0) {
 		Errorf(
 		    "[ARKE]: Invalid heartbeat message DLC %d (should be 0 or 2)",
@@ -303,10 +311,13 @@ void Arke::handleHeartbeat(const struct can2040_msg &msg) {
 		);
 	}
 	if (period == 0) {
+		Infof("[ARKE]: Single heartbeat response");
 		HeartbeatPeriod = std::nullopt;
 		transmitHeartbeat();
 		return;
 	}
+	Infof("[ARKE]: Repetitive heartbeat, period = %lld ms", period);
+
 	bool schedule   = HeartbeatPeriod.has_value() == false;
 	HeartbeatPeriod = period * 1000;
 
