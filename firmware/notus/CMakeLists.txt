@@ -21,13 +21,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED 1)
 
 include(FetchContent)
+FetchContent_Declare(rp2040-arke SOURCE_DIR ${LIB_DIR}/rp2040-arke)
 FetchContent_Declare(rp2040-utils SOURCE_DIR ${LIB_DIR}/rp2040-utils)
-# FetchContent_Declare(rp2040-arke SOURCE_DIR ${LIB_DIR}/rp2040-arke)
-FetchContent_Declare(
-	can2040
-	GIT_REPOSITORY https://github.com/formicidae-tracker/can2040
-	GIT_TAG dev/cmake
-	SOURCE_SUBDIR cmake
-)
-FetchContent_MakeAvailable(rp2040-utils can2040)
+FetchContent_MakeAvailable(rp2040-arke rp2040-utils)
 add_subdirectory(src)

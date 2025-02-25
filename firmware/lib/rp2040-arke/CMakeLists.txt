@@ -49,12 +49,19 @@ include(FetchContent)
 FetchContent_Declare(rp2040-utils SOURCE_DIR ${LIB_DIR}/rp2040-utils)
 
 FetchContent_Declare(
+	can2040
+	GIT_REPOSITORY https://github.com/formicidae-tracker/can2040
+	GIT_TAG dev/cmake
+	SOURCE_SUBDIR cmake
+)
+
+FetchContent_Declare(
 	libarke
 	GIT_REPOSITORY https://github.com/formicidae-tracker/libarke.git
 	GIT_TAG dev/rp2040
 )
 
-FetchContent_MakeAvailable(rp2040-utils libarke)
+FetchContent_MakeAvailable(rp2040-utils can2040 libarke)
 
 add_subdirectory(src)
 

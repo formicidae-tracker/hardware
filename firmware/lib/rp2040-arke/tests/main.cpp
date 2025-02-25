@@ -5,8 +5,8 @@
 
 int main() {
 	ArkeInit(ArkeConfig{
-	    .CanRX     = 0,
-	    .CanTX     = 1,
+	    .PinRX     = 0,
+	    .PinTX     = 1,
 	    .Class     = ARKE_HELIOS,
 	    .ClassMask = ArkeNodeClass(uint32_t(ARKE_HELIOS) & 0x3),
 	    .ID        = 1,

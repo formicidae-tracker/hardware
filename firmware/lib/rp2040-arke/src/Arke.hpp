@@ -5,6 +5,10 @@
 #include <cstddef>
 #include <functional>
 
+extern "C" {
+struct can2040_msg;
+}
+
 struct ArkeEvent {
 	ArkeMessageClass Class;
 	bool             RTR = false;
@@ -13,8 +17,8 @@ struct ArkeEvent {
 };
 
 struct ArkeConfig {
-
-	int           CanRX, CanTX;
+	unsigned int  PinRX, PinTX;
+	unsigned int  PIO;
 	ArkeNodeClass Class;
 	ArkeNodeClass ClassMask;
 	uint8_t       ID = 1;
