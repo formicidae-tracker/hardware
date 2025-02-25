@@ -7,6 +7,3 @@
 [submodule "firmware/deps/pico-sdk"]
 	path = firmware/deps/pico-sdk
 	url = https://github.com/raspberrypi/pico-sdk
-[submodule "firmware/deps/picotool"]
-	path = firmware/deps/picotool
-	url = https://github.com/raspberrypi/picotool.git
