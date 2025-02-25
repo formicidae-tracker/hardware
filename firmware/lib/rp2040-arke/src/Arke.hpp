@@ -37,3 +37,14 @@ struct ArkeConfig {
 void ArkeInit(ArkeConfig &&config);
 
 uint8_t ArkeGetID();
+
+namespace details {
+void arkeSend(ArkeMessageClass_e cls, const uint8_t *data, size_t size);
+}
+
+template <typename T>
+inline void ArkeSend(ArkeMessageClass_e cls, const T &data) {
+	static_assert(sizeof(T) <= 8, "Object data should be smaller than 8 byte");
+
+	details::arkeSend(cls, (const uint8_t *)(&data), sizeof(T));
+}

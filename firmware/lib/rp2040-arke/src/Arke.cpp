@@ -333,3 +333,21 @@ void Arke::handleHeartbeat(const struct can2040_msg &msg) {
 	    }
 	);
 }
+
+namespace details {
+void arkeSend(ArkeMessageClass_e cls, const uint8_t *data, size_t size) {
+	if (can2040_check_transmit(&arke.CBus) == 0) {
+		Errorf("[ARKE]: could not send message ID:%x DLC:%d", cls, size);
+		return;
+	}
+
+	struct can2040_msg msg {
+		.id = uint32_t(0x400) | (uint32_t(cls) << 3) |
+		      (uint32_t(arke.Data.ID) & 0x007),
+		.dlc = size,
+	};
+
+	memcpy(msg.data, data, size);
+	can2040_transmit(&arke.CBus, &msg);
+}
+} // namespace details
