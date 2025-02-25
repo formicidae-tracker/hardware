@@ -21,5 +21,5 @@ private:
 		uint64_t        Period;
 	};
 
-	static std::multimap<uint8_t,TaskData> d_tasks;
+	static std::multimap<uint8_t, TaskData> d_tasks;
 };

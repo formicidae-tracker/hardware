@@ -9,7 +9,6 @@ int main() {
 	    .PinTX     = 1,
 	    .Class     = ARKE_HELIOS,
 	    .ClassMask = ArkeNodeClass(uint32_t(ARKE_HELIOS) & 0x3),
-	    .ID        = 1,
 	    .Callback  = [](const ArkeEvent &) {},
 	});
 

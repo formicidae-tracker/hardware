@@ -1,5 +1,6 @@
 #include "Log.hpp"
 
+#include <pico/flash.h>
 #include <pico/multicore.h>
 
 #include <algorithm>
@@ -56,6 +57,7 @@ void printTime(absolute_time_t time) {
 }
 
 void Logger::FormatsPendingLogsLoop() {
+	flash_safe_execute_core_init();
 	static uint8_t colors[6] = {
 	    1, // FATAL - RED
 	    1, // ERROR - RED

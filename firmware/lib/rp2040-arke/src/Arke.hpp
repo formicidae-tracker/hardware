@@ -3,7 +3,9 @@
 #include <arke.h>
 
 #include <cstddef>
+#include <cstdint>
 #include <functional>
+#include <optional>
 
 extern "C" {
 struct can2040_msg;
@@ -16,14 +18,22 @@ struct ArkeEvent {
 	const uint8_t   *Data;
 };
 
+typedef std::function<void(const ArkeEvent &)> ArkeCallback;
+typedef std::
+    tuple<uint8_t, uint8_t, std::optional<uint8_t>, std::optional<uint8_t>>
+        ArkeNodeVersion;
+
 struct ArkeConfig {
 	unsigned int  PinRX, PinTX;
 	unsigned int  PIO;
 	ArkeNodeClass Class;
 	ArkeNodeClass ClassMask;
-	uint8_t       ID = 1;
 
-	std::function<void(const ArkeEvent &)> Callback;
+	ArkeCallback Callback;
+
+	std::optional<ArkeNodeVersion> NodeVersion;
 };
 
 void ArkeInit(ArkeConfig &&config);
+
+uint8_t ArkeGetID();

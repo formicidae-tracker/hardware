@@ -1,3 +1,4 @@
+#include "arke.h"
 #include <hardware/gpio.h>
 #include <optional>
 
@@ -18,6 +19,9 @@ int main() {
 	stdio_init_all();
 
 	Logger::InitLogsOnSecondCore();
+#ifndef NDEBUG
+	Logger::Get().SetLevel(Logger::Level::DEBUG);
+#endif
 
 	gpio_init(TCAN_SHUTDOWN);
 	gpio_init(TCAN_STANDBY);
@@ -27,11 +31,13 @@ int main() {
 	gpio_put(TCAN_STANDBY, 0);
 
 	ArkeInit(ArkeConfig{
-	    .PinRX    = TCAN_RX,
-	    .PinTX    = TCAN_TX,
-	    .PIO      = 0,
-	    .ID       = 1,
-	    .Callback = [](const ArkeEvent &e) {},
+	    .PinRX       = TCAN_RX,
+	    .PinTX       = TCAN_TX,
+	    .PIO         = 0,
+	    .Class       = ARKE_NOTUS,
+	    .ClassMask   = ARKE_NOTUS,
+	    .Callback    = [](const ArkeEvent &e) {},
+	    .NodeVersion = ArkeNodeVersion{0, 1, std::nullopt, std::nullopt},
 	});
 
 	while (true) {
