@@ -28,7 +28,7 @@ if(NOT OPENOCD_EXECUTABLE OR OPENOCD_VERSION VERSION_LESS "0.12.0")
 		openocd
 		PREFIX ${PROJECT_BINARY_DIR}/_deps/openocd
 		GIT_REPOSITORY https://github.com/raspberrypi/openocd.git
-		GIT_TAG rp2040-v0.12.0
+		GIT_TAG sdk-2.0.0
 		GIT_SHALLOW 1
 		GIT_PROGRESS 1
 		BUILD_IN_SOURCE 1
@@ -68,10 +68,14 @@ function(add_openocd_upload_target)
 
 	add_custom_target(
 		${ARGS_TARGET}-upload
-		COMMAND
-			${OPENOCD_EXECUTABLE} -s tcl -f interface/cmsis-dap.cfg -c
-			"adapter speed 5000" -f target/rp2040.cfg -c
-			"program $<TARGET_FILE:${ARGS_TARGET}> verify reset exit"
+		COMMAND ${OPENOCD_EXECUTABLE} -s tcl #
+			-f interface/cmsis-dap.cfg #
+			-c "adapter speed 5000" #
+			-f target/rp2040.cfg #
+			-c "program $<TARGET_FILE:${ARGS_TARGET}> verify" #
+			-c "reset init" #
+			-c "resume" #
+			-c "shutdown"
 		DEPENDS ${ARGS_TARGET}
 	)
 
