@@ -1,7 +1,10 @@
+#include "arke.h"
 #include <cstring>
+#include <hardware/platform_defs.h>
 #include <optional>
 
 #include <hardware/gpio.h>
+#include <hardware/pwm.h>
 #include <pico/stdlib.h>
 #include <pico/types.h>
 
@@ -14,6 +17,54 @@ constexpr static uint TCAN_TX       = 12;
 constexpr static uint TCAN_RX       = 13;
 constexpr static uint TCAN_SHUTDOWN = 14;
 constexpr static uint TCAN_STANDBY  = 15;
+
+class PWMPin {
+public:
+	PWMPin(uint pin, uint max = 255, uint freq_hz = 200)
+	    : d_slice{pwm_gpio_to_slice_num(pin)}
+	    , d_channel{pwm_gpio_to_channel(pin)} {
+
+		auto config = pwm_get_default_config();
+		pwm_config_set_clkdiv(
+		    &config,
+		    float(SYS_CLK_HZ) / float(max * freq_hz)
+		);
+		pwm_config_set_wrap(&config, max - 1);
+		gpio_set_function(pin, GPIO_FUNC_PWM);
+		Set(0);
+		pwm_init(d_slice, &config, true);
+	}
+
+	void Set(uint value) {
+		pwm_set_chan_level(d_slice, d_channel, 0);
+	}
+
+private:
+	uint d_slice, d_channel;
+};
+
+class Heater {
+public:
+	Heater(uint fanPin, uint heatPin)
+	    : d_heat{heatPin}
+	    , d_fan{fanPin}
+	    , d_config{ArkeNotusConfig_t{
+	          .RampDownTimeMS = 2000,
+	          .MinFan         = 50,
+	          .MaxHeat        = 200,
+	      }}
+	    , d_state{State::IDLE} {}
+
+private:
+	enum class State {
+		IDLE,
+		ON,
+		RAMP_DOWN,
+	};
+
+	PWMPin            d_heat, d_fan;
+	ArkeNotusConfig_t d_config;
+};
 
 void onArkeEvent(const ArkeEvent &e) {
 	switch (e.Class) {
@@ -55,11 +106,7 @@ void onArkeEvent(const ArkeEvent &e) {
 
 		break;
 	default:
-		Errorf(
-		    "[ARKE]: Got event for 0x%x, but my mask is %x, check values",
-		    e.Class,
-		    ARKE_NOTUS
-		);
+		Errorf("[ARKE]: Unrecognized class message %x", e.Class);
 	}
 };
 
