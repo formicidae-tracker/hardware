@@ -2,7 +2,6 @@
 
 #include <hardware/sync.h>
 #include <hardware/sync/spin_lock.h>
-#include <pico/lock_core.h>
 #include <pico/multicore.h>
 
 #include <algorithm>

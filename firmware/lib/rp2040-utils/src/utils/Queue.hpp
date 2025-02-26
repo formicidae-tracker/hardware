@@ -1,7 +1,6 @@
 #pragma once
 
 #include "hardware/sync.h"
-
 // this should be documented
 extern "C" {
 #include "pico/lock_core.h"
