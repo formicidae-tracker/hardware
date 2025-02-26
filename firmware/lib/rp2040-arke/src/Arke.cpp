@@ -7,6 +7,8 @@
 #include <hardware/regs/intctrl.h>
 #include <hardware/watchdog.h>
 
+#include <pico/platform.h>
+
 #include <algorithm>
 #include <cstdint>
 #include <optional>
@@ -31,6 +33,7 @@ public:
 
 	void handleNetworkCommand(const struct can2040_msg &);
 	void handleMessage(const struct can2040_msg &);
+	void handleReset(const struct can2040_msg &);
 	void handleChangeID(const struct can2040_msg &);
 	void handleHeartbeat(const struct can2040_msg &);
 
@@ -64,7 +67,7 @@ static void
 arke_can2040_cb(struct can2040 *bus, uint32_t notify, struct can2040_msg *msg) {
 	switch (notify) {
 	case CAN2040_NOTIFY_TX:
-		Debugf("[CAN] transmitted ID=%x Length=%d", msg->id, msg->dlc);
+		Debugf("[CAN]: transmitted ID=%x Length=%d", msg->id, msg->dlc);
 		break;
 	case CAN2040_NOTIFY_ERROR:
 		Warnf("[CAN]: error");
@@ -199,12 +202,16 @@ std::optional<int64_t> Arke::Work() {
 	return std::nullopt;
 }
 
+void arkeReset() {
+	watchdog_enable(1, true);
+	while (true) {
+	};
+}
+
 void Arke::handleNetworkCommand(const struct can2040_msg &msg) {
 	switch (ArkeNetworkCommand_e(msg.id & 0x7)) {
 	case ARKE_RESET_REQUEST:
-		watchdog_enable(1, true);
-		while (true) {
-		};
+		handleReset(msg);
 		break;
 	case ARKE_SYNCHRONISATION:
 		Warnf("[Arke]: Synchronization Not implemented.");
@@ -223,9 +230,28 @@ void Arke::handleNetworkCommand(const struct can2040_msg &msg) {
 	}
 }
 
+void Arke::handleReset(const struct can2040_msg &msg) {
+	if (msg.dlc != 1) {
+		Errorf("[ARKE]: Invalid reset command DLC: %d (required: 1)", msg.dlc);
+		return;
+	}
+	if (msg.data[0] != Data.ID && msg.data[0] != 0) {
+		return;
+	}
+	Infof(
+	    "[ARKE]: Network reset command ID=0x%x Will reset in 10ms",
+	    msg.data[0]
+	);
+	watchdog_enable(10, true);
+	while (true) {
+		tight_loop_contents();
+	}
+}
+
 void Arke::handleChangeID(const struct can2040_msg &msg) {
 	if (msg.dlc != 2) {
 		Errorf("[ARKE] Got change ID request, but dlc: %d (need 2)", msg.dlc);
+		return;
 	}
 	if (msg.data[0] != Data.ID || msg.data[1] == 0x00 ||
 	    msg.data[1] == msg.data[0]) {
@@ -235,10 +261,11 @@ void Arke::handleChangeID(const struct can2040_msg &msg) {
 		    msg.data[1],
 		    Data.ID
 		);
+		return;
 	}
 
 	Data.ID = msg.data[1];
-	ArkeNVStorage::Save(Data);
+	// ArkeNVStorage::Save(Data);
 	Infof("[ARKE]: change ID to %x", Data.ID);
 }
 
@@ -303,7 +330,7 @@ void Arke::transmitHeartbeat() {
 void Arke::handleHeartbeat(const struct can2040_msg &msg) {
 	int64_t period = 0;
 	if (msg.dlc == 2) {
-		period = msg.data[1] + (uint16_t(msg.data[0]) << 8);
+		period = msg.data[0] + (uint16_t(msg.data[1]) << 8);
 	} else if (msg.dlc != 0) {
 		Errorf(
 		    "[ARKE]: Invalid heartbeat message DLC %d (should be 0 or 2)",

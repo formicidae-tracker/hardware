@@ -4,19 +4,29 @@
 #include <cstdint>
 #include <cstring>
 #include <functional>
+#include <hardware/regs/addressmap.h>
+#include <hardware/sync.h>
 #include <map>
 #include <memory>
+#include <pico/flash.h>
+#include <pico/multicore.h>
+#include <pico/time.h>
 #include <type_traits>
 #include <vector>
 
 #include <hardware/flash.h>
-#include <pico/flash.h>
 
-#include "utils/Log.hpp"
+#include <utils/Defer.hpp>
+#include <utils/Log.hpp>
 
 #ifndef PICO_NV_STORAGE_NB_SECTOR
 #define PICO_NV_STORAGE_NB_SECTOR 1
 #endif
+
+namespace details {
+void PrintMemory(const uint8_t *addr, size_t size);
+void PrintFlashStorage();
+} // namespace details
 
 template <typename T, uint16_t UUID, size_t PagesPerObject = 1>
 class FlashStorage {
@@ -51,21 +61,23 @@ public:
 	);
 
 	inline static bool Load(T &obj) {
-		std::tuple<bool, T &> params{false, obj};
-		if (flash_safe_execute(load, &params, 500) != PICO_OK) {
-			return false;
-		}
-		return std::get<0>(params);
+		// auto saved = save_and_disable_interrupts();
+		multicore_lockout_start_blocking();
+		defer {
+			multicore_lockout_end_blocking();
+			// restore_interrupts_from_disabled(saved);
+		};
+		return load(obj);
 	}
 
 	inline static void Save(const T &obj) {
-		if (flash_safe_execute(
-		        save,
-		        const_cast<void *>(reinterpret_cast<const void *>(&obj)),
-		        500
-		    ) != PICO_OK) {
-			Errorf("[FlashStorage]: could not save to flash");
-		}
+		auto saved = save_and_disable_interrupts();
+		multicore_lockout_start_blocking();
+		defer {
+			multicore_lockout_end_blocking();
+			restore_interrupts_from_disabled(saved);
+		};
+		save(obj);
 	}
 
 private:
@@ -75,7 +87,7 @@ private:
 
 	struct Header {
 		const uint8_t Begin = 0xaa;
-		uint8_t       SizeInSector;
+		uint8_t       SizeInPages;
 		uint16_t      Identifier;
 	};
 
@@ -91,18 +103,19 @@ private:
 			if (apply(h) == false) {
 				break;
 			}
-			i += h->SizeInSector;
+			i += h->SizeInPages;
 		}
 	}
 
-	inline static void load(void *params_) {
-		std::tuple<bool, T &> *params =
-		    reinterpret_cast<std::tuple<bool, T &> *>(params_);
+	inline static int pageIndex(int addr) {
+		return (addr - XIP_BASE - XIP_OFFSET) / FLASH_PAGE_SIZE;
+	}
 
+	inline static bool load(T &obj) {
 		Debugf("[FlashStorage]: Identifier=%08x", UUID);
 		const Type *valid = nullptr;
 		forAllValidPages([&valid](const Header *h) {
-			if (h->Identifier == UUID && h->SizeInSector == PagesPerObject) {
+			if (h->Identifier == UUID && h->SizeInPages == PagesPerObject) {
 				valid = reinterpret_cast<const Type *>(
 				    reinterpret_cast<const uint8_t *>(h) + sizeof(Header)
 				);
@@ -111,11 +124,15 @@ private:
 		});
 
 		if (valid == nullptr) {
-			std::get<0>(*params) = false;
-			return;
+			Debugf("[FlashStorage]: No Pages found", UUID);
+			return false;
 		}
-		std::get<1>(*params) = *valid;
-		std::get<0>(*params) = true;
+		Debugf(
+		    "[FlashStorage]: Pages %d matches",
+		    pageIndex(int(valid) - sizeof(Header))
+		);
+		obj = *valid;
+		return true;
 	}
 
 	inline static size_t findFree() {
@@ -124,17 +141,24 @@ private:
 			    XIP_BASE + XIP_OFFSET + i * FLASH_PAGE_SIZE
 			);
 			if (h->Begin == MAGIC_WORD) {
-				i += h->SizeInSector;
+				i += h->SizeInPages;
 				continue;
 			}
+			Debugf("[FlashStorage]: page %d is free", i);
 			return i;
 		}
+		Debugf("[FlashStorage]: no page is free");
 		return PAGES_PER_SECTOR * PICO_NV_STORAGE_NB_SECTOR;
 	}
+#ifdef NDEBUG
+#define debugf(...)
+#else
+#define debugf(...) printf(__VA_ARGS__);
+#endif
 
-	inline static void save(void *obj_) {
-		const Type *obj = reinterpret_cast<const Type *>(obj_);
-		if (isSame(*obj)) {
+	inline static void save(const T &obj) {
+		Debugf("[FlashStorage]: storing object UUID=%d", UUID);
+		if (isSame(obj)) {
 			Debugf("[FlashStorage]: not saving as it is unchanged");
 			return;
 		}
@@ -142,16 +166,17 @@ private:
 		size_t idx = findFree();
 
 		if (idx == PAGES_PER_SECTOR * PICO_NV_STORAGE_NB_SECTOR) {
-			erase();
+			idx = erase();
 		}
 
 		uint8_t buffer[PagesPerObject * FLASH_PAGE_SIZE];
 		Header  h = {
-		     .SizeInSector = PagesPerObject,
-		     .Identifier   = UUID,
+		     .SizeInPages = PagesPerObject,
+		     .Identifier  = UUID,
         };
+
 		memcpy(buffer, &h, sizeof(Header));
-		memcpy(buffer + sizeof(Header), obj, sizeof(Type));
+		memcpy(buffer + sizeof(Header), &obj, sizeof(Type));
 		memset(
 		    buffer + sizeof(Header) + sizeof(Type),
 		    0x00,
@@ -159,25 +184,30 @@ private:
 		);
 
 		flash_range_program(
-		    XIP_OFFSET + idx * PagesPerObject * FLASH_PAGE_SIZE,
+		    XIP_OFFSET + idx * FLASH_PAGE_SIZE,
 		    buffer,
 		    PagesPerObject * FLASH_PAGE_SIZE
 		);
-		Infof("[FlashStorage]: saved at page %d", idx * PagesPerObject);
+
+		Infof("[FlashStorage]: saved at page %d", idx);
 	}
 
-	inline static void erase() {
+	inline static int erase() {
+		Infof("[FlashStorage]: erasing page");
+		debugf("[FlashStorage]: erasing page\n");
+
 		// We need to save all values that will not be affected
 		std::map<uint16_t, std::vector<uint8_t>> saved;
 		forAllValidPages([&](const Header *h) {
 			if (h->Identifier == UUID) {
 				return true;
 			}
-			saved[h->Identifier].resize(h->SizeInSector * FLASH_PAGE_SIZE);
+			debugf("[FlashStorage]: Saving UUID=%d\n", h->Identifier);
+			saved[h->Identifier].resize(h->SizeInPages * FLASH_PAGE_SIZE);
 			memcpy(
 			    saved[h->Identifier].data(),
 			    reinterpret_cast<const uint8_t *>(h),
-			    h->SizeInSector * FLASH_PAGE_SIZE
+			    h->SizeInPages * FLASH_PAGE_SIZE
 			);
 			return true;
 		});
@@ -187,14 +217,28 @@ private:
 		);
 		size_t i = 0;
 		for (const auto &[_, data] : saved) {
+			auto header = reinterpret_cast<const Header *>(data.data());
+			debugf(
+			    "[FlashStorage]: Programming UUID=%d at page %d size:%d\n",
+			    header->Identifier,
+			    i / FLASH_PAGE_SIZE,
+			    data.size()
+			);
+
 			flash_range_program(XIP_OFFSET + i, data.data(), data.size());
+			debugf(
+			    "[FlashStorage]: done programming UUID=%d.\n",
+			    header->Identifier
+			);
 			i += data.size();
 		}
+		debugf("[FlashStorage]: next free page is %d\n", i / FLASH_PAGE_SIZE);
+		return i / FLASH_PAGE_SIZE;
 	}
 
 	inline static bool isSame(const T &obj) {
 		Type saved;
-		if (!Load(saved)) {
+		if (!load(saved)) {
 			return false;
 		}
 		return memcmp(&saved, &obj, sizeof(Type)) == 0;

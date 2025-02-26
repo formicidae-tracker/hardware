@@ -22,6 +22,9 @@ if(IS_IMPORTED)
 		)
 	endif(NOT PICO_SDK_PATH)
 else(IS_IMPORTED)
+
+	include(${DEPS_DIR}/cmake/OpenOCD.cmake)
+
 	set(FAMILY rp2040)
 	set(BOARD pico_sdk)
 	pico_sdk_init()
@@ -40,5 +43,13 @@ if(NOT IS_IMPORTED)
 	add_executable(test_compilation tests/main.cpp)
 
 	target_link_libraries(test_compilation rp2040-utils)
+
+	add_executable(test_storage tests/storage.cpp)
+
+	target_link_libraries(test_storage rp2040-utils)
+
+	pico_add_extra_outputs(test_storage)
+
+	add_openocd_upload_target(TARGET test_storage)
 
 endif(NOT IS_IMPORTED)

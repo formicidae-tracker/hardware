@@ -4,6 +4,8 @@
 #include "pico/time.h"
 #include "pico/types.h"
 
+#include <hardware/sync.h>
+#include <pico/lock_core.h>
 #include <stdarg.h>
 
 #include <array>
@@ -50,6 +52,7 @@ private:
 	std::array<char, BufferSize + 1> d_buffer;
 	size_t                           d_start = 0;
 	Queue<Message, 64, true>         d_queue;
+	lock_core_t                      d_lock;
 	Level                            d_level = Level::INFO;
 };
 

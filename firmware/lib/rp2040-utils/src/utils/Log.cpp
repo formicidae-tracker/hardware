@@ -1,6 +1,8 @@
 #include "Log.hpp"
 
-#include <pico/flash.h>
+#include <hardware/sync.h>
+#include <hardware/sync/spin_lock.h>
+#include <pico/lock_core.h>
 #include <pico/multicore.h>
 
 #include <algorithm>
@@ -44,6 +46,7 @@ void Logger::Logf(Level level, const char *fmt, va_list args) {
 }
 
 Logger::Logger() {
+	lock_init(&d_lock, next_striped_spin_lock_num());
 	d_buffer[BufferSize] = 0;
 }
 
@@ -57,7 +60,13 @@ void printTime(absolute_time_t time) {
 }
 
 void Logger::FormatsPendingLogsLoop() {
-	flash_safe_execute_core_init();
+	multicore_lockout_victim_init();
+
+	auto &lock = Logger::Get().d_lock;
+
+	auto saved = spin_lock_blocking(lock.spin_lock);
+	lock_internal_spin_unlock_with_notify(&lock, saved);
+
 	static uint8_t colors[6] = {
 	    1, // FATAL - RED
 	    1, // ERROR - RED
@@ -70,6 +79,8 @@ void Logger::FormatsPendingLogsLoop() {
 	struct Message msg;
 
 	while (true) {
+		// we need to save interrupt to not enter in deadlock.
+
 		Logger::Get().d_queue.RemoveBlocking(msg);
 
 		char  *msgStr = const_cast<char *>(msg.Value);
@@ -104,5 +115,8 @@ void Logger::FormatsPendingLogsLoop() {
 }
 
 void Logger::InitLogsOnSecondCore() {
+	auto &lock = Logger::Get().d_lock;
 	multicore_launch_core1(FormatsPendingLogsLoop);
+	auto saved = spin_lock_blocking(lock.spin_lock);
+	lock_internal_spin_unlock_with_wait(&lock, saved);
 }

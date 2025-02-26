@@ -132,25 +132,25 @@ private:
 	absolute_time_t d_rampDownStart = 0;
 };
 
-static Heater heater{22, 23};
+static std::unique_ptr<Heater> heater;
 
 void onArkeEvent(const ArkeEvent &e) {
 	switch (e.Class) {
 	case ARKE_NOTUS_SET_POINT:
 		if (e.RTR) {
-			ArkeSend<uint8_t>(ARKE_NOTUS_SET_POINT, heater.Level());
+			ArkeSend<uint8_t>(ARKE_NOTUS_SET_POINT, heater->Level());
 			break;
 		}
 		if (e.Size == 1) {
 			Infof("[ARKE]: Setting power to %d", e.Data[0]);
-			heater.Set(e.Data[0]);
+			heater->Set(e.Data[0]);
 		} else {
 			Warnf("[ARKE]: Unexpected DLC %d, (required: 1)", e.Size);
 		}
 		break;
 	case ARKE_NOTUS_CONFIG:
 		if (e.RTR) {
-			ArkeSend<ArkeNotusConfig_t>(ARKE_NOTUS_CONFIG, heater.Config());
+			ArkeSend<ArkeNotusConfig_t>(ARKE_NOTUS_CONFIG, heater->Config());
 			break;
 		}
 		if (e.Size != sizeof(ArkeNotusConfig_t)) {
@@ -162,7 +162,7 @@ void onArkeEvent(const ArkeEvent &e) {
 		} else {
 			ArkeNotusConfig_t config;
 			memcpy((uint8_t *)(&config), e.Data, sizeof(ArkeNotusConfig_t));
-			heater.SetConfig(config);
+			heater->SetConfig(config);
 		}
 
 		break;
@@ -178,6 +178,8 @@ int main() {
 #ifndef NDEBUG
 	Logger::Get().SetLevel(Logger::Level::DEBUG);
 #endif
+
+	heater = std::make_unique<Heater>(22, 23);
 
 	gpio_init(TCAN_SHUTDOWN);
 	gpio_init(TCAN_STANDBY);
