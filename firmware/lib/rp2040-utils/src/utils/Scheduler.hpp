@@ -1,4 +1,4 @@
-#pragma Once
+#pragma once
 
 #include <pico/time.h>
 

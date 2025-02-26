@@ -4,17 +4,16 @@
 #include <cstdint>
 #include <cstring>
 #include <functional>
-#include <hardware/regs/addressmap.h>
-#include <hardware/sync.h>
 #include <map>
 #include <memory>
-#include <pico/flash.h>
-#include <pico/multicore.h>
-#include <pico/time.h>
 #include <type_traits>
 #include <vector>
 
+extern "C" {
 #include <hardware/flash.h>
+#include <pico/multicore.h>
+#include <pico/time.h>
+}
 
 #include <utils/Defer.hpp>
 #include <utils/Log.hpp>
@@ -71,11 +70,9 @@ public:
 	}
 
 	inline static void Save(const T &obj) {
-		auto saved = save_and_disable_interrupts();
 		multicore_lockout_start_blocking();
 		defer {
 			multicore_lockout_end_blocking();
-			restore_interrupts_from_disabled(saved);
 		};
 		save(obj);
 	}

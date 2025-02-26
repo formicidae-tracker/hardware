@@ -1,15 +1,17 @@
 #pragma once
 
-#include "Queue.hpp"
-#include "pico/time.h"
-#include "pico/types.h"
+extern "C" {
+#include <pico/time.h>
+#include <pico/types.h>
+}
 
-#include <hardware/sync.h>
 #include <stdarg.h>
 
 #include <array>
 #include <cstdio>
 #include <string>
+
+#include <utils/Queue.hpp>
 
 class Logger {
 public:
