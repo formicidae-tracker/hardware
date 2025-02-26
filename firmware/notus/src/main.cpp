@@ -1,4 +1,5 @@
 #include "arke.h"
+#include <atomic>
 #include <cstring>
 #include <hardware/platform_defs.h>
 #include <optional>
@@ -6,8 +7,10 @@
 #include <hardware/gpio.h>
 #include <hardware/pwm.h>
 #include <pico/stdlib.h>
+#include <pico/time.h>
 #include <pico/types.h>
 
+#include <utils/FlashStorage.hpp>
 #include <utils/Log.hpp>
 #include <utils/Scheduler.hpp>
 
@@ -47,15 +50,71 @@ class Heater {
 public:
 	Heater(uint fanPin, uint heatPin)
 	    : d_heat{heatPin}
-	    , d_fan{fanPin}
-	    , d_config{ArkeNotusConfig_t{
-	          .RampDownTimeMS = 2000,
-	          .MinFan         = 50,
-	          .MaxHeat        = 200,
-	      }}
-	    , d_state{State::IDLE} {}
+	    , d_fan{fanPin} {
+		NVStorage::Load(d_config);
+	}
+
+	std::optional<int64_t> work(absolute_time_t now) {
+		switch (d_state) {
+		case State::IDLE:
+		case State::ON:
+			return std::nullopt;
+		case State::RAMP_DOWN:
+			if (absolute_time_diff_us(d_rampDownStart, now) >
+			    (d_config.RampDownTimeMS * 1000)) {
+				d_fan.Set(0);
+				d_heat.Set(0);
+				d_state = State::IDLE;
+			}
+			return std::nullopt;
+		}
+	}
+
+	uint8_t Level() const {
+		return d_level;
+	}
+
+	void Set(uint8_t level) {
+		if (level == d_level) {
+			return;
+		}
+		d_level = level;
+
+		if (level == 0) {
+			if (d_state == State::ON) {
+				// switch to ramp down, no heat, min fan for
+				// d_config.RampDownTimeMS
+				d_rampDownStart = get_absolute_time();
+				d_fan.Set(d_config.MinFan);
+				d_heat.Set(0);
+				d_state = State::RAMP_DOWN;
+			}
+			return;
+		}
+		// compute the actual level of fan and heat.
+		uint8_t fanLevel = std::max(
+		    0,
+		    std::min(
+		        255,
+		        int(level) * (255 - d_config.MinFan) / 255 + d_config.MinFan
+		    )
+		);
+		d_fan.Set(fanLevel);
+		d_heat.Set(level);
+		d_state = State::ON;
+	}
+
+	const ArkeNotusConfig_t &Config() const {
+		return d_config;
+	}
+
+	void SetConfig(const ArkeNotusConfig_t &config) {
+		d_config = config;
+		NVStorage::Save(config);
+	}
 
 private:
+	typedef FlashStorage<ArkeNotusConfig_t, 1, 1> NVStorage;
 	enum class State {
 		IDLE,
 		ON,
@@ -63,33 +122,35 @@ private:
 	};
 
 	PWMPin            d_heat, d_fan;
-	ArkeNotusConfig_t d_config;
+	ArkeNotusConfig_t d_config = ArkeNotusConfig_t{
+	    .RampDownTimeMS = 2500,
+	    .MinFan         = 50,
+	    .MaxHeat        = 255,
+	};
+	State           d_state = State::IDLE;
+	uint8_t         d_level = 0;
+	absolute_time_t d_rampDownStart = 0;
 };
+
+static Heater heater{22, 23};
 
 void onArkeEvent(const ArkeEvent &e) {
 	switch (e.Class) {
 	case ARKE_NOTUS_SET_POINT:
 		if (e.RTR) {
-			ArkeSend<uint8_t>(ARKE_NOTUS_SET_POINT, 0);
+			ArkeSend<uint8_t>(ARKE_NOTUS_SET_POINT, heater.Level());
 			break;
 		}
 		if (e.Size == 1) {
 			Infof("[ARKE]: Setting power to %d", e.Data[0]);
-			// TODO: set the power.
+			heater.Set(e.Data[0]);
 		} else {
 			Warnf("[ARKE]: Unexpected DLC %d, (required: 1)", e.Size);
 		}
 		break;
 	case ARKE_NOTUS_CONFIG:
 		if (e.RTR) {
-			ArkeSend<ArkeNotusConfig_t>(
-			    ARKE_NOTUS_CONFIG,
-			    ArkeNotusConfig_t{
-			        .RampUpTimeMS   = 0,
-			        .RampDownTimeMS = 0,
-			        .MinOnTimeMS    = 0,
-			    }
-			);
+			ArkeSend<ArkeNotusConfig_t>(ARKE_NOTUS_CONFIG, heater.Config());
 			break;
 		}
 		if (e.Size != sizeof(ArkeNotusConfig_t)) {
@@ -101,7 +162,7 @@ void onArkeEvent(const ArkeEvent &e) {
 		} else {
 			ArkeNotusConfig_t config;
 			memcpy((uint8_t *)(&config), e.Data, sizeof(ArkeNotusConfig_t));
-			// TODO: set the config
+			heater.SetConfig(config);
 		}
 
 		break;
