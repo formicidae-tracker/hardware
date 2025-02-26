@@ -1,6 +1,8 @@
 #pragma once
 
+extern "C" {
 #include <arke.h>
+}
 
 #include <cstddef>
 #include <cstdint>

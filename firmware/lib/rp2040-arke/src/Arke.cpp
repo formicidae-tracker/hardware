@@ -1,13 +1,10 @@
 #include "Arke.hpp"
+
+extern "C" {
 #include "arke.h"
-
-#include <hardware/irq.h>
-#include <hardware/pio.h>
-#include <hardware/platform_defs.h>
-#include <hardware/regs/intctrl.h>
+#include <hardware/gpio.h>
 #include <hardware/watchdog.h>
-
-#include <pico/platform.h>
+}
 
 #include <algorithm>
 #include <cstdint>
@@ -202,12 +199,6 @@ std::optional<int64_t> Arke::Work() {
 	return std::nullopt;
 }
 
-void arkeReset() {
-	watchdog_enable(1, true);
-	while (true) {
-	};
-}
-
 void Arke::handleNetworkCommand(const struct can2040_msg &msg) {
 	switch (ArkeNetworkCommand_e(msg.id & 0x7)) {
 	case ARKE_RESET_REQUEST:
@@ -265,7 +256,7 @@ void Arke::handleChangeID(const struct can2040_msg &msg) {
 	}
 
 	Data.ID = msg.data[1];
-	// ArkeNVStorage::Save(Data);
+	ArkeNVStorage::Save(Data);
 	Infof("[ARKE]: change ID to %x", Data.ID);
 }
 
