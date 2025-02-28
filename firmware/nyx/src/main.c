@@ -1,15 +1,19 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-#define PIN PA1
+#define PIN 1
 #define DELAY_MS 500
+
+
+
+
 
 int main() {
 
-	DDRA = _BV(PIN);
+	PORTA.DIRSET = _BV(1);
 
 	while(1) {
-		PORTA ^= _BV(PIN);
+		PORTA.OUT ^= _BV(1);
 		_delay_ms(DELAY_MS);
 	}
 	return 0;
