@@ -15,12 +15,16 @@ int main() {
 #endif
 	LED green{11}, yellow{12};
 
-	green.Set(255, 2 * 1000 * 1000);
+	green.Set(100, 2 * 1000 * 1000);
 	yellow.Blink(3);
+
+#ifndef NDEBUG
 	Scheduler::Schedule(1, 1000000, [](absolute_time_t) {
 		Infof("Alive!");
 		return std::nullopt;
 	});
+#endif
+
 	for (;;) {
 		Scheduler::Work();
 	}
