@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cstdint>
 #include <optional>
 #include <pico/types.h>
 
@@ -8,7 +9,7 @@ public:
 	LED(uint pin);
 
 	void Set(uint8_t level, uint pulsePeriod_us = 0);
-	void Blink(uint count);
+	void Blink(uint count, uint8_t level = 255);
 
 private:
 	std::optional<int64_t> work(absolute_time_t now);
