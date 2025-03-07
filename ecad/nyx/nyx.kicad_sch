@@ -3815,6 +3815,12 @@
 		(uuid "1a9cc1d3-1c0e-4b4d-85e6-bc9a6730e95c")
 	)
 	(junction
+		(at 198.12 204.47)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1eb70d0a-a358-411b-ad06-bc1d168ed851")
+	)
+	(junction
 		(at 73.66 133.35)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3911,7 +3917,7 @@
 		(uuid "4805aed6-4735-4d6a-9b7b-f3fc0433a1c2")
 	)
 	(junction
-		(at 199.39 209.55)
+		(at 198.12 209.55)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "494fc035-b1c8-4bae-ae63-e891d7269e47")
@@ -4053,12 +4059,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a06d38d1-8fee-4761-ab89-46335fed6454")
-	)
-	(junction
-		(at 198.12 196.85)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a6cfd9a7-17f3-432b-971e-4f2bbf526222")
 	)
 	(junction
 		(at 299.72 139.7)
@@ -4223,10 +4223,6 @@
 		(uuid "fe142799-1ab2-4db1-ae8f-f57772279bb9")
 	)
 	(no_connect
-		(at 185.42 204.47)
-		(uuid "1c0d2f63-8833-43f6-96d1-c745b441a36e")
-	)
-	(no_connect
 		(at 185.42 207.01)
 		(uuid "4620aff6-66a9-4607-b9d3-136da650aaaa")
 	)
@@ -4263,6 +4259,16 @@
 			(type default)
 		)
 		(uuid "0624f70c-ea80-4fb5-bb8d-9619bd2582c2")
+	)
+	(wire
+		(pts
+			(xy 198.12 204.47) (xy 204.47 204.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "06b46b38-5837-4dde-8296-9ac232aad4a7")
 	)
 	(wire
 		(pts
@@ -4393,6 +4399,16 @@
 			(type default)
 		)
 		(uuid "111543dc-9e2c-4073-9fe1-47f62ea12e88")
+	)
+	(wire
+		(pts
+			(xy 198.12 204.47) (xy 185.42 204.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "14748e1e-154c-49ee-b090-09d486376cc3")
 	)
 	(wire
 		(pts
@@ -4896,16 +4912,6 @@
 	)
 	(wire
 		(pts
-			(xy 198.12 196.85) (xy 209.55 196.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4a270792-bb1f-4dda-861e-3f6db1270106")
-	)
-	(wire
-		(pts
 			(xy 275.59 58.42) (xy 275.59 60.96)
 		)
 		(stroke
@@ -5386,7 +5392,7 @@
 	)
 	(wire
 		(pts
-			(xy 199.39 209.55) (xy 204.47 209.55)
+			(xy 198.12 209.55) (xy 204.47 209.55)
 		)
 		(stroke
 			(width 0)
@@ -5613,6 +5619,16 @@
 			(type default)
 		)
 		(uuid "96763afe-d461-4465-b5a1-beefcdb89ce5")
+	)
+	(wire
+		(pts
+			(xy 198.12 194.31) (xy 198.12 204.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "972ad4ab-569e-4c39-973b-31ed524cc07d")
 	)
 	(wire
 		(pts
@@ -5866,7 +5882,7 @@
 	)
 	(wire
 		(pts
-			(xy 199.39 209.55) (xy 199.39 213.36)
+			(xy 198.12 209.55) (xy 198.12 213.36)
 		)
 		(stroke
 			(width 0)
@@ -6276,16 +6292,6 @@
 	)
 	(wire
 		(pts
-			(xy 198.12 194.31) (xy 198.12 196.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d4d34afb-b8ea-4074-9af3-43821894caac")
-	)
-	(wire
-		(pts
 			(xy 207.01 36.83) (xy 212.09 36.83)
 		)
 		(stroke
@@ -6486,7 +6492,7 @@
 	)
 	(wire
 		(pts
-			(xy 185.42 196.85) (xy 198.12 196.85)
+			(xy 185.42 196.85) (xy 209.55 196.85)
 		)
 		(stroke
 			(width 0)
@@ -6636,7 +6642,7 @@
 	)
 	(wire
 		(pts
-			(xy 185.42 209.55) (xy 199.39 209.55)
+			(xy 185.42 209.55) (xy 198.12 209.55)
 		)
 		(stroke
 			(width 0)
@@ -6814,6 +6820,16 @@
 		)
 		(uuid "473023f0-7a81-478d-9765-5b79e4c33fcc")
 	)
+	(label "PG"
+		(at 204.47 204.47 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "47adab79-d200-4500-98c4-ab77b95a4438")
+	)
 	(label "I_LIM_G"
 		(at 201.93 49.53 0)
 		(effects
@@ -6834,7 +6850,7 @@
 		)
 		(uuid "5debd255-18c0-47a8-9c04-e8fe576c2cb9")
 	)
-	(label "UDPI{slash}~{RST}"
+	(label "PG"
 		(at 356.87 46.99 0)
 		(effects
 			(font
@@ -10962,7 +10978,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 199.39 213.36 180)
+		(at 198.12 213.36 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10971,7 +10987,7 @@
 		(fields_autoplaced yes)
 		(uuid "a807b2c6-cdf7-49fa-b786-0ac81a6f3663")
 		(property "Reference" "TP6"
-			(at 201.93 215.3919 0)
+			(at 200.66 215.3919 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10980,7 +10996,7 @@
 			)
 		)
 		(property "Value" "5019"
-			(at 201.93 217.9319 0)
+			(at 200.66 217.9319 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10989,7 +11005,7 @@
 			)
 		)
 		(property "Footprint" "fort:TestPoint_Keystone_5019_Minature"
-			(at 194.31 213.36 0)
+			(at 193.04 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10998,7 +11014,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 194.31 213.36 0)
+			(at 193.04 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11007,7 +11023,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 199.39 213.36 0)
+			(at 198.12 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11016,7 +11032,7 @@
 			)
 		)
 		(property "MPN" "5019"
-			(at 199.39 213.36 0)
+			(at 198.12 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
