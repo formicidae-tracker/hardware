@@ -4,6 +4,8 @@ set(CMAKE_TOOLCHAIN_FILE ${DEPS_DIR}/cmake-avr/generic-gcc-avr.cmake)
 set(AVR_MCU attiny202)
 set(AVR_SIZE_ARGS -B)
 
+set(AVR_UPLOADTOOL pymcuprog)
+
 cmake_minimum_required(VERSION 3.12)
 project(
 	nyx
@@ -23,5 +25,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED 1)
 set(MCU_SPEED "10000000L")
 
 add_definitions("-DF_CPU=${MCU_SPEED}")
+
+find_program(PYMCUPROG_EXECUTABLE pymcuprog REQUIRED)
 
 add_subdirectory(src)
