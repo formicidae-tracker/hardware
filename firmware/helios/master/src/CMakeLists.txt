@@ -1,8 +1,18 @@
-set(SRC_FILES main.c
-	          ModuleManager.c)
+set(SRC_FILES #
+	main.cpp #
+	LED.cpp
+)
 
-set(HDR_FILES ModuleManager.h)
+set(HDR_FILES #
+	LED.hpp #
+)
 
-add_avr_executable(helios-master ${SRC_FILES} ${HDR_FILES})
+add_executable(helios ${SRC_FILES})
 
-avr_target_link_libraries(helios-master libarke yaacl)
+target_compile_definitions(helios PUBLIC BOARD=pico_sdk)
+
+target_link_libraries(helios pico_stdlib rp2040-utils rp2040-arke hardware_pwm)
+
+pico_add_extra_outputs(helios)
+
+add_openocd_upload_target(TARGET helios)
