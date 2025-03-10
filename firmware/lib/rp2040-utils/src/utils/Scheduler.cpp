@@ -15,11 +15,12 @@ void Scheduler::Work() {
 
 		auto res = it->second.Task(now);
 		if (res.has_value()) {
-			if (res.value() < 0) {
-				it = d_tasks.erase(it);
-				continue;
-			}
 			it->second.Period = res.value();
+		}
+
+		if (it->second.Period < 0) {
+			it = d_tasks.erase(it);
+			continue;
 		}
 
 		it->second.Next += it->second.Period;
@@ -31,8 +32,10 @@ void Scheduler::Schedule(uint8_t priority, int64_t period_us, Task &&task) {
 	d_tasks.emplace(std::make_pair(
 	    priority,
 	    TaskData{
-	        .Next   = get_absolute_time(),
+	        .Next   = period_us < 0 ? make_timeout_time_us(-period_us)
+	                                : get_absolute_time(),
 	        .Task   = std::move(task),
-	        .Period = uint64_t(period_us)}
+	        .Period = period_us,
+	    }
 	));
 }

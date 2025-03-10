@@ -18,7 +18,7 @@ private:
 	struct TaskData {
 		absolute_time_t Next;
 		Scheduler::Task Task;
-		uint64_t        Period;
+		int64_t         Period;
 	};
 
 	static std::multimap<uint8_t, TaskData> d_tasks;
