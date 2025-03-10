@@ -276,67 +276,60 @@ private:
 		bool            d_onSync  = false;
 	};
 
-static Helios helios{Helios::Args{
-    .SyncOutPin    = 25,
-    .InIsolatedPin = 19,
-    .InTTLPin      = 23,
-    .TxPin         = 8,
-    .StrobePin     = 24,
-    .InhibitPin    = 20,
-}};
+    static std::unique_ptr<Helios> helios;
 
-constexpr static uint TCAN_SHUTDOWN = 26;
-constexpr static uint TCAN_STANDBY  = 27;
-constexpr static uint TCAN_RX       = 41;
-constexpr static uint TCAN_TX       = 40;
+    constexpr static uint TCAN_SHUTDOWN = 26;
+    constexpr static uint TCAN_STANDBY  = 27;
+    constexpr static uint TCAN_RX       = 41;
+    constexpr static uint TCAN_TX       = 40;
 
-void onArkeEvent(const ArkeEvent &e) {
-	switch (e.Class) {
-	case ARKE_HELIOS_SET_POINT:
-		if (e.RTR) {
-			ArkeSend<ArkeHeliosSetPoint_t>(
-			    ARKE_HELIOS_SET_POINT,
-			    helios.Visible()
-			);
-			break;
-		}
-		if (e.Size == sizeof(ArkeHeliosSetPoint_t)) {
-			helios.SetVisible(e.as<ArkeHeliosSetPoint_t>());
-		} else {
-			Warnf(
-			    "[ARKE]: Unexpected DLC %d, (required %d)",
-			    e.Size,
-			    sizeof(ArkeHeliosSetPoint_t)
-			);
-		}
+    void onArkeEvent(const ArkeEvent &e) {
+	    switch (e.Class) {
+	    case ARKE_HELIOS_SET_POINT:
+		    if (e.RTR) {
+			    ArkeSend<ArkeHeliosSetPoint_t>(
+			        ARKE_HELIOS_SET_POINT,
+			        helios->Visible()
+			    );
+			    break;
+		    }
+		    if (e.Size == sizeof(ArkeHeliosSetPoint_t)) {
+			    helios->SetVisible(e.as<ArkeHeliosSetPoint_t>());
+		    } else {
+			    Warnf(
+			        "[ARKE]: Unexpected DLC %d, (required %d)",
+			        e.Size,
+			        sizeof(ArkeHeliosSetPoint_t)
+			    );
+		    }
 
-		break;
-	case ARKE_HELIOS_PULSE_MODE:
-		Warnf("[ARKE]: Not implemented yet");
-		break;
-	case ARKE_HELIOS_TRIIGER_MODE:
-		if (e.RTR) {
-			ArkeSend<ArkeHeliosTriggerConfig_t>(
-			    ARKE_HELIOS_TRIIGER_MODE,
-			    helios.Trigger()
-			);
-			break;
-		}
+		    break;
+	    case ARKE_HELIOS_PULSE_MODE:
+		    Warnf("[ARKE]: Not implemented yet");
+		    break;
+	    case ARKE_HELIOS_TRIIGER_MODE:
+		    if (e.RTR) {
+			    ArkeSend<ArkeHeliosTriggerConfig_t>(
+			        ARKE_HELIOS_TRIIGER_MODE,
+			        helios->Trigger()
+			    );
+			    break;
+		    }
 
-		if (e.Size == sizeof(ArkeHeliosTriggerConfig_t)) {
-			helios.SetTrigger(e.as<ArkeHeliosTriggerConfig_t>());
-		} else {
-			Warnf(
-			    "[ARKE]: Unexpected DLC %d, (required: %d)",
-			    e.Size,
-			    sizeof(ArkeHeliosTriggerConfig_t)
-			);
-		}
-		break;
-	default:
-		Warnf("[ARKE]: Unexpected message 0x%03X DLC:%d", e.Class, e.Size);
-	}
-}
+		    if (e.Size == sizeof(ArkeHeliosTriggerConfig_t)) {
+			    helios->SetTrigger(e.as<ArkeHeliosTriggerConfig_t>());
+		    } else {
+			    Warnf(
+			        "[ARKE]: Unexpected DLC %d, (required: %d)",
+			        e.Size,
+			        sizeof(ArkeHeliosTriggerConfig_t)
+			    );
+		    }
+		    break;
+	    default:
+		    Warnf("[ARKE]: Unexpected message 0x%03X DLC:%d", e.Class, e.Size);
+	    }
+    }
 
 void init() {
 	stdio_init_all();
@@ -345,6 +338,15 @@ void init() {
 #ifndef NDEBUG
 	Logger::Get().SetLevel(Logger::Level::DEBUG);
 #endif
+
+	helios = std::make_unique<Helios>(Helios::Args{
+	    .SyncOutPin    = 25,
+	    .InIsolatedPin = 19,
+	    .InTTLPin      = 23,
+	    .TxPin         = 8,
+	    .StrobePin     = 24,
+	    .InhibitPin    = 20,
+	});
 
 	gpio_init(TCAN_SHUTDOWN);
 	gpio_init(TCAN_STANDBY);
@@ -379,11 +381,12 @@ int main() {
 		Infof("Alive!");
 		return std::nullopt;
 	});
+	green.Set(255, 2 * 1000 * 1000);
+
 #endif
 
 	for (;;) {
 		Scheduler::Work();
-
 	}
 	return 0;
 }

@@ -62,7 +62,7 @@ void LED::performPulse(absolute_time_t now) {
 
 	target = phase * uint(d_level) / d_pulsePeriod_us;
 
-	Debugf(
+	Tracef(
 	    "[LED %d:%d]: phase: %d period: %d (%.2f%%) target: %d",
 	    d_slice,
 	    d_channel,
