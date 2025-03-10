@@ -8,6 +8,8 @@ set(SRC_FILES
 	Log.cpp
 	FlashStorage.hpp
 	FlashStorage.cpp
+	Duration.cpp
+	Duration.hpp
 )
 
 add_library(rp2040-utils INTERFACE)

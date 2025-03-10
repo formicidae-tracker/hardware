@@ -1,3 +1,4 @@
+#include <cstdint>
 #include <functional>
 #include <optional>
 
@@ -7,6 +8,7 @@
 #include <pico/time.h>
 #include <pico/types.h>
 
+#include <utils/Duration.hpp>
 #include <utils/FlashStorage.hpp>
 #include <utils/Log.hpp>
 #include <utils/Scheduler.hpp>
@@ -102,7 +104,7 @@ public:
 		}
 		d_state = State::PULSE_BREAK;
 		sendValue();
-		Scheduler::Schedule(TASKLET_PRIORITY, -1000, [this](absolute_time_t) {
+		Scheduler::Schedule(TASKLET_PRIORITY, -2000, [this](absolute_time_t) {
 			rearm();
 			return -1;
 		});
@@ -120,16 +122,15 @@ private:
 			return;
 		}
 		gpio_set_function(d_pins[0], UART_FUNCSEL_NUM(1, d_pins[0]));
-		d_buffer[0] = 0xaa;
+		d_buffer[0] = 0x55;
 		d_buffer[1] = d_nextValue.value().Visible;
 		d_buffer[2] = d_nextValue.value().UV;
-		d_buffer[3] = 0x00;
-		uart_puts(uart1, d_buffer);
+		uart_write_blocking(uart1, (const uint8_t *)(d_buffer), 3);
 		d_nextValue = std::nullopt;
 	}
 
 	void rearm() {
-		gpio_set_function(d_pins[0], UART_FUNCSEL_NUM(1, d_pins[0]));
+		gpio_set_function(d_pins[0], GPIO_FUNC_SIO);
 		d_state = State::IDLE;
 	}
 
@@ -140,7 +141,7 @@ private:
 	uint d_txPin, outPin;
 
 	std::optional<ArkeHeliosSetPoint_t> d_nextValue;
-	char                                d_buffer[4];
+	char                                d_buffer[3];
 
 	std::array<uint, N> d_pins;
 };
@@ -202,13 +203,23 @@ public:
 		bool triggerNow  = d_pulsePeriod_us <= 0;
 		d_pulsePeriod_us = config.Period_hecto_us * 100;
 		d_pulseWidth_us  = config.Pulse_us;
+		if (d_pulsePeriod_us >= 0) {
+			Infof(
+			    "[Helios]: starting generating pulses, length: %s, period: %s",
+			    FormatDuration(Duration(d_pulseWidth_us)).c_str(),
+			    FormatDuration(Duration(d_pulsePeriod_us)).c_str()
+			);
+		} else {
+			Infof("[Helios]: using external pulse trigger");
+		}
+
 		if (triggerNow) {
-			d_lastPulse = get_absolute_time() - d_pulsePeriod_us;
+			auto now    = get_absolute_time();
+			d_lastPulse = now - d_pulsePeriod_us;
 		}
 	}
 
-private:
-	void work() {
+	void Work() {
 		d_slaves.SetInhibited(gpio_get(d_pins.InhibitPin));
 
 		bool hasTrigger =
@@ -239,6 +250,7 @@ private:
 		}
 	}
 
+private:
 	void generatePulse(absolute_time_t now) {
 		auto ellapsed = absolute_time_diff_us(d_lastPulse, now);
 		if (d_onPulse && ellapsed > d_pulseWidth_us) {
@@ -263,73 +275,74 @@ private:
 		}
 	}
 
-	    SlaveCommunicationMultiplexer<2> d_slaves;
-		Args                             d_pins;
+	SlaveCommunicationMultiplexer<2> d_slaves;
+	Args                             d_pins;
 
-		ArkeHeliosSetPoint_t d_setPoint = {.Visible = 0, .UV = 0};
+	ArkeHeliosSetPoint_t d_setPoint = {.Visible = 0, .UV = 0};
 
-		uint16_t        d_visiblePulsationPeriod_us = 0;
-		int64_t         d_pulsePeriod_us            = 0;
-		int64_t         d_pulseWidth_us             = 0;
-		absolute_time_t d_lastVisibleUpdate, d_lastPulse;
-		bool            d_onPulse = false;
-		bool            d_onSync  = false;
-	};
+	uint16_t        d_visiblePulsationPeriod_us = 0;
+	int64_t         d_pulsePeriod_us            = 0;
+	int64_t         d_pulseWidth_us             = 0;
+	absolute_time_t d_lastVisibleUpdate, d_lastPulse;
+	bool            d_onPulse = false;
+	bool            d_onSync  = false;
+};
 
-    static std::unique_ptr<Helios> helios;
+static std::unique_ptr<Helios> helios;
 
-    constexpr static uint TCAN_SHUTDOWN = 26;
-    constexpr static uint TCAN_STANDBY  = 27;
-    constexpr static uint TCAN_RX       = 41;
-    constexpr static uint TCAN_TX       = 40;
+constexpr static uint TCAN_SHUTDOWN = 26;
+constexpr static uint TCAN_STANDBY  = 27;
+constexpr static uint TCAN_RX       = 41;
+constexpr static uint TCAN_TX       = 40;
+constexpr static uint DRIVER_EN     = 2;
 
-    void onArkeEvent(const ArkeEvent &e) {
-	    switch (e.Class) {
-	    case ARKE_HELIOS_SET_POINT:
-		    if (e.RTR) {
-			    ArkeSend<ArkeHeliosSetPoint_t>(
-			        ARKE_HELIOS_SET_POINT,
-			        helios->Visible()
-			    );
-			    break;
-		    }
-		    if (e.Size == sizeof(ArkeHeliosSetPoint_t)) {
-			    helios->SetVisible(e.as<ArkeHeliosSetPoint_t>());
-		    } else {
-			    Warnf(
-			        "[ARKE]: Unexpected DLC %d, (required %d)",
-			        e.Size,
-			        sizeof(ArkeHeliosSetPoint_t)
-			    );
-		    }
+void onArkeEvent(const ArkeEvent &e) {
+	switch (e.Class) {
+	case ARKE_HELIOS_SET_POINT:
+		if (e.RTR) {
+			ArkeSend<ArkeHeliosSetPoint_t>(
+			    ARKE_HELIOS_SET_POINT,
+			    helios->Visible()
+			);
+			break;
+		}
+		if (e.Size == sizeof(ArkeHeliosSetPoint_t)) {
+			helios->SetVisible(e.as<ArkeHeliosSetPoint_t>());
+		} else {
+			Warnf(
+			    "[ARKE]: Unexpected DLC %d, (required %d)",
+			    e.Size,
+			    sizeof(ArkeHeliosSetPoint_t)
+			);
+		}
 
-		    break;
-	    case ARKE_HELIOS_PULSE_MODE:
-		    Warnf("[ARKE]: Not implemented yet");
-		    break;
-	    case ARKE_HELIOS_TRIIGER_MODE:
-		    if (e.RTR) {
-			    ArkeSend<ArkeHeliosTriggerConfig_t>(
-			        ARKE_HELIOS_TRIIGER_MODE,
-			        helios->Trigger()
-			    );
-			    break;
-		    }
+		break;
+	case ARKE_HELIOS_PULSE_MODE:
+		Warnf("[ARKE]: Not implemented yet");
+		break;
+	case ARKE_HELIOS_TRIIGER_MODE:
+		if (e.RTR) {
+			ArkeSend<ArkeHeliosTriggerConfig_t>(
+			    ARKE_HELIOS_TRIIGER_MODE,
+			    helios->Trigger()
+			);
+			break;
+		}
 
-		    if (e.Size == sizeof(ArkeHeliosTriggerConfig_t)) {
-			    helios->SetTrigger(e.as<ArkeHeliosTriggerConfig_t>());
-		    } else {
-			    Warnf(
-			        "[ARKE]: Unexpected DLC %d, (required: %d)",
-			        e.Size,
-			        sizeof(ArkeHeliosTriggerConfig_t)
-			    );
-		    }
-		    break;
-	    default:
-		    Warnf("[ARKE]: Unexpected message 0x%03X DLC:%d", e.Class, e.Size);
-	    }
-    }
+		if (e.Size == sizeof(ArkeHeliosTriggerConfig_t)) {
+			helios->SetTrigger(e.as<ArkeHeliosTriggerConfig_t>());
+		} else {
+			Warnf(
+			    "[ARKE]: Unexpected DLC %d, (required: %d)",
+			    e.Size,
+			    sizeof(ArkeHeliosTriggerConfig_t)
+			);
+		}
+		break;
+	default:
+		Warnf("[ARKE]: Unexpected message 0x%03X DLC:%d", e.Class, e.Size);
+	}
+}
 
 void init() {
 	stdio_init_all();
@@ -350,10 +363,13 @@ void init() {
 
 	gpio_init(TCAN_SHUTDOWN);
 	gpio_init(TCAN_STANDBY);
+	gpio_init(DRIVER_EN);
 	gpio_set_dir(TCAN_SHUTDOWN, GPIO_OUT);
 	gpio_set_dir(TCAN_STANDBY, GPIO_OUT);
+	gpio_set_dir(DRIVER_EN, GPIO_OUT);
 	gpio_put(TCAN_SHUTDOWN, 0);
 	gpio_put(TCAN_STANDBY, 0);
+	gpio_put(DRIVER_EN, 1);
 
 	ArkeInit(ArkeConfig{
 	    .PinRX     = TCAN_RX,
@@ -383,9 +399,14 @@ int main() {
 	});
 	green.Set(255, 2 * 1000 * 1000);
 
+	helios->SetTrigger(ArkeHeliosTriggerConfig_t{
+	    .Period_hecto_us = 500,
+	    .Pulse_us        = 4000,
+	});
 #endif
 
 	for (;;) {
+		helios->Work();
 		Scheduler::Work();
 	}
 	return 0;
