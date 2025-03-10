@@ -1,5 +1,6 @@
 #pragma once
 
+#include <type_traits>
 extern "C" {
 #include <arke.h>
 }
@@ -18,6 +19,11 @@ struct ArkeEvent {
 	bool             RTR = false;
 	uint8_t          Size;
 	const uint8_t   *Data;
+
+	template <typename T, std::enable_if_t<sizeof(T) <= 4> * = nullptr>
+	const T &as() const {
+		return *reinterpret_cast<const T *>(Data);
+	}
 };
 
 typedef std::function<void(const ArkeEvent &)> ArkeCallback;
