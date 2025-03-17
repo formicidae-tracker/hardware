@@ -7,7 +7,7 @@ set(SRC_FILES
 
 add_avr_executable(nyx ${SRC_FILES})
 
-set(PYMCUPROG_OPTIONS -d attiny202 -t uart -u /dev/ttyUSB0)
+set(PYMCUPROG_OPTIONS -d attiny202 -t uart -u /dev/ttyUSB1)
 
 add_custom_target(nyx-ping ${PYMCUPROG_EXECUTABLE} ${PYMCUPROG_OPTIONS} ping)
 add_custom_target(

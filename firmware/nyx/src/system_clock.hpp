@@ -13,11 +13,15 @@ constexpr static uint32_t SYS_CLK_kHZ = F_CPU / 1000;
 constexpr static uint32_t SYS_CLK_MHZ = F_CPU / 1000000;
 
 inline constexpr absolute_time_t TicksToMS(absolute_time_t v) {
-	return v * 256 / SYS_CLK_kHZ;
+	return uint32_t(v) * 64ULL / SYS_CLK_kHZ;
+}
+
+inline constexpr absolute_time_t USToTicks(uint16_t us) {
+	return SYS_CLK_MHZ * uint32_t(us) / 64ULL;
 }
 
 inline constexpr absolute_time_t MSToTicks(float v) {
-	return v * SYS_CLK_kHZ / 256.0;
+	return v * SYS_CLK_kHZ / 64.0;
 }
 
 inline constexpr absolute_time_t MSToTicks(absolute_time_t v) {
