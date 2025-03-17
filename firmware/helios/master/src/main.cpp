@@ -23,7 +23,7 @@
 template <size_t N> class SlaveCommunicationMultiplexer {
 public:
 	constexpr static int64_t MIN_PERIOD_us = 1e6 / 31;
-	constexpr static int64_t MAX_PULSE_us  = 20000;
+	constexpr static int64_t MAX_PULSE_us  = 5000;
 	constexpr static int     BAUDRATE      = 20000;
 
 	constexpr static int64_t SERIAL_DELAY_AFTER_PULSE = 1000; // 1ms
@@ -462,6 +462,7 @@ int main() {
 		return std::nullopt;
 	});
 	green->Set(255, 2 * 1000 * 1000);
+	ArkeScheduleStats(2000000);
 #endif
 
 	for (;;) {

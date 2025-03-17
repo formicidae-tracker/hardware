@@ -1,4 +1,5 @@
 #include "Arke.hpp"
+#include <pico/types.h>
 
 extern "C" {
 #include "arke.h"
@@ -369,3 +370,18 @@ void arkeSend(ArkeMessageClass_e cls, const uint8_t *data, size_t size) {
 	can2040_transmit(&arke.CBus, &msg);
 }
 } // namespace details
+
+void ArkeScheduleStats(uint64_t period_us) {
+	Scheduler::Schedule(100, period_us, [](absolute_time_t) {
+		static can2040_stats stats;
+		can2040_get_statistics(&arke.CBus, &stats);
+		Infof(
+		    "[ARKE]: Rx: %d Tx: %d Tx attempt: %d parse_error: %d",
+		    stats.rx_total,
+		    stats.tx_total,
+		    stats.tx_attempt,
+		    stats.parse_error
+		);
+		return std::nullopt;
+	});
+}

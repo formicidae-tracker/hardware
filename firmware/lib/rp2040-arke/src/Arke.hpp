@@ -56,3 +56,5 @@ inline void ArkeSend(ArkeMessageClass_e cls, const T &data) {
 
 	details::arkeSend(cls, (const uint8_t *)(&data), sizeof(T));
 }
+
+void ArkeScheduleStats(uint64_t period_us);
