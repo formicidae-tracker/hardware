@@ -5,6 +5,10 @@ set(AVR_MCU attiny202)
 set(AVR_SIZE_ARGS -B)
 
 set(AVR_UPLOADTOOL pymcuprog)
+set(PYMCUPROG_PORT
+	/dev/ttyUSB0
+	CACHE STRING "Port to use for PYMCUPROG"
+)
 
 cmake_minimum_required(VERSION 3.12)
 project(
