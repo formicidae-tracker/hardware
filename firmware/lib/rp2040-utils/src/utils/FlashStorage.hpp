@@ -13,13 +13,24 @@ extern "C" {
 #include <hardware/flash.h>
 #include <pico/multicore.h>
 #include <pico/time.h>
+#include <stdio.h>
 }
 
 #include <utils/Defer.hpp>
-#include <utils/Log.hpp>
 
 #ifndef PICO_NV_STORAGE_NB_SECTOR
 #define PICO_NV_STORAGE_NB_SECTOR 1
+#endif
+
+#ifdef NDEBUG
+#define debugf(...)                                                            \
+	do {                                                                       \
+	} while (0)
+#else
+#define debugf(...)                                                            \
+	do {                                                                       \
+		printf(__VA_ARGS__);                                                   \
+	} while (0)
 #endif
 
 namespace details {
@@ -69,12 +80,12 @@ public:
 		return load(obj);
 	}
 
-	inline static void Save(const T &obj) {
+	inline static bool Save(const T &obj) {
 		multicore_lockout_start_blocking();
 		defer {
 			multicore_lockout_end_blocking();
 		};
-		save(obj);
+		return save(obj);
 	}
 
 private:
@@ -109,7 +120,7 @@ private:
 	}
 
 	inline static bool load(T &obj) {
-		Debugf("[FlashStorage]: Identifier=%08x", UUID);
+		debugf("[FlashStorage]: Identifier=%08x\n");
 		const Type *valid = nullptr;
 		forAllValidPages([&valid](const Header *h) {
 			if (h->Identifier == UUID && h->SizeInPages == PagesPerObject) {
@@ -121,11 +132,11 @@ private:
 		});
 
 		if (valid == nullptr) {
-			Debugf("[FlashStorage]: No Pages found", UUID);
+			debugf("[FlashStorage]: No Pages found\n", UUID);
 			return false;
 		}
-		Debugf(
-		    "[FlashStorage]: Pages %d matches",
+		debugf(
+		    "[FlashStorage]: Pages %d matches\n",
 		    pageIndex(int(valid) - sizeof(Header))
 		);
 		obj = *valid;
@@ -141,23 +152,18 @@ private:
 				i += h->SizeInPages;
 				continue;
 			}
-			Debugf("[FlashStorage]: page %d is free", i);
+			debugf("[FlashStorage]: page %d is free\n", i);
 			return i;
 		}
-		Debugf("[FlashStorage]: no page is free");
+		debugf("[FlashStorage]: no page is free\n");
 		return PAGES_PER_SECTOR * PICO_NV_STORAGE_NB_SECTOR;
 	}
-#ifdef NDEBUG
-#define debugf(...)
-#else
-#define debugf(...) printf(__VA_ARGS__);
-#endif
 
-	inline static void save(const T &obj) {
-		Debugf("[FlashStorage]: storing object UUID=%d", UUID);
+	inline static bool save(const T &obj) {
+		debugf("[FlashStorage]: storing object UUID=%d\n", UUID);
 		if (isSame(obj)) {
-			Debugf("[FlashStorage]: not saving as it is unchanged");
-			return;
+			debugf("[FlashStorage]: not saving as it is unchanged\n");
+			return false;
 		}
 
 		size_t idx = findFree();
@@ -186,11 +192,11 @@ private:
 		    PagesPerObject * FLASH_PAGE_SIZE
 		);
 
-		Infof("[FlashStorage]: saved at page %d", idx);
+		debugf("[FlashStorage]: saved at page %d\n", idx);
+		return true;
 	}
 
 	inline static int erase() {
-		Infof("[FlashStorage]: erasing page");
 		debugf("[FlashStorage]: erasing page\n");
 
 		// We need to save all values that will not be affected

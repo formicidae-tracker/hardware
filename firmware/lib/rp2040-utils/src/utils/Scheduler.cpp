@@ -1,5 +1,6 @@
 #include "Scheduler.hpp"
 #include <pico/time.h>
+#include <pico/types.h>
 
 std::multimap<uint8_t, Scheduler::TaskData> Scheduler::d_tasks;
 
@@ -23,7 +24,8 @@ void Scheduler::Work() {
 			continue;
 		}
 
-		it->second.Next += it->second.Period;
+		it->second.Next = it->second.Period + it->second.Next;
+
 		++it;
 	}
 }
@@ -32,10 +34,20 @@ void Scheduler::Schedule(uint8_t priority, int64_t period_us, Task &&task) {
 	d_tasks.emplace(std::make_pair(
 	    priority,
 	    TaskData{
-	        .Next   = period_us < 0 ? make_timeout_time_us(-period_us)
-	                                : get_absolute_time(),
+	        .Next   = get_absolute_time(),
 	        .Task   = std::move(task),
 	        .Period = period_us,
+	    }
+	));
+}
+
+void Scheduler::After(uint8_t priority, absolute_time_t timeout, Task &&task) {
+	d_tasks.emplace(std::make_pair(
+	    priority,
+	    TaskData{
+	        .Next   = timeout,
+	        .Task   = std::move(task),
+	        .Period = -1,
 	    }
 	));
 }

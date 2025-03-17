@@ -14,6 +14,8 @@ public:
 
 	static void Schedule(uint8_t priority, int64_t period_us, Task &&task);
 
+	static void After(uint8_t priority, absolute_time_t at, Task &&task);
+
 private:
 	struct TaskData {
 		absolute_time_t Next;

@@ -8,7 +8,8 @@ std::string FormatDuration(const Duration &d) {
 	std::ostringstream oss;
 
 	if (std::abs(micros) < 1000) {
-		oss << micros << "µs";
+		oss << micros
+		    << "us"; // would like to use UTF-8, but messes all the alignements
 		return oss.str();
 	}
 	oss << std::fixed << std::setprecision(3);
