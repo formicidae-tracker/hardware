@@ -5,10 +5,12 @@
 
 class IRController {
 public:
-	static constexpr auto MIN_PERIOD    = MSToTicks(1000.0f / 35.0f);
-	static constexpr auto MAX_PULSE     = USToTicks(4000);
+	static constexpr auto MIN_PERIOD    = 1024; // we can go up to 32Hz
+	static constexpr auto MAX_PULSE     = USToTicks(4500);
 	static constexpr auto UART_RX_TIME  = USToTicks(2000);
-	static constexpr auto DEBOUNCE_TIME = USToTicks(150);
+	// clock is low to start, so only one tick is sufficient. Ideally should be
+	// 5
+	static constexpr auto DEBOUNCE_TIME = 1;
 
 	static constexpr uint8_t pinOut = 2;
 	static constexpr uint8_t pinIn  = 7;
@@ -22,39 +24,40 @@ public:
 	};
 
 	IRController()
-	    : d_state{State::REST}
-	    , d_pulseStart{get_absolute_time()} {
+	    : d_state{State::REST} {
 		outLow();
 		PORTA.DIRSET = _BV(pinOut);
 		PORTA.DIRCLR = _BV(pinIn);
+		system_clock_start();
 	}
 
 	inline void Work(absolute_time_t now) {
 
 		switch (d_state) {
+		case State::IDLE:
+			// we check for an high to low transition.
+			if (inLow() == true) {
+				d_state = State::PULSE_DEBOUNCE;
+				system_clock_start();
+			}
+			break;
 		case State::REST:
 			// we wait for sufficient time to pass before rearming.
-			if ((now - d_pulseStart) > MIN_PERIOD) {
+			if (now >= MIN_PERIOD) {
 				d_state = State::IDLE;
+				system_clock_stop();
 			}
 			break;
 		case State::PULSE: {
 			// we wait for a low to high, or max pulse is reached.
 			bool inPulseDone     = !inLow();
-			bool maxPulseReached = (now - d_pulseStart) > MAX_PULSE;
+			bool maxPulseReached = now >= MAX_PULSE;
 			if (inPulseDone || maxPulseReached) {
 				outLow();
 				d_state = State::REST;
 			}
 			break;
 		}
-		case State::IDLE:
-			// we check for an high to low transition.
-			if (inLow() == true) {
-				d_state      = State::PULSE_DEBOUNCE;
-				d_pulseStart = now;
-			}
-			break;
 		case State::PULSE_DEBOUNCE:
 			// we are testing if the pulse is an IR trigger or an UART packet
 
@@ -65,18 +68,22 @@ public:
 				// most likely an UART TX.
 				d_state = State::UART_RX;
 			}
-			if ((now - d_pulseStart) >= DEBOUNCE_TIME) {
+			if (now >= DEBOUNCE_TIME) {
 				// it is a pulse
 				on(now);
 				// the actual pulse start is now.
-				d_pulseStart = now;
 			}
 			break;
 		case State::UART_RX:
 			// We wait for 3 bytes to be fully received before scanning for
 			// input.
-			if ((now - d_pulseStart) >= UART_RX_TIME && inLow() == false) {
+			if (now < UART_RX_TIME || inLow() == false) {
+				return;
+			}
+			if (now > MIN_PERIOD || now == 0) {
 				d_state = State::IDLE;
+			} else {
+				d_state = State::REST;
 			}
 			break;
 		}
@@ -84,8 +91,7 @@ public:
 
 private:
 	inline void on(absolute_time_t now) {
-		d_state      = State::PULSE;
-		d_pulseStart = now;
+		d_state = State::PULSE;
 		outHigh();
 	}
 
@@ -107,7 +113,6 @@ private:
 	}
 
 	State           d_state;
-	absolute_time_t d_pulseStart;
 };
 
 static IRController ir;
@@ -131,13 +136,14 @@ inline void init() {
 	USART0.CTRLC = USART_CMODE_ASYNCHRONOUS_gc | USART_PMODE_DISABLED_gc |
 	               USART_SBMODE_1BIT_gc | USART_CHSIZE_8BIT_gc;
 	USART0.CTRLB = USART_RXEN_bm | USART_RXMODE_NORMAL_gc;
+	cli();
 }
 
 constexpr static uint8_t RX_BUFFER_SIZE = 3;
 static char    rx_buffer[RX_BUFFER_SIZE];
 static uint8_t next = 0;
 
-void processUART(absolute_time_t now) {
+void processUART() {
 	if ((USART0.STATUS & USART_RXCIE_bm) == 0) {
 		// No data in the buffer
 		return;
@@ -171,7 +177,7 @@ int main() {
 		auto now = get_absolute_time();
 		ir.Work(now);
 
-		processUART(now);
+		processUART();
 	}
 	return 0;
 }

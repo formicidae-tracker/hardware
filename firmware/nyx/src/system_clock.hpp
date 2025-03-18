@@ -6,24 +6,25 @@ typedef uint16_t absolute_time_t;
 
 void init_system_clock();
 
+void system_clock_stop();
+void system_clock_start();
+
 absolute_time_t get_absolute_time();
 
-constexpr static uint32_t SYS_CLK_HZ  = F_CPU;
-constexpr static uint32_t SYS_CLK_kHZ = F_CPU / 1000;
-constexpr static uint32_t SYS_CLK_MHZ = F_CPU / 1000000;
+constexpr static uint32_t SYS_CLK_HZ = 32768;
 
 inline constexpr absolute_time_t TicksToMS(absolute_time_t v) {
-	return uint32_t(v) * 64ULL / SYS_CLK_kHZ;
+	return uint32_t(v) * 1000ULL / SYS_CLK_HZ;
 }
 
 inline constexpr absolute_time_t USToTicks(uint16_t us) {
-	return SYS_CLK_MHZ * uint32_t(us) / 64ULL;
+	return SYS_CLK_HZ * uint32_t(us) / 1000000ULL;
 }
 
-inline constexpr absolute_time_t MSToTicks(float v) {
-	return v * SYS_CLK_kHZ / 64.0;
+inline constexpr absolute_time_t MSToTicks(float ms) {
+	return ms * 32.768f;
 }
 
-inline constexpr absolute_time_t MSToTicks(absolute_time_t v) {
-	return (uint32_t(v) * SYS_CLK_kHZ) / 256;
+inline constexpr absolute_time_t MSToTicks(absolute_time_t ms) {
+	return SYS_CLK_HZ * uint32_t(ms) / 10000ULL;
 }
