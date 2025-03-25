@@ -7874,7 +7874,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "510k"
+		(property "Value" "560k"
 			(at 303.53 43.1799 0)
 			(effects
 				(font
@@ -9632,7 +9632,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "15k"
+		(property "Value" "33k"
 			(at 303.53 53.3399 0)
 			(effects
 				(font
@@ -9668,7 +9668,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0402FR-0715KL"
+		(property "MPN" "RC0402FR-0733KL"
 			(at 300.99 52.07 0)
 			(effects
 				(font
