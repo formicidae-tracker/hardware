@@ -10387,6 +10387,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 143.51 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b80d7a79-6031-418b-bbaf-b6ad697e1eb5")
 		)
@@ -10484,6 +10493,15 @@
 			)
 		)
 		(property "Manufacturer" ""
+			(at 172.72 234.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 172.72 234.95 0)
 			(effects
 				(font
@@ -10646,6 +10664,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 193.04 186.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "bf3d0d7a-fd0d-4f4d-ac22-3627628a0cfa")
 		)
@@ -10737,6 +10764,15 @@
 			)
 		)
 		(property "Manufacturer" ""
+			(at 35.56 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 35.56 165.1 0)
 			(effects
 				(font
@@ -10841,6 +10877,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 81.28 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "c73db95d-b600-486c-aa7a-8abd2e3bc89a")
 		)
@@ -10930,6 +10975,15 @@
 			)
 		)
 		(property "Manufacturer" ""
+			(at 350.52 228.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 350.52 228.6 0)
 			(effects
 				(font
@@ -11129,6 +11183,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 368.3 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "9192bfec-a4ed-42c5-abb4-094e92329572")
 		)
@@ -11290,6 +11353,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 311.15 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "96d3cac7-31f0-49af-9bd5-2531557d2fe1")
 		)
@@ -11379,6 +11451,15 @@
 			)
 		)
 		(property "Manufacturer" ""
+			(at 149.86 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 149.86 36.83 0)
 			(effects
 				(font
@@ -11484,6 +11565,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 184.15 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "56284cdb-4d7b-44dd-a4e0-b37a039ad962")
 		)
@@ -11566,6 +11656,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 182.88 240.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -11938,6 +12037,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 388.62 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9226c2ff-92ed-4a8c-ba3f-5a9d48739be9")
 		)
@@ -12009,6 +12117,15 @@
 			)
 		)
 		(property "MPN" "5019"
+			(at 337.82 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 337.82 25.4 0)
 			(effects
 				(font
@@ -12092,6 +12209,15 @@
 			)
 		)
 		(property "MPN" "RC0402FR-07180RL"
+			(at 306.07 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 306.07 36.83 0)
 			(effects
 				(font
@@ -12196,6 +12322,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 35.56 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b0c15400-0508-4d25-a92c-26f2aacebc86")
 		)
@@ -12285,6 +12420,15 @@
 			)
 		)
 		(property "Manufacturer" ""
+			(at 125.73 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 125.73 36.83 0)
 			(effects
 				(font
@@ -12502,6 +12646,15 @@
 			)
 		)
 		(property "Manufacturer" ""
+			(at 154.94 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 154.94 91.44 0)
 			(effects
 				(font
@@ -12827,6 +12980,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 335.28 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "e94b7a5a-f9c8-4316-b521-52a701f716f5")
 		)
@@ -12905,6 +13067,15 @@
 			)
 		)
 		(property "MPN" "BAT54J,115"
+			(at 327.66 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 327.66 124.46 0)
 			(effects
 				(font
@@ -13265,6 +13436,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 328.93 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "06a33c3c-71d6-4d3f-b45b-2b0d3042aea8")
 		)
@@ -13560,6 +13740,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 53.34 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "74dd1d83-74d0-4992-9cea-5b34ad4169a5")
 		)
@@ -13640,6 +13829,15 @@
 			)
 		)
 		(property "MPN" "RC0402FR-0715KL"
+			(at 314.96 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 314.96 119.38 0)
 			(effects
 				(font
@@ -13745,6 +13943,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 67.31 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "0b1214b9-f6bd-4b42-ba69-72990de337c0")
 		)
@@ -13826,6 +14033,15 @@
 			)
 		)
 		(property "Manufacturer" ""
+			(at 148.59 186.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 148.59 186.69 0)
 			(effects
 				(font
@@ -14004,6 +14220,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 154.94 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "abd43890-8fb0-467f-8ca3-d919cc9829fb")
 		)
@@ -14081,6 +14306,15 @@
 			)
 		)
 		(property "MPN" "RC0402FR-07240RL"
+			(at 143.51 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 143.51 91.44 0)
 			(effects
 				(font
@@ -14310,6 +14544,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 341.63 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "4fb6ddbc-921e-4968-9322-0c23bcc6dbe1")
 		)
@@ -14403,6 +14646,15 @@
 			)
 		)
 		(property "MPN" "CL10B105MO8NNWC"
+			(at 144.78 254 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 144.78 254 0)
 			(effects
 				(font
@@ -14554,6 +14806,15 @@
 			)
 		)
 		(property "Manufacturer" ""
+			(at 21.59 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 21.59 134.62 0)
 			(effects
 				(font
@@ -14984,6 +15245,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 334.01 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "554160fd-b67d-4c31-8116-f42183f1b234")
 		)
@@ -15062,6 +15332,15 @@
 			)
 		)
 		(property "Manufacturer" ""
+			(at 21.59 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 21.59 99.06 0)
 			(effects
 				(font
@@ -15170,6 +15449,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 161.29 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "19e5d178-7900-4b04-9c98-1e4f5701b33a")
 		)
@@ -15248,6 +15536,15 @@
 			)
 		)
 		(property "MPN" "LTV-827S"
+			(at 318.77 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 318.77 39.37 0)
 			(effects
 				(font
@@ -15444,6 +15741,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 110.49 243.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "e9403ea7-3a18-4e0c-aaa7-9da54b6e90d8")
 		)
@@ -15533,6 +15839,15 @@
 			)
 		)
 		(property "Manufacturer" ""
+			(at 172.72 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 172.72 36.83 0)
 			(effects
 				(font
@@ -15693,6 +16008,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 368.3 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "bae6bf60-ce06-4078-bf8b-e055321674b3")
 		)
@@ -15782,6 +16106,15 @@
 			)
 		)
 		(property "MPN" "PH1-02-UA"
+			(at 168.91 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 168.91 181.61 0)
 			(effects
 				(font
@@ -15934,6 +16267,15 @@
 			)
 		)
 		(property "MPN" "1843606"
+			(at 292.1 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 292.1 38.1 0)
 			(effects
 				(font
@@ -16180,6 +16522,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 121.92 243.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "26b7914f-8a1e-41e3-8962-48255ec713d3")
 		)
@@ -16258,6 +16609,15 @@
 			)
 		)
 		(property "MPN" "RC0402FR-0715KL"
+			(at 327.66 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 327.66 128.27 0)
 			(effects
 				(font
@@ -16346,6 +16706,15 @@
 			)
 		)
 		(property "Manufacturer" ""
+			(at 95.25 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 95.25 96.52 0)
 			(effects
 				(font
@@ -16607,6 +16976,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 76.2 254 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "cf7e0222-e169-4457-b846-8517704d96f5")
 		)
@@ -16759,6 +17137,15 @@
 			)
 		)
 		(property "MPN" "ERJ-2RKF1200X"
+			(at 168.91 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 168.91 193.04 0)
 			(effects
 				(font
@@ -17002,6 +17389,15 @@
 			)
 		)
 		(property "Manufacturer" ""
+			(at 53.34 212.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 53.34 212.09 0)
 			(effects
 				(font
@@ -17329,6 +17725,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 194.31 246.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "18806d39-1325-4976-b2b5-7e85f7b40517")
 		)
@@ -17548,6 +17953,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 50.8 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8198e386-1f81-4a45-9a77-645c70d2f515")
 		)
@@ -17574,7 +17988,7 @@
 		(at 364.49 132.08 90)
 		(unit 1)
 		(exclude_from_sim yes)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "d13935f1-b0a8-4f2f-957c-1ed4e729559e")
@@ -17633,6 +18047,15 @@
 			)
 		)
 		(property "MPN" "PH1-03-UA"
+			(at 364.49 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 364.49 132.08 0)
 			(effects
 				(font
@@ -17741,6 +18164,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 387.35 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "c429c9ca-93e5-480d-a72b-c79cfcfe2249")
 		)
@@ -17821,6 +18253,15 @@
 			)
 		)
 		(property "Manufacturer" ""
+			(at 45.72 254 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 45.72 254 0)
 			(effects
 				(font
@@ -18195,6 +18636,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 80.01 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "57b8c4e0-24de-4db9-a314-0e41b1a90e30")
 		)
@@ -18284,6 +18734,15 @@
 			)
 		)
 		(property "Manufacturer" ""
+			(at 350.52 189.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 350.52 189.23 0)
 			(effects
 				(font
@@ -18522,6 +18981,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 350.52 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "e3bf1b34-0866-4a95-83c1-468b58ac81a5")
 		)
@@ -18628,6 +19096,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 110.49 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "b3c08643-a29e-4a99-bb83-d3682b5736ab")
 		)
@@ -18725,6 +19202,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 138.43 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "f0435721-6686-4751-b020-9f92dd7152fc")
 		)
@@ -18802,6 +19288,15 @@
 			)
 		)
 		(property "MPN" "1843606"
+			(at 388.62 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 388.62 215.9 0)
 			(effects
 				(font
@@ -18945,6 +19440,15 @@
 			)
 		)
 		(property "MPN" "LMR36506R3RPER"
+			(at 157.48 242.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 157.48 242.57 0)
 			(effects
 				(font
@@ -19193,6 +19697,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 297.18 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "bd10fe4d-0b87-4948-b70a-77e033b5a44a")
 		)
@@ -19290,6 +19803,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 111.76 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "47070471-6c1e-406d-aada-b54fa1ab18ab")
 		)
@@ -19377,6 +19899,15 @@
 				(hide yes)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 307.34 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "c911b4b6-cac8-4fdc-b199-da4caf949fd3")
 		)
@@ -19455,6 +19986,15 @@
 			)
 		)
 		(property "MPN" "LTV-827S"
+			(at 323.85 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 323.85 83.82 0)
 			(effects
 				(font
@@ -19690,6 +20230,15 @@
 			)
 		)
 		(property "MPN" "RC0402FR-071KL"
+			(at 68.58 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
 			(at 68.58 175.26 0)
 			(effects
 				(font

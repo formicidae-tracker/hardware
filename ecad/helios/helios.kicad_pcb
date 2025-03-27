@@ -258,9 +258,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "de16484c-c889-4aa5-8902-f6f2a8a70b93")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "SOT?23* SOT?553* Texas?R-PDSO-G5?DCK* Texas?R-PDSO-N5?DRL* Texas?X2SON*0.8x0.8mm*P0.48mm*")
 		(path "/ecd5efaf-281b-42d4-9a30-75810678a0b7")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -557,9 +570,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a59b1b9f-ee1b-4910-9e01-64384031ed68")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/757a9ab6-f162-4298-b923-8c0f789699d9")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -819,9 +845,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e918f8cb-2e92-45f2-807a-e9ac5f774b75")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/2132ce18-4e62-41eb-a958-23a193aab9fe")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -1035,7 +1074,7 @@
 		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/7866bf9c-ce8b-4a57-af4c-bf9936cffb70")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -1378,9 +1417,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "929eb20b-eab4-4986-9b7e-0cdbdcc68c5c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Texas*VQFN*HR*2.1x2.1mm*P0.5mm")
 		(path "/f5a49176-e9ef-4bc2-ab86-1c531dd2e4d7")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -1806,9 +1858,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0925a9a4-5f4e-4c92-8954-5f4a433ebc73")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/31c03379-7902-4ab7-935d-21068d1126e6")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -2166,7 +2231,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/3fb69f66-2ea8-4784-86b2-0777666900b8/438685f2-67a3-458c-a281-acb3fdf17bd4")
-		(sheetname "Transmitter2")
+		(sheetname "/Transmitter2/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -2417,9 +2482,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d7ebfb9f-f2d6-4079-aa58-fbaf97686f3a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/7c977da6-292f-4798-94f7-f7dffb6b00af")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -2644,9 +2722,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5743c8c3-4c93-4e6d-9ab3-bf837f0dcc51")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/b992d257-72da-4021-875c-e7cb749f0209")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -2899,7 +2990,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5/1b1ba5dc-1f89-4ba5-af30-6b7620059e97")
-		(sheetname "Transmitter3")
+		(sheetname "/Transmitter3/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -3137,9 +3228,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "20eb0d39-c58c-4d5a-9631-e556b35273f5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/405bb9e3-6064-4d29-8913-c31c4e1d416d")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -3377,9 +3481,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bcc0a673-398f-4916-abef-ac33c5c55980")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/fbc5fe72-933d-4df9-9ced-b8e0ec60f3df")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -3605,7 +3722,7 @@
 			)
 		)
 		(path "/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5/f9b186f9-de05-470f-8f86-5901b18f305e")
-		(sheetname "Transmitter3")
+		(sheetname "/Transmitter3/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -3884,9 +4001,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bfb3b697-ee70-4ac8-b971-2d4c2f88eb5d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/812aa9a6-2c8d-4495-95c8-7f7663f3395e")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -4330,9 +4460,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "dae857aa-1136-40a5-bd51-9598a0a23092")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/df5b5991-1a3b-4072-b660-bacaffc427ca")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -4559,7 +4702,7 @@
 		)
 		(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
 		(path "/5e9fa167-98db-470e-8edf-dc2ec14227de/7b80cc73-6152-41b9-a917-ea17be4f12aa")
-		(sheetname "Transmitter1")
+		(sheetname "/Transmitter1/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -4830,7 +4973,7 @@
 		)
 		(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
 		(path "/3bfcbecd-b815-4d36-a67d-f4c216ee6cb6/9807885b-b4b5-499e-9053-56814e74d907")
-		(sheetname "Transmitter0")
+		(sheetname "/Transmitter0/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -5127,7 +5270,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/3bfcbecd-b815-4d36-a67d-f4c216ee6cb6/f2e3bd9c-e993-46ff-b399-9e80252a1ec9")
-		(sheetname "Transmitter0")
+		(sheetname "/Transmitter0/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -5365,9 +5508,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0627537f-fcb3-4be7-a5ad-bca9fb14bea1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/1f29c18b-8367-4f77-939d-79b099860c1f")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -5620,7 +5776,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/3fb69f66-2ea8-4784-86b2-0777666900b8/86dba57e-899a-4c9c-a136-c018b26d66af")
-		(sheetname "Transmitter2")
+		(sheetname "/Transmitter2/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -5858,9 +6014,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c2866311-0e05-428a-ab5e-a250a1bd607f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/d32ee4f1-d693-478c-87bd-20419bda5b22")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -6098,9 +6267,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6f483195-58f8-411f-bcc0-a45a43935a0c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/145ec4a3-1504-4ca6-ae65-7b7679afc8ea")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -6327,7 +6509,7 @@
 		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/3bfcbecd-b815-4d36-a67d-f4c216ee6cb6/d8b923ae-84ad-407a-a6d9-b25e9d018522")
-		(sheetname "Transmitter0")
+		(sheetname "/Transmitter0/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr through_hole)
 		(fp_line
@@ -6855,7 +7037,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/5e9fa167-98db-470e-8edf-dc2ec14227de/86dba57e-899a-4c9c-a136-c018b26d66af")
-		(sheetname "Transmitter1")
+		(sheetname "/Transmitter1/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -7080,9 +7262,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8a1614f6-9dd9-4114-b62a-174df47617d5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/887e9f20-5a71-425d-9d73-9a0d3fd3d712")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -7307,9 +7502,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9e64c3b6-a9e5-454b-bb82-a21144f8d4e8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
 		(path "/2287ae3d-b1f8-4954-b513-714079a03174")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -7554,9 +7762,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b17b8c45-54f4-453d-80e2-efe09a6a8c92")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/56aca835-0273-4d71-8134-c82212328b1e")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -7781,9 +8002,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "db32f0bf-d455-42d0-ac19-0d308f455ef4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "QFN*1EP*7x7mm?P0.4mm*")
 		(path "/b0477b5c-a941-4138-aeb6-fc784e4055e2")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -8660,7 +8894,7 @@
 		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/e7b3bb3e-e5e2-4dec-9faa-edf4972d37c5")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -9016,9 +9250,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8b335485-42e7-4005-b142-9098c5000935")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/057b208d-d884-4371-b0b7-860bb618a052")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -9230,9 +9477,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8eb8c770-8919-4b52-974b-2837c0507c6c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/7ab09611-f737-426c-b168-c208fea4b94f")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -9589,7 +9849,7 @@
 			)
 		)
 		(path "/3fb69f66-2ea8-4784-86b2-0777666900b8/f9b186f9-de05-470f-8f86-5901b18f305e")
-		(sheetname "Transmitter2")
+		(sheetname "/Transmitter2/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -9868,7 +10128,7 @@
 		)
 		(property ki_fp_filters "Texas*SOT-23*1.6x2.9mm*P0.65mm*")
 		(path "/3bfcbecd-b815-4d36-a67d-f4c216ee6cb6/c92b601a-209e-482e-b8ce-a5e6a0bcdebc")
-		(sheetname "Transmitter0")
+		(sheetname "/Transmitter0/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -10210,9 +10470,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "804605ef-c0cc-4eb8-88f4-70978f958809")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/6693f2c9-07fb-4ff0-a593-1871a1e91102")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -10437,9 +10710,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e3200949-64c0-40ef-9b44-b7fffad16064")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/b39cd3eb-6fce-4879-9ffa-6965c21fd3fa")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -10940,9 +11226,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ee810d34-3122-4386-b51a-405df8f14c24")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "SOT?23* SOT?553* Texas?R-PDSO-G5?DCK* Texas?R-PDSO-N5?DRL* Texas?X2SON*0.8x0.8mm*P0.48mm*")
 		(path "/9d3938a4-d18e-4137-8ae3-efa71a5619b7")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -11241,7 +11540,7 @@
 		)
 		(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
 		(path "/3fb69f66-2ea8-4784-86b2-0777666900b8/7b80cc73-6152-41b9-a917-ea17be4f12aa")
-		(sheetname "Transmitter2")
+		(sheetname "/Transmitter2/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -11523,9 +11822,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ed6c7540-75fd-4acd-b0dd-50c4b6c6d419")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/ecde92e8-a009-42ae-9915-e9e2abbcc0d6")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -11752,7 +12064,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/3fb69f66-2ea8-4784-86b2-0777666900b8/e932f1b8-0492-4766-992d-fd3fe8f5d3ee")
-		(sheetname "Transmitter2")
+		(sheetname "/Transmitter2/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -11977,9 +12289,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "54179dc8-c180-48d4-b098-6c475ad9cc6a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/3bbe88ac-a4f9-4967-abfc-28146668b562")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -12204,9 +12529,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f302318d-b65e-4e95-a515-74a2d3818907")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "SMDIP*W9.53mm*")
 		(path "/fc58eb99-1996-4050-9b65-84d71fdea676")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -12556,7 +12894,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/3fb69f66-2ea8-4784-86b2-0777666900b8/1b1ba5dc-1f89-4ba5-af30-6b7620059e97")
-		(sheetname "Transmitter2")
+		(sheetname "/Transmitter2/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -12807,9 +13145,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "db434a31-2dec-4c3e-bb8f-f180102ed747")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/a37b4917-d346-4a94-aff7-76da203e8618")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -13034,9 +13385,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "11c1f20c-dc53-45bb-9d17-305cdaf35824")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/fc5634f7-33b2-4051-aaf9-eaf133d02ac2")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr through_hole)
 		(fp_line
@@ -13636,7 +14000,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5/86dba57e-899a-4c9c-a136-c018b26d66af")
-		(sheetname "Transmitter3")
+		(sheetname "/Transmitter3/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -13874,9 +14238,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fb05549f-2743-4550-b308-4df57f87581f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/126a3c31-6be8-4573-b338-2498ec7b0e5e")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -14090,7 +14467,7 @@
 		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/01bd8ff4-4903-4b0c-b5cc-450c0874c9c4")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -14545,11 +14922,24 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5d1006af-9f06-422b-bc88-51996525bb3b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Jumper* TestPoint*3Pads* TestPoint*Bridge*")
 		(path "/d13935f1-b0a8-4f2f-957c-1ed4e729559e")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start -1.33 -1.33)
 			(end 0 -1.33)
@@ -14850,9 +15240,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "040cd6c9-b190-4851-b66f-a4dd9943af41")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/14ac5ab5-06dd-4eb0-8c45-2c3ebc6e4128")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -15077,8 +15480,21 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "60ef7bd0-a943-4eff-ad35-12804444ba48")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/0b4f761e-c3a4-485e-aa18-8262da9e09f7")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -15357,7 +15773,7 @@
 		)
 		(property ki_fp_filters "Texas*SOT-23*1.6x2.9mm*P0.65mm*")
 		(path "/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5/c92b601a-209e-482e-b8ce-a5e6a0bcdebc")
-		(sheetname "Transmitter3")
+		(sheetname "/Transmitter3/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -15712,9 +16128,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bf5cb66e-8b0b-4d35-a1d7-8149e7b81538")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/0aae4f93-1301-45ad-8bd6-68deadb11698")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -15952,9 +16381,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b2e65254-fa16-47c9-9f50-9e077c78e2b8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/e08a5a69-18a6-4402-914d-802b94870b14")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -16181,7 +16623,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/3bfcbecd-b815-4d36-a67d-f4c216ee6cb6/e932f1b8-0492-4766-992d-fd3fe8f5d3ee")
-		(sheetname "Transmitter0")
+		(sheetname "/Transmitter0/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -16408,7 +16850,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/5e9fa167-98db-470e-8edf-dc2ec14227de/e932f1b8-0492-4766-992d-fd3fe8f5d3ee")
-		(sheetname "Transmitter1")
+		(sheetname "/Transmitter1/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -16661,7 +17103,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5/f2e3bd9c-e993-46ff-b399-9e80252a1ec9")
-		(sheetname "Transmitter3")
+		(sheetname "/Transmitter3/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -16986,7 +17428,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/5e9fa167-98db-470e-8edf-dc2ec14227de/438685f2-67a3-458c-a281-acb3fdf17bd4")
-		(sheetname "Transmitter1")
+		(sheetname "/Transmitter1/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -17211,9 +17653,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0a4f8519-48e3-40be-8f0f-7bbb6832e977")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/1b33009b-a01e-4d4d-bc7d-eb1ff901e7c4")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -17440,7 +17895,7 @@
 		)
 		(property ki_fp_filters "D*SMA*")
 		(path "/4832d1d0-46f3-4aee-97c9-02e50d2b69b2")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -17737,9 +18192,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a510ef9c-65c6-4c67-bd03-7b458592c1f7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/8d7ed1d4-389a-45a4-bc43-eb3df3b91dc1")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -18172,7 +18640,7 @@
 		)
 		(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
 		(path "/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5/9807885b-b4b5-499e-9053-56814e74d907")
-		(sheetname "Transmitter3")
+		(sheetname "/Transmitter3/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -18441,9 +18909,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a4d0589a-2f1e-48ca-97d3-ec1f9029878e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/6a30be24-8b23-4e2e-8b47-134b277b0daa")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -18668,7 +19149,7 @@
 		)
 		(property ki_fp_filters "Texas*SOT-23*1.6x2.9mm*P0.65mm*")
 		(path "/3fb69f66-2ea8-4784-86b2-0777666900b8/c92b601a-209e-482e-b8ce-a5e6a0bcdebc")
-		(sheetname "Transmitter2")
+		(sheetname "/Transmitter2/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -19025,7 +19506,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/3fb69f66-2ea8-4784-86b2-0777666900b8/f2e3bd9c-e993-46ff-b399-9e80252a1ec9")
-		(sheetname "Transmitter2")
+		(sheetname "/Transmitter2/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -19252,7 +19733,7 @@
 		)
 		(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
 		(path "/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5/7b80cc73-6152-41b9-a917-ea17be4f12aa")
-		(sheetname "Transmitter3")
+		(sheetname "/Transmitter3/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -19521,9 +20002,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "36eaca7f-bd8c-48db-80c1-0a28c121e38f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/76cf77a6-cc16-4e25-b2de-6688cccec265")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -19761,9 +20255,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cae8e148-7668-470b-9bab-b1bdee97c88d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/6a34882d-00db-4e02-bf97-0674df2ed3de")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -20001,9 +20508,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "10456fc8-950f-432e-b1cb-2c156c9a25e9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/ed970839-544c-455c-83ce-9261e4f4ff1d")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -20254,9 +20774,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "11199f49-0ffd-4837-9198-374e77c7a561")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/98587d60-9d01-4798-80db-24b6723dc890")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -20482,7 +21015,7 @@
 			)
 		)
 		(path "/5e9fa167-98db-470e-8edf-dc2ec14227de/f9b186f9-de05-470f-8f86-5901b18f305e")
-		(sheetname "Transmitter1")
+		(sheetname "/Transmitter1/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -20761,7 +21294,7 @@
 		)
 		(property ki_fp_filters "Texas*SOT-23*1.6x2.9mm*P0.65mm*")
 		(path "/5e9fa167-98db-470e-8edf-dc2ec14227de/c92b601a-209e-482e-b8ce-a5e6a0bcdebc")
-		(sheetname "Transmitter1")
+		(sheetname "/Transmitter1/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -21090,9 +21623,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7a2d3487-70b0-4fe2-9ba2-b52af923f7d2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/2cf7b30c-f58f-4ccc-aa60-6ff60e3f48e4")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr through_hole)
 		(fp_line
@@ -21764,7 +22310,7 @@
 		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5/d8b923ae-84ad-407a-a6d9-b25e9d018522")
-		(sheetname "Transmitter3")
+		(sheetname "/Transmitter3/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr through_hole)
 		(fp_line
@@ -22264,9 +22810,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "92501c1a-ea92-46ca-9fea-a8925b652080")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/4625eb5b-b173-4855-bd92-a7a9297a578a")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -22541,7 +23100,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/5e9fa167-98db-470e-8edf-dc2ec14227de/f2e3bd9c-e993-46ff-b399-9e80252a1ec9")
-		(sheetname "Transmitter1")
+		(sheetname "/Transmitter1/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -22767,9 +23326,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d7b34009-b92a-421f-bbf1-5876189d0e12")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Jumper* TestPoint*2Pads* TestPoint*Bridge*")
 		(path "/9e1eb288-c53b-4c05-b614-fd602a7acd03")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr through_hole)
 		(fp_line
@@ -23048,9 +23620,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e1d59f86-0304-451d-8ce1-290e43085870")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "SOT?23* SOT?553* Texas?R-PDSO-G5?DCK* Texas?R-PDSO-N5?DRL* Texas?X2SON*0.8x0.8mm*P0.48mm*")
 		(path "/1a094eba-269f-4150-bf44-4c95e542a070")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -23375,7 +23960,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/3bfcbecd-b815-4d36-a67d-f4c216ee6cb6/86dba57e-899a-4c9c-a136-c018b26d66af")
-		(sheetname "Transmitter0")
+		(sheetname "/Transmitter0/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -23628,7 +24213,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/5e9fa167-98db-470e-8edf-dc2ec14227de/1b1ba5dc-1f89-4ba5-af30-6b7620059e97")
-		(sheetname "Transmitter1")
+		(sheetname "/Transmitter1/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -23853,9 +24438,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "dbc1c8b1-5d94-4fc5-8c13-2160f876b22a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/f8eebb9c-a6f5-4438-82c6-41c42392e0ce")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr through_hole)
 		(fp_line
@@ -24427,9 +25025,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f9855216-f8e5-4f11-9a1c-4544505c5cd8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/d47aae50-258e-43c6-9755-1a439ef66b1c")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -25056,7 +25667,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/3bfcbecd-b815-4d36-a67d-f4c216ee6cb6/1b1ba5dc-1f89-4ba5-af30-6b7620059e97")
-		(sheetname "Transmitter0")
+		(sheetname "/Transmitter0/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -25282,9 +25893,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d97fb2c6-7c99-468d-a753-24391a248bbf")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "SOIC*5.23x5.23mm*P1.27mm*")
 		(path "/bd1e2d79-37e9-440a-914a-ee2a8a03a44d")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -25595,7 +26219,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/b9a62dc8-8e2a-4570-8f4f-624ba4672080")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd dnp)
 		(fp_line
@@ -25821,7 +26445,7 @@
 			)
 		)
 		(path "/3bfcbecd-b815-4d36-a67d-f4c216ee6cb6/f9b186f9-de05-470f-8f86-5901b18f305e")
-		(sheetname "Transmitter0")
+		(sheetname "/Transmitter0/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -26100,9 +26724,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "00fb4c00-2219-4f5b-96a3-29390e936ab2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/9fc40846-4360-4612-b6ee-37cbf8211799")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr through_hole)
 		(fp_line
@@ -26674,9 +27311,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "428da9fc-a6fd-4939-bfea-81b8752bf03f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Crystal*")
 		(path "/d11fd741-5f8c-4c24-b7c3-4640e8364495")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -26931,7 +27581,7 @@
 		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/3fb69f66-2ea8-4784-86b2-0777666900b8/d8b923ae-84ad-407a-a6d9-b25e9d018522")
-		(sheetname "Transmitter2")
+		(sheetname "/Transmitter2/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr through_hole)
 		(fp_line
@@ -27431,9 +28081,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "37419c9d-7a9e-4480-b0c3-37eb00582fe5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/adddcdc1-39fe-4338-a954-3de2e5bff6f3")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -27656,9 +28319,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7ae29d6e-b387-4e2b-85ee-8354c4fa10a4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "*TSOT?23* *SOIC*3.9x4.9mm*P1.27mm*")
 		(path "/6c50c116-5337-41d4-9e9d-10585fafa065")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -27987,9 +28663,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0d409d6e-0312-46fa-9ae7-bc252a468010")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/f11a64b8-aa54-45d0-9c03-4be1a34cfc25")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr through_hole)
 		(fp_line
@@ -28574,9 +29263,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7a932d5f-dcae-4d45-8ad9-ad7055ff16f1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/3e9addfa-7002-481e-a678-18f2f388d989")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -28803,7 +29505,7 @@
 		)
 		(property ki_fp_filters "BarrelJack*")
 		(path "/26359e6b-ba5a-47be-8e72-c25b07f03075")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr through_hole)
 		(fp_line
@@ -29212,7 +29914,7 @@
 		)
 		(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
 		(path "/3bfcbecd-b815-4d36-a67d-f4c216ee6cb6/7b80cc73-6152-41b9-a917-ea17be4f12aa")
-		(sheetname "Transmitter0")
+		(sheetname "/Transmitter0/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -29507,9 +30209,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "231f3486-69c6-49b2-aa12-f46bef21bf66")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/c6848cd6-d049-4055-9af1-c12731a68437")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -29736,7 +30451,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/3bfcbecd-b815-4d36-a67d-f4c216ee6cb6/438685f2-67a3-458c-a281-acb3fdf17bd4")
-		(sheetname "Transmitter0")
+		(sheetname "/Transmitter0/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -29963,7 +30678,7 @@
 		)
 		(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
 		(path "/3fb69f66-2ea8-4784-86b2-0777666900b8/9807885b-b4b5-499e-9053-56814e74d907")
-		(sheetname "Transmitter2")
+		(sheetname "/Transmitter2/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -30245,9 +30960,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5e47b214-350b-44da-a2ed-6042646e14d9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/8e5a475b-0102-4b3d-807b-831d455d8087")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -30474,7 +31202,7 @@
 		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/5e9fa167-98db-470e-8edf-dc2ec14227de/d8b923ae-84ad-407a-a6d9-b25e9d018522")
-		(sheetname "Transmitter1")
+		(sheetname "/Transmitter1/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr through_hole)
 		(fp_line
@@ -30976,7 +31704,7 @@
 		)
 		(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
 		(path "/5e9fa167-98db-470e-8edf-dc2ec14227de/9807885b-b4b5-499e-9053-56814e74d907")
-		(sheetname "Transmitter1")
+		(sheetname "/Transmitter1/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -31245,9 +31973,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d960d4ef-2468-44d1-9681-dc86c34624ff")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "D*SOD?323F*")
 		(path "/4a02967a-813f-4f30-b6f3-04f0214dc3af")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -31557,9 +32298,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fcc23443-3715-4173-8d03-1fb5246e22b8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/49452235-8fad-403c-9608-dea5ade02883")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -31786,7 +32540,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5/e932f1b8-0492-4766-992d-fd3fe8f5d3ee")
-		(sheetname "Transmitter3")
+		(sheetname "/Transmitter3/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -32024,9 +32778,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "892b7437-28a6-4173-b5f1-5db2cb20cd48")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/9a828a2c-a71a-4511-90d6-22d086ebaa87")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -32253,7 +33020,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5/438685f2-67a3-458c-a281-acb3fdf17bd4")
-		(sheetname "Transmitter3")
+		(sheetname "/Transmitter3/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -32478,9 +33245,22 @@
 				)
 			)
 		)
+		(property "Var" "Type Mother(+f) Daughter(-f)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c12de28d-ead0-4197-a3f1-2de817ebf329")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/fff21ead-318d-48f8-8b59-4642bb678142")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -32699,7 +33479,7 @@
 		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/3bfcbecd-b815-4d36-a67d-f4c216ee6cb6/b1ebffbb-2d61-4e69-988b-0ee6eaeec737")
-		(sheetname "Transmitter0")
+		(sheetname "/Transmitter0/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -33625,7 +34405,7 @@
 		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5/07699b3c-6fbb-4bd7-af17-089337a536cf")
-		(sheetname "Transmitter3")
+		(sheetname "/Transmitter3/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -33976,7 +34756,7 @@
 		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/3fb69f66-2ea8-4784-86b2-0777666900b8/b1ebffbb-2d61-4e69-988b-0ee6eaeec737")
-		(sheetname "Transmitter2")
+		(sheetname "/Transmitter2/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -34327,7 +35107,7 @@
 		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/5e9fa167-98db-470e-8edf-dc2ec14227de/07699b3c-6fbb-4bd7-af17-089337a536cf")
-		(sheetname "Transmitter1")
+		(sheetname "/Transmitter1/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -34678,7 +35458,7 @@
 		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5/b1ebffbb-2d61-4e69-988b-0ee6eaeec737")
-		(sheetname "Transmitter3")
+		(sheetname "/Transmitter3/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -35043,7 +35823,7 @@
 		)
 		(property ki_fp_filters "D*SMA*")
 		(path "/3fb69f66-2ea8-4784-86b2-0777666900b8/49f6537f-5ee4-4f5d-a7d6-4ecf01891fc9")
-		(sheetname "Transmitter2")
+		(sheetname "/Transmitter2/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -35349,7 +36129,7 @@
 		)
 		(property ki_fp_filters "D*SMA*")
 		(path "/3bfcbecd-b815-4d36-a67d-f4c216ee6cb6/49f6537f-5ee4-4f5d-a7d6-4ecf01891fc9")
-		(sheetname "Transmitter0")
+		(sheetname "/Transmitter0/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -35655,7 +36435,7 @@
 		)
 		(property ki_fp_filters "D*SMA*")
 		(path "/5e9fa167-98db-470e-8edf-dc2ec14227de/49f6537f-5ee4-4f5d-a7d6-4ecf01891fc9")
-		(sheetname "Transmitter1")
+		(sheetname "/Transmitter1/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -35961,7 +36741,7 @@
 		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/167d5170-4f1e-4293-833c-357963c1e1ad")
-		(sheetname "Root")
+		(sheetname "/")
 		(sheetfile "helios.kicad_sch")
 		(attr through_hole)
 		(fp_line
@@ -36312,7 +37092,7 @@
 		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/5e9fa167-98db-470e-8edf-dc2ec14227de/b1ebffbb-2d61-4e69-988b-0ee6eaeec737")
-		(sheetname "Transmitter1")
+		(sheetname "/Transmitter1/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -36677,7 +37457,7 @@
 		)
 		(property ki_fp_filters "D*SMA*")
 		(path "/b5bd6f87-e9f7-4ff4-8a16-afe0d6cb96a5/49f6537f-5ee4-4f5d-a7d6-4ecf01891fc9")
-		(sheetname "Transmitter3")
+		(sheetname "/Transmitter3/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -36969,7 +37749,7 @@
 		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/3bfcbecd-b815-4d36-a67d-f4c216ee6cb6/07699b3c-6fbb-4bd7-af17-089337a536cf")
-		(sheetname "Transmitter0")
+		(sheetname "/Transmitter0/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -37320,7 +38100,7 @@
 		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/3fb69f66-2ea8-4784-86b2-0777666900b8/07699b3c-6fbb-4bd7-af17-089337a536cf")
-		(sheetname "Transmitter2")
+		(sheetname "/Transmitter2/")
 		(sheetfile "transmitter.kicad_sch")
 		(attr smd)
 		(fp_line
