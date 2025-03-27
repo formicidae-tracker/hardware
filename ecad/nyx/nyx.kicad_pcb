@@ -2330,7 +2330,7 @@
 				)
 			)
 		)
-		(property "Value" "510k"
+		(property "Value" "560k"
 			(at 0 1.17 90)
 			(layer "F.Fab")
 			(uuid "a03b519f-2c7e-4a22-a394-497a457fd77d")
@@ -17177,7 +17177,7 @@
 				)
 			)
 		)
-		(property "Value" "15k"
+		(property "Value" "33k"
 			(at 0 1.17 270)
 			(layer "F.Fab")
 			(uuid "a25afac0-5bd1-471a-97be-8ba716405de2")
@@ -17214,7 +17214,7 @@
 				)
 			)
 		)
-		(property "MPN" "RC0402FR-0715KL"
+		(property "MPN" "RC0402FR-0733KL"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
