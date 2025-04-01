@@ -58,7 +58,7 @@ FetchContent_Declare(
 FetchContent_Declare(
 	libarke
 	GIT_REPOSITORY https://github.com/formicidae-tracker/libarke.git
-	GIT_TAG dev/rp2040
+	GIT_TAG v1.2.0
 )
 
 FetchContent_MakeAvailable(rp2040-utils can2040 libarke)
