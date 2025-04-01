@@ -4,7 +4,7 @@
 
 #include <functional>
 #include <map>
-#include <memory>
+#include <optional>
 
 class Scheduler {
 public:

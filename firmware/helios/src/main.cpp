@@ -33,7 +33,7 @@ public:
 	SlaveCommunicationMultiplexer(Args... args)
 	    : d_pins{args...} {
 		for (size_t i = 0; i < N; ++i) {
-			const auto &p = d_pins[0];
+			const auto &p = d_pins[i];
 			gpio_set_dir(p, GPIO_OUT);
 			gpio_set_function(p, GPIO_FUNC_SIO);
 		}
