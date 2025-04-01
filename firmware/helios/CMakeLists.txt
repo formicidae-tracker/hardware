@@ -3,8 +3,8 @@ cmake_minimum_required(VERSION 3.13..3.23)
 set(FAMILY rp2040)
 set(BOARD pico_sdk)
 
-set(DEPS_DIR ${CMAKE_CURRENT_LIST_DIR}/../../deps)
-set(LIB_DIR ${CMAKE_CURRENT_LIST_DIR}/../../lib)
+set(DEPS_DIR ${CMAKE_CURRENT_LIST_DIR}/../deps)
+set(LIB_DIR ${CMAKE_CURRENT_LIST_DIR}/../lib)
 
 include(${DEPS_DIR}/pico-sdk/pico_sdk_init.cmake)
 

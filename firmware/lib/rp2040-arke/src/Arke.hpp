@@ -20,7 +20,7 @@ struct ArkeEvent {
 	uint8_t          Size;
 	const uint8_t   *Data;
 
-	template <typename T, std::enable_if_t<sizeof(T) <= 4> * = nullptr>
+	template <typename T, std::enable_if_t<sizeof(T) <= 8> * = nullptr>
 	const T &as() const {
 		return *reinterpret_cast<const T *>(Data);
 	}
