@@ -11174,7 +11174,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74LVC1G17"
+		(property "MPN" "SN74LVC1G17DBVR"
 			(at 368.3 176.53 0)
 			(effects
 				(font
@@ -15999,7 +15999,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74LVC1G17"
+		(property "MPN" "SN74LVC1G17DBVR"
 			(at 368.3 215.9 0)
 			(effects
 				(font
@@ -18972,7 +18972,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "74LVC1G17"
+		(property "MPN" "SN74LVC1G17DBVR"
 			(at 350.52 124.46 0)
 			(effects
 				(font
