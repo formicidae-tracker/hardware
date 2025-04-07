@@ -102,46 +102,46 @@ void ClimateControllerConfigure(const ArkeZeusConfig * c) {
 #undef update_config
 }
 
-
-void ClimateControllerUpdateUnsafe(const ArkeZeusReport * r,ArkeSystime_t now) {
+void ClimateControllerUpdateUnsafe(const ArkeZeusReport *r, ArkeSystime_t now) {
 	ArkeSystime_t ellapsed = now - CC.LastUpdate;
-	CC.LastUpdate = now;
+	CC.LastUpdate          = now;
 
-	CC.HumidityCommand = PIDCompute(&CC.Humidity,r->Humidity,ellapsed);
-	CC.TemperatureCommand = PIDCompute(&CC.Temperature,r->Temperature1,ellapsed);
+	CC.HumidityCommand = PIDCompute(&CC.Humidity, r->Humidity, ellapsed);
+	CC.TemperatureCommand =
+	    PIDCompute(&CC.Temperature, r->Temperature1, ellapsed);
 
-
-	uint16_t heatPower;
-	uint16_t ventPower;
-	uint8_t windPower;
+	uint16_t            heatPower;
+	uint16_t            ventPower;
+	uint8_t             windPower;
 	ArkeCelaenoSetPoint sp;
-	sp.Power = clamp(CC.HumidityCommand,0,255);
+	sp.Power = clamp(CC.HumidityCommand, 0, 255);
 
-	if ( CC.TemperatureCommand > 0 ) {
-		heatPower = min(510,CC.TemperatureCommand);
-		windPower = max(0x40,CC.Wind);
+	if (CC.TemperatureCommand > 0) {
+		heatPower = min(510, CC.TemperatureCommand);
+		windPower = max(0x40, CC.Wind);
 		ventPower = 0;
 	} else {
 		heatPower = 0;
 		windPower = CC.Wind;
-		ventPower = clamp(-CC.TemperatureCommand,0,510) ;
+		ventPower = clamp(-CC.TemperatureCommand, 0, 510);
 	}
 
-	HeaterSetPower1(heatPower/2);
-	HeaterSetPower2(heatPower/2);
+	HeatersSetPower(heatPower / 2);
+
 	SetFan1Power(windPower);
-	SetFan2Power(clamp(ventPower,0,255));
+	SetFan2Power(clamp(ventPower, 0, 255));
 	if (ventPower > 255) {
-		SetFan3Power(clamp(ventPower-255,0,255));
+		SetFan3Power(clamp(ventPower - 255, 0, 255));
 	} else {
 		SetFan3Power(0);
 	}
-	if ( yaacl_txn_status(&(CC.CelaenoCommand)) != YAACL_TXN_PENDING ) {
-		ArkeSendCelaenoSetPoint(&(CC.CelaenoCommand),false,&sp);
+	if (yaacl_txn_status(&(CC.CelaenoCommand)) != YAACL_TXN_PENDING) {
+		ArkeSendCelaenoSetPoint(&(CC.CelaenoCommand), false, &sp);
 	}
 
-	if(PIDIntegralOverflow(&CC.Humidity) == true ) {
-		if ( (now - CC.LastHumidityControlled) >= HUMIDITY_UNCONTROLLED_MIN_TIME) {
+	if (PIDIntegralOverflow(&CC.Humidity) == true) {
+		if ((now - CC.LastHumidityControlled) >=
+		    HUMIDITY_UNCONTROLLED_MIN_TIME) {
 			CC.Status |= ARKE_ZEUS_HUMIDITY_UNREACHABLE;
 		}
 	} else {
@@ -154,50 +154,47 @@ void ClimateControllerUpdateUnsafe(const ArkeZeusReport * r,ArkeSystime_t now) {
 	} else {
 		CC.Status &= ~(ARKE_ZEUS_TEMPERATURE_UNREACHABLE);
 	}
-
 }
 
-void ClimateControllerProcess(bool hasNewData,ArkeSystime_t now) {
-	const ArkeZeusReport * r = GetSensorData();
+void ClimateControllerProcess(bool hasNewData, ArkeSystime_t now) {
+	const ArkeZeusReport *r = GetSensorData();
 
-	if ( hasNewData
-	     && ( (CC.Status & ARKE_ZEUS_ACTIVE) != 0 ) ) {
-		if ( r->Humidity == 0x3fff || r->Temperature1 == 0x3fff ) {
+	if (hasNewData && ((CC.Status & ARKE_ZEUS_ACTIVE) != 0)) {
+		if (r->Humidity == 0x3fff || r->Temperature1 == 0x3fff) {
 			ArkeReportError(0x0020);
 		} else {
-			ClimateControllerUpdateUnsafe(r,now);
+			ClimateControllerUpdateUnsafe(r, now);
 			CC.Status &= ~ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD;
-			CC.LastCommand = now;
+			CC.LastCommand      = now;
 			CC.SensorResetGuard = false;
 			return;
 		}
 	}
 
-	if ( (now - CC.LastUpdate) >= (WATCHDOG_MS - 2000 ) && CC.SensorResetGuard == false) {
+	if ((now - CC.LastUpdate) >= (WATCHDOG_MS - 2000) &&
+	    CC.SensorResetGuard == false) {
 		ArkeReportError(0x0021);
 		SensorsReset();
 		CC.SensorResetGuard = true;
 	}
 
-
-	if ( (now - CC.LastUpdate ) >= WATCHDOG_MS ) {
+	if ((now - CC.LastUpdate) >= WATCHDOG_MS) {
 		CC.Status |= ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD;
 		// we should not move in the dark or we will hit walls pretty badly.
-		// If no data is available for too long, we just ensure Celaeno is not running
-		// and that we stop heating as we do not want to cook things.
-		if ( (now - CC.LastCommand) >= 1000 && yaacl_txn_status(&(CC.CelaenoCommand))  != YAACL_TXN_PENDING ) {
-			HeaterSetPower1(0);
-			HeaterSetPower2(0);
+		// If no data is available for too long, we just ensure Celaeno is not
+		// running and that we stop heating as we do not want to cook things.
+		if ((now - CC.LastCommand) >= 1000 &&
+		    yaacl_txn_status(&(CC.CelaenoCommand)) != YAACL_TXN_PENDING) {
+			HeatersSetPower(0);
 			SetFan2Power(255);
 			SetFan3Power(255);
 			ArkeCelaenoSetPoint sp;
 			sp.Power = 0;
-			ArkeSendCelaenoSetPoint(&(CC.CelaenoCommand),false,&sp);
+			ArkeSendCelaenoSetPoint(&(CC.CelaenoCommand), false, &sp);
 			CC.LastCommand = now;
 		}
 	}
 }
-
 
 uint8_t ClimateControllerStatus() {
 	return CC.Status;

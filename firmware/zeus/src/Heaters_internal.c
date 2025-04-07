@@ -5,8 +5,6 @@
 
 
 
-
-
 /* #define set_pwm(comp,pin,value) do {	  \ */
 /* 		if ( value == 0x00 ) { \ */
 /* 			/\*			TCCR1A &= ~(_BV(COM ## comp ## 1));*\/ \ */
@@ -45,32 +43,27 @@ void InitHeaters() {
 	heat2_off();
 }
 
-
-void HeaterSetPower1(uint8_t power) {
+void HeatersSetPower(uint8_t power) {
 	H.Power[0] = power;
-}
-
-void HeaterSetPower2(uint8_t power) {
 	H.Power[1] = power;
 }
 
-
-void ProcessHeater(ArkeSystime_t now) {
-	uint16_t ellapsed = now-H.Last;
-	if ( ellapsed >= 255 ) {
+void ProcessHeaters(ArkeSystime_t now) {
+	uint16_t ellapsed = now - H.Last;
+	if (ellapsed >= 255) {
 		H.Last = now;
-		if (H.Power[0] != 0 ) {
+		if (H.Power[0] != 0) {
 			heat1_on();
 		}
-		if (H.Power[1] != 0 ) {
+		if (H.Power[1] != 0) {
 			heat2_on();
 		}
 		return;
 	}
-	if ( ellapsed >= H.Power[0]) {
+	if (ellapsed >= H.Power[0]) {
 		heat1_off();
 	}
-	if (ellapsed >= H.Power[1] ) {
+	if (ellapsed >= H.Power[1]) {
 		heat2_off();
 	}
 }

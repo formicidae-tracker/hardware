@@ -66,4 +66,6 @@ add_avr_library(yaail ${YAAIL_SRC_FILES})
 
 avr_target_link_libraries(libarke yaacl)
 
+option(ZEUS_USE_INTERNAL_HEATER Off)
+
 add_subdirectory(src)
