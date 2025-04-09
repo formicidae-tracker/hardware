@@ -1,8 +1,9 @@
-set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/../deps/cmake-avr/generic-gcc-avr.cmake)
-
+set(CMAKE_TOOLCHAIN_FILE
+	${CMAKE_CURRENT_SOURCE_DIR}/../deps/cmake-avr/generic-gcc-avr.cmake
+)
 
 set(AVR_UPLOADTOOL avrdude)
-set(AVR_PROGRAMMER avrispmkii)
+set(AVR_PROGRAMMER arduinoisp)
 set(AVR_UPLOADTOOL_PORT usb)
 set(AVR_UPLOADTOOL_OPTIONS -C ${CMAKE_CURRENT_SOURCE_DIR}/../avrdude.conf)
 
@@ -13,8 +14,11 @@ set(AVR_E_FUSE 0xfd)
 set(MCU_SPEED "16000000L")
 
 cmake_policy(SET CMP0048 NEW)
-project(zeus LANGUAGES C CXX
-             VERSION 0.1)
+project(
+	zeus
+	LANGUAGES C CXX
+	VERSION 0.1
+)
 cmake_minimum_required(VERSION 3.2)
 
 add_definitions("-DF_CPU= ${MCU_SPEED}")
@@ -42,21 +46,24 @@ set(LIBARKE_SRC_FILES ${LIBARKE_ROOT}/src-avr/arke-src-all.c)
 
 set(EMC_IC_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/../lib/emc-ic)
 
-include_directories(${AVR_GCC_INCLUDE}
-	                ${PROJECT_SOURCE_DIR}/../
-	                ${YAACL_INCLUDE_DIR}
-	                ${YAAIL_INCLUDE_DIR}
-	                ${LIBARKE_INCLUDE_DIR}
-	                ${PROJECT_SOURCE_DIR}/include
-	                ${EMC_IC_INCLUDE_DIR})
+include_directories(
+	${AVR_GCC_INCLUDE}
+	${PROJECT_SOURCE_DIR}/../
+	${YAACL_INCLUDE_DIR}
+	${YAAIL_INCLUDE_DIR}
+	${LIBARKE_INCLUDE_DIR}
+	${PROJECT_SOURCE_DIR}/include
+	${EMC_IC_INCLUDE_DIR}
+)
 
-add_definitions("-DARKE_MY_FW_MAJOR_VERSION=${PROJECT_VERSION_MAJOR}"
-	            "-DARKE_MY_FW_MINOR_VERSION=${PROJECT_VERSION_MINOR}"
-	            "-DARKE_MY_CLASS=0x38"
-	            "-DARKE_MY_SUBID=0x01"
-	            "-DARKE_MY_SIZE=8"
-	            "-DFAN_CONTROL_STALL_THRESHOLD=0x7f"
-	            )
+add_definitions(
+	"-DARKE_MY_FW_MAJOR_VERSION=${PROJECT_VERSION_MAJOR}"
+	"-DARKE_MY_FW_MINOR_VERSION=${PROJECT_VERSION_MINOR}"
+	"-DARKE_MY_CLASS=0x38"
+	"-DARKE_MY_SUBID=0x01"
+	"-DARKE_MY_SIZE=8"
+	"-DFAN_CONTROL_STALL_THRESHOLD=0x7f"
+)
 
 add_avr_library(yaacl ${YAACL_SRC_FILES})
 

@@ -5,6 +5,7 @@ set(SRC_FILES
 	PIDController.c #
 	ClimateController.c
 	Sensors.c
+	crc8.c
 )
 
 set(HDR_FILES
@@ -15,6 +16,7 @@ set(HDR_FILES
 	ClimateController.h #
 	Heaters.h #
 	Sensors.h
+	crc8.h
 )
 
 if(ZEUS_USE_INTERNAL_HEATER)
