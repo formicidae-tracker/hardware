@@ -22,11 +22,13 @@ constexpr static uint TCAN_SHUTDOWN = 14;
 constexpr static uint TCAN_STANDBY  = 15;
 
 class PWMPin {
+	static constexpr uint shift = 4;
+
 public:
-	PWMPin(uint pin, uint max = 255, uint freq_hz = 200)
+	PWMPin(uint pin, uint freq_hz = 240)
 	    : d_slice{pwm_gpio_to_slice_num(pin)}
 	    , d_channel{pwm_gpio_to_channel(pin)} {
-
+		static constexpr uint max    = 256 << shift;
 		auto config = pwm_get_default_config();
 		pwm_config_set_clkdiv(
 		    &config,
@@ -34,12 +36,21 @@ public:
 		);
 		pwm_config_set_wrap(&config, max - 1);
 		gpio_set_function(pin, GPIO_FUNC_PWM);
+
 		Set(0);
 		pwm_init(d_slice, &config, true);
 	}
 
-	void Set(uint value) {
-		pwm_set_chan_level(d_slice, d_channel, 0);
+	void Set(uint8_t value) {
+		if (value == 0) {
+			pwm_set_chan_level(d_slice, d_channel, 0);
+		} else {
+			pwm_set_chan_level(
+			    d_slice,
+			    d_channel,
+			    (uint(value) << shift) + (1 << shift) - 1
+			);
+		}
 	}
 
 private:
@@ -50,8 +61,15 @@ class Heater {
 public:
 	Heater(uint fanPin, uint heatPin)
 	    : d_heat{heatPin}
-	    , d_fan{fanPin} {
+	    , d_fanPin{fanPin} {
+		gpio_init(d_fanPin);
+		gpio_set_dir(d_fanPin, true);
+		gpio_put(d_fanPin, false);
+
 		NVStorage::Load(d_config);
+		Scheduler::Schedule(100, 1000, [this](absolute_time_t now) {
+			return work(now);
+		});
 	}
 
 	std::optional<int64_t> work(absolute_time_t now) {
@@ -62,10 +80,13 @@ public:
 		case State::RAMP_DOWN:
 			if (absolute_time_diff_us(d_rampDownStart, now) >
 			    (d_config.RampDownTimeMS * 1000)) {
-				d_fan.Set(0);
+				Infof("Ramp down done");
+				gpio_put(d_fanPin, false);
 				d_heat.Set(0);
 				d_state = State::IDLE;
 			}
+			return std::nullopt;
+		default:
 			return std::nullopt;
 		}
 	}
@@ -84,22 +105,16 @@ public:
 			if (d_state == State::ON) {
 				// switch to ramp down, no heat, min fan for
 				// d_config.RampDownTimeMS
+
 				d_rampDownStart = get_absolute_time();
-				d_fan.Set(d_config.MinFan);
+				Infof("Ramping down...");
+				gpio_put(d_fanPin, true);
 				d_heat.Set(0);
 				d_state = State::RAMP_DOWN;
 			}
 			return;
 		}
-		// compute the actual level of fan and heat.
-		uint8_t fanLevel = std::max(
-		    0,
-		    std::min(
-		        255,
-		        int(level) * (255 - d_config.MinFan) / 255 + d_config.MinFan
-		    )
-		);
-		d_fan.Set(fanLevel);
+		gpio_put(d_fanPin, true);
 		d_heat.Set(level);
 		d_state = State::ON;
 	}
@@ -121,10 +136,11 @@ private:
 		RAMP_DOWN,
 	};
 
-	PWMPin            d_heat, d_fan;
+	PWMPin            d_heat;
+	uint              d_fanPin;
 	ArkeNotusConfig_t d_config = ArkeNotusConfig_t{
 	    .RampDownTimeMS = 2500,
-	    .MinFan         = 50,
+	    .MinFan         = 100,
 	    .MaxHeat        = 255,
 	};
 	State           d_state = State::IDLE;
