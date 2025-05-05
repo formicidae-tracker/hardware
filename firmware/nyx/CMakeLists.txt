@@ -6,7 +6,7 @@ set(AVR_SIZE_ARGS -B)
 
 set(AVR_UPLOADTOOL pymcuprog)
 set(PYMCUPROG_PORT
-	/dev/ttyUSB0
+	/dev/ttyUSB1
 	CACHE STRING "Port to use for PYMCUPROG"
 )
 

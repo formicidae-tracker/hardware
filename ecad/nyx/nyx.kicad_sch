@@ -12785,6 +12785,7 @@
 				(font
 					(size 1.524 1.524)
 				)
+				(hide yes)
 			)
 		)
 		(property "Footprint" "fort:Texas_HVSSOP-10-1EP_3x3mm_P0.5mm_EP2.2x3.1mm_ThermalVias"
