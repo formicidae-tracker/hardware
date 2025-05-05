@@ -1,0 +1,80 @@
+options:
+  mini_bom_mode: false
+
+connectors:
+  X1: &template_conn
+    pinlabels:
+      - +12V
+      - GND
+      - CANH
+      - CANL
+    type: JST PH
+    #show_pincount: false
+    subtype: female
+    manufacturer: JST
+    mpn: PHR-4
+    image:
+      src: resources/PHR-x.png
+      caption: Pin 1 Location
+
+    # additional_components:
+    #   - type: Crimp
+    #     subtype: JST PH, 24-30 AWG
+    #     qty_multiplier: populated
+    #     manufacturer: JST
+    #     mpn: BPH-002T-P0.5S
+
+
+  X2:
+    <<: *template_conn
+  X3:
+    <<: *template_conn
+  X4:
+    <<: *template_conn
+  X5:
+    <<: *template_conn
+  X6:
+    <<: *template_conn
+
+cables:
+  W1: &template_cable
+    wirecount: 4
+    length: 0.3
+    gauge: 24 AWG
+    colors:
+      - RD
+      - BK
+      - GN
+      - WH
+    shield: true
+    manufacturer: Belden
+    mpn: 8723
+    image:
+      src: resources/belden_8723.png
+      height: 120
+    additional_components:
+      - type: Heatshrink tube
+        subtype: FP301 3/16x0.75"
+        qty: 2
+
+
+  W2:
+    <<: *template_cable
+    length: 0.6
+  W3:
+    <<: *template_cable
+    length: 0.8
+
+connections:
+  - # W3
+    - X5: [1-4]
+    - W3: [1-4]
+    - X6: [1-4]
+  - # W2
+    - X3: [1-4]
+    - W2: [1-4]
+    - X4: [1-4]
+  - # W1
+    - X1: [1-4]
+    - W1: [1-4]
+    - X2: [1-4]
