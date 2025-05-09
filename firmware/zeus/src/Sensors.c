@@ -77,14 +77,14 @@ void InitSensors() {
 
 bool ProcessSensors(ArkeSystime_t now) {
 	bool toReturn;
-	//fights memory corruptions and bugs
+	// fights memory corruptions and bugs
 	if (S.state < 0 || S.state >= NB_SENSOR_STATES) {
 		// Resets the sensor loop
 		S.state = SENSOR_IDLE;
-		S.last = ArkeGetSystime();
+		S.last  = ArkeGetSystime();
 	}
 
-	S.state = stateFunctions[S.state](&toReturn,now);
+	S.state = stateFunctions[S.state](&toReturn, now);
 	return toReturn;
 }
 

@@ -1,28 +1,32 @@
+#include "arke.h"
 #include "config.h"
 
-#include "LEDs.h"
-#include "Sensors.h"
+#include "ClimateController.h"
 #include "FanControl.h"
 #include "Heaters.h"
-#include "ClimateController.h"
+#include "LEDs.h"
+#include "Sensors.h"
 
 #include <arke-avr.h>
-#include <yaail.h>
 #include <avr/interrupt.h>
+#include <yaail.h>
 
 implements_ArkeSoftwareReset()
 
-typedef struct {
-	yaacl_txn_t report,txSetPoint,status,txConfig,txControlPoint,deltaT;
+    typedef struct {
+	yaacl_txn_t    report, txSetPoint, status, txConfig, txControlPoint, deltaT;
 	ArkeZeusStatus statusData;
 	ArkeZeusControlPoint cpData;
-	ArkeSystime_t reportPeriod,lastReport;
+	ArkeSystime_t        reportPeriod, lastReport;
+
 	union {
-		ArkeZeusSetPoint sp;
-		ArkeZeusConfig config;
+		ArkeZeusSetPoint         sp;
+		ArkeZeusConfig           config;
 		ArkeZeusDeltaTemperature delta;
-		uint8_t bytes[8];
+		ArkeZeusControlPoint     cp;
+		uint8_t                  bytes[8];
 	} inBuffer;
+
 	uint8_t LEDStealthMode;
 } Zeus_t;
 
@@ -49,23 +53,22 @@ void InitZeus() {
 	sei();
 }
 
-
 void ProcessIncoming() {
-	uint8_t dlc;
-	yaacl_idt_t res = ArkeProcess(&dlc);
-	bool rtr = yaacl_idt_test_rtrbit(res);
-	ArkeMessageClass a = (res & 0x1f8) >> 3;
-	if ( a == ARKE_ZEUS_SET_POINT ) {
-		if( rtr && yaacl_txn_status(&Z.txSetPoint) != YAACL_TXN_PENDING ) {
+	uint8_t          dlc;
+	yaacl_idt_t      res = ArkeProcess(&dlc);
+	bool             rtr = yaacl_idt_test_rtrbit(res);
+	ArkeMessageClass a   = (res & 0x1f8) >> 3;
+	if (a == ARKE_ZEUS_SET_POINT) {
+		if (rtr && yaacl_txn_status(&Z.txSetPoint) != YAACL_TXN_PENDING) {
 			ArkeZeusSetPoint sp;
-			sp.Humidity = ClimateControllerGetHumidityTarget();
+			sp.Humidity    = ClimateControllerGetHumidityTarget();
 			sp.Temperature = ClimateControllerGetTemperatureTarget();
-			sp.Wind = ClimateControllerGetWindTarget();
-			ArkeSendZeusSetPoint(&Z.txSetPoint,false,&sp);
+			sp.Wind        = ClimateControllerGetWindTarget();
+			ArkeSendZeusSetPoint(&Z.txSetPoint, false, &sp);
 			return;
 		}
 
-		if (!rtr && dlc == sizeof(ArkeZeusSetPoint) )  {
+		if (!rtr && dlc == sizeof(ArkeZeusSetPoint)) {
 			ClimateControllerSetTarget(&Z.inBuffer.sp);
 			Z.LEDStealthMode = 1;
 			LEDReadyOff();
@@ -74,46 +77,55 @@ void ProcessIncoming() {
 		}
 	}
 
-	if ( a == ARKE_ZEUS_CONFIG ) {
-		if  ( rtr && yaacl_txn_status(&Z.txConfig) != YAACL_TXN_PENDING ) {
+	if (a == ARKE_ZEUS_CONFIG) {
+		if (rtr && yaacl_txn_status(&Z.txConfig) != YAACL_TXN_PENDING) {
 			ArkeZeusConfig config;
 			ClimateControllerGetConfig(&config);
-			ArkeSendZeusConfig(&Z.txConfig,false,&config);
+			ArkeSendZeusConfig(&Z.txConfig, false, &config);
 			return;
 		}
 
-		if (!rtr && dlc == sizeof(ArkeZeusConfig) ) {
+		if (!rtr && dlc == sizeof(ArkeZeusConfig)) {
 			ClimateControllerConfigure(&Z.inBuffer.config);
 			return;
 		}
 	}
 
-	if ( a == ARKE_ZEUS_STATUS && rtr && yaacl_txn_status(&Z.status) != YAACL_TXN_PENDING ) {
-		ArkeSendZeusStatus(&Z.status,false,&Z.statusData);
+	if (a == ARKE_ZEUS_STATUS && rtr &&
+	    yaacl_txn_status(&Z.status) != YAACL_TXN_PENDING) {
+		ArkeSendZeusStatus(&Z.status, false, &Z.statusData);
 		return;
 	}
 
-	if ( a == ARKE_ZEUS_CONTROL_POINT && rtr && yaacl_txn_status(&Z.txControlPoint) != YAACL_TXN_PENDING ) {
-		ArkeSendZeusControlPoint(&Z.txControlPoint,false,&Z.cpData);
-		return;
-	}
-
-	if ( a == ARKE_ZEUS_REPORT && rtr && yaacl_txn_status(&Z.report) != YAACL_TXN_PENDING) {
-		ArkeSendZeusReport(&Z.report,false,GetSensorData());
-		return;
-	}
-
-	if ( a == ARKE_ZEUS_DELTA_TEMPERATURE ) {
-		if( rtr && yaacl_txn_status(&Z.deltaT) != YAACL_TXN_PENDING ) {
-			ArkeSendZeusDeltaTemperature(&Z.deltaT,false,SensorsGetDeltaTemperature());
+	if (a == ARKE_ZEUS_CONTROL_POINT) {
+		if (rtr && yaacl_txn_status(&Z.txControlPoint) != YAACL_TXN_PENDING) {
+			ArkeSendZeusControlPoint(&Z.txControlPoint, false, &Z.cpData);
 			return;
 		}
 
-		if ( !rtr && dlc == sizeof(ArkeZeusDeltaTemperature) ) {
+		ClimateControllerSetRaw(&Z.inBuffer.cp);
+	}
+
+	if (a == ARKE_ZEUS_REPORT && rtr &&
+	    yaacl_txn_status(&Z.report) != YAACL_TXN_PENDING) {
+		ArkeSendZeusReport(&Z.report, false, GetSensorData());
+		return;
+	}
+
+	if (a == ARKE_ZEUS_DELTA_TEMPERATURE) {
+		if (rtr && yaacl_txn_status(&Z.deltaT) != YAACL_TXN_PENDING) {
+			ArkeSendZeusDeltaTemperature(
+			    &Z.deltaT,
+			    false,
+			    SensorsGetDeltaTemperature()
+			);
+			return;
+		}
+
+		if (!rtr && dlc == sizeof(ArkeZeusDeltaTemperature)) {
 			SensorsSetDeltaTemperature(&Z.inBuffer.delta);
 		}
 	}
-
 }
 
 int main() {
@@ -159,9 +171,9 @@ int main() {
 		ClimateControllerProcess(hasNew, now);
 		Z.statusData.Status = ClimateControllerStatus();
 		if (hasNew && (Z.statusData.Status & ARKE_ZEUS_ACTIVE) != 0) {
+#ifdef ZEUS_DEBUG_CONTROL
 			Z.cpData.Humidity    = ClimateControllerGetHumidityCommand();
 			Z.cpData.Temperature = ClimateControllerGetTemperatureCommand();
-#ifdef ZEUS_DEBUG_CONTROL
 			if (yaacl_txn_status(&Z.txControlPoint) != YAACL_TXN_PENDING) {
 				ArkeSendZeusControlPoint(&Z.txControlPoint, false, &Z.cpData);
 			}

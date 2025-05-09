@@ -7,109 +7,98 @@
 #include <arke-avr.h>
 #include <yaacl.h>
 
-#include "Heaters.h"
 #include "FanControl.h"
+#include "Heaters.h"
 #include "LEDs.h"
-#include "Sensors.h"
 #include "PIDController.h"
+#include "Sensors.h"
+#include "arke.h"
 #include "math.h"
+#include "zeus/src/FanControl.h"
 
-
-
-#define WATCHDOG_MS 5000
-#define DEFAULT_HUMIDITY 4915  //30%
+#define WATCHDOG_MS         5000
+#define DEFAULT_HUMIDITY    4915 // 30%
 #define DEFAULT_TEMPERATURE 6354 // 24°C
-#define HUMIDITY_UNCONTROLLED_MIN_TIME 60000 // 1m !!! Should not be more than 2^16-1 = 65535
+#define HUMIDITY_UNCONTROLLED_MIN_TIME                                         \
+	60000 // 1m !!! Should not be more than 2^16-1 = 65535
 
 ArkePIDConfig EEMEM EEHumidity = {
-	.ProportionalMult = 10,
-	.DerivativeMult = 20,
-	.IntegralMult = 10,
-	.DividerPower = 5,
-	.DividerPowerInt = 15,
+    .ProportionalMult = 10,
+    .DerivativeMult   = 20,
+    .IntegralMult     = 10,
+    .DividerPower     = 5,
+    .DividerPowerInt  = 15,
 };
 
 ArkePIDConfig EEMEM EETemperature = {
-	.ProportionalMult = 100,
-	.DerivativeMult = 10,
-	.IntegralMult = 100,
-	.DividerPower = 5,
-	.DividerPowerInt = 15,
+    .ProportionalMult = 100,
+    .DerivativeMult   = 10,
+    .IntegralMult     = 100,
+    .DividerPower     = 5,
+    .DividerPowerInt  = 15,
 };
 
-
+typedef enum ControlState {
+	CC_NONE,
+	CC_PID,
+	CC_RAW,
+} ControlState_e;
 
 struct ClimateControl_t {
-	PIDController Humidity,Temperature;
-	uint8_t       Wind;
-	yaacl_txn_t   CelaenoCommand;
-	ArkeSystime_t LastUpdate;
-	ArkeSystime_t LastCommand;
-	ArkeSystime_t LastHumidityControlled;
-	int16_t       TemperatureCommand,HumidityCommand;
-	uint8_t       Status;
-	bool          SensorResetGuard;
+	PIDController  Humidity, Temperature;
+	uint8_t        Wind;
+	yaacl_txn_t    CelaenoCommand;
+	ArkeSystime_t  LastUpdate;
+	ArkeSystime_t  LastCommand;
+	ArkeSystime_t  LastHumidityControlled;
+	int16_t        TemperatureCommand, HumidityCommand;
+	uint8_t        Status;
+	bool           SensorResetGuard;
+	ControlState_e State;
 };
 
 struct ClimateControl_t CC;
 
-
 void InitClimateController() {
-	ArkePIDConfig h,t;
-	uint8_t sreg = SREG;
+	ArkePIDConfig h, t;
+	uint8_t       sreg = SREG;
 	cli();
-	eeprom_read_block(&h,&EEHumidity,sizeof(ArkePIDConfig));
-	eeprom_read_block(&t,&EETemperature,sizeof(ArkePIDConfig));
+	eeprom_read_block(&h, &EEHumidity, sizeof(ArkePIDConfig));
+	eeprom_read_block(&t, &EETemperature, sizeof(ArkePIDConfig));
 	SREG = sreg;
-	InitPIDController(&CC.Humidity,1,0,255);
-	PIDSetConfig(&CC.Humidity,&h);
-	PIDSetTarget(&CC.Humidity,DEFAULT_HUMIDITY);
-	InitPIDController(&CC.Temperature,1,0,510);
-	PIDSetConfig(&CC.Temperature,&t);
-	PIDSetTarget(&CC.Temperature,DEFAULT_TEMPERATURE);
+	InitPIDController(&CC.Humidity, 1, 0, 255);
+	PIDSetConfig(&CC.Humidity, &h);
+	PIDSetTarget(&CC.Humidity, DEFAULT_HUMIDITY);
+	InitPIDController(&CC.Temperature, 1, 0, 510);
+	PIDSetConfig(&CC.Temperature, &t);
+	PIDSetTarget(&CC.Temperature, DEFAULT_TEMPERATURE);
 
 	CC.Wind = 0;
 	yaacl_init_txn(&(CC.CelaenoCommand));
-	CC.LastUpdate = ArkeGetSystime();
-	CC.Status = ARKE_ZEUS_IDLE;
+	CC.LastUpdate       = ArkeGetSystime();
+	CC.Status           = ARKE_ZEUS_IDLE;
 	CC.SensorResetGuard = false;
+	CC.State            = CC_NONE;
 }
 
-void ClimateControllerSetTarget(const ArkeZeusSetPoint * sp) {
+void ClimateControllerSetTarget(const ArkeZeusSetPoint *sp) {
 	PIDSetTarget(&CC.Humidity, sp->Humidity);
 	PIDSetTarget(&CC.Temperature, sp->Temperature);
 	CC.Wind = sp->Wind;
-	if ( (CC.Status & ARKE_ZEUS_ACTIVE) != 0) {
+	if (CC.State == CC_PID) {
 		return;
 	}
 	ArkeSystime_t now = ArkeGetSystime();
-	CC.Status &= ~(ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD|ARKE_ZEUS_TEMPERATURE_UNREACHABLE|ARKE_ZEUS_HUMIDITY_UNREACHABLE);
+	CC.Status &=
+	    ~(ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD |
+	      ARKE_ZEUS_TEMPERATURE_UNREACHABLE | ARKE_ZEUS_HUMIDITY_UNREACHABLE);
 	CC.LastHumidityControlled = now;
-	CC.LastUpdate = now;
+	CC.LastUpdate             = now;
 	CC.Status |= ARKE_ZEUS_ACTIVE;
+	CC.State = CC_PID;
 }
 
-void ClimateControllerConfigure(const ArkeZeusConfig * c) {
-#define update_config(type) do {	  \
-		PIDSetConfig(&CC.type,&(c->type)); \
-		uint8_t sreg = SREG; \
-		cli(); \
-		eeprom_update_block(&(c->type),&EE ## type,sizeof(ArkePIDConfig)); \
-		SREG = sreg; \
-	}while(0)
-	update_config(Humidity);
-	update_config(Temperature);
-#undef update_config
-}
-
-void ClimateControllerUpdateUnsafe(const ArkeZeusReport *r, ArkeSystime_t now) {
-	ArkeSystime_t ellapsed = now - CC.LastUpdate;
-	CC.LastUpdate          = now;
-
-	CC.HumidityCommand = PIDCompute(&CC.Humidity, r->Humidity, ellapsed);
-	CC.TemperatureCommand =
-	    PIDCompute(&CC.Temperature, r->Temperature1, ellapsed);
-
+void climateControllerSendCommands() {
 	uint16_t            heatPower;
 	uint16_t            ventPower;
 	uint8_t             windPower;
@@ -138,6 +127,66 @@ void ClimateControllerUpdateUnsafe(const ArkeZeusReport *r, ArkeSystime_t now) {
 	if (yaacl_txn_status(&(CC.CelaenoCommand)) != YAACL_TXN_PENDING) {
 		ArkeSendCelaenoSetPoint(&(CC.CelaenoCommand), false, &sp);
 	}
+}
+
+void ClimateControllerSetRaw(const ArkeZeusControlPoint *cp) {
+	if (CC.State == CC_PID) {
+		// we should not be under PID control.
+		return;
+	}
+
+	if (cp->Humidity < -512 || cp->Temperature < -512 || cp->Humidity > 511 ||
+	    cp->Temperature > 511) {
+		// we should stop
+		if (CC.State == CC_NONE) {
+			return;
+		}
+		CC.TemperatureCommand = 0;
+		CC.HumidityCommand    = 0;
+		CC.Wind               = 0;
+
+		climateControllerSendCommands();
+
+		ArkeSystime_t now         = ArkeGetSystime();
+		CC.LastHumidityControlled = now;
+		CC.LastUpdate             = now;
+		CC.Status                 = ARKE_ZEUS_IDLE;
+		CC.State                  = CC_NONE;
+		return;
+	}
+
+	CC.TemperatureCommand = cp->Temperature;
+	CC.HumidityCommand    = cp->Humidity;
+	CC.Wind               = 255;
+
+	climateControllerSendCommands();
+}
+
+void ClimateControllerConfigure(const ArkeZeusConfig *c) {
+#define update_config(type)                                                    \
+	do {                                                                       \
+		PIDSetConfig(&CC.type, &(c->type));                                    \
+		uint8_t sreg = SREG;                                                   \
+		cli();                                                                 \
+		eeprom_update_block(&(c->type), &EE##type, sizeof(ArkePIDConfig));     \
+		SREG = sreg;                                                           \
+	} while (0)
+	update_config(Humidity);
+	update_config(Temperature);
+#undef update_config
+}
+
+void climateControllerPIDUpdateUnsafe(
+    const ArkeZeusReport *r, ArkeSystime_t now
+) {
+	ArkeSystime_t ellapsed = now - CC.LastUpdate;
+	CC.LastUpdate          = now;
+
+	CC.HumidityCommand = PIDCompute(&CC.Humidity, r->Humidity, ellapsed);
+	CC.TemperatureCommand =
+	    PIDCompute(&CC.Temperature, r->Temperature1, ellapsed);
+
+	climateControllerSendCommands();
 
 	if (PIDIntegralOverflow(&CC.Humidity) == true) {
 		if ((now - CC.LastHumidityControlled) >=
@@ -162,13 +211,21 @@ void ClimateControllerProcess(bool hasNewData, ArkeSystime_t now) {
 	if (hasNewData && ((CC.Status & ARKE_ZEUS_ACTIVE) != 0)) {
 		if (r->Humidity == 0x3fff || r->Temperature1 == 0x3fff) {
 			ArkeReportError(0x0020);
-		} else {
-			ClimateControllerUpdateUnsafe(r, now);
-			CC.Status &= ~ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD;
-			CC.LastCommand      = now;
-			CC.SensorResetGuard = false;
-			return;
 		}
+
+		switch (CC.State) {
+		case CC_PID:
+			climateControllerPIDUpdateUnsafe(r, now);
+			break;
+		case CC_RAW:
+		case CC_NONE:
+			break;
+		}
+
+		CC.Status &= ~ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD;
+		CC.LastCommand      = now;
+		CC.SensorResetGuard = false;
+		return;
 	}
 
 	if ((now - CC.LastUpdate) >= (WATCHDOG_MS - 2000) &&
@@ -208,18 +265,19 @@ int16_t ClimateControllerGetTemperatureCommand() {
 	return CC.TemperatureCommand;
 }
 
-
 uint8_t ClimateControllerGetWindTarget() {
 	return CC.Wind;
 }
+
 uint16_t ClimateControllerGetHumidityTarget() {
 	return PIDGetTarget(&CC.Humidity);
 }
+
 uint16_t ClimateControllerGetTemperatureTarget() {
 	return PIDGetTarget(&CC.Temperature);
 }
 
-void ClimateControllerGetConfig(ArkeZeusConfig * config) {
-	config->Humidity = *PIDGetConfig(&CC.Humidity);
+void ClimateControllerGetConfig(ArkeZeusConfig *config) {
+	config->Humidity    = *PIDGetConfig(&CC.Humidity);
 	config->Temperature = *PIDGetConfig(&CC.Temperature);
 }
