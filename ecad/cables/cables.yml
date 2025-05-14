@@ -1,0 +1,187 @@
+options:
+  mini_bom_mode: false
+
+connectors:
+  Climate_X1: &climate_conn
+    pinlabels:
+      - +12V
+      - GND
+      - CANH
+      - CANL
+    type: JST PH
+    #show_pincount: false
+    subtype: female
+    manufacturer: JST
+    mpn: PHR-4
+    image:
+      src: resources/PHR-x.png
+      caption: Pin 1 Location
+    notes: |
+      Use 24AWG slot for crimping tool
+      (even if cable is 22 AWG).
+
+
+    # additional_components:
+    #   - type: Crimp
+    #     subtype: JST PH, 24-30 AWG
+    #     qty_multiplier: populated
+    #     manufacturer: JST
+    #     mpn: BPH-002T-P0.5S
+
+
+  Climate_X2:
+    <<: *climate_conn
+
+  Nyx_X1: &nyx_conn
+    pinlabels:
+      - +48V
+      - GND
+    type: JST XH
+    #show_pincount: false
+    subtype: female
+    manufacturer: JST
+    mpn: XHP-2
+    image:
+      src: resources/XHP-x.png
+      caption: Pin 1 Location
+
+  Nyx_X2:
+    <<: *nyx_conn
+
+  Sensor_X1: &sensor_conn
+    pinlabels:
+      - +3V3
+      - SDA
+      - SCL
+      - GND
+    type: Micro-Match
+    subtype: male
+    manufacturer: TE Connectivity
+    mpn: 215083-4
+    image:
+      src: resources/MicroMatch-4.png
+      height: 100
+
+  Sensor_X2:
+    <<: *sensor_conn
+
+  Jumper_X1: &jumper_conn
+    pinlabels:
+      - +LED
+      - +LED
+      - -LED
+      - -LED
+    type: JST PH
+    #show_pincount: false
+    subtype: female
+    manufacturer: JST
+    mpn: PHR-4
+    image:
+      src: resources/PHR-x.png
+      caption: Pin 1 Location
+    notes: |
+      Cables are pre-crimped
+
+  Jumper_X2:
+    <<: *jumper_conn
+
+
+cables:
+  Climate_W1:
+    wirecount: 4
+    gauge: 24 AWG
+    colors:
+      - RD
+      - BK
+      - GN
+      - WH
+    shield: true
+    manufacturer: Belden
+    mpn: 8723
+    image:
+      src: resources/belden_8723.png
+      height: 120
+    additional_components:
+      - type: Heatshrink tube
+        subtype: FP301 3/16x0.75"
+        qty: 2
+    notes: |
+      Required Lengths: 1x140cm, 1x120cm, 1x75cm
+
+  Nyx_W1:
+    wirecount: 2
+    gauge: 22 AWG
+    colors:
+      - RD
+      - BK
+    shield: false
+    manufacturer: Prysmian Group
+    mpn: C6348A.46.10
+    image:
+      src: resources/C6348.21.10_SERIES.png
+      height: 120
+    additional_components:
+      - type: Heatshrink tube
+        subtype: FP301 3/16x0.75"
+        qty: 2
+    notes: |
+      Required Lengths: 3x140cm, 3x105cm
+
+  Sensor_W1:
+    wirecount: 4
+    gauge: 26 AWG
+    type: .050" Flat Ribbon Cable
+    colors:
+      - RD
+      - GY
+      - GY
+      - GY
+    shield: false
+    manufacturer: 3M
+    mpn: 3801/04
+    image:
+      src: resources/FFC-4.png
+      height: 100
+    notes: |
+      Required Lengths: 1x100cm
+
+  Jumper_W1:
+    wirecount: 4
+    gauge: 24 AWG
+    type: Pre-Crimped Jumper cable
+    colors:
+      - BK
+      - BK
+      - BK
+      - BK
+    shield: false
+    manufacturer: JST
+    mpn: ASPHSPH24K51
+    image:
+      src: resources/ASPHSPH24K51.png
+      height: 100
+    notes: |
+      Required Lengths: 7x 2" (5cm), 1x 4" (10cm)
+
+
+
+
+connections:
+  - # W1
+    - Climate_X1: [1-4]
+    - Climate_W1: [1-4]
+    - Climate_X2: [1-4]
+  - #Nyx
+    - Nyx_X1: [1-2]
+    - Nyx_W1: [1-2]
+    - Nyx_X2: [1-2]
+
+  - #Sensor
+    - Sensor_X1: [1-4]
+    - Sensor_W1: [1-4]
+    - Sensor_X2: [1-4]
+
+  - #Jumper
+    - Jumper_X1: [1-4]
+    - Jumper_W1: [1-4]
+    - Jumper_X2: [1-4]

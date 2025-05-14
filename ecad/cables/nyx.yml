@@ -2,19 +2,17 @@ options:
   mini_bom_mode: false
 
 connectors:
-  X1: &climate_conn
+  X1: &template_conn
     pinlabels:
-      - +12V
+      - +48V
       - GND
-      - CANH
-      - CANL
-    type: JST PH
+    type: JST XH
     #show_pincount: false
     subtype: female
     manufacturer: JST
-    mpn: PHR-4
+    mpn: XHP-2
     image:
-      src: resources/PHR-x.png
+      src: resources/XHP-x.png
       caption: Pin 1 Location
 
     # additional_components:
@@ -26,36 +24,31 @@ connectors:
 
 
   X2:
-    <<: *climate_conn
+    <<: *template_conn
 
 cables:
-  W1:
-    wirecount: 4
+  W1: &template_cable
+    wirecount: 2
     length: 0.3
-    gauge: 24 AWG
+    gauge: 22 AWG
     colors:
       - RD
       - BK
-      - GN
-      - WH
-    shield: true
-    manufacturer: Belden
-    mpn: 8723
+    shield: false
+    manufacturer: Prysmian Group
+    mpn: C6348A.46.10
     image:
-      src: resources/belden_8723.png
+      src: resources/C6348.21.10_SERIES.png
       height: 120
     additional_components:
       - type: Heatshrink tube
         subtype: FP301 3/16x0.75"
         qty: 2
-    note:
-      Cable is 22 AWG, but consider 24AWG for crimping
-
 
 
 
 connections:
   - # W1
-    - X1: [1-4]
-    - W1: [1-4]
-    - X2: [1-4]
+    - X1: [1-2]
+    - W1: [1-2]
+    - X2: [1-2]
