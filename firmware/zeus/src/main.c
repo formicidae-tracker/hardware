@@ -103,7 +103,10 @@ void ProcessIncoming() {
 			return;
 		}
 
-		ClimateControllerSetRaw(&Z.inBuffer.cp);
+		if (!rtr && dlc == sizeof(ArkeZeusControlPoint)) {
+			ClimateControllerSetRaw(&Z.inBuffer.cp);
+			return;
+		}
 	}
 
 	if (a == ARKE_ZEUS_REPORT && rtr &&

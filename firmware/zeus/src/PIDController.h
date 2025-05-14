@@ -6,28 +6,24 @@
 
 #include <arke.h>
 
-
 struct PIDController_t {
 	ArkePIDConfig config;
-	int32_t lastError;
-	int32_t integralError;
-	uint16_t target;
-	uint16_t lastMeasure[4];
-	uint8_t idx;
-	int32_t integralOverflowMax;
-	int32_t integralOverflowMin;
-	int8_t negativeMultiplier;
-	int8_t negativeDividerPower2;
-	int32_t maxCommand;
-	bool    derrorMask;
-	bool    proportionalOverflow;
+	int32_t       lastError;
+	int32_t       integralError;
+	uint16_t      target;
+	uint16_t      lastMeasure[4];
+	uint8_t       idx;
+	int32_t       integralOverflowMax;
+	int32_t       integralOverflowMin;
+	int32_t       maxCommand;
+	bool          derrorMask;
+	bool          proportionalOverflow;
 };
-
 
 struct PIDController_t;
 typedef struct PIDController_t PIDController;
 
-void InitPIDController(PIDController * c,uint8_t negativeMult,uint8_t negativeDivPower2,int16_t maxCommand);
+void                 InitPIDController(PIDController *c, int16_t maxCommand);
 void PIDSetTarget(PIDController *c, uint16_t target);
 uint16_t PIDGetTarget(PIDController *c);
 void PIDSetConfig(PIDController *c, const ArkePIDConfig *config);

@@ -12,11 +12,14 @@
 #include "LEDs.h"
 #include "PIDController.h"
 #include "Sensors.h"
+#include "arke-avr/systime.h"
 #include "arke.h"
 #include "math.h"
 #include "zeus/src/FanControl.h"
+#include "zeus/src/LEDs.h"
 
 #define WATCHDOG_MS         5000
+#define SENSOR_WATCHDOG_MS  3000
 #define DEFAULT_HUMIDITY    4915 // 30%
 #define DEFAULT_TEMPERATURE 6354 // 24°C
 #define HUMIDITY_UNCONTROLLED_MIN_TIME                                         \
@@ -48,7 +51,7 @@ struct ClimateControl_t {
 	PIDController  Humidity, Temperature;
 	uint8_t        Wind;
 	yaacl_txn_t    CelaenoCommand;
-	ArkeSystime_t  LastUpdate;
+	ArkeSystime_t  LastSensorUpdate;
 	ArkeSystime_t  LastCommand;
 	ArkeSystime_t  LastHumidityControlled;
 	int16_t        TemperatureCommand, HumidityCommand;
@@ -66,16 +69,16 @@ void InitClimateController() {
 	eeprom_read_block(&h, &EEHumidity, sizeof(ArkePIDConfig));
 	eeprom_read_block(&t, &EETemperature, sizeof(ArkePIDConfig));
 	SREG = sreg;
-	InitPIDController(&CC.Humidity, 1, 0, 255);
+	InitPIDController(&CC.Humidity, 255);
 	PIDSetConfig(&CC.Humidity, &h);
 	PIDSetTarget(&CC.Humidity, DEFAULT_HUMIDITY);
-	InitPIDController(&CC.Temperature, 1, 0, 510);
+	InitPIDController(&CC.Temperature, 511);
 	PIDSetConfig(&CC.Temperature, &t);
 	PIDSetTarget(&CC.Temperature, DEFAULT_TEMPERATURE);
 
 	CC.Wind = 0;
 	yaacl_init_txn(&(CC.CelaenoCommand));
-	CC.LastUpdate       = ArkeGetSystime();
+	CC.LastSensorUpdate = ArkeGetSystime();
 	CC.Status           = ARKE_ZEUS_IDLE;
 	CC.SensorResetGuard = false;
 	CC.State            = CC_NONE;
@@ -93,12 +96,12 @@ void ClimateControllerSetTarget(const ArkeZeusSetPoint *sp) {
 	    ~(ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD |
 	      ARKE_ZEUS_TEMPERATURE_UNREACHABLE | ARKE_ZEUS_HUMIDITY_UNREACHABLE);
 	CC.LastHumidityControlled = now;
-	CC.LastUpdate             = now;
+	CC.LastCommand            = now;
 	CC.Status |= ARKE_ZEUS_ACTIVE;
 	CC.State = CC_PID;
 }
 
-void climateControllerSendCommands() {
+void climateControllerSendCommands(ArkeSystime_t now) {
 	uint16_t            heatPower;
 	uint16_t            ventPower;
 	uint8_t             windPower;
@@ -127,6 +130,8 @@ void climateControllerSendCommands() {
 	if (yaacl_txn_status(&(CC.CelaenoCommand)) != YAACL_TXN_PENDING) {
 		ArkeSendCelaenoSetPoint(&(CC.CelaenoCommand), false, &sp);
 	}
+
+	CC.LastCommand = now;
 }
 
 void ClimateControllerSetRaw(const ArkeZeusControlPoint *cp) {
@@ -134,32 +139,34 @@ void ClimateControllerSetRaw(const ArkeZeusControlPoint *cp) {
 		// we should not be under PID control.
 		return;
 	}
+	ArkeSystime_t now = ArkeGetSystime();
 
-	if (cp->Humidity < -512 || cp->Temperature < -512 || cp->Humidity > 511 ||
+	if (cp->Humidity < -511 || cp->Temperature < -511 || cp->Humidity > 511 ||
 	    cp->Temperature > 511) {
 		// we should stop
 		if (CC.State == CC_NONE) {
 			return;
 		}
+
 		CC.TemperatureCommand = 0;
 		CC.HumidityCommand    = 0;
 		CC.Wind               = 0;
 
-		climateControllerSendCommands();
+		climateControllerSendCommands(now);
 
-		ArkeSystime_t now         = ArkeGetSystime();
-		CC.LastHumidityControlled = now;
-		CC.LastUpdate             = now;
-		CC.Status                 = ARKE_ZEUS_IDLE;
-		CC.State                  = CC_NONE;
+		CC.Status = ARKE_ZEUS_IDLE;
+		CC.State  = CC_NONE;
 		return;
 	}
 
 	CC.TemperatureCommand = cp->Temperature;
-	CC.HumidityCommand    = cp->Humidity;
+	CC.HumidityCommand    = cp->Humidity / 2;
 	CC.Wind               = 255;
 
-	climateControllerSendCommands();
+	CC.Status = ARKE_ZEUS_ACTIVE;
+	CC.State  = CC_RAW;
+
+	climateControllerSendCommands(now);
 }
 
 void ClimateControllerConfigure(const ArkeZeusConfig *c) {
@@ -179,14 +186,13 @@ void ClimateControllerConfigure(const ArkeZeusConfig *c) {
 void climateControllerPIDUpdateUnsafe(
     const ArkeZeusReport *r, ArkeSystime_t now
 ) {
-	ArkeSystime_t ellapsed = now - CC.LastUpdate;
-	CC.LastUpdate          = now;
+	ArkeSystime_t ellapsed = now - CC.LastSensorUpdate;
 
 	CC.HumidityCommand = PIDCompute(&CC.Humidity, r->Humidity, ellapsed);
 	CC.TemperatureCommand =
 	    PIDCompute(&CC.Temperature, r->Temperature1, ellapsed);
 
-	climateControllerSendCommands();
+	climateControllerSendCommands(now);
 
 	if (PIDIntegralOverflow(&CC.Humidity) == true) {
 		if ((now - CC.LastHumidityControlled) >=
@@ -205,42 +211,55 @@ void climateControllerPIDUpdateUnsafe(
 	}
 }
 
+void climateControllerRawUpdateUnsafe(ArkeSystime_t now) {}
+
 void ClimateControllerProcess(bool hasNewData, ArkeSystime_t now) {
 	const ArkeZeusReport *r = GetSensorData();
+
+	if (hasNewData == true) {
+		CC.LastSensorUpdate = now;
+	}
 
 	if (hasNewData && ((CC.Status & ARKE_ZEUS_ACTIVE) != 0)) {
 		if (r->Humidity == 0x3fff || r->Temperature1 == 0x3fff) {
 			ArkeReportError(0x0020);
-		}
+		} else {
+			switch (CC.State) {
+			case CC_PID:
+				climateControllerPIDUpdateUnsafe(r, now);
+				break;
+			case CC_RAW:
+				climateControllerRawUpdateUnsafe(now);
+				break;
+			case CC_NONE:
+				break;
+			}
 
-		switch (CC.State) {
-		case CC_PID:
-			climateControllerPIDUpdateUnsafe(r, now);
-			break;
-		case CC_RAW:
-		case CC_NONE:
-			break;
+			CC.Status &= ~ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD;
+			CC.SensorResetGuard = false;
+			return;
 		}
-
-		CC.Status &= ~ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD;
-		CC.LastCommand      = now;
-		CC.SensorResetGuard = false;
-		return;
 	}
 
-	if ((now - CC.LastUpdate) >= (WATCHDOG_MS - 2000) &&
+	if ((now - CC.LastSensorUpdate) >= SENSOR_WATCHDOG_MS &&
 	    CC.SensorResetGuard == false) {
 		ArkeReportError(0x0021);
 		SensorsReset();
 		CC.SensorResetGuard = true;
 	}
 
-	if ((now - CC.LastUpdate) >= WATCHDOG_MS) {
+	if ((now - CC.LastCommand) >= WATCHDOG_MS) {
+		static ArkeSystime_t lastStatusUpdate;
+		if ((CC.Status & ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD) == 0x00) {
+			lastStatusUpdate = now - 1000;
+		}
+
 		CC.Status |= ARKE_ZEUS_CLIMATE_UNCONTROLLED_WD;
+
 		// we should not move in the dark or we will hit walls pretty badly.
 		// If no data is available for too long, we just ensure Celaeno is not
 		// running and that we stop heating as we do not want to cook things.
-		if ((now - CC.LastCommand) >= 1000 &&
+		if ((now - lastStatusUpdate) >= 1000 &&
 		    yaacl_txn_status(&(CC.CelaenoCommand)) != YAACL_TXN_PENDING) {
 			HeatersSetPower(0);
 			SetFan2Power(255);
@@ -248,7 +267,7 @@ void ClimateControllerProcess(bool hasNewData, ArkeSystime_t now) {
 			ArkeCelaenoSetPoint sp;
 			sp.Power = 0;
 			ArkeSendCelaenoSetPoint(&(CC.CelaenoCommand), false, &sp);
-			CC.LastCommand = now;
+			lastStatusUpdate = now;
 		}
 	}
 }
