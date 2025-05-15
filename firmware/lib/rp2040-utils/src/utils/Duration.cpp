@@ -1,24 +1,18 @@
 #include "Duration.hpp"
 
-#include <iomanip>
-#include <sstream>
-
 std::string FormatDuration(const Duration &d) {
-	auto               micros = d.count();
-	std::ostringstream oss;
+	auto micros = d.count();
+	char buffer[40];
 
 	if (std::abs(micros) < 1000) {
-		oss << micros
-		    << "us"; // would like to use UTF-8, but messes all the alignements
-		return oss.str();
+		sprintf(buffer, "%dus", micros);
+		return buffer;
 	}
-	oss << std::fixed << std::setprecision(3);
 
 	if (std::abs(micros) < 1000000) {
-		oss << float(micros) / 1000.0f << "ms";
-
-	} else {
-		oss << float(micros) / 1e6 << "s";
+		sprintf(buffer, "%.03fms", float(micros) / 1000.0f);
+		return buffer;
 	}
-	return oss.str();
+	sprintf(buffer, "%.03fs", float(micros) / 1000000.0f);
+	return buffer;
 }
