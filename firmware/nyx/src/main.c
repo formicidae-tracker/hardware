@@ -23,12 +23,12 @@ enum State {
 
 // Turtns on the IR
 inline static void irOff() {
-	// PORTA.OUTCLR = PIN_IR_ON;
+	PORTA.OUTCLR = PIN_IR_ON | PIN_DEBUG;
 }
 
 // Turns off the IR
 inline static void irOn() {
-	// PORTA.OUTSET = PIN_IR_ON;
+	PORTA.OUTSET = PIN_IR_ON | PIN_DEBUG;
 }
 
 #define US_TO_TICKS(a)      (((a)*5) / 4)
@@ -45,14 +45,14 @@ inline static void irOn() {
 inline static void initTimer() {
 	TCA0.SINGLE.CTRLB = TCA_SINGLE_WGMODE_NORMAL_gc;
 
-	TCA0.SINGLE.INTCTRL =
-	    TCA_SINGLE_CMP2_bm | TCA_SINGLE_CMP1_bm | TCA_SINGLE_CMP0_bm;
+	TCA0.SINGLE.INTCTRL = TCA_SINGLE_OVF_bm | TCA_SINGLE_CMP1_bm |
+	                      TCA_SINGLE_CMP0_bm | TCA_SINGLE_CMP2_bm;
 
 	TCA0.SINGLE.CMP0 = DEBOUNCE_TIME_ticks;
 	TCA0.SINGLE.CMP1 = MAX_PULSE_ticks;
-	TCA0.SINGLE.CMP2 = MIN_PERIOD_ticks;
+	TCA0.SINGLE.CMP2 = UART_RX_TIME_ticks;
 
-	TCA0.SINGLE.PER = 0xfffd;
+	TCA0.SINGLE.PER = MIN_PERIOD_ticks;
 }
 
 // Starts the timer to check for pulse events
@@ -159,7 +159,6 @@ ISR(PORTA_PORT_vect) {
 }
 
 ISR(TCA0_CMP0_vect) {
-
 	if (state == DEBOUNCE) {
 		irOn();
 		state = PULSE;
@@ -178,12 +177,18 @@ ISR(TCA0_CMP1_vect) {
 }
 
 ISR(TCA0_CMP2_vect) {
-
-	stopAndResetTimer();
-
-	state = IDLE;
+	if (state == UART_RX) {
+		state = REST;
+	}
 
 	TCA0.SINGLE.INTFLAGS = TCA_SINGLE_CMP2_bm;
+}
+
+ISR(TCA0_OVF_vect) {
+	stopAndResetTimer();
+	state = IDLE;
+
+	TCA0.SINGLE.INTFLAGS = TCA_SINGLE_OVF_bm;
 }
 
 int main() {
