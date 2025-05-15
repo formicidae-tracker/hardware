@@ -409,7 +409,7 @@ void onArkeEvent(const ArkeEvent &e) {
 void init() {
 	stdio_init_all();
 
-	Logger::InitLogsOnSecondCore();
+	//Logger::InitLogsOnSecondCore();
 #ifndef NDEBUG
 	Logger::Get().SetLevel(Logger::Level::DEBUG);
 #endif
@@ -451,7 +451,12 @@ void init() {
 	            std::nullopt,
 	        },
 	});
-};
+
+	Scheduler::Schedule(200, 1000, [](absolute_time_t now) {
+		Logger::FormatsMaybePendingLogs();
+		return std::nullopt;
+	});
+}
 
 int main() {
 	init();

@@ -45,7 +45,6 @@ void Logger::Logf(Level level, const char *fmt, va_list args) {
 }
 
 Logger::Logger() {
-	lock_init(&d_lock, next_striped_spin_lock_num());
 	d_buffer[BufferSize] = 0;
 }
 
@@ -58,14 +57,7 @@ void printTime(absolute_time_t time) {
 	printf("       %06d.%06ds: ", s, us);
 }
 
-void Logger::FormatsPendingLogsLoop() {
-	multicore_lockout_victim_init();
-
-	auto &lock = Logger::Get().d_lock;
-
-	auto saved = spin_lock_blocking(lock.spin_lock);
-	lock_internal_spin_unlock_with_notify(&lock, saved);
-
+void Logger::FormatLogMessage(const Message &msg) {
 	static uint8_t colors[6] = {
 	    1, // FATAL - RED
 	    1, // ERROR - RED
@@ -74,6 +66,53 @@ void Logger::FormatsPendingLogsLoop() {
 	    7, // DEBUG - WHITE
 	    4, // TRACE - BLUE
 	};
+	char  *msgStr = const_cast<char *>(msg.Value);
+	size_t n      = strlen(msgStr);
+	auto   c      = colors[size_t(msg.Level)];
+
+	for (size_t i = 0; i < n;) {
+		size_t written = LineWidth - 26;
+		char  *ch      = std::find(msgStr + i, msgStr + i + written, '\n');
+		written        = ch - msgStr - i;
+
+		auto willWrite = written;
+		if (written < LineWidth - 26) {
+			willWrite += 1;
+		}
+
+		written = std::min(written, n - i);
+
+		printf("\033[30;4%dm", c);
+		if (i == 0) {
+			printTime(msg.Time);
+		} else {
+			printf("                       ");
+		}
+
+		auto space = LineWidth - 26 - written;
+		printf("\033[m\033[3%dm %-.*s ", c, written, msgStr + i);
+		printf("%*s┃\n", space, "");
+		i += willWrite;
+	}
+}
+
+void formatPendingLogOnCoreOne() {
+	multicore_lockout_victim_init();
+	Logger::FormatsPendingLogsLoop();
+}
+
+bool Logger::FormatsMaybePendingLogs() {
+	struct Message msg;
+
+	auto hasOne = Logger::Get().d_queue.TryRemove(msg);
+	if (hasOne == false) {
+		return false;
+	}
+	FormatLogMessage(msg);
+	return true;
+}
+
+void Logger::FormatsPendingLogsLoop() {
 
 	struct Message msg;
 
@@ -81,41 +120,13 @@ void Logger::FormatsPendingLogsLoop() {
 		// we need to save interrupt to not enter in deadlock.
 
 		Logger::Get().d_queue.RemoveBlocking(msg);
-
-		char  *msgStr = const_cast<char *>(msg.Value);
-		size_t n      = strlen(msgStr);
-		auto   c      = colors[size_t(msg.Level)];
-
-		for (size_t i = 0; i < n;) {
-			size_t written = LineWidth - 26;
-			char  *ch      = std::find(msgStr + i, msgStr + i + written, '\n');
-			written        = ch - msgStr - i;
-
-			auto willWrite = written;
-			if (written < LineWidth - 26) {
-				willWrite += 1;
-			}
-
-			written = std::min(written, n - i);
-
-			printf("\033[30;4%dm", c);
-			if (i == 0) {
-				printTime(msg.Time);
-			} else {
-				printf("                       ");
-			}
-
-			auto space = LineWidth - 26 - written;
-			printf("\033[m\033[3%dm %-.*s ", c, written, msgStr + i);
-			printf("%*s┃\n", space, "");
-			i += willWrite;
-		}
+		FormatLogMessage(msg);
 	}
 }
 
 void Logger::InitLogsOnSecondCore() {
-	auto &lock = Logger::Get().d_lock;
 	multicore_launch_core1(FormatsPendingLogsLoop);
-	auto saved = spin_lock_blocking(lock.spin_lock);
-	lock_internal_spin_unlock_with_wait(&lock, saved);
+	while (multicore_lockout_victim_is_initialized(1) == false) {
+		tight_loop_contents();
+	}
 }
