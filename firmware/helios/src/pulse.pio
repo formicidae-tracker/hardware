@@ -1,0 +1,46 @@
+
+.program pulse
+.side_set 1 opt
+
+	pull noblock side 0 ; Pull from FIFO to OSR if available, else copy X to OSR.
+	mov x, osr          ; Copy most-recently-pulled value back to scratch X
+	mov y, isr          ; ISR contains PWM period. Y used as counter.
+countloop:
+	jmp x!=y noset      ; Set pin high if X == Y, keep the two paths length matched
+	jmp skip side 1
+noset:
+	nop                 ; Single dummy cycle to keep the two paths the same length
+skip:
+ jmp y-- countloop      ; Loop until Y hits 0, then pull a fresh PWM value from FIFO
+
+
+
+%c-sdk {
+
+static inline void pulse_program_init(PIO pio, uint sm, uint offset, uint pin) {
+	pio_gpio_init(pio, pin);
+	pio_sm_set_consecutive_pindirs(pio, sm, pin, 1, true);
+	pio_sm_config c = pulse_program_get_default_config(offset);
+	sm_config_set_clkdiv(&c, (float)(SYS_CLK_HZ) /  (3000000.0f));
+	sm_config_set_sideset_pins(&c, pin);
+	pio_sm_init(pio, sm, offset, &c);
+}
+
+static inline bool pio_sm_is_enabled(PIO pio, uint sm) {
+    return (pio->ctrl &  (1u << sm)) != 0x00;
+}
+
+static inline void pulse_program_set_period(PIO pio, uint sm, uint period_us) {
+	if ( pio_sm_is_enabled(pio,sm) == true ) {
+		return;
+	}
+	pio_sm_put_blocking(pio, sm, period_us);
+	pio_sm_exec(pio, sm, pio_encode_pull(false,false));
+	pio_sm_exec(pio,sm,pio_encode_out(pio_isr,32));
+}
+
+static inline void pulse_program_set_pulse(PIO pio,uint sm, uint pulse_us) {
+	pio_sm_put_blocking(pio,sm,pulse_us);
+}
+
+%}

@@ -9,7 +9,12 @@ set(HDR_FILES #
 
 configure_file(config_helios.in config_helios.hpp)
 
+
+
 add_executable(helios ${SRC_FILES})
+
+pico_generate_pio_header(helios ${CMAKE_CURRENT_LIST_DIR}/pulse.pio)
+
 
 target_compile_definitions(helios PUBLIC BOARD=pico_sdk)
 target_include_directories(helios PRIVATE ${CMAKE_CURRENT_BINARY_DIR})

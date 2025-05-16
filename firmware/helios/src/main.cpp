@@ -1,5 +1,6 @@
 #include <cstdint>
 #include <functional>
+#include <hardware/pio.h>
 
 extern "C" {
 #include <hardware/sync.h>
@@ -10,6 +11,7 @@ extern "C" {
 #include <pico/time.h>
 #include <pico/types.h>
 #include <pico/multicore.h>
+#include "pwm.pio.h"
 }
 
 #include <memory>
@@ -50,275 +52,76 @@ extern "C" {
 // interrupt from another core is better??)
 //
 
-template <size_t N> class SlaveCommunicationMultiplexer {
-public:
-	constexpr static int64_t MIN_PERIOD_us = 1e6 / 31;
-	constexpr static int64_t MAX_PULSE_us  = 5000;
-	constexpr static int     BAUDRATE      = 20000;
-
-	constexpr static int64_t SERIAL_DELAY_AFTER_PULSE = 1000; // 1ms
-	constexpr static int64_t SERIAL_SEND_TIME_us      = 2500; // 1ms
-
-	template <typename... Args>
-	SlaveCommunicationMultiplexer(Args... args)
-	    : d_pins{args...} {
-		for (size_t i = 0; i < N; ++i) {
-			const auto &p = d_pins[0];
-			gpio_set_dir(p, GPIO_OUT);
-			gpio_set_function(p, GPIO_FUNC_SIO);
-		}
-		putPins(false);
-
-		uart_init(uart1, BAUDRATE);
-		d_pulseStart  = 0;
-		d_serialStart = 0;
-	}
-
-	void Work(absolute_time_t now) {
-
-		const auto sincePulseStart_us =
-		    absolute_time_diff_us(d_pulseStart, now);
-
-		switch (d_state) {
-		case State::IDLE:
-			break;
-		case State::PULSE:
-			if (sincePulseStart_us >= MAX_PULSE_us) {
-				Warnf("[Helios/Comm]: Pulse too long, stopping.");
-				EndPulse();
-			}
-			break;
-		case State::PULSE_BREAK:
-			if (d_nextValue != nullptr &&
-			    sincePulseStart_us >=
-			        (MAX_PULSE_us + SERIAL_DELAY_AFTER_PULSE)) {
-				Debugf("[Helios/Comm]: Sending serial data");
-				sendValue(now);
-			}
-			if (sincePulseStart_us >= MIN_PERIOD_us) {
-				rearm();
-			}
-			break;
-		case State::SENDING_SERIAL:
-			if (absolute_time_diff_us(d_serialStart,now) >= (SERIAL_SEND_TIME_us)) {
-				if (sincePulseStart_us >= MIN_PERIOD_us) {
-					rearm();
-				} else {
-					d_state = State::PULSE_BREAK;
-				}
-			}
-			break;
-		}
-	}
-
-	void StartPulse() {
-		if (d_state != State::IDLE) {
-			const auto now = get_absolute_time();
-			const auto ellapsed =
-			    Duration(absolute_time_diff_us(d_pulseStart, now));
-			Warnf("[Helios/Comm]: Skipping pulse: too high frequency");
-			Infof(
-			    "[Helios/Comm]: now:%llu.%llu pulse start: %llu.%llu %s ago",
-			    now / 1000000,
-			    now % 1000000,
-			    d_pulseStart / 1000000,
-			    d_pulseStart % 1000000,
-			    FormatDuration(ellapsed).c_str()
-			);
-			return;
-		}
-		if (d_inhibited == true) {
-			Warnf("[Helios/Comm]: Skipping pulse: inhibited");
-			return;
-		}
-		Debugf("[Helios]: Starting pulse");
-
-		d_state = State::PULSE;
-		putPins(true);
-
-		auto now     = get_absolute_time();
-		d_pulseStart = now;
-	}
-
-	void EndPulse() {
-		if (d_state != State::PULSE) {
-			return;
-		}
-		putPins(false);
-
-		d_state = State::PULSE_BREAK;
-	}
-
-	void SetInhibited(bool inhibit) {
-		if (d_inhibited == inhibit) {
-			return;
-		}
-		if (inhibit == true) {
-			EndPulse();
-		}
-
-		d_inhibited = inhibit;
-	}
-
-	void SetPoint(ArkeHeliosSetPoint_t value) {
-		d_nextValue = std::make_unique<ArkeHeliosSetPoint_t>(value);
-		if (d_state != State::IDLE) {
-			return;
-		}
-		d_state = State::PULSE_BREAK;
-		sendValue(get_absolute_time());
-	}
-
-private:
-	enum class State {
-		IDLE,        // Serial allowed.
-		PULSE,       // Sending pulse // Serial allowed
-		PULSE_BREAK, // Break, Serial maybe soon.
-		SENDING_SERIAL,
-	};
-
-	void sendValue(absolute_time_t now) {
-		if (d_nextValue == nullptr) {
-			return;
-		}
-
-		d_serialStart = now;
-
-		Debugf("[Helios/comm] sending data from %llu.%llu",now/1000000,now%1000000);
-		d_state       = State::SENDING_SERIAL;
-		gpio_set_function(d_pins[0], UART_FUNCSEL_NUM(1, d_pins[0]));
-		d_buffer[0] = 0x55;
-		d_buffer[1] = d_nextValue->Visible;
-		d_buffer[2] = d_nextValue->UV;
-		uart_write_blocking(uart1, (const uint8_t *)(d_buffer), 3);
-		d_nextValue = nullptr;
-	}
-
-	void rearm() {
-		gpio_set_function(d_pins[0], GPIO_FUNC_SIO);
-		d_state = State::IDLE;
-		Debugf("[Helios/comm]: ready to fire.");
-	}
-
-	void putPins(bool high) {
-		for (size_t i = 0; i < N; ++i) {
-			// pin 0 is inverted
-			gpio_put(d_pins[i], i == 0 ? !high : high);
-		}
-	}
-
-	bool d_inhibited = false;
-
-	State d_state = State::IDLE;
-
-	uint d_txPin, outPin;
-
-	std::unique_ptr<ArkeHeliosSetPoint_t> d_nextValue;
-	char                                d_buffer[3];
-	std::array<uint, N>                 d_pins;
-	absolute_time_t                     d_pulseStart, d_serialStart;
-};
 
 static std::unique_ptr<LED> green, yellow;
 
 class Helios {
 public:
 	struct Args {
-		uint SyncOutPin, InIsolatedPin, InTTLPin, TxPin, StrobePin, InhibitPin;
+		uint StrobePin, TxPin;
 	};
 
-	constexpr static int64_t VISIBLE_UPDATE_PERIOD_US = 200 * 1000;
-	constexpr static int64_t SYNC_SIGNAL_US           = 1000;
 
 	Helios(Args &&args)
-	    : d_slaves{args.TxPin, args.StrobePin}
-	    , d_pins{std::move(args)}
-	    , d_lastVisibleUpdate(get_absolute_time() - VISIBLE_UPDATE_PERIOD_US) {
+		: d_pins{args.StrobePin,args.TxPin}{
 
-		lock_init(&d_lock,next_striped_spin_lock_num());
+		d_sms[0] = pio_claim_unused_sm(d_pio, true);
+		d_sms[1] = pio_claim_unused_sm(d_pio, true);
 
-		gpio_init(d_pins.SyncOutPin);
-		gpio_set_dir(d_pins.SyncOutPin, GPIO_OUT);
-		gpio_put(d_pins.SyncOutPin, 0);
+		d_offset = pio_add_program(d_pio, &pulse_program);
 
-		gpio_init(d_pins.InIsolatedPin);
-		gpio_init(d_pins.InTTLPin);
-		gpio_init(d_pins.InTTLPin);
+		for ( uint p : d_pins) {
+			gpio_set_dir(p,GPIO_OUT);
+			gpio_put(p,false);
+		}
 
+		stop();
 	}
 
 	ArkeHeliosSetPoint_t Visible() {
-		return {.Visible = d_echoConfig.Visible, .UV = d_echoConfig.UV};
+		return {.Visible = 0, .UV = 0};
 	}
 
 	void SetVisible(const ArkeHeliosSetPoint_t &value) {
-
-		d_echoConfig.Visible    = value.Visible;
-		d_echoConfig.UV         = value.UV;
-
-
-		auto saved = spin_lock_blocking(d_lock.spin_lock);
-		d_newSetPoint = std::make_unique<ArkeHeliosSetPoint_t>(value);
-		spin_unlock(d_lock.spin_lock, saved);
+		Warnf("[Helios]: Visible management is not yet supported!");
 	}
 
 	uint64_t VisiblePulsation_us() {
-		return d_echoConfig.VisiblePulsationPeriod_us;
+		return 0;
 	}
 
 	ArkeHeliosTriggerConfig_t Trigger() {
 		return ArkeHeliosTriggerConfig_t{
-		    .Period_hecto_us = uint16_t(d_echoConfig.PulsePeriod_us / 100),
-		    .Pulse_us        = uint16_t(d_echoConfig.PulseLength_us),
+		    .Period_hecto_us = uint16_t(d_config.PulsePeriod_us / 100),
+		    .Pulse_us        = uint16_t(d_config.PulseLength_us),
 		};
 	}
 
 	void SetTrigger(const ArkeHeliosTriggerConfig_t &config) {
-		d_echoConfig.PulsePeriod_us = config.Period_hecto_us * 100;
-		d_echoConfig.PulseLength_us = config.Pulse_us;
+		if ( config.Period_hecto_us == 0 ) {
+			stop();
+			return;
+		}
 
-		auto saved = spin_lock_blocking(d_lock.spin_lock);
-		d_newTrigger = std::make_unique<ArkeHeliosTriggerConfig_t>(config);
-		spin_unlock(d_lock.spin_lock, saved);
-	}
+		bool needStart = d_config.PulsePeriod_us == 0;
+		if ( needStart == false && config.Period_hecto_us * 100 != d_config.PulsePeriod_us ) {
+			Errorf("[Helios]: Can only change period while not running, skipping update");
+			return;
+		}
 
-	void Work() {
-		// d_slaves.SetInhibited(gpio_get(d_pins.InhibitPin));
+		d_config.PulseLength_us = config.Pulse_us;
+		d_config.PulsePeriod_us = 100 * config.Period_hecto_us;
 
-		auto now = get_absolute_time();
-		d_slaves.Work(now);
+		if ( config.CameraDelay_us != 0 ) {
+			Warnf("[Helios]: Camera delay is not supported");
+		}
 
-		bool hasTrigger =
-		    gpio_get(d_pins.InIsolatedPin) || gpio_get(d_pins.InTTLPin);
-
-		if (d_workConfig.PulsePeriod_us > 0) {
-			auto canPull = generatePulse(now);
-			if ( canPull == true ) {
-				pullUpdates();
-			}
+		if ( needStart) {
+			start();
 		} else {
-			if (d_onPulse == false && hasTrigger) {
-				d_onPulse = true;
-				d_slaves.StartPulse();
-				Debugf("[Helios]: External Pulse Start");
-			}
-			if (d_onPulse == true && hasTrigger == false) {
-				d_onPulse = false;
-				d_slaves.EndPulse();
-				Debugf("[Helios]: External Pulse End");
-
-			}
-			pullUpdates();
-		}
-
-		if (absolute_time_diff_us(d_lastVisibleUpdate, now) >
-		    VISIBLE_UPDATE_PERIOD_US) {
-			Debugf("[Helios]: Visible set point update");
-			d_slaves.SetPoint({.Visible = d_workConfig.Visible, .UV = d_workConfig.UV});
-			d_lastVisibleUpdate = now;
+			updatePeriod();
 		}
 	}
-
 
 
 private:
@@ -331,105 +134,38 @@ private:
 	};
 
 
-
-
-	void pullUpdates() {
-		std::unique_ptr<ArkeHeliosSetPoint_t> newSetPoint;
-		std::unique_ptr<ArkeHeliosTriggerConfig_t> newTriggerConfig;
-
-
-		auto saved = spin_lock_blocking(d_lock.spin_lock);
-		newSetPoint = std::move(d_newSetPoint);
-		newTriggerConfig = std::move(d_newTrigger);
-		spin_unlock(d_lock.spin_lock, saved);
-
-		if (newSetPoint != nullptr) {
-			Infof("[Helios]: Setting visible point to Visible:%d UV:%d",
-				  newSetPoint->Visible, newSetPoint->UV);
-
-			d_slaves.SetPoint(*newSetPoint);
-			d_lastVisibleUpdate = get_absolute_time();
-			d_workConfig.Visible = newSetPoint->Visible;
-			d_workConfig.UV = newSetPoint->UV;
+	void stop(){
+		for ( uint p : d_pins) {
+			gpio_set_function(p, GPIO_FUNC_SIO);
 		}
-
-		if ( newTriggerConfig == nullptr ){
-			return;
+	};
+	void start(){
+		uint mask;
+		for ( uint i = 0; i < 2; i++) {
+			pulse_program_init(d_pio, d_sms[i], d_offset, d_pins[i]);
+			pulse_program_set_period(d_pio, d_sms[i], d_config.PulsePeriod_us);
+			mask |= ( 1u << d_sms[i] );
 		}
+		updatePeriod();
+		pio_enable_sm_mask_in_sync(d_pio, mask);
+	};
 
-		bool triggerNow = d_workConfig.PulsePeriod_us <= 0;
-		d_workConfig.PulsePeriod_us = newTriggerConfig->Period_hecto_us * 100;
-		d_workConfig.PulseLength_us = newTriggerConfig->Pulse_us;
-
-
-		if (d_workConfig.PulsePeriod_us > 0) {
-			Infof(
-			    "[Helios]: starting generating pulses, length: %s, period: %s",
-			    FormatDuration(Duration(d_workConfig.PulseLength_us)).c_str(),
-			    FormatDuration(Duration(d_workConfig.PulsePeriod_us)).c_str()
-			);
-		} else {
-			Infof("[Helios]: using external pulse trigger");
+	void updatePeriod(){
+		for ( uint sm : d_sms ) {
+			pulse_program_set_pulse(d_pio, sm, d_config.PulseLength_us);
 		}
-
-		if ( triggerNow ) {
-			d_lastPulse = get_absolute_time() - d_workConfig.PulsePeriod_us;
-		}
-
 	}
 
-	bool generatePulse(absolute_time_t now) {
-		auto ellapsed = absolute_time_diff_us(d_lastPulse, now);
-		auto canPull = false;
-		if (d_onPulse && ellapsed > d_workConfig.PulseLength_us) {
-			d_slaves.EndPulse();
-			Debugf("[Helios/generate]: Pulse End");
-			d_onPulse = false;
-			canPull = true;
-		}
-		if (d_onSync && ellapsed > SYNC_SIGNAL_US) {
-			gpio_put(d_pins.SyncOutPin, 0);
-			Debugf("[Helios/generate]: Sync End");
-			d_onSync = false;
-		}
-
-
-		if (d_onPulse == false && d_onSync == false &&
-		    ellapsed > d_workConfig.PulsePeriod_us) {
-			d_slaves.StartPulse();
-			d_onPulse = true;
-			d_onSync  = true;
-			gpio_put(d_pins.SyncOutPin, 1);
-			d_lastPulse += d_workConfig.PulsePeriod_us;
-			Debugf("[Helios/generate]: Pulse and Sync Start");
-		}
-		return canPull;
-	}
-
-	SlaveCommunicationMultiplexer<2> d_slaves;
-	Args                             d_pins;
-
-
-	lock_core_t d_lock;
-
-	Config d_echoConfig,d_workConfig;
-
-	std::unique_ptr<ArkeHeliosTriggerConfig_t> d_newTrigger;
-	std::unique_ptr<ArkeHeliosSetPoint_t> d_newSetPoint;
-
-	absolute_time_t d_lastVisibleUpdate, d_lastPulse;
-	bool            d_onPulse = false;
-	bool            d_onSync  = false;
+	Config d_config;
+	// Arke is using pio0
+	PIO d_pio = pio1;
+	uint d_sms[2],d_offset,d_pins[2],d_smMasks;
 };
 
 
 static Helios helios{Helios::Args{
-	    .SyncOutPin    = 25,
-	    .InIsolatedPin = 19,
-	    .InTTLPin      = 23,
-	    .TxPin         = 8,
 	    .StrobePin     = 24,
-	    .InhibitPin    = 20,
+		.TxPin = 8,
 	}};
 
 
@@ -492,7 +228,6 @@ static void core1_task() {
 	multicore_lockout_victim_init();
 
 	for (;;) {
-		helios.Work();
 	}
 }
 
@@ -516,9 +251,6 @@ void init() {
 
 	green  = std::make_unique<LED>(11);
 	yellow = std::make_unique<LED>(12);
-
-
-
 
 	gpio_init(TCAN_SHUTDOWN);
 	gpio_init(TCAN_STANDBY);
