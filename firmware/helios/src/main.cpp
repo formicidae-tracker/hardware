@@ -11,7 +11,7 @@ extern "C" {
 #include <pico/time.h>
 #include <pico/types.h>
 #include <pico/multicore.h>
-#include "pwm.pio.h"
+#include "pulse.pio.h"
 }
 
 #include <memory>
@@ -68,6 +68,8 @@ public:
 		d_sms[0] = pio_claim_unused_sm(d_pio, true);
 		d_sms[1] = pio_claim_unused_sm(d_pio, true);
 
+		gpio_set_outover (d_pins[1], GPIO_OVERRIDE_INVERT);
+
 		d_offset = pio_add_program(d_pio, &pulse_program);
 
 		for ( uint p : d_pins) {
@@ -99,6 +101,9 @@ public:
 
 	void SetTrigger(const ArkeHeliosTriggerConfig_t &config) {
 		if ( config.Period_hecto_us == 0 ) {
+			d_config.PulsePeriod_us = 0;
+			d_config.PulseLength_us = 0;
+			Infof("[Helios]: not triggering");
 			stop();
 			return;
 		}
@@ -116,6 +121,10 @@ public:
 			Warnf("[Helios]: Camera delay is not supported");
 		}
 
+
+		Infof("[Helios]: triggering %lld.%03lldms pulse every %lld.%03lldms",
+			  d_config.PulseLength_us/1000,d_config.PulseLength_us%1000,
+			  d_config.PulsePeriod_us/1000,d_config.PulsePeriod_us%1000);
 		if ( needStart) {
 			start();
 		} else {
@@ -138,6 +147,7 @@ private:
 		for ( uint p : d_pins) {
 			gpio_set_function(p, GPIO_FUNC_SIO);
 		}
+		gpio_set_outover(d_pins[1], GPIO_OVERRIDE_INVERT);
 	};
 	void start(){
 		uint mask;
@@ -146,6 +156,7 @@ private:
 			pulse_program_set_period(d_pio, d_sms[i], d_config.PulsePeriod_us);
 			mask |= ( 1u << d_sms[i] );
 		}
+		gpio_set_outover(d_pins[1], GPIO_OVERRIDE_INVERT);
 		updatePeriod();
 		pio_enable_sm_mask_in_sync(d_pio, mask);
 	};
@@ -189,7 +200,7 @@ void onArkeEvent(const ArkeEvent &e) {
 			helios.SetVisible(e.as<ArkeHeliosSetPoint_t>());
 		} else {
 			Warnf(
-			    "[ARKE]: Unexpected DLC %d, (required %d)",
+				  "[ARKE]: Unexpected DLC %d, (required %d)",
 			    e.Size,
 			    sizeof(ArkeHeliosSetPoint_t)
 			);
@@ -219,7 +230,7 @@ void onArkeEvent(const ArkeEvent &e) {
 		}
 		break;
 	default:
-		Warnf("[ARKE]: Unexpected message 0x%03X DLC:%d", e.Class, e.Size);
+		Debugf("[ARKE]: Unexpected message 0x%03X DLC:%d", e.Class, e.Size);
 	}
 }
 
