@@ -27,6 +27,29 @@ extern "C" {
 #include "arke.h"
 #include "config_helios.hpp"
 
+
+// This whole code, overly complicated, isn't working.. There are interupt,
+// there are life, it makes jitters a nightmare... We need to use
+// peripheral!!!!!
+//
+// 1. Drop support for Visible, Trigger input and inhibit and sync.
+//
+//
+// 2. We use a PIO pwm to configure the pulse length. pulse period is fixed once
+// started. We do not sync !!!
+// //
+// //
+// // 2. If UART for visible is needed, we should multiplex in software the output
+// // using a PIO to detect an end of pulse and check when it is safe to multiplex
+// // (no need now) by switching the pin to UART.
+// //
+
+// //
+//
+// 4. check for inhibit and trigger input support via PIO or interrupt (maybe
+// interrupt from another core is better??)
+//
+
 template <size_t N> class SlaveCommunicationMultiplexer {
 public:
 	constexpr static int64_t MIN_PERIOD_us = 1e6 / 31;
