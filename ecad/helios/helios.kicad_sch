@@ -6410,7 +6410,7 @@
 	)
 	(wire
 		(pts
-			(xy 297.18 40.64) (xy 299.72 40.64)
+			(xy 292.1 40.64) (xy 299.72 40.64)
 		)
 		(stroke
 			(width 0)
@@ -6747,16 +6747,6 @@
 			(type default)
 		)
 		(uuid "18bef9b4-7c4a-4f55-95e5-e77937eb3250")
-	)
-	(wire
-		(pts
-			(xy 304.8 82.55) (xy 304.8 81.28)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "19610e8e-7de9-4d73-a5a2-bacfe0cc92dd")
 	)
 	(wire
 		(pts
@@ -8060,7 +8050,7 @@
 	)
 	(wire
 		(pts
-			(xy 302.26 82.55) (xy 304.8 82.55)
+			(xy 297.18 81.28) (xy 307.34 81.28)
 		)
 		(stroke
 			(width 0)
@@ -8380,7 +8370,7 @@
 	)
 	(wire
 		(pts
-			(xy 302.26 85.09) (xy 304.8 85.09)
+			(xy 297.18 83.82) (xy 304.8 83.82)
 		)
 		(stroke
 			(width 0)
@@ -8600,7 +8590,7 @@
 	)
 	(wire
 		(pts
-			(xy 297.18 38.1) (xy 299.72 38.1)
+			(xy 292.1 38.1) (xy 299.72 38.1)
 		)
 		(stroke
 			(width 0)
@@ -8960,16 +8950,6 @@
 	)
 	(wire
 		(pts
-			(xy 304.8 81.28) (xy 307.34 81.28)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dcf39044-61dc-4f50-be36-74a5f4781e4c")
-	)
-	(wire
-		(pts
 			(xy 105.41 50.8) (xy 105.41 30.48)
 		)
 		(stroke
@@ -8980,7 +8960,7 @@
 	)
 	(wire
 		(pts
-			(xy 304.8 85.09) (xy 304.8 86.36)
+			(xy 304.8 83.82) (xy 304.8 86.36)
 		)
 		(stroke
 			(width 0)
@@ -9508,6 +9488,16 @@
 		)
 		(uuid "2d1250ac-b724-4875-bfb7-51442a841213")
 	)
+	(label "ISO2-"
+		(at 292.1 40.64 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2d493213-e2e1-4003-b4cb-6aaf4d5d8777")
+	)
 	(label "TX"
 		(at 229.87 158.75 180)
 		(effects
@@ -9658,7 +9648,7 @@
 		)
 		(uuid "64190339-3425-410b-942a-8941cf90e3c3")
 	)
-	(label "IN_ISO1"
+	(label "IN_ISO2"
 		(at 342.9 36.83 0)
 		(effects
 			(font
@@ -9848,6 +9838,16 @@
 		)
 		(uuid "9fc6a146-dfe9-4bd2-a3a4-93b418570fe5")
 	)
+	(label "ISO1-"
+		(at 297.18 83.82 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a3ab1e50-993a-418c-9765-d5a5227849b5")
+	)
 	(label "SWDIO"
 		(at 35.56 137.16 0)
 		(effects
@@ -9868,8 +9868,18 @@
 		)
 		(uuid "a4422c01-9d99-40f3-bf4a-90b1198cec82")
 	)
+	(label "ISO2+"
+		(at 292.1 38.1 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "af5ee66c-d0c6-4930-a887-15d06ea8fab8")
+	)
 	(label "IN_ISO1"
-		(at 130.81 106.68 0)
+		(at 130.81 109.22 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -9998,7 +10008,7 @@
 		)
 		(uuid "d9d89209-7cf0-463d-a051-7fdcf49a44ca")
 	)
-	(label "IN_ISO2"
+	(label "IN_ISO1"
 		(at 346.71 81.28 0)
 		(effects
 			(font
@@ -10088,8 +10098,18 @@
 		)
 		(uuid "f6e2097f-113d-49c6-ae65-8c164859e356")
 	)
+	(label "ISO1+"
+		(at 297.18 81.28 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f885fe35-2fde-451f-929d-57d7ab9e2fc5")
+	)
 	(label "IN_ISO2"
-		(at 130.81 109.22 0)
+		(at 130.81 106.68 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16206,7 +16226,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x02")
-		(at 292.1 38.1 0)
+		(at 287.02 38.1 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -16215,7 +16235,7 @@
 		(dnp no)
 		(uuid "9fc40846-4360-4612-b6ee-37cbf8211799")
 		(property "Reference" "J11"
-			(at 292.1 31.75 0)
+			(at 287.02 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16223,7 +16243,7 @@
 			)
 		)
 		(property "Value" "Phoenix MCV_1,5"
-			(at 292.1 34.29 0)
+			(at 287.02 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16231,7 +16251,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Phoenix_MC:PhoenixContact_MCV_1,5_2-G-3.5_1x02_P3.50mm_Vertical"
-			(at 292.1 38.1 0)
+			(at 287.02 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16240,7 +16260,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 292.1 38.1 0)
+			(at 287.02 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16249,7 +16269,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 292.1 38.1 0)
+			(at 287.02 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16258,7 +16278,7 @@
 			)
 		)
 		(property "Manufacturer" ""
-			(at 292.1 38.1 0)
+			(at 287.02 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16267,7 +16287,7 @@
 			)
 		)
 		(property "MPN" "1843606"
-			(at 292.1 38.1 0)
+			(at 287.02 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16276,7 +16296,7 @@
 			)
 		)
 		(property "Var" "Type Mother(+f) Daughter(-f)"
-			(at 292.1 38.1 0)
+			(at 287.02 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19627,7 +19647,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x02")
-		(at 297.18 82.55 0)
+		(at 292.1 81.28 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -19637,7 +19657,7 @@
 		(fields_autoplaced yes)
 		(uuid "f8eebb9c-a6f5-4438-82c6-41c42392e0ce")
 		(property "Reference" "J12"
-			(at 297.18 76.2 0)
+			(at 292.1 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19645,7 +19665,7 @@
 			)
 		)
 		(property "Value" "Phoenix MCV_1,5"
-			(at 297.18 78.74 0)
+			(at 292.1 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19653,7 +19673,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Phoenix_MC:PhoenixContact_MCV_1,5_2-G-3.5_1x02_P3.50mm_Vertical"
-			(at 297.18 82.55 0)
+			(at 292.1 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19662,7 +19682,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 297.18 82.55 0)
+			(at 292.1 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19671,7 +19691,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 297.18 82.55 0)
+			(at 292.1 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19680,7 +19700,7 @@
 			)
 		)
 		(property "Manufacturer" ""
-			(at 297.18 82.55 0)
+			(at 292.1 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19689,7 +19709,7 @@
 			)
 		)
 		(property "MPN" "1843606"
-			(at 297.18 82.55 0)
+			(at 292.1 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19698,7 +19718,7 @@
 			)
 		)
 		(property "Var" "Type Mother(+f) Daughter(-f)"
-			(at 297.18 82.55 0)
+			(at 292.1 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
