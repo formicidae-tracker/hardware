@@ -235,7 +235,7 @@
 		(uuid "fdd6380f-c39c-44c8-870a-b7ef2a17edb9")
 	)
 	(pad "21" thru_hole circle
-		(at 7.62 -6.37)
+		(at 7.62 -8.91)
 		(size 1.8 1.8)
 		(drill 1.1)
 		(layers "*.Cu" "*.Mask")

@@ -1,4 +1,4 @@
-1003181941611938
+990922983662807
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -76516,41 +76516,6 @@ Kailh KH CPG1425 Keyboard Low Profile Notebook Keyswitch Switch Cutout Keycap IS
 0
 2
 2
-PCM_kikit
-Board
-Mark board for extraction
-
-0
-0
-0
-PCM_kikit
-Error
-Mark board for extraction
-
-0
-0
-0
-PCM_kikit
-Fiducial
-Circular Fiducial
-fiducial
-0
-1
-0
-PCM_kikit
-NPTH
-
-
-0
-0
-0
-PCM_kikit
-Tab
-A symbol representing annotation for tab placement
-
-0
-0
-0
 Package_BGA
 Alliance_TFBGA-36_6x8mm_Layout6x8_P0.75mm
 Alliance TFBGA-36, NSMD, 6.0x8.0mm, 36 Ball, 6x8 Layout, 0.75mm Pitch, generated with kicad-footprint-generator ipc_bga_generator.py, https://www.alliancememory.com/wp-content/uploads/pdf/AS6C1008_Mar_2023V1.2.pdf#page=13
@@ -108130,20 +108095,6 @@ UNIL-LOGO_9.2x3
 0
 fort
 UNIL-LOGO_13.8x5.1mm
-
-
-0
-0
-0
-fort
-Untitled
-
-
-0
-0
-0
-fort
-Untitled_1
 
 
 0
