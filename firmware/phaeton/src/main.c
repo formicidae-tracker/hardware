@@ -6,10 +6,12 @@
 
 #define PIN_DEBUG _BV(1)
 #define PIN_IN    _BV(7)
+#define PIN_ADDR  _BV(3)
+#define PIN_OUT   _BV(2)
 
 struct UARTIncoming {
 	char    Buffer[3];
-	uint8_t next;
+	uint8_t next, offset;
 };
 
 enum State {
@@ -30,37 +32,29 @@ enum State {
 #define WORD_HIGH(a) (uint8_t)(((a) >> 8) & 0xff)
 #define WORD_LOW(a)  (uint8_t)((a)&0xff)
 
-// Inits the timer
-inline static void initTimer() {
-	TCA0.SINGLE.CTRLB = TCA_SINGLE_WGMODE_NORMAL_gc;
+// Inits the PWM waveform generation on A1 and A2
+inline static void initPWM() {
+	TCA0.SINGLE.CTRLB = TCA_SINGLE_WGMODE_SINGLESLOPE_gc |
+	                    TCA_SINGLE_CMP2EN_bm | TCA_SINGLE_CMP1EN_bm;
 
-	TCA0.SINGLE.INTCTRL = TCA_SINGLE_OVF_bm | TCA_SINGLE_CMP1_bm |
-	                      TCA_SINGLE_CMP0_bm | TCA_SINGLE_CMP2_bm;
+	TCA0.SINGLE.CMP2 = 0;
+	TCA0.SINGLE.CMP1 = 0;
 
-	TCA0.SINGLE.CMP0 = DEBOUNCE_TIME_ticks;
-	TCA0.SINGLE.CMP1 = MAX_PULSE_ticks;
-	TCA0.SINGLE.CMP2 = UART_RX_TIME_ticks;
+	// we limit the max PWM at 50% to protect the stip. CC wasn't a bright idea.
 
-	TCA0.SINGLE.PER = MIN_PERIOD_ticks;
+	TCA0.SINGLE.PER   = 510;
+	TCA0.SINGLE.CTRLA = TCA_SINGLE_CLKSEL_DIV64_gc | TCA_SINGLE_ENABLE_bm;
 }
 
-// Starts the timer to check for pulse events
-inline static void startTimer() {
-	TCA0.SINGLE.CTRLA = TCA_SINGLE_CLKSEL_DIV8_gc | TCA_SINGLE_ENABLE_bm;
-}
-
-// Stops and rearm the timer
-inline static void stopAndResetTimer() {
-	TCA0.SINGLE.CTRLA = 0;
-
-	TCA0.SINGLE.CNTH = 0;
-	TCA0.SINGLE.CNTL = 0;
+//  Sets the value for the PWM waveform.
+void setPWM(uint8_t value) {
+	TCA0.SINGLE.CMP2BUF = value;
+	TCA0.SINGLE.CMP1BUF = value;
 }
 
 struct UARTIncoming uart = {.next = 0};
 
-static volatile enum State state = IDLE;
-
+// Initialize a 20kbps RX UART.
 static inline void initUART() {
 	// Receive interrupt flag
 	USART0.BAUD  = (uint16_t)(2000); // sets the baud rate to 20kBps
@@ -72,10 +66,20 @@ static inline void initUART() {
 	USART0.CTRLB = USART_RXEN_bm | USART_RXMODE_NORMAL_gc;
 }
 
-static inline void initPin7Montinoring() {
-	PORTA.PIN7CTRL = PORT_ISC_BOTHEDGES_gc;
+// Initializes a 1ms period RTC.
+static inline void initRTC() {
+	RTC.CLKSEL = RTC_CLKSEL_INT1K_gc;
+	while ((RTC.STATUS & RTC_CTRLABUSY_bm) != 0x00) {
+	}
+	RTC.CTRLA = RTC_PRESCALER_DIV1_gc | RTC_RTCEN_bm;
 }
 
+// Get the clock time. Used for debug waveform generation.
+static inline uint16_t getRTC() {
+	return RTC.CNT;
+}
+
+// Global initialization routine.
 static inline void init() {
 	// enable clock change
 	CCP               = CCP_IOREG_gc;
@@ -83,16 +87,23 @@ static inline void init() {
 	CLKCTRL.MCLKCTRLB = CLKCTRL_PDIV_2X_gc | CLKCTRL_PEN_bm;
 	CCP               = 0; // Protect the clock again.
 
-	PORTA.DIRSET = PIN_DEBUG;
-	PORTA.OUTCLR = PIN_DEBUG;
+	// set pullup ion addr pin.
+	PORTA.PIN3CTRL = PORT_PULLUPEN_bm;
+	PORTA.DIRSET   = PIN_DEBUG | PIN_OUT;
+	PORTA.OUTCLR   = PIN_DEBUG | PIN_OUT;
 
-	initPin7Montinoring();
-	initTimer();
+	initPWM();
 	initUART();
+	initRTC();
 
-	sei();
+	if ((PORTA.IN & PIN_ADDR) == 0x00) {
+		uart.offset = 2;
+	} else {
+		uart.offset = 1;
+	}
 }
 
+// Process incoming UART packet.
 void processUART() {
 	if ((USART0.STATUS & USART_RXCIE_bm) == 0) {
 		// No data in the buffer
@@ -117,70 +128,30 @@ void processUART() {
 	}
 	uart.next = 0;
 
-	// TODO: do something with incoming buffer
+	// setPWM from value.
+	setPWM(uart.Buffer[uart.offset]);
 }
 
-ISR(PORTA_PORT_vect) {
-
-	bool upEdge = (PORTA.IN & PIN_IN) != 0x00;
-
-	switch (state) {
-	case IDLE:
-		if (!upEdge) {
-			startTimer();
-			state = DEBOUNCE;
-		}
-		break;
-	case DEBOUNCE:
-		state = UART_RX;
-		break;
-	case PULSE:
-		state = REST;
-		break;
-	case UART_RX:
-	case REST:
-		// we ignore in both case any change
-		break;
-	}
-	// we clear the flag
-	PORTA.INTFLAGS = PIN_IN;
-}
-
-ISR(TCA0_CMP0_vect) {
-	if (state == DEBOUNCE) {
-		state = PULSE;
-	}
-
-	TCA0.SINGLE.INTFLAGS = TCA_SINGLE_CMP0_bm;
-}
-
-ISR(TCA0_CMP1_vect) {
-	if (state == PULSE) {
-		state = REST;
-	}
-
-	TCA0.SINGLE.INTFLAGS = TCA_SINGLE_CMP1_bm;
-}
-
-ISR(TCA0_CMP2_vect) {
-	if (state == UART_RX) {
-		state = REST;
-	}
-
-	TCA0.SINGLE.INTFLAGS = TCA_SINGLE_CMP2_bm;
-}
-
-ISR(TCA0_OVF_vect) {
-	stopAndResetTimer();
-	state = IDLE;
-
-	TCA0.SINGLE.INTFLAGS = TCA_SINGLE_OVF_bm;
-}
+// Main loop that generate a full pulse ( for now).
+#define PERIOD_ms 10000
 
 int main() {
 	init();
-
+	uint16_t last = 0;
 	while (1) {
 		processUART();
+		uint16_t now = getRTC();
+
+		if ((now - last) < 40) {
+			continue;
+		}
+		last += 40;
+
+		int16_t phase = now % PERIOD_ms;
+		if (phase >= PERIOD_ms / 2) {
+			phase = PERIOD_ms - phase;
+		}
+
+		setPWM(((uint32_t)(510) * (uint32_t)phase) / (uint32_t)PERIOD_ms);
 	}
 }
