@@ -1,6 +1,9 @@
 #include <cstdint>
 #include <functional>
+#include <hardware/irq.h>
 #include <hardware/pio.h>
+#include <hardware/regs/intctrl.h>
+#include <hardware/structs/io_bank0.h>
 
 extern "C" {
 #include <hardware/sync.h>
@@ -55,41 +58,84 @@ extern "C" {
 
 static std::unique_ptr<LED> green, yellow;
 
+constexpr pio_interrupt_source relative_PIO_interrupt(uint sm,uint interrupt){
+	uint index = (interrupt & 0x03 + sm & 0x03) % 4;
+	return static_cast<pio_interrupt_source>(pis_interrupt0 + index);
+}
+
+void helios_irq_handler(void);
+
+
+inline bool uart_tx_busy(uart_inst_t * uart) {
+	return (uart_get_hw(uart)->fr & UART_UARTFR_BUSY_BITS) != 0x00;
+}
+
 class Helios {
 public:
 	struct Args {
-		uint StrobePin, TxPin;
+		uint CameraPin, TxPin, SyncPin;
 	};
 
 
+
+	constexpr static int BAUDRATE = 20000;
+	constexpr static int64_t MIN_PERIOD_us = 1e6/31;
+	constexpr static int64_t MAX_PULSE_us = 5000;
+	constexpr static int64_t UPDATE_PERIOD_US = 40000;
+	constexpr static int64_t SERIAL_DELAY_us = 1000;
+	constexpr static int64_t SERIAL_SEND_TIME_us = 2500;
+	constexpr static int64_t SERIAL_AFTER_PULSE_TH_us = MIN_PERIOD_us - MAX_PULSE_us - SERIAL_DELAY_us - 2*SERIAL_DELAY_us;
+
+
 	Helios(Args &&args)
-		: d_pins{args.StrobePin,args.TxPin}{
+		: d_pio{pio1}
+		, d_camera{.Pin = args.CameraPin,.SM=1}
+		, d_tx{.Pin=args.TxPin,.SM=0}
+		, d_sync{.Pin=args.SyncPin,.SM=2}{
 
-		d_sms[0] = pio_claim_unused_sm(d_pio, true);
-		d_sms[1] = pio_claim_unused_sm(d_pio, true);
+		uart_init(uart1, BAUDRATE);
+		pio_sm_claim(d_pio, d_camera.SM);
+		pio_sm_claim(d_pio, d_tx.SM);
+		pio_sm_claim(d_pio, d_sync.SM);
 
-		gpio_set_outover (d_pins[1], GPIO_OVERRIDE_INVERT);
+		gpio_set_outover (d_camera.Pin, GPIO_OVERRIDE_INVERT);
+		gpio_set_outover (d_sync.Pin, GPIO_OVERRIDE_INVERT);
 
 		d_offset = pio_add_program(d_pio, &pulse_program);
 
-		for ( uint p : d_pins) {
+		for ( uint p : {d_camera.Pin,d_sync.Pin,d_tx.Pin}) {
 			gpio_set_dir(p,GPIO_OUT);
-			gpio_put(p,false);
+			gpio_put(p,true);
+			gpio_set_function(p, GPIO_FUNC_SIO);
 		}
 
-		stop();
+		stopPulsing();
+
+		pio_set_irq0_source_enabled(d_pio,pis_interrupt0,true);
+		irq_set_exclusive_handler(PIO1_IRQ_0,helios_irq_handler);
+		irq_set_enabled(PIO1_IRQ_0, true);
+
+		gpio_set_function(d_tx.Pin, GPIO_FUNC_UART);
 	}
 
 	ArkeHeliosSetPoint_t Visible() {
-		return {.Visible = 0, .UV = 0};
+		return {.Visible = d_config.Visible, .UV = d_config.UV};
 	}
 
 	void SetVisible(const ArkeHeliosSetPoint_t &value) {
-		Warnf("[Helios]: Visible management is not yet supported!");
+		d_config.Visible = value.Visible;
+		d_config.UV = value.UV;
+		if ( d_config.PulsePeriod_us == 0 ) {
+			bufferVisibleUpdate(value);
+		} // otherwise we wait for the next update.
 	}
 
 	uint64_t VisiblePulsation_us() {
-		return 0;
+		return d_config.VisiblePulsationPeriod_us;
+	}
+
+	uint64_t SetVisiblePulsation_us(uint pulsationPeriod_us) {
+		return d_config.VisiblePulsationPeriod_us = pulsationPeriod_us;
 	}
 
 	ArkeHeliosTriggerConfig_t Trigger() {
@@ -99,12 +145,13 @@ public:
 		};
 	}
 
+
 	void SetTrigger(const ArkeHeliosTriggerConfig_t &config) {
 		if ( config.Period_hecto_us == 0 ) {
 			d_config.PulsePeriod_us = 0;
 			d_config.PulseLength_us = 0;
 			Infof("[Helios]: not triggering");
-			stop();
+			stopPulsing();
 			return;
 		}
 
@@ -126,14 +173,27 @@ public:
 			  d_config.PulseLength_us/1000,d_config.PulseLength_us%1000,
 			  d_config.PulsePeriod_us/1000,d_config.PulsePeriod_us%1000);
 		if ( needStart) {
-			start();
+			startPulsing();
 		} else {
-			updatePeriod();
+			updatePulse();
 		}
 	}
 
 
+	void Work() {
+		auto now = get_absolute_time();
+
+		if ( d_config.PulsePeriod_us != 0 ) {
+			workPulsing(now);
+		} else {
+			workIdle();
+		}
+
+		workUpdateVisible(now);
+	}
+
 private:
+
 	struct Config {
 		uint8_t Visible                   = 0;
 		uint8_t UV                        = 0;
@@ -143,41 +203,160 @@ private:
 	};
 
 
-	void stop(){
-		for ( uint p : d_pins) {
-			gpio_set_function(p, GPIO_FUNC_SIO);
+	void workUpdateVisible(absolute_time_t now) {
+		// we periodically send the Data.
+		auto ellapsed = absolute_time_diff_us(d_lastUpdate, now);
+		if ( ellapsed < UPDATE_PERIOD_US) {
+			return;
 		}
-		gpio_set_outover(d_pins[1], GPIO_OVERRIDE_INVERT);
+
+		if ( d_config.VisiblePulsationPeriod_us > 0 ) {
+			float phase = float(now % ( d_config.VisiblePulsationPeriod_us)) / float(d_config.VisiblePulsationPeriod_us);
+			if ( phase > 0.5) {
+				phase = 1.0 - phase;
+			}
+			phase *= 2.0;
+			bufferVisibleUpdate({.Visible = uint8_t(d_config.Visible * phase),
+					.UV = uint8_t(d_config.UV * phase)});
+		} else {
+			bufferVisibleUpdate( {.Visible = d_config.Visible ,
+					.UV = d_config.UV});
+		}
+		d_lastUpdate += UPDATE_PERIOD_US;
+	}
+
+	void workPulsing(absolute_time_t now) {
+		// first we disable UART if we are running it.
+		if ( gpio_get_function(d_tx.Pin) == GPIO_FUNC_UART ) {
+			if ( uart_tx_busy(uart1) == false ) {
+				gpio_set_function(d_tx.Pin, PIO_FUNCSEL_NUM(d_pio, d_tx.Pin));
+			}
+			return;
+		}
+
+		// if we do not have a value, just exit.
+		if ( d_sendBuffer.has_value() == false ) {
+			return;
+		}
+
+		auto status = save_and_disable_interrupts();
+		auto pulseStart = d_lastPulse;
+		restore_interrupts_from_disabled(status);
+
+		// if free, and we have a time window for an upload, let's go !!
+		auto sincePulseEnd = absolute_time_diff_us(pulseStart, now);
+		auto safeThreshold = d_config.PulsePeriod_us - d_config.PulseLength_us - 2 * SERIAL_SEND_TIME_us;
+
+		static int i = 0;
+
+		if ( sincePulseEnd >= SERIAL_DELAY_us &&
+			 sincePulseEnd < safeThreshold &&
+			 uart_tx_busy(uart1) == false ) {
+			startTx();
+		}
+
+	}
+
+	void workIdle( ) {
+		// if we have something to send and are not sending, we start.
+		if ( d_sendBuffer.has_value() == false || uart_tx_busy(uart1) == true) {
+			return;
+		}
+		startTx();
+	}
+
+
+	void stopPulsing(){
+		gpio_set_function(d_camera.Pin, GPIO_FUNC_SIO);
+		gpio_set_outover(d_camera.Pin, GPIO_OVERRIDE_INVERT);// may not be needed.
+		gpio_set_function(d_tx.Pin, GPIO_FUNC_UART);
+		gpio_set_function(d_sync.Pin,GPIO_FUNC_SIO);
+		gpio_set_outover(d_sync.Pin, GPIO_OVERRIDE_INVERT); // may not be needed.
 	};
-	void start(){
+
+	void startPulsing(){
 		uint mask;
-		for ( uint i = 0; i < 2; i++) {
-			pulse_program_init(d_pio, d_sms[i], d_offset, d_pins[i]);
-			pulse_program_set_period(d_pio, d_sms[i], d_config.PulsePeriod_us);
-			mask |= ( 1u << d_sms[i] );
+		uart_tx_wait_blocking(uart1); // ensure the UART is done before reconfiguring any pin.
+
+		for ( const auto & d : {d_camera,d_tx,d_sync}) {
+			pulse_program_init(d_pio, d.SM, d_offset, d.Pin);
+			pulse_program_set_period(d_pio, d.SM, d_config.PulsePeriod_us);
+			mask |= ( 1u << d.SM );
 		}
-		gpio_set_outover(d_pins[1], GPIO_OVERRIDE_INVERT);
-		updatePeriod();
+
+		//maynot be needed, but repeat that we want inverted pins.
+		gpio_set_outover(d_camera.Pin, GPIO_OVERRIDE_INVERT);
+		gpio_set_outover(d_sync.Pin, GPIO_OVERRIDE_INVERT);
+
+		updatePulse();
+
+		// we ensure that we won't trigger before actually having
+		// triggerred. Will be updated by the interrupt to the actual timestamp
+		// once fired.
+		d_lastPulse = make_timeout_time_us(4*d_config.PulsePeriod_us);
+
 		pio_enable_sm_mask_in_sync(d_pio, mask);
 	};
 
-	void updatePeriod(){
-		for ( uint sm : d_sms ) {
-			pulse_program_set_pulse(d_pio, sm, d_config.PulseLength_us);
-		}
+	void bufferVisibleUpdate(ArkeHeliosSetPoint_t sp){
+		d_sendBuffer = sp;
 	}
+
+	void startTx() {
+		if ( d_sendBuffer.has_value() ==false ) {
+			return;
+		}
+
+		auto sp = d_sendBuffer.value();
+		gpio_set_function(d_tx.Pin,GPIO_FUNC_UART);
+		uint8_t buffer[3];
+		buffer[0] = 0x55;
+		buffer[1] = sp.Visible;
+		buffer[2] = sp.UV;
+		uart_write_blocking(uart1,buffer, 3);
+
+		d_sendBuffer = std::nullopt;
+	}
+
+
+	void updatePulse(){
+		pulse_program_set_pulse(d_pio, d_camera.SM, d_config.PulseLength_us);
+		pulse_program_set_pulse(d_pio, d_tx.SM, d_config.PulseLength_us);
+		pulse_program_set_pulse(d_pio, d_sync.SM, 1000000);
+	}
+
 
 	Config d_config;
 	// Arke is using pio0
-	PIO d_pio = pio1;
-	uint d_sms[2],d_offset,d_pins[2],d_smMasks;
+	PIO d_pio;
+
+	struct SMConfig {
+		uint Pin,SM;
+	};
+
+	friend void helios_irq_handler(void);
+
+	SMConfig d_camera,d_tx,d_sync;
+	uint d_offset;
+	absolute_time_t d_lastPulse = -1, d_lastUpdate = 0;
+
+	std::optional<ArkeHeliosSetPoint_t> d_sendBuffer;
+	bool d_sending = false;
+
 };
 
 
 static Helios helios{Helios::Args{
-	    .StrobePin     = 24,
-		.TxPin = 8,
+	    .CameraPin     = 24,
+		.TxPin         = 8,
+		.SyncPin  = 25,
 	}};
+
+void __not_in_flash_func(helios_irq_handler)(void) {
+	pio_interrupt_clear(pio1, 0);
+	helios.d_lastPulse = get_absolute_time();
+}
+
 
 
 constexpr static uint TCAN_SHUTDOWN = 26;
@@ -208,7 +387,7 @@ void onArkeEvent(const ArkeEvent &e) {
 
 		break;
 	case ARKE_HELIOS_PULSE_MODE:
-		Warnf("[ARKE]: Not implemented yet");
+		Warnf("[HELIOS]: Not Yet Implemented");
 		break;
 	case ARKE_HELIOS_TRIIGER_MODE:
 		if (e.RTR) {
@@ -306,8 +485,8 @@ int main() {
 	green->Set(255, 2 * 1000 * 1000);
 	ArkeScheduleStats(2000000);
 #endif
-
 	for (;;) {
+		helios.Work();
 		Scheduler::Work();
 	}
 	return 0;

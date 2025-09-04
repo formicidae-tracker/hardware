@@ -1,17 +1,19 @@
 
 .program pulse
+.define public IRQ_DONE 0
 .side_set 1 opt
 
-	pull noblock side 0 ; Pull from FIFO to OSR if available, else copy X to OSR.
-	mov x, osr          ; Copy most-recently-pulled value back to scratch X
-	mov y, isr          [2]; ISR contains PWM period. Y used as counter.
+	pull noblock side 1    ; Pull from FIFO to OSR if available, else copy X to OSR.
+	mov x, osr             ; Copy most-recently-pulled value back to scratch X
+	mov y, isr             ; ISR contains PWM period. Y used as counter.
+	irq set IRQ_DONE rel[1];
 countloop:
-	jmp x!=y noset      ; Set pin high if X == Y, keep the two paths length matched
-	jmp skip side 1
+	jmp x!=y noset         ; Set pin low if X == Y, keep the two paths length matched
+	jmp skip side 0
 noset:
-	nop                 ; Single dummy cycle to keep the two paths the same length
+	nop                    ; Single dummy cycle to keep the two paths the same length
 skip:
- jmp y-- countloop      [2]; Loop until Y hits 0, then pull a fresh PWM value from FIFO
+	jmp y-- countloop   [2]; Loop until Y hits 0, then pull a fresh PWM value from FIFO
 
 
 

@@ -140,18 +140,18 @@ int main() {
 	uint16_t last = 0;
 	while (1) {
 		processUART();
-		uint16_t now = getRTC();
+		/* uint16_t now = getRTC(); */
 
-		if ((now - last) < 40) {
-			continue;
-		}
-		last += 40;
+		/* if ((now - last) < 40) { */
+		/* 	continue; */
+		/* } */
+		/* last += 40; */
 
-		int16_t phase = now % PERIOD_ms;
-		if (phase >= PERIOD_ms / 2) {
-			phase = PERIOD_ms - phase;
-		}
+		/* int16_t phase = now % PERIOD_ms; */
+		/* if (phase >= PERIOD_ms / 2) { */
+		/* 	phase = PERIOD_ms - phase; */
+		/* } */
 
-		setPWM(((uint32_t)(510) * (uint32_t)phase) / (uint32_t)PERIOD_ms);
+		/* setPWM(((uint32_t)(510) * (uint32_t)phase) / (uint32_t)PERIOD_ms); */
 	}
 }
