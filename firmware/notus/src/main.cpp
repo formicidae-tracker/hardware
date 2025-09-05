@@ -81,7 +81,7 @@ public:
 			if (absolute_time_diff_us(d_rampDownStart, now) >
 			    (d_config.RampDownTimeMS * 1000)) {
 				Infof("Ramp down done");
-				gpio_put(d_fanPin, false);
+				gpio_put(d_fanPin, true);
 				d_heat.Set(0);
 				d_state = State::IDLE;
 			}
