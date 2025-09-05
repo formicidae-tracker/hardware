@@ -79,12 +79,11 @@ public:
 
 
 	constexpr static int BAUDRATE = 20000;
-	constexpr static int64_t MIN_PERIOD_us = 1e6/31;
-	constexpr static int64_t MAX_PULSE_us = 5000;
+	constexpr static int64_t MIN_PERIOD_us = 31250;
+	constexpr static int64_t MAX_PULSE_us = 4500;
 	constexpr static int64_t UPDATE_PERIOD_US = 40000;
 	constexpr static int64_t SERIAL_DELAY_us = 1000;
 	constexpr static int64_t SERIAL_SEND_TIME_us = 2500;
-	constexpr static int64_t SERIAL_AFTER_PULSE_TH_us = MIN_PERIOD_us - MAX_PULSE_us - SERIAL_DELAY_us - 2*SERIAL_DELAY_us;
 
 
 	Helios(Args &&args)
@@ -123,6 +122,7 @@ public:
 	}
 
 	void SetVisible(const ArkeHeliosSetPoint_t &value) {
+		Infof("[Helios]: Set Visible:%d, UV:%d",value.Visible,value.UV);
 		d_config.Visible = value.Visible;
 		d_config.UV = value.UV;
 		if ( d_config.PulsePeriod_us == 0 ) {
@@ -139,6 +139,7 @@ public:
 	}
 
 	ArkeHeliosTriggerConfig_t Trigger() {
+
 		return ArkeHeliosTriggerConfig_t{
 		    .Period_hecto_us = uint16_t(d_config.PulsePeriod_us / 100),
 		    .Pulse_us        = uint16_t(d_config.PulseLength_us),
@@ -245,12 +246,20 @@ private:
 
 		// if free, and we have a time window for an upload, let's go !!
 		auto sincePulseEnd = absolute_time_diff_us(pulseStart, now);
-		auto safeThreshold = d_config.PulsePeriod_us - d_config.PulseLength_us - 2 * SERIAL_SEND_TIME_us;
+
+		// this threshold is for long pulse period. We should not trigger any
+		// change before the rearm time. However for short pulses it can becomes
+		// smaller than SERIAL_DELAY_us
+		int64_t safeThreshold = d_config.PulsePeriod_us - d_config.PulseLength_us - 2 * SERIAL_SEND_TIME_us - MIN_PERIOD_us;
+
+		// the other threshold is for small pulses. It is always safe to send while in the rearm windows of the last pulse.
+		constexpr static int64_t SERIAL_AFTER_PULSE_TH_us = MIN_PERIOD_us
+			- MAX_PULSE_us - 2*SERIAL_SEND_TIME_us;
 
 		static int i = 0;
 
 		if ( sincePulseEnd >= SERIAL_DELAY_us &&
-			 sincePulseEnd < safeThreshold &&
+			 sincePulseEnd < std::max(safeThreshold,SERIAL_AFTER_PULSE_TH_us) &&
 			 uart_tx_busy(uart1) == false ) {
 			startTx();
 		}
