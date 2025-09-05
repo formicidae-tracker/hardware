@@ -26,7 +26,6 @@ enum State {
 #define DEBOUNCE_TIME_ticks 75    // US_TO_TICKS(60)
 #define MAX_PULSE_ticks     5625  // US_TO_TICKS(4500)
 #define MIN_PERIOD_ticks    39062 // US_TO_TICKS(31250)
-
 #define UART_RX_TIME_ticks  2500  // US_TO_TICKS(2000)
 
 #define WORD_HIGH(a) (uint8_t)(((a) >> 8) & 0xff)
