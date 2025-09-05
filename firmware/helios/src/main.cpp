@@ -74,12 +74,15 @@ public:
 		uint CameraPin, TxPin, SyncPin;
 	};
 
+	constexpr static size_t  FRAME_SIZE          = 3;
 	constexpr static int     BAUDRATE            = 20000;
 	constexpr static int64_t MIN_PERIOD_us       = 31250;
 	constexpr static int64_t MAX_PULSE_us        = 4500;
 	constexpr static int64_t UPDATE_PERIOD_US    = 40000;
 	constexpr static int64_t SERIAL_DELAY_us     = 1000;
-	constexpr static int64_t SERIAL_SEND_TIME_us = 2500;
+	// adds a 1ms margin to send time.
+	constexpr static int64_t SERIAL_SEND_TIME_us =
+	    1000000 * FRAME_SIZE / BAUDRATE + 1000;
 
 	Helios(Args &&args)
 	    : d_pio{pio1}
@@ -228,6 +231,7 @@ private:
 	}
 
 	void workPulsing(absolute_time_t now) {
+
 		// first we disable UART if we are running it.
 		if (gpio_get_function(d_tx.Pin) == GPIO_FUNC_UART) {
 			if (uart_tx_busy(uart1) == false) {
@@ -248,22 +252,25 @@ private:
 		// if free, and we have a time window for an upload, let's go !!
 		auto sincePulseEnd = absolute_time_diff_us(pulseStart, now);
 
-		// this threshold is for long pulse period. We should not trigger any
+		// this threshold is for long pulse periods. We should not trigger any
 		// change before the rearm time. However for short pulses it can becomes
 		// smaller than SERIAL_DELAY_us
-		int64_t safeThreshold = d_config.PulsePeriod_us -
-		                        d_config.PulseLength_us -
-		                        2 * SERIAL_SEND_TIME_us - MIN_PERIOD_us;
+		int64_t longPulseThreshold_us = d_config.PulsePeriod_us -
+		                                d_config.PulseLength_us -
+		                                SERIAL_SEND_TIME_us - MIN_PERIOD_us;
 
 		// the other threshold is for small pulses. It is always safe to send
 		// while in the rearm windows of the last pulse.
-		constexpr static int64_t SERIAL_AFTER_PULSE_TH_us =
-		    MIN_PERIOD_us - MAX_PULSE_us - 2 * SERIAL_SEND_TIME_us;
+		constexpr static int64_t SERIAL_AFTER_PULSE_THRESHOLD_us =
+		    MIN_PERIOD_us - MAX_PULSE_us - SERIAL_SEND_TIME_us;
+
+		auto upperThreshold_us =
+		    std::max(longPulseThreshold_us, SERIAL_AFTER_PULSE_THRESHOLD_us);
 
 		static int i = 0;
 
 		if (sincePulseEnd >= SERIAL_DELAY_us &&
-		    sincePulseEnd < std::max(safeThreshold, SERIAL_AFTER_PULSE_TH_us) &&
+		    sincePulseEnd < upperThreshold_us && //
 		    uart_tx_busy(uart1) == false) {
 			startTx();
 		}
@@ -493,6 +500,7 @@ int main() {
 	green->Set(255, 2 * 1000 * 1000);
 	ArkeScheduleStats(2000000);
 #endif
+
 	for (;;) {
 		helios.Work();
 		Scheduler::Work();
