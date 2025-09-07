@@ -252,20 +252,22 @@ private:
 		// if free, and we have a time window for an upload, let's go !!
 		auto sincePulseEnd = absolute_time_diff_us(pulseStart, now);
 
-		// this threshold is for long pulse periods. We should not trigger any
+		//
+		// This threshold is for long pulse periods. We should not trigger any
 		// change before the rearm time. However for short pulses it can becomes
-		// smaller than SERIAL_DELAY_us
-		int64_t longPulseThreshold_us = d_config.PulsePeriod_us -
-		                                d_config.PulseLength_us -
-		                                SERIAL_SEND_TIME_us - MIN_PERIOD_us;
+		// smaller than SERIAL_DELAY_us int64_t
+		// longPulseThreshold_us = d_config.PulsePeriod_us -
+		// d_config.PulseLength_us - SERIAL_SEND_TIME_us - 2 * MIN_PERIOD_us;
 
 		// the other threshold is for small pulses. It is always safe to send
 		// while in the rearm windows of the last pulse.
 		constexpr static int64_t SERIAL_AFTER_PULSE_THRESHOLD_us =
 		    MIN_PERIOD_us - MAX_PULSE_us - SERIAL_SEND_TIME_us;
 
-		auto upperThreshold_us =
-		    std::max(longPulseThreshold_us, SERIAL_AFTER_PULSE_THRESHOLD_us);
+		// NOTE: using a too clever strategy create ghost pulses in Nyx
+		// board. it is simpler to just authorise a TX after only just after a
+		// pulse.
+		auto upperThreshold_us = SERIAL_DELAY_us + 4000;
 
 		static int i = 0;
 
