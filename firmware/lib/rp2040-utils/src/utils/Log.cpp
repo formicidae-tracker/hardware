@@ -125,7 +125,7 @@ void Logger::FormatsPendingLogsLoop() {
 }
 
 void Logger::InitLogsOnSecondCore() {
-	multicore_launch_core1(FormatsPendingLogsLoop);
+	multicore_launch_core1(formatPendingLogOnCoreOne);
 	while (multicore_lockout_victim_is_initialized(1) == false) {
 		tight_loop_contents();
 	}
