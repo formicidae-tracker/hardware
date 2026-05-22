@@ -183,6 +183,8 @@ void onArkeEvent(const ArkeEvent &e) {
 
 		break;
 	default:
+		break;
+
 		// Errorf("[ARKE]: Unrecognized class message %x", e.Class);
 	}
 };

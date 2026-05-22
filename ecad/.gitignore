@@ -12,3 +12,4 @@ output/
 *.ps
 *.pdf
 ~*.kicad_*.lck
+.history/

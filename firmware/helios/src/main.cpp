@@ -503,6 +503,8 @@ int main() {
 	ArkeScheduleStats(2000000);
 #endif
 
+	helios.SetTrigger({.Period_hecto_us = 2000, .Pulse_us = 1500});
+
 	for (;;) {
 		helios.Work();
 		Scheduler::Work();

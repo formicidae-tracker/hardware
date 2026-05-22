@@ -11,7 +11,7 @@ const uint32_t STD_ID_MSK = (1L << 11 ) - 1;
 const uint32_t EXT_ID_MSK =  (1L << 29 ) - 1;
 const uint32_t IDEBIT_MSK = 1L << 29;
 const uint32_t RTRBIT_MSK = 1L << 30;
-const uint32_t CONTROLBIT_MSK = 1L << 31;
+const uint32_t CONTROLBIT_MSK = 1UL << 31;
 
 
 #define START_OF_FRAME_SIZE 2
